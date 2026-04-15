@@ -1,7 +1,6 @@
 'use client';
 import Link from 'next/link';
 import { ArrowRight, Mail, Globe, Share2, AtSign, MapPin, Phone } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 export default function Footer() {
   return (
@@ -20,7 +19,7 @@ export default function Footer() {
               Ready to secure your <span className="text-[#d4af37] italic">infrastructure?</span>
             </h3>
             <p className="text-white/50 text-base md:text-lg">
-              Partner with the industry leaders in earthing and lightning protection. Let's build a safer world together.
+              Partner with the industry leaders in earthing and lightning protection. Let&apos;s build a safer world together.
             </p>
           </div>
           <Link href="#contact" className="relative z-10 group flex items-center justify-center gap-3 bg-[#d4af37] text-black font-black px-8 py-4 md:px-10 md:py-5 rounded-full text-sm md:text-base uppercase tracking-widest shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(212,175,55,0.5)] transition-all duration-300 font-display flex-shrink-0">
@@ -43,7 +42,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-white/40 text-sm leading-[1.85] mb-8 font-medium">
-              India's leading engineering company specializing in high-performance earthing, lightning protection, and safety solutions for critical infrastructure since 2004.
+              India&apos;s leading engineering company specializing in high-performance earthing, lightning protection, and safety solutions for critical infrastructure since 2004.
             </p>
             {/* Social icons */}
             <div className="flex gap-4">

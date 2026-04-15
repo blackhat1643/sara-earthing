@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Ignore large 3D models
+public/images/city_suburbs.glb
+public/images/city.glb
+public/images/future_city_1.glb
+public/images/*.skp
