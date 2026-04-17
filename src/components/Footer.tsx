@@ -27,7 +27,7 @@ export default function Footer() {
       {/* Parallax Secondary Image */}
       <motion.div
         style={{ y: yOffset }}
-        className="absolute -left-10 md:-left-20 bottom-0 w-full h-full pointer-events-none z-[1] flex items-end justify-start opacity-80"
+        className="absolute -left-11 md:-left-20 bottom-0 w-full h-full pointer-events-none z-[1] flex items-end justify-start opacity-80"
       >
         <div className="relative w-[220px] h-[320px] md:w-[300px] md:h-[450px] mb-20">
           <Image

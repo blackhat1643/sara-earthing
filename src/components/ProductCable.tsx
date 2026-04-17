@@ -103,8 +103,8 @@ export default function ProductCable() {
       tCtx.rotate(Math.PI / 2); // Text reads from top down
       
       // Offset positive X to shift the text heavily towards the bottom of the canvas (near the copper core)
-      const textToDraw = 'Sara Earthing';
-      tCtx.fillText(textToDraw, 1000, 0); // 1000 pixels down!
+      const textToDraw = 'Saara Earthing';
+      tCtx.fillText(textToDraw, 1150, 0); // Fine-tuned midway position
       tCtx.restore();
     }
     const textTexture = new THREE.CanvasTexture(textCanvas);
