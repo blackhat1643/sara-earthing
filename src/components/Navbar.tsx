@@ -24,7 +24,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${scrolled ? 'glass border-b border-yellow-400/10 py-3 shadow-lg shadow-black/5' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-[999] transition-all duration-500 ${scrolled ? 'glass border-b border-yellow-400/10 py-3 shadow-lg shadow-black/5' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">

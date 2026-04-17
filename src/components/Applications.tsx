@@ -1,255 +1,220 @@
 'use client';
-import { useState, useRef } from 'react';
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
-import { Power, Droplets, Home, Radio, Wind, Database } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence, useScroll } from 'framer-motion';
+import { Power, Droplets, Home, Radio, Wind, Database, ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
-
 const apps = [
   {
     id: 'power',
-    navName: 'POWER',
     title: 'Power Generation',
     description: 'Advanced earthing systems tailored to meet the critical demands and massive scale of power generation facilities.',
+    features: ['High-Current Grounding', 'Thermal Stability', 'Corrosion Resistance'],
     icon: Power,
-    image1: '/images/refinery_app.png',
-    image2: '/images/welding.png'
+    image: '/images/refinery_app.png',
+    tag: 'ENERGY'
   },
   {
     id: 'refineries',
-    navName: 'REFINERIES',
     title: 'Industrial Refineries',
     description: 'Ensure absolute safety in highly combustible environments with our spark-free, durable exothermic welding.',
+    features: ['Explosion Prevention', 'Low Impedance', 'Chemical Grade'],
     icon: Droplets,
-    image1: '/images/welding.png',
-    image2: '/images/refinery_app.png'
+    image: '/images/welding.png',
+    tag: 'CHEMICAL'
   },
   {
     id: 'residential',
-    navName: 'RESIDENTIAL',
     title: 'Homes & Residences',
     description: 'Protecting families and household electrical systems from lightning strikes and surges.',
+    features: ['Lightning Protection', 'Home Surge Safety', 'Lifelong Duration'],
     icon: Home,
-    image1: '/images/accessories.png',
-    image2: '/images/refinery_app.png'
+    image: '/images/accessories.png',
+    tag: 'SOCIETAL'
   },
   {
     id: 'telecom',
-    navName: 'TELECOM',
     title: 'Telecom Towers',
     description: 'Maintaining seamless communication networks with stable, low-resistance grounding solutions.',
     icon: Radio,
-    image1: '/images/refinery_app.png',
-    image2: '/images/accessories.png'
+    features: ['Signal Integrity', 'Tower Earthing', 'Weather Proof'],
+    image: '/images/refinery_app.png',
+    tag: 'CONNECTIVITY'
   },
   {
     id: 'wind',
-    navName: 'WIND',
     title: 'Wind Energy',
     description: 'Comprehensive lightning protection for towering windmill structures exposed in open fields.',
     icon: Wind,
-    image1: '/images/welding.png',
-    image2: '/images/refinery_app.png'
+    features: ['High Altitude Safety', 'Rugged Build', 'Grid Stability'],
+    image: '/images/welding.png',
+    tag: 'RENEWABLES'
   },
   {
     id: 'data',
-    navName: 'DATA',
     title: 'Data Centers',
     description: 'Zero-downtime grounding frameworks to secure sensitive servers and mass data storage systems.',
     icon: Database,
-    image1: '/images/refinery_app.png',
-    image2: '/images/welding.png'
+    features: ['Uptime Security', 'Pure Grounding', 'Digital Protection'],
+    image: '/images/refinery_app.png',
+    tag: 'DIGITAL'
   }
 ];
 
-// Variants for vertical sliding based on scroll direction
-const slideVariants = {
-  enter: (direction: number) => ({
-    y: direction > 0 ? '100%' : '-100%',
-    opacity: 0,
-    scale: 0.95
-  }),
-  center: {
-    y: 0,
-    opacity: 1,
-    scale: 1
-  },
-  exit: (direction: number) => ({
-    y: direction < 0 ? '100%' : '-100%',
-    opacity: 0,
-    scale: 0.95
-  })
-};
-
-const textVariants = {
-  enter: (direction: number) => ({
-    y: direction > 0 ? 50 : -50,
-    opacity: 0,
-    scale: 0.9
-  }),
-  center: {
-    y: 0,
-    opacity: 1,
-    scale: 1
-  },
-  exit: (direction: number) => ({
-    y: direction < 0 ? 50 : -50,
-    opacity: 0,
-    scale: 0.9
-  })
-};
-
 export default function Applications() {
   const containerRef = useRef<HTMLElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [direction, setDirection] = useState(1);
+  const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
+  // We show 2 apps at once.
+  const itemsPerPage = 2;
+  const pageCount = Math.ceil(apps.length / itemsPerPage);
 
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const totalItems = apps.length;
-    // Map 0 -> 1 progress to indices
-    let idx = Math.floor(latest * totalItems);
-    // At exactly 1 it might overflow to length
-    if (idx >= totalItems) idx = totalItems - 1;
-    if (idx < 0) idx = 0;
-
-    if (idx !== activeIndex) {
-      setDirection(idx > activeIndex ? 1 : -1);
-      setActiveIndex(idx);
-    }
-  });
-
-  const activeApp = apps[activeIndex];
-  const prevApp = apps[activeIndex === 0 ? apps.length - 1 : activeIndex - 1];
-  const nextApp = apps[activeIndex === apps.length - 1 ? 0 : activeIndex + 1];
-
-  // Helper for manual clicks (still possible)
-  const handleNavClick = (idx: number) => {
-    if (idx === activeIndex) return;
-    setDirection(idx > activeIndex ? 1 : -1);
-    // For manual clicks we could force jump by window scroll, but it's complex since it's scroll-based.
-    // Let's just update the index for visual feedback if clicked.
-    // Ideal: window.scrollTo corresponding section, simplified here:
-    setActiveIndex(idx);
+  const next = () => {
+    setDirection(1);
+    setIndex((prev) => (prev + 1) % pageCount);
   };
+
+  const prev = () => {
+    setDirection(-1);
+    setIndex((prev) => (prev - 1 + pageCount) % pageCount);
+  };
+
+  // Auto-slide every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDirection(1);
+      setIndex((prev) => (prev + 1) % pageCount);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [pageCount]);
+
+  const visibleApps = apps.slice(index * itemsPerPage, (index * itemsPerPage) + itemsPerPage);
 
   return (
     <section
       ref={containerRef}
       id="applications"
-      className="bg-[#1a1b1e] relative w-full"
-      style={{ height: `${apps.length * 80}vh` }} // 80vh scroll per item gives a smooth scroll duration
+      className="bg-[#0a0f1d] relative w-full min-h-screen py-8 overflow-hidden"
     >
-      <div className="sticky top-0 w-full h-screen flex items-center justify-center p-4 overflow-hidden">
-        <div className="max-w-[1400px] w-full h-[90vh] md:h-[79vh] min-h-[600px] max-h-[850px] flex flex-col md:flex-row gap-4 md:gap-6 bg-[#1a1b1e]">
-
-          {/* LEFT PANEL */}
-          <div className="flex-1 bg-[#EBE7E0] rounded-[2rem] p-8 md:p-12 flex flex-col justify-between relative overflow-hidden shadow-xl">
-            {/* Top text */}
-            <div className="text-center w-full z-10">
-              <span className="text-[#8c8881] text-xs font-bold uppercase tracking-[0.2em]">
-                Other Industries
-              </span>
+      <div className="relative max-w-[1600px] mx-auto px-6 h-full z-10">
+        <div className="lg:ml-[10%] lg:w-[90%] w-full p-4 relative z-10">
+          {/* Section Header */}
+          <div className="mb-20 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+            <div>
+              <motion.span 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="text-[#d4af37] text-xs font-bold uppercase tracking-[0.3em] mb-4 block"
+              >
+                Sector Specifics
+              </motion.span>
+              <h2 className="text-5xl md:text-6xl font-black text-white font-display leading-[0.9] tracking-tighter uppercase">
+                Industrial <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-br from-[#d4af37] to-[#b8860b]">
+                  Impact
+                </span>
+              </h2>
             </div>
 
-            {/* Center Vertical Title Slider */}
-            <div className="flex-1 flex flex-col items-center justify-center relative z-10 my-10 min-h-[300px]">
-
-              {/* Ambient hints for previous/next */}
-              <div className="absolute top-[27%] text-center w-full pointer-events-none opacity-20 transition-all duration-700">
-                <div className="text-3xl md:text-3xl font-display text-[#1a1b1e] tracking-tight truncate px-4">
-                  {prevApp.title}
-                </div>
-              </div>
-
-              <AnimatePresence mode="popLayout" custom={direction}>
-                <motion.div
-                  key={activeApp.id}
-                  custom={direction}
-                  variants={textVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute top-1/2 -translate-y-1/2 text-center w-full z-20"
-                >
-                  <div className="text-4xl md:text-3xl font-black font-display text-[#1a1b1e] tracking-tight px-4 leading-[1.1]">
-                    {activeApp.title}
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-
-              <div className="absolute top-[67%] text-center w-full pointer-events-none opacity-20 transition-all duration-700">
-                <div className="text-3xl md:text-3xl font-display text-[#1a1b1e] tracking-tight truncate px-4">
-                  {nextApp.title}
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom Horizontal Nav */}
-            <div className="w-full overflow-x-auto no-scrollbar z-10 pb-2">
-              <div className="flex items-center gap-6 md:gap-8 justify-start md:justify-center min-w-max px-2">
-                {apps.map((app, idx) => (
-                  <button
-                    key={app.id}
-                    onClick={() => handleNavClick(idx)}
-                    className={`text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] transition-all duration-300 ${activeIndex === idx
-                      ? 'text-[#1a1b1e] scale-110'
-                      : 'text-[#1a1b1e]/30 hover:text-[#1a1b1e]/60'
-                      }`}
-                  >
-                    {app.navName}
-                  </button>
-                ))}
-              </div>
+            {/* Controls */}
+            <div className="flex items-center gap-4">
+              <button onClick={prev} className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-[#d4af37] hover:border-[#d4af37] transition-all duration-300 group">
+                <ArrowLeft size={24} className="group-hover:-translate-x-1 transition-transform" />
+              </button>
+              <button onClick={next} className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-[#d4af37] hover:border-[#d4af37] transition-all duration-300 group">
+                <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
+              </button>
             </div>
           </div>
 
-          {/* RIGHT PANEL (Images moving downside to upside) */}
-          <div className="flex-[1.2] rounded-[2rem] overflow-hidden relative bg-[#1a1b1e]">
-            <AnimatePresence mode="popLayout" custom={direction}>
+          {/* Dynamic Dual Card View */}
+          <div className="relative min-h-[500px]">
+            <AnimatePresence mode="wait" custom={direction}>
               <motion.div
-                key={activeApp.id}
+                key={index}
                 custom={direction}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute inset-0 w-full h-full"
+                initial={{ opacity: 0, x: direction > 0 ? 50 : -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: direction > 0 ? -50 : 50 }}
+                transition={{ duration: 0.5, ease: "circOut" }}
+                className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16"
               >
-                <Image
-                  src={activeApp.image1}
-                  alt={activeApp.title}
-                  fill
-                  className="object-cover"
-                />
+                {visibleApps.map((app, i) => (
+                  <div 
+                    key={app.id}
+                    className="group relative flex flex-col bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden border border-white/10 hover:bg-white/10 transition-all duration-500 shadow-2xl mx-auto w-full max-w-[500px]"
+                  >
+                    {/* Card Header: Cinematic Image */}
+                    <div className="relative aspect-[2/1] overflow-hidden">
+                      <Image 
+                        src={app.image} 
+                        alt={app.title} 
+                        fill 
+                        className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1d] via-[#0a0f1d]/20 to-transparent" />
+                      <div className="absolute top-4 left-4">
+                        <span className="px-3 py-1 bg-[#d4af37] text-[#0a0f1d] text-[9px] font-black rounded-full uppercase tracking-widest shadow-lg">
+                          {app.tag}
+                        </span>
+                      </div>
+                      <div className="absolute bottom-5 left-5">
+                         <h3 className="text-xl md:text-2xl font-black text-white font-display leading-[1] tracking-tight uppercase whitespace-pre-line">
+                          {app.title}
+                        </h3>
+                      </div>
+                    </div>
+
+                    {/* Card Body: Tech Details */}
+                    <div className="p-5 flex flex-col flex-grow">
+                      <div className="w-8 h-8 rounded-lg bg-[#d4af37]/20 flex items-center justify-center mb-4 border border-[#d4af37]/30">
+                        <app.icon className="text-[#d4af37]" size={16} />
+                      </div>
+                      
+                      <p className="text-white/60 text-sm leading-relaxed font-medium mb-4 line-clamp-2">
+                        {app.description}
+                      </p>
+                      
+                      <div className="space-y-2 mb-6">
+                        {app.features.map(feat => (
+                          <div key={feat} className="flex items-center gap-2 text-white/90 font-bold uppercase tracking-wide text-[10px]">
+                            <CheckCircle2 size={12} className="text-[#d4af37]" />
+                            {feat}
+                          </div>
+                        ))}
+                      </div>
+                      
+                      <div className="mt-auto pt-5 border-t border-white/5 flex items-center justify-between">
+                        <div className="flex -space-x-2 items-center">
+                          {[1, 2, 3].map(i => (
+                            <div key={i} className="w-6 h-6 rounded-full border-2 border-[#0a0f1d] bg-slate-800 flex items-center justify-center overflow-hidden">
+                               <div className="w-full h-full bg-[#d4af37]/10" />
+                            </div>
+                          ))}
+                        </div>
+                        <button className="text-[#d4af37] text-[10px] font-bold uppercase tracking-widest hover:tracking-[0.2em] transition-all">
+                          Case Study
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </motion.div>
             </AnimatePresence>
+          </div>
 
-            {/* Glassmorphism description overlay */}
-            <div className="absolute bottom-6 md:bottom-12 right-6 md:right-12 left-6 md:left-auto md:w-[450px] z-30 pointer-events-none">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={`desc-${activeApp.id}`}
-                  initial={{ opacity: 0, scale: 0.9, y: 30 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.9, y: -30 }}
-                  transition={{ duration: 0.4, delay: 0.2 }}
-                  className="glass-dark border border-white/10 rounded-2xl p-6 md:p-8 shadow-2xl backdrop-blur-xl bg-[#0a0f1d]/60"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-[#d4af37]/20 flex items-center justify-center mb-5 border border-[#d4af37]/30">
-                    <activeApp.icon className="text-[#d4af37]" size={20} />
-                  </div>
-                  <p className="text-white/90 text-sm md:text-base leading-relaxed font-medium">
-                    {activeApp.description}
-                  </p>
-                </motion.div>
-              </AnimatePresence>
-            </div>
+          {/* Custom Pagination Progress */}
+          <div className="mt-20 flex items-center justify-center gap-4">
+             {Array.from({ length: pageCount }).map((_, idx) => (
+               <button 
+                 key={idx}
+                 onClick={() => {
+                   setDirection(idx > index ? 1 : -1);
+                   setIndex(idx);
+                 }}
+                 className={`h-1 rounded-full transition-all duration-500 ${index === idx ? 'w-12 bg-[#d4af37]' : 'w-4 bg-white/10 hover:bg-white/20'}`}
+               />
+             ))}
           </div>
 
         </div>
@@ -257,4 +222,3 @@ export default function Applications() {
     </section>
   );
 }
-
