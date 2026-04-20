@@ -12,7 +12,7 @@ export default function Certifications() {
   return (
     <section id="certifications" className="bg-white py-10">
       <div className="relative max-w-[1600px] mx-auto px-6">
-        <div className="lg:ml-[10%] lg:w-[90%] w-full">
+        <div className="w-[90%] ml-auto">
           <div className="flex flex-col lg:flex-row items-center gap-24">
             {/* Left */}
             <div className="flex-1">

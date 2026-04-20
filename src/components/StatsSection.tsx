@@ -49,7 +49,7 @@ export default function StatsSection() {
       </div>
 
       <div className="relative max-w-[1600px] mx-auto px-6 z-10">
-        <div className="lg:ml-[10%] lg:w-[90%] w-full">
+        <div className="w-[90%] ml-auto">
           <div className="grid lg:grid-cols-12 gap-20 items-center">
             
             {/* Left Branding Content */}

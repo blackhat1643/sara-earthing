@@ -27,9 +27,9 @@ export default function Footer() {
       {/* Parallax Secondary Image */}
       <motion.div
         style={{ y: yOffset }}
-        className="absolute -left-11 md:-left-20 bottom-0 w-full h-full pointer-events-none z-[1] flex items-end justify-start opacity-80"
+        className="absolute left-[-40vw] md:left-[-7.4vw] bottom-0 w-full h-full pointer-events-none z-[1] flex items-end justify-start opacity-100"
       >
-        <div className="relative w-[220px] h-[320px] md:w-[300px] md:h-[450px] mb-20">
+        <div className="relative w-[90vw] h-[140vw] md:w-[25vw] md:h-[45vw] mb-[40vw] md:mb-[-6.2vw]">
           <Image
             src="/images/20-08-2025_Sara_Earthing1052-removebg-preview.png"
             alt="Earthing Product"
@@ -43,8 +43,8 @@ export default function Footer() {
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#d4af37]/5 blur-[150px] pointer-events-none translate-x-1/3 -translate-y-1/2 z-0" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/5 blur-[120px] pointer-events-none -translate-x-1/2 translate-y-1/3 z-0" />
 
-      <div className="relative max-w-[1600px] mx-auto z-10">
-        <div className="lg:ml-[10%] lg:w-[90%] w-full px-6">
+      <div className="relative max-w-[1600px] mx-auto z-10 flex justify-end">
+        <div className="w-[90%] px-6">
           {/* Floating CTA Banner */}
           <div className="relative mb-24 glass-dark border border-[#d4af37]/20 rounded-3xl p-10 md:p-14 overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl shadow-black/50 hover:border-[#d4af37]/50 transition-colors duration-700">
             <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/10 to-transparent opacity-50" />
@@ -62,12 +62,12 @@ export default function Footer() {
             </Link>
           </div>
 
-          {/* Top grid */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16 mb-24">
+          {/* Main Footer Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16 mb-24 relative z-20">
 
             {/* Brand Col */}
             <div className="md:col-span-4">
-              <Link href="/" className="flex items-center gap-3 mb-8 group">
+              <Link href="/" className="flex items-center gap-3 mb-6 group">
                 <div className="w-12 h-12 bg-[#d4af37] rounded-xl flex items-center justify-center font-black text-black text-2xl font-display group-hover:scale-105 transition-transform">
                   S
                 </div>
@@ -75,82 +75,73 @@ export default function Footer() {
                   SAARA <span className="text-[#d4af37] italic">EARTHING</span>
                 </span>
               </Link>
-              <p className="text-white/40 text-sm leading-[1.85] mb-8 font-medium">
-                India&apos;s leading engineering company specializing in high-performance earthing, lightning protection, and safety solutions for critical infrastructure since 2004.
+              <p className="text-white/60 text-sm leading-[1.8] mb-8 font-medium">
+                Earthing is imperative for the safety of Human lives and Machinery. Being the prime requirements it is the most neglected aspect in our housing, industrial and commercial electrical infrastructure.
               </p>
               {/* Social icons */}
               <div className="flex gap-4">
                 {[Share2, AtSign, Globe, Mail].map((Icon, i) => (
                   <Link key={i} href="#"
-                    className="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center text-white/40 hover:bg-[#d4af37] hover:text-black hover:border-[#d4af37] hover:-translate-y-1 hover:shadow-lg hover:shadow-[#d4af37]/20 transition-all duration-300">
+                    className="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center text-white/60 hover:bg-[#d4af37] hover:text-black hover:border-[#d4af37] hover:-translate-y-1 hover:shadow-lg hover:shadow-[#d4af37]/20 transition-all duration-300">
                     <Icon size={16} />
                   </Link>
                 ))}
               </div>
             </div>
 
-            {/* Solutions & Company Links */}
-            <div className="md:col-span-4 flex justify-between gap-8 sm:gap-16">
-              <div>
-                <h4 className="font-black text-sm font-display mb-8 uppercase tracking-[0.2em] text-[#d4af37]">
-                  Solutions
-                </h4>
-                <ul className="space-y-4">
-                  {['Earthing Products', 'Earthing Accessories', 'Exothermic Welding', 'Lightning Arrester', 'Maintenance Services'].map(item => (
-                    <li key={item}>
-                      <Link href="#" className="text-white/40 text-sm font-medium hover:text-white flex items-center gap-2 group transition-all duration-300">
-                        <span className="w-0 h-[1px] bg-[#d4af37] group-hover:w-3 transition-all duration-300 ease-out" />
-                        {item}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-black text-sm font-display mb-8 uppercase tracking-[0.2em] text-[#d4af37]">
-                  Company
-                </h4>
-                <ul className="space-y-4">
-                  {['About Us', 'Contact Us', 'Certifications', 'Applications', 'Privacy Policy'].map(item => (
-                    <li key={item}>
-                      <Link href="#" className="text-white/40 text-sm font-medium hover:text-white flex items-center gap-2 group transition-all duration-300">
-                        <span className="w-0 h-[1px] bg-[#d4af37] group-hover:w-3 transition-all duration-300 ease-out" />
-                        {item}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {/* Products Col */}
+            <div className="md:col-span-4">
+              <h4 className="font-black text-base font-display mb-8 tracking-wide text-white uppercase">
+                Our Expert Products
+              </h4>
+              <ul className="space-y-4">
+                {['GI Earthing', 'Back Fill Compound', 'Copper Bonded Electrode', 'Copper Bonded Rods', 'Chemical Copper Electrodes', 'Earthing Accessories', 'Exothermic Welding'].map(item => (
+                  <li key={item}>
+                    <Link href="#" className="text-white/50 text-sm font-medium hover:text-[#d4af37] flex items-center gap-3 group transition-all duration-300">
+                      <span className="w-1 h-1 rounded-full bg-[#d4af37]/50 group-hover:bg-[#d4af37] group-hover:scale-150 transition-all" />
+                      {item}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            {/* Contact Col */}
-            <div className="md:col-span-4">
-              <h4 className="font-black text-sm font-display mb-8 uppercase tracking-[0.2em] text-[#d4af37]">
-                Contact
-              </h4>
-              <ul className="space-y-6">
-                <li className="flex gap-4 items-start group">
-                  <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#d4af37]/10 group-hover:border-[#d4af37]/30 transition-colors">
-                    <MapPin size={18} className="text-[#d4af37]" />
-                  </div>
-                  <div>
-                    <p className="text-white/80 text-sm font-bold mb-1">Global HQ</p>
-                    <p className="text-white/40 text-sm leading-relaxed">
-                      123 Industrial Estate, Phase 4<br />Mumbai, Maharashtra 40001
-                    </p>
-                  </div>
-                </li>
-                <li className="flex gap-4 items-center group">
-                  <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#d4af37]/10 group-hover:border-[#d4af37]/30 transition-colors">
-                    <Phone size={18} className="text-[#d4af37]" />
-                  </div>
-                  <div>
-                    <p className="text-white/40 text-sm leading-relaxed">
-                      +91 98765 43210
-                    </p>
-                  </div>
-                </li>
-              </ul>
+            {/* Contact Details Col */}
+            <div className="md:col-span-4 space-y-10">
+
+              {/* Call */}
+              <div>
+                <h4 className="font-black text-[11px] font-display mb-3 uppercase tracking-widest text-[#d4af37] flex items-center gap-2">
+                  <Phone size={14} /> Call Us
+                </h4>
+                <p className="text-white/80 text-sm font-medium leading-relaxed">
+                  +91 99 79 852555<br />
+                  +91 98 79 611180
+                </p>
+              </div>
+
+              {/* Email / Web */}
+              <div>
+                <h4 className="font-black text-[11px] font-display mb-3 uppercase tracking-widest text-[#d4af37] flex items-center gap-2">
+                  <Mail size={14} /> Email Or Visit
+                </h4>
+                <p className="text-white/80 text-sm font-medium leading-relaxed">
+                  sales@saaraindia.com<br />
+                  www.saaraindia.com
+                </p>
+              </div>
+
+              {/* Timings */}
+              <div>
+                <h4 className="font-black text-[11px] font-display mb-3 uppercase tracking-widest text-[#d4af37] flex items-center gap-2">
+                  <MapPin size={14} /> Our Timing
+                </h4>
+                <p className="text-white/80 text-sm font-medium leading-relaxed">
+                  Mon - Sat <span className="text-white">10:00am - 6:00pm</span><br />
+                  Sunday <span className="text-red-400">Closed</span>
+                </p>
+              </div>
+
             </div>
 
           </div>

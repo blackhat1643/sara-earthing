@@ -64,9 +64,15 @@ export default function Applications() {
   const containerRef = useRef<HTMLElement>(null);
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(2); // Default Server Render
 
-  // We show 2 apps at once.
-  const itemsPerPage = 2;
+  useEffect(() => {
+    const handleResize = () => setItemsPerPage(window.innerWidth < 1024 ? 1 : 2);
+    handleResize(); // Set initially
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const pageCount = Math.ceil(apps.length / itemsPerPage);
 
   const next = () => {
@@ -97,7 +103,7 @@ export default function Applications() {
       className="bg-[#0a0f1d] relative w-full min-h-screen py-8 overflow-hidden"
     >
       <div className="relative max-w-[1600px] mx-auto px-6 h-full z-10">
-        <div className="lg:ml-[10%] lg:w-[90%] w-full p-4 relative z-10">
+        <div className="w-[90%] ml-auto p-4 relative z-10">
           {/* Section Header */}
           <div className="mb-20 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
             <div>

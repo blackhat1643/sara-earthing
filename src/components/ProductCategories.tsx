@@ -42,9 +42,9 @@ export default function ProductCategories() {
   });
 
   return (
-    <section 
+    <section
       ref={containerRef}
-      id="products" 
+      id="products"
       className="relative bg-white overflow-hidden pt-6 pb-12"
     >
       {/* Background Ambience */}
@@ -69,10 +69,10 @@ export default function ProductCategories() {
 
       <div className="relative max-w-[1600px] mx-auto px-6 h-full">
         {/* Content Area: Grid of 3 Cards */}
-        <div className="lg:ml-[10%] lg:w-[90%] w-full">
+        <div className="w-[90%] ml-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {categories.map((cat, i) => (
-              <motion.div 
+              <motion.div
                 key={cat.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -82,11 +82,11 @@ export default function ProductCategories() {
               >
                 {/* Image Section */}
                 <div className="relative aspect-[3/2] overflow-hidden">
-                  <Image 
-                    src={cat.image} 
-                    alt={cat.title} 
-                    fill 
-                    className="object-cover transition-transform duration-1000 group-hover:scale-110" 
+                  <Image
+                    src={cat.image}
+                    alt={cat.title}
+                    fill
+                    className="object-cover transition-transform duration-1000 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
                   <div className="absolute top-6 left-6">
@@ -116,8 +116,8 @@ export default function ProductCategories() {
                   <div className="space-y-3 mb-10">
                     {cat.features.map(feat => (
                       <div key={feat} className="flex items-center gap-3 text-slate-900 font-black text-[10px] uppercase tracking-[0.15em]">
-                         <CheckCircle2 size={14} className="text-[#d4af37]" />
-                         {feat}
+                        <CheckCircle2 size={14} className="text-[#d4af37]" />
+                        {feat}
                       </div>
                     ))}
                   </div>

@@ -13,36 +13,36 @@ export default function ContactForm() {
         style={{ backgroundImage: 'radial-gradient(#d4af37 0.5px, transparent 0.5px)', backgroundSize: '24px 24px' }} />
 
       <div className="relative max-w-[1600px] mx-auto px-6 z-10">
-        <div className="lg:ml-[10%] lg:w-[90%] w-full">
-          <div className="flex flex-col lg:flex-row gap-24 items-start">
+        <div className="w-[90%] ml-auto">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start">
 
             {/* Left */}
-            <div className="lg:w-2/5">
+            <div className="w-full lg:w-2/5">
               <span className="inline-block px-4 py-1.5 bg-[#d4af37]/10 text-[#d4af37] text-xs font-bold uppercase tracking-[0.2em] rounded-sm border border-[#d4af37]/20 mb-6">
                 Get In Touch
               </span>
               <h2 className="font-black text-[#0a0f1d] font-display leading-[1.05] mb-6"
-                style={{ fontSize: 'clamp(2.5rem, 4vw, 3rem)' }}>
+                style={{ fontSize: 'clamp(2.5rem, 8vw, 3rem)' }}>
                 Ready to Start a Project?
               </h2>
-              <p className="text-slate-500 text-lg leading-[1.8] mb-16">
+              <p className="text-slate-500 text-base md:text-lg leading-[1.8] mb-12 lg:mb-16">
                 Our engineers are ready to provide customized earthing solutions and technical support for your infrastructure.
               </p>
 
               {/* Contact info */}
-              <div className="space-y-8">
+              <div className="space-y-6 md:space-y-8">
                 {[
                   { icon: Phone, label: 'Call Us', value: '+91 98765 43210' },
                   { icon: Mail, label: 'Email Support', value: 'info@saaraindia.com' },
                   { icon: MapPin, label: 'Headquarters', value: 'Ahmedabad, Gujarat, India' },
                 ].map(({ icon: Icon, label, value }) => (
-                  <div key={label} className="flex items-center gap-5 group">
-                    <div className="w-14 h-14 rounded-xl bg-white border border-slate-100 flex items-center justify-center shadow-sm group-hover:bg-[#d4af37] group-hover:border-[#d4af37] transition-all duration-300 flex-shrink-0">
-                      <Icon size={22} className="text-[#d4af37] group-hover:text-black transition-colors" />
+                  <div key={label} className="flex items-center gap-4 md:gap-5 group">
+                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white border border-slate-100 flex items-center justify-center shadow-sm group-hover:bg-[#d4af37] group-hover:border-[#d4af37] transition-all duration-300 flex-shrink-0">
+                      <Icon size={20} className="text-[#d4af37] group-hover:text-black transition-colors" />
                     </div>
                     <div>
-                      <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400 mb-1">{label}</p>
-                      <p className="text-base font-bold text-[#0a0f1d] font-display">{value}</p>
+                      <p className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400 mb-1">{label}</p>
+                      <p className="text-sm md:text-base font-bold text-[#0a0f1d] font-display">{value}</p>
                     </div>
                   </div>
                 ))}
@@ -51,9 +51,9 @@ export default function ContactForm() {
 
             {/* Right form */}
             <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              className="flex-1 bg-white p-10 md:p-14 rounded-3xl shadow-2xl shadow-slate-100 border border-slate-100">
-              <h3 className="font-black text-[#0a0f1d] font-display text-2xl mb-10">Send Us a Message</h3>
-              <form className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              className="w-full flex-1 bg-white p-6 md:p-10 lg:p-14 rounded-3xl shadow-2xl shadow-slate-100 border border-slate-100">
+              <h3 className="font-black text-[#0a0f1d] font-display text-xl md:text-2xl mb-8 lg:mb-10">Send Us a Message</h3>
+              <form className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
                 {[
                   { id: 'name', label: 'Full Name', placeholder: 'John Doe', type: 'text' },
                   { id: 'email', label: 'Email Address', placeholder: 'john@example.com', type: 'email' },
