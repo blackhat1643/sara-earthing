@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import FlippingBoxBackground from '@/components/FlippingBoxBackground';
 
 /* ═══════════════════════════════════════════════════════════
    LIGHTNING LOGIC — 2D Canvas Performance Optimized
@@ -158,16 +159,18 @@ export default function Hero() {
     <section className="relative h-screen bg-[#060a14] overflow-hidden">
       {/* Background Image Replace Models */}
       <div className="absolute inset-0 z-0">
-        <Image 
-          src="/images/hero_bg.png" 
-          alt="Industrial Infrastructure" 
-          fill 
-          className="object-cover opacity-60 scale-105"
-          priority
+        {/* Interactive Box Grid Background */}
+
+        <FlippingBoxBackground 
+          images={[
+            "/images/hero_bg.png",
+            "/images/alnd.png",
+            "/images/refinery_app.png",
+            "/images/welding.png"
+          ]} 
+          gridSize={80} 
         />
-        {/* Cinematic Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#060a14]/90 via-[#060a14]/20 to-[#060a14]" />
-        <div className="absolute inset-0 bg-[#060a14]/40 backdrop-blur-[2px]" />
+
       </div>
 
       <div className="relative h-full flex items-center justify-center container mx-auto px-6">
@@ -194,14 +197,14 @@ export default function Hero() {
               Pioneering Industrial Safety
             </span>
             
-            <h1 className="text-5xl md:text-7xl font-black text-white font-display leading-[0.85] tracking-tighter uppercase mb-8">
+            <h1 className="text-4xl md:text-7xl font-black text-white font-display leading-[1.1] md:leading-[0.85] tracking-tighter uppercase mb-8">
               Reliable <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-br from-[#d4af37] via-[#f7e1ad] to-[#b8860b]">
                 Protection
               </span>
             </h1>
             
-            <p className="text-white/60 text-base md:text-lg font-medium max-w-2xl mx-auto mb-10 leading-relaxed">
+            <p className="text-white/60 text-sm md:text-lg font-medium max-w-2xl mx-auto mb-10 leading-relaxed px-4 md:px-0">
               Global leaders in advanced earthing systems and lightning protection. 
               Engineering resilience for the world&apos;s most critical industrial infrastructure.
             </p>

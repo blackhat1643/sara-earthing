@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
-export default function Footer() {
+export default function Footer({ showImage = false }: { showImage?: boolean }) {
   const containerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -24,27 +24,29 @@ export default function Footer() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#050810] via-transparent to-[#050810]/80" />
       </div>
 
-      {/* Parallax Secondary Image */}
-      <motion.div
-        style={{ y: yOffset }}
-        className="absolute left-[-40vw] md:left-[-7.4vw] bottom-0 w-full h-full pointer-events-none z-[1] flex items-end justify-start opacity-100"
-      >
-        <div className="relative w-[90vw] h-[140vw] md:w-[25vw] md:h-[45vw] mb-[40vw] md:mb-[-6.2vw]">
-          <Image
-            src="/images/20-08-2025_Sara_Earthing1052-removebg-preview.png"
-            alt="Earthing Product"
-            fill
-            className="object-contain"
-          />
-        </div>
-      </motion.div>
+      {/* Parallax Secondary Image — only on home page */}
+      {showImage && (
+        <motion.div
+          style={{ y: yOffset }}
+          className="absolute left-[-53vw] md:left-[-17.4vw] bottom-[-300px] w-full h-full pointer-events-none z-[100] flex items-end justify-start opacity-100"
+        >
+          <div className="relative w-[120vw] h-[180vw] md:w-[45vw] md:h-[75vw] mb-[20vw] md:mb-[-15vw]">
+            <Image
+              src="/images/20-08-2025_Sara_Earthing1052-removebg-preview.png"
+              alt="Earthing Product"
+              fill
+              className="object-contain"
+            />
+          </div>
+        </motion.div>
+      )}
 
       {/* Background radial glow */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#d4af37]/5 blur-[150px] pointer-events-none translate-x-1/3 -translate-y-1/2 z-0" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/5 blur-[120px] pointer-events-none -translate-x-1/2 translate-y-1/3 z-0" />
 
-      <div className="relative max-w-[1600px] mx-auto z-10 flex justify-end">
-        <div className="w-[90%] px-6">
+      <div className={`relative max-w-[1600px] mx-auto z-[110] ${showImage ? 'flex justify-end' : 'px-6 flex justify-center'}`}>
+        <div className={showImage ? 'w-[90%] px-6' : 'w-full max-w-[1200px]'}>
           {/* Floating CTA Banner */}
           <div className="relative mb-24 glass-dark border border-[#d4af37]/20 rounded-3xl p-10 md:p-14 overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl shadow-black/50 hover:border-[#d4af37]/50 transition-colors duration-700">
             <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/10 to-transparent opacity-50" />
@@ -56,20 +58,26 @@ export default function Footer() {
                 Partner with the industry leaders in earthing and lightning protection. Let&apos;s build a safer world together.
               </p>
             </div>
-            <Link href="#contact" className="relative z-10 group flex items-center justify-center gap-3 bg-[#d4af37] text-black font-black px-8 py-4 md:px-10 md:py-5 rounded-full text-sm md:text-base uppercase tracking-widest shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(212,175,55,0.5)] transition-all duration-300 font-display flex-shrink-0">
+            <Link href="/contact" className="relative z-10 group flex items-center justify-center gap-3 bg-[#d4af37] text-black font-black px-8 py-4 md:px-10 md:py-5 rounded-full text-sm md:text-base uppercase tracking-widest shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(212,175,55,0.5)] transition-all duration-300 font-display flex-shrink-0">
               Get a Quote
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
           {/* Main Footer Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16 mb-24 relative z-20">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16 mb-24 relative z-[120]">
 
             {/* Brand Col */}
-            <div className="md:col-span-4">
+            <div className="md:col-span-3">
               <Link href="/" className="flex items-center gap-3 mb-6 group">
-                <div className="w-12 h-12 bg-[#d4af37] rounded-xl flex items-center justify-center font-black text-black text-2xl font-display group-hover:scale-105 transition-transform">
-                  S
+                <div className="relative w-14 h-14 bg-white rounded-xl p-1 flex items-center justify-center shadow-xl overflow-hidden group-hover:scale-105 transition-transform">
+                  <Image
+                    src="/images/logo.png"
+                    alt="SAARA Logo"
+                    width={48}
+                    height={48}
+                    className="object-contain"
+                  />
                 </div>
                 <span className="font-black text-2xl tracking-[-0.04em] font-display">
                   SAARA <span className="text-[#d4af37] italic">EARTHING</span>
@@ -89,8 +97,26 @@ export default function Footer() {
               </div>
             </div>
 
+            {/* Quick Links Col */}
+            <div className="md:col-span-2">
+              <h4 className="font-black text-base font-display mb-8 tracking-wide text-white uppercase">
+                Quick Links
+              </h4>
+              <ul className="space-y-4">
+                {['Home', 'About Us', 'Earthing', 'Products', 'Applications', 'Quality', 'Clients'].map(item => (
+                  <li key={item}>
+                    <Link href={item === 'Home' ? '/' : item === 'About Us' ? '/company' : item === 'Earthing' ? '/earthing' : item === 'Quality' ? '/quality' : item === 'Clients' ? '/clients' : `#${item.toLowerCase()}`}
+                      className="text-white/50 text-sm font-medium hover:text-[#d4af37] flex items-center gap-3 group transition-all duration-300">
+                      <span className="w-1 h-1 rounded-full bg-white/20 group-hover:bg-[#d4af37] group-hover:scale-150 transition-all" />
+                      {item}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             {/* Products Col */}
-            <div className="md:col-span-4">
+            <div className="md:col-span-3">
               <h4 className="font-black text-base font-display mb-8 tracking-wide text-white uppercase">
                 Our Expert Products
               </h4>

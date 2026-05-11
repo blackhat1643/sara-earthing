@@ -44,7 +44,7 @@ export default function ProductCable() {
     canvas.height = 2048; // Taller to fit long text along the length
     const ctx = canvas.getContext('2d');
     if (ctx) {
-      ctx.fillStyle = '#15803d'; // Global insulation color
+      ctx.fillStyle = '#facc15'; // Brighter, more vibrant yellow
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // --- Create Industrial Braided/Twisted Texture ---
@@ -92,8 +92,8 @@ export default function ProductCable() {
       // Completely transparent background
       tCtx.clearRect(0, 0, textCanvas.width, textCanvas.height);
       
-      tCtx.fillStyle = '#ffffff'; // Pristine White Text as per the image
-      tCtx.font = 'bold 200px Georgia, "Times New Roman", serif'; // Classic serif font
+      tCtx.fillStyle = '#0f172a'; // Deep slate text for high contrast on yellow
+      tCtx.font = 'bold 200px Orbitron, sans-serif'; 
       tCtx.textAlign = 'center';
       tCtx.textBaseline = 'middle';
       
@@ -151,14 +151,18 @@ export default function ProductCable() {
     cable.add(bottomCore);
 
     // Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8); // Brighter ambient light
     scene.add(ambientLight);
 
-    const keyLight = new THREE.PointLight(0xffffff, 100);
+    const keyLight = new THREE.PointLight(0xffffff, 150); // Increased intensity
     keyLight.position.set(10, 10, 10);
     scene.add(keyLight);
+    
+    const fillLight = new THREE.DirectionalLight(0xffffff, 1.5); // Added fill light
+    fillLight.position.set(-10, 5, 10);
+    scene.add(fillLight);
 
-    const rimLight = new THREE.PointLight(0xffffff, 50);
+    const rimLight = new THREE.PointLight(0xffffff, 80); // Increased intensity
     rimLight.position.set(-5, 0, -5);
     scene.add(rimLight);
 

@@ -7,17 +7,17 @@ export default function ContactForm() {
   const [focused, setFocused] = useState('');
 
   return (
-    <section id="contact" className="bg-slate-50 py-10 relative overflow-hidden">
+    <section id="contact" className="bg-slate-50 py-16 relative overflow-hidden">
       {/* Dot pattern */}
       <div className="absolute inset-0 opacity-[0.025] pointer-events-none"
         style={{ backgroundImage: 'radial-gradient(#d4af37 0.5px, transparent 0.5px)', backgroundSize: '24px 24px' }} />
 
       <div className="relative max-w-[1600px] mx-auto px-6 z-10">
-        <div className="w-[90%] ml-auto">
+        <div className="w-full lg:w-[90%] lg:ml-auto">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start">
 
             {/* Left */}
-            <div className="w-full lg:w-2/5">
+            <div className="w-full lg:w-2/5 text-center lg:text-left">
               <span className="inline-block px-4 py-1.5 bg-[#d4af37]/10 text-[#d4af37] text-xs font-bold uppercase tracking-[0.2em] rounded-sm border border-[#d4af37]/20 mb-6">
                 Get In Touch
               </span>
@@ -30,17 +30,17 @@ export default function ContactForm() {
               </p>
 
               {/* Contact info */}
-              <div className="space-y-6 md:space-y-8">
+              <div className="flex flex-col items-center lg:items-start space-y-6 md:space-y-8">
                 {[
                   { icon: Phone, label: 'Call Us', value: '+91 98765 43210' },
                   { icon: Mail, label: 'Email Support', value: 'info@saaraindia.com' },
                   { icon: MapPin, label: 'Headquarters', value: 'Ahmedabad, Gujarat, India' },
                 ].map(({ icon: Icon, label, value }) => (
-                  <div key={label} className="flex items-center gap-4 md:gap-5 group">
+                  <div key={label} className="flex flex-col lg:flex-row items-center lg:items-center gap-4 md:gap-5 group">
                     <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white border border-slate-100 flex items-center justify-center shadow-sm group-hover:bg-[#d4af37] group-hover:border-[#d4af37] transition-all duration-300 flex-shrink-0">
                       <Icon size={20} className="text-[#d4af37] group-hover:text-black transition-colors" />
                     </div>
-                    <div>
+                    <div className="text-center lg:text-left">
                       <p className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400 mb-1">{label}</p>
                       <p className="text-sm md:text-base font-bold text-[#0a0f1d] font-display">{value}</p>
                     </div>

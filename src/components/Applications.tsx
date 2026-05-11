@@ -103,9 +103,9 @@ export default function Applications() {
       className="bg-[#0a0f1d] relative w-full min-h-screen py-8 overflow-hidden"
     >
       <div className="relative max-w-[1600px] mx-auto px-6 h-full z-10">
-        <div className="w-[90%] ml-auto p-4 relative z-10">
+        <div className="w-full lg:w-[90%] lg:ml-auto p-4 relative z-10">
           {/* Section Header */}
-          <div className="mb-20 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+          <div className="mb-12 md:mb-20 flex flex-col md:flex-row md:items-end md:justify-between gap-8 text-center md:text-left">
             <div>
               <motion.span 
                 initial={{ opacity: 0, y: 20 }}
@@ -114,7 +114,7 @@ export default function Applications() {
               >
                 Sector Specifics
               </motion.span>
-              <h2 className="text-5xl md:text-6xl font-black text-white font-display leading-[0.9] tracking-tighter uppercase">
+              <h2 className="text-4xl md:text-6xl font-black text-white font-display leading-[0.9] tracking-tighter uppercase">
                 Industrial <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-br from-[#d4af37] to-[#b8860b]">
                   Impact

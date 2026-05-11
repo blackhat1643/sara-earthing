@@ -41,15 +41,15 @@ export default function StatsSection() {
       <div className="absolute -top-1/2 -right-1/4 w-[600px] h-[600px] bg-gradient-to-br from-white/20 to-transparent blur-[120px] rounded-full" />
       <div className="absolute -bottom-1/2 -left-1/4 w-[400px] h-[400px] bg-gradient-to-tr from-black/10 to-transparent blur-[100px] rounded-full" />
 
-      {/* Large Decorative Trademark */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/4 rotate-90 opacity-[0.03] select-none pointer-events-none">
+      {/* Large Decorative Trademark - Hidden on mobile */}
+      <div className="hidden lg:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/4 rotate-90 opacity-[0.03] select-none pointer-events-none">
         <span className="text-[20rem] font-black text-black whitespace-nowrap tracking-tighter">
           EST. 2004
         </span>
       </div>
 
       <div className="relative max-w-[1600px] mx-auto px-6 z-10">
-        <div className="w-[90%] ml-auto">
+        <div className="w-full lg:w-[90%] lg:ml-auto">
           <div className="grid lg:grid-cols-12 gap-20 items-center">
             
             {/* Left Branding Content */}

@@ -10,12 +10,12 @@ const certs = [
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="bg-white py-10">
+    <section id="certifications" className="bg-white py-16">
       <div className="relative max-w-[1600px] mx-auto px-6">
-        <div className="w-[90%] ml-auto">
-          <div className="flex flex-col lg:flex-row items-center gap-24">
+        <div className="w-full lg:w-[90%] lg:ml-auto">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
             {/* Left */}
-            <div className="flex-1">
+            <div className="flex-1 text-center lg:text-left">
               <span className="inline-block px-4 py-1.5 bg-[#d4af37]/10 text-[#d4af37] text-xs font-bold uppercase tracking-[0.2em] rounded-sm border border-[#d4af37]/20 mb-6">
                 Our Standards
               </span>
@@ -28,7 +28,7 @@ export default function Certifications() {
               </p>
 
               {/* Features list */}
-              <div className="space-y-4 mb-12">
+              <div className="flex flex-col items-center lg:items-start space-y-4 mb-12">
                 {['100% Pure Electrolytic Copper', 'Anti-Corrosive Nano Coating', 'Zero Maintenance Designs', 'IS / IEC / BS Standards Compliance'].map(item => (
                   <div key={item} className="flex items-center gap-4">
                     <div className="w-5 h-5 rounded-full bg-[#d4af37]/15 border border-[#d4af37]/30 flex items-center justify-center flex-shrink-0">
