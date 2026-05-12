@@ -75,7 +75,7 @@ export default function HomeProducts() {
                 }}
                 className="relative aspect-square group cursor-pointer"
               >
-                <div className="relative h-full w-full rounded-lg overflow-hidden shadow-lg bg-slate-50 p-6">
+                <div className="relative h-full w-full rounded-lg overflow-hidden p-6">
                   <Image 
                     src={product.image} 
                     alt={product.title} 

@@ -79,7 +79,7 @@ export default function CompanyPage() {
                 <span className="text-[#d4af37] text-[9px] md:text-[11px] font-black uppercase tracking-[0.4em] md:tracking-[0.8em]">Saara Legacy</span>
               </div>
 
-              <h1 className="text-[22vw] lg:text-[14rem] font-black uppercase tracking-[-0.08em] leading-[0.85] md:leading-[0.75] text-slate-900 mb-8 md:mb-12">
+              <h1 className="text-[16vw] lg:text-[12rem] font-black uppercase tracking-[-0.04em] leading-[0.85] md:leading-[0.75] text-slate-900 mb-8 md:mb-12 pr-4">
                 The <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] via-[#f0d060] to-[#b8860b]">Brand</span>
               </h1>
@@ -170,7 +170,7 @@ export default function CompanyPage() {
             >
               <div className="space-y-6">
                 <span className="text-[#d4af37] text-[10px] font-black uppercase tracking-widest px-4 py-1 rounded-full border border-[#d4af37]/20 bg-[#d4af37]/5">About Saara</span>
-                <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-[0.8] md:leading-[0.9]">
+                <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-[0.8] md:leading-[0.9]">
                   Welcome to <br />
                   <span className="text-[#d4af37]">Saara Earthing</span>
                 </h2>
