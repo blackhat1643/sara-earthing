@@ -156,7 +156,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-screen bg-[#060a14] overflow-hidden">
+    <section className="relative h-[80vh] md:h-screen bg-[#060a14] overflow-hidden">
       {/* Background Image Replace Models */}
       <div className="absolute inset-0 z-0">
         {/* Interactive Box Grid Background */}

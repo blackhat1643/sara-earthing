@@ -49,7 +49,7 @@ export default function CompanyPage() {
       </div>
 
       {/* Unique Architectural Hero */}
-      <section className="relative h-[85vh] flex items-center overflow-hidden bg-white">
+      <section className="relative h-[60vh] md:h-[85vh] flex items-center overflow-hidden bg-white">
         {/* Left Side: Cinematic Background with Skew Mask */}
         <div className="absolute top-0 left-0 w-full h-full z-0 overflow-hidden">
           <motion.div
@@ -74,29 +74,29 @@ export default function CompanyPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="flex items-center gap-4 mb-10">
-                <div className="h-[2px] w-12 bg-[#d4af37]" />
-                <span className="text-[#d4af37] text-[11px] font-black uppercase tracking-[0.8em]">Saara Legacy</span>
+              <div className="flex items-center gap-4 mb-6 md:mb-10">
+                <div className="h-[2px] w-8 md:w-12 bg-[#d4af37]" />
+                <span className="text-[#d4af37] text-[9px] md:text-[11px] font-black uppercase tracking-[0.4em] md:tracking-[0.8em]">Saara Legacy</span>
               </div>
 
-              <h1 className="text-[12vw] lg:text-[14rem] font-black uppercase tracking-[-0.08em] leading-[0.75] text-slate-900 mb-12">
+              <h1 className="text-[22vw] lg:text-[14rem] font-black uppercase tracking-[-0.08em] leading-[0.85] md:leading-[0.75] text-slate-900 mb-8 md:mb-12">
                 The <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] via-[#f0d060] to-[#b8860b]">Brand</span>
               </h1>
 
-              <div className="flex items-start gap-12">
+              <div className="flex items-start gap-8 md:gap-12">
                 <motion.div
                   initial={{ height: 0 }}
-                  animate={{ height: 80 }}
+                  animate={{ height: 60 }}
                   transition={{ duration: 1, delay: 0.8 }}
                   className="w-px bg-gradient-to-b from-[#d4af37] to-transparent"
                 />
                 <div className="space-y-4">
-                  <p className="text-slate-400 text-xs font-black uppercase tracking-[0.5em] leading-relaxed">
+                  <p className="text-slate-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] md:tracking-[0.5em] leading-relaxed">
                     Precision Grounding <br />
                     <span className="text-slate-300">Engineering Excellence</span>
                   </p>
-                  <div className="flex items-center gap-6 text-[9px] font-bold text-slate-300 tracking-widest uppercase">
+                  <div className="flex items-center gap-4 md:gap-6 text-[8px] md:text-[9px] font-bold text-slate-300 tracking-widest uppercase">
                     <span>Est. 2004</span>
                     <div className="w-1 h-1 rounded-full bg-[#d4af37]" />
                     <span>Certified IEEE</span>
@@ -138,9 +138,9 @@ export default function CompanyPage() {
       </section>
 
       {/* Legacy / Welcome Section */}
-      <section className="py-10 relative z-10 bg-white">
+      <section className="pt-0 pb-10 md:py-10 relative z-10 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-32 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 md:gap-32 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -166,11 +166,11 @@ export default function CompanyPage() {
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="space-y-12"
+              className="space-y-8 md:space-y-12"
             >
               <div className="space-y-6">
                 <span className="text-[#d4af37] text-[10px] font-black uppercase tracking-widest px-4 py-1 rounded-full border border-[#d4af37]/20 bg-[#d4af37]/5">About Saara</span>
-                <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9]">
+                <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-[0.8] md:leading-[0.9]">
                   Welcome to <br />
                   <span className="text-[#d4af37]">Saara Earthing</span>
                 </h2>
@@ -203,7 +203,7 @@ export default function CompanyPage() {
       </div>
 
       {/* Vision & Mission */}
-      <section className="py-32 bg-slate-50 relative overflow-hidden">
+      <section className="py-16 md:py-32 bg-slate-50 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -240,7 +240,7 @@ export default function CompanyPage() {
       </section>
 
       {/* Unique Core Values Section */}
-      <section className="py-10 relative overflow-hidden bg-orange-50/30">
+      <section className="py-16 md:py-24 relative overflow-hidden bg-orange-50/30">
         {/* Architectural Background Decoration */}
         <div className="absolute top-0 right-0 w-1/2 h-full opacity-[0.05] pointer-events-none z-0">
           <svg width="100%" height="100%" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -262,13 +262,13 @@ export default function CompanyPage() {
 
             <div className="flex-1 space-y-6 pt-12">
               <div className="h-[2px] w-full bg-gradient-to-r from-[#d4af37] to-transparent opacity-20" />
-              <div className="flex justify-between items-start gap-12">
-                <p className="text-slate-500 text-sm font-medium leading-relaxed max-w-xs">
+              <div className="flex flex-col sm:flex-row justify-between items-start gap-8 sm:gap-12">
+                <p className="text-slate-500 text-sm md:text-base font-medium leading-relaxed max-w-xs">
                   Our commitment to excellence is anchored in a set of principles that guide every project, from concept to installation.
                 </p>
-                <div className="text-right">
+                <div className="text-left sm:text-right">
                   <span className="text-slate-900 font-black text-4xl block mb-2">04</span>
-                  <span className="text-slate-400 text-[10px] font-black uppercase tracking-[0.4em]">Pillars of Success</span>
+                  <span className="text-slate-400 text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.4em]">Pillars of Success</span>
                 </div>
               </div>
             </div>
@@ -282,7 +282,7 @@ export default function CompanyPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.8 }}
-                className={`group relative overflow-hidden p-12 rounded-[60px] border border-orange-100 hover:border-[#d4af37]/50 transition-all duration-700 shadow-xl shadow-orange-900/5
+                className={`group relative overflow-hidden p-8 md:p-12 rounded-[40px] md:rounded-[60px] border border-orange-100 hover:border-[#d4af37]/50 transition-all duration-700 shadow-xl shadow-orange-900/5
                   ${i === 0 || i === 3 ? 'md:col-span-7' : 'md:col-span-5'}
                   ${i % 2 === 0 ? 'bg-white' : 'bg-white/80 backdrop-blur-md'}`}
               >

@@ -11,21 +11,21 @@ const categories = [
     title: "Earthing Products",
     desc: "Advanced fault current dissipation systems, including Copper Bonded and GI Electrodes.",
     link: "/products/earthing-products",
-    image: "/images/welding.png",
+    image: "/images/VIEW/Back Fill Compound.JPG",
     icon: Zap
   },
   {
     title: "Earthing Accessories",
     desc: "High-strength clamps, dowels, and driving studs engineered for critical infrastructure.",
     link: "/products/earthing-accessories",
-    image: "/images/accessories.png",
+    image: "/images/VIEW/20-08-2025 Sara Earthing1035.JPG",
     icon: Settings
   },
   {
     title: "Exothermic Welding",
     desc: "Molecular bonding solutions and weld powders for permanent, low-resistance connections.",
     link: "/products/exothermic-welding",
-    image: "/images/products.png",
+    image: "/images/VIEW/20-08-2025 Sara Earthing1065 copy.JPG",
     icon: Layers
   }
 ];
@@ -94,12 +94,12 @@ export default function ProductsHubPage() {
                   </div>
                   
                   <div className="relative h-full min-h-[400px] overflow-hidden p-8">
-                    <div className="relative h-full w-full rounded-[3rem] overflow-hidden shadow-2xl">
+                    <div className="relative h-full w-full rounded-[3rem] overflow-hidden shadow-2xl bg-slate-50 p-12">
                       <Image 
                         src={cat.image} 
                         alt={cat.title} 
                         fill 
-                        className="object-cover transition-all duration-1000 group-hover:scale-105" 
+                        className="object-contain transition-all duration-1000 group-hover:scale-105" 
                       />
                       <div className="absolute inset-0 bg-[#d4af37]/10 mix-blend-overlay group-hover:opacity-0 transition-opacity" />
                     </div>

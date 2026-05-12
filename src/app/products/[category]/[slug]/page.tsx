@@ -56,14 +56,14 @@ export default function ProductDetailPage() {
               animate={{ opacity: 1, x: 0 }}
               className="sticky top-48"
             >
-              <div className="relative aspect-square rounded-[60px] overflow-hidden border-8 border-slate-50 shadow-2xl">
+              <div className="relative aspect-square rounded-[60px] overflow-hidden border-8 border-slate-50 shadow-2xl bg-slate-50 p-12">
                 <Image
                   src={product.image}
                   alt={product.title}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
-                <div className="absolute inset-0 bg-[#d4af37]/5 mix-blend-multiply" />
+                <div className="absolute inset-0 bg-[#d4af37]/5 mix-blend-multiply pointer-events-none" />
               </div>
 
               {/* Quick Actions */}

@@ -29,7 +29,7 @@ export default function HomeProducts() {
   };
 
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section className="py-12 md:py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8 text-center md:text-left">
@@ -75,12 +75,12 @@ export default function HomeProducts() {
                 }}
                 className="relative aspect-square group cursor-pointer"
               >
-                <div className="relative h-full w-full rounded-lg overflow-hidden shadow-lg">
+                <div className="relative h-full w-full rounded-lg overflow-hidden shadow-lg bg-slate-50 p-6">
                   <Image 
                     src={product.image} 
                     alt={product.title} 
                     fill 
-                    className={`object-cover transition-all duration-700 ${product.hoverImage ? 'group-hover:opacity-0' : 'group-hover:scale-110'}`}
+                    className={`object-contain transition-all duration-700 ${product.hoverImage ? 'group-hover:opacity-0' : 'group-hover:scale-105'}`}
                   />
                   
                   {product.hoverImage && (
@@ -88,7 +88,7 @@ export default function HomeProducts() {
                       src={product.hoverImage} 
                       alt={`${product.title} hover`} 
                       fill 
-                      className="object-cover transition-all duration-700 opacity-0 group-hover:opacity-100 group-hover:scale-110"
+                      className="object-contain transition-all duration-700 opacity-0 group-hover:opacity-100 group-hover:scale-105 p-6"
                     />
                   )}
                   

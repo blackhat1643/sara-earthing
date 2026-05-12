@@ -43,7 +43,7 @@ export default function EarthingProductsPage() {
               className="relative aspect-square lg:aspect-video rounded-[40px] overflow-hidden shadow-2xl border-4 border-white"
             >
               <Image 
-                src="/images/welding.png" 
+                src="/images/VIEW/Copper Bonded Electrode.JPG" 
                 alt="Industrial Earthing" 
                 fill 
                 className="object-cover"
@@ -77,19 +77,19 @@ export default function EarthingProductsPage() {
                 transition={{ duration: 0.7, delay: idx * 0.1 }}
                 className="group relative flex flex-col bg-white rounded-[3rem] p-4 border border-slate-100 hover:border-[#d4af37] transition-all duration-500 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-[#d4af37]/10"
               >
-                <div className="relative h-72 rounded-[2.5rem] overflow-hidden mb-8">
+                <div className="relative h-72 rounded-[2.5rem] overflow-hidden mb-8 bg-slate-50 p-8">
                   <Image 
                     src={prod.image} 
                     alt={prod.title} 
                     fill 
-                    className={`object-cover transition-all duration-1000 ${prod.hoverImage ? 'group-hover:opacity-0' : 'group-hover:scale-110'}`}
+                    className={`object-contain transition-all duration-1000 ${prod.hoverImage ? 'group-hover:opacity-0' : 'group-hover:scale-105'}`}
                   />
                   {prod.hoverImage && (
                     <Image 
                       src={prod.hoverImage} 
                       alt={`${prod.title} hover`} 
                       fill 
-                      className="object-cover transition-all duration-1000 opacity-0 group-hover:opacity-100 group-hover:scale-110"
+                      className="object-contain transition-all duration-1000 opacity-0 group-hover:opacity-100 group-hover:scale-105 p-8"
                     />
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />

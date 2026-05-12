@@ -7,7 +7,7 @@ const categories = [
   {
     title: 'Earthing Products',
     desc: 'Pure electrolytic copper bonded rods and chemical electrodes designed for zero-resistance conductivity.',
-    image: '/images/products.png',
+    image: '/images/VIEW/Back Fill Compound.JPG',
     tag: 'Industrial Grade',
     icon: Zap,
     color: '#D4AF37',
@@ -16,7 +16,7 @@ const categories = [
   {
     title: 'Earthing Accessories',
     desc: 'Heavy-duty clamps, connectors, and bus bars precision-engineered for lifelong underground durability.',
-    image: '/images/accessories.png',
+    image: '/images/VIEW/20-08-2025 Sara Earthing1035.JPG',
     tag: 'ISO Certified',
     icon: Shield,
     color: '#D4AF37',
@@ -25,7 +25,7 @@ const categories = [
   {
     title: 'Exothermic Welding',
     desc: 'Permanent molecular connections that eliminate mechanical failure points in critical grounding networks.',
-    image: '/images/welding.png',
+    image: '/images/VIEW/20-08-2025 Sara Earthing1065 copy.JPG',
     tag: 'Cadweld Compatible',
     icon: Cog,
     color: '#D4AF37',
@@ -81,12 +81,12 @@ export default function ProductCategories() {
                 className="group relative flex flex-col bg-slate-50/50 backdrop-blur-sm rounded-[2rem] overflow-hidden border border-slate-100 hover:bg-white hover:shadow-2xl hover:shadow-slate-200 transition-all duration-500 hover:-translate-y-4"
               >
                 {/* Image Section */}
-                <div className="relative aspect-[3/2] overflow-hidden">
+                <div className="relative aspect-[3/2] overflow-hidden bg-slate-100 p-4">
                   <Image
                     src={cat.image}
                     alt={cat.title}
                     fill
-                    className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                    className="object-contain transition-transform duration-1000 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
                   <div className="absolute top-6 left-6">
