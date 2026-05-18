@@ -12,8 +12,8 @@ export default function ContactForm() {
       <div className="absolute inset-0 opacity-[0.025] pointer-events-none"
         style={{ backgroundImage: 'radial-gradient(#d4af37 0.5px, transparent 0.5px)', backgroundSize: '24px 24px' }} />
 
-      <div className="relative max-w-[1600px] mx-auto px-6 z-10">
-        <div className="w-full lg:w-[90%] lg:ml-auto">
+      <div className="relative max-w-[1600px] mx-auto pl-[70px] pr-6 md:pl-[12%] md:pr-6 z-10">
+        <div className="w-full">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start">
 
             {/* Left */}

@@ -28,9 +28,9 @@ export default function Footer({ showImage = false }: { showImage?: boolean }) {
       {showImage && (
         <motion.div
           style={{ y: yOffset }}
-          className="absolute left-[-53vw] md:left-[-17.4vw] bottom-[-300px] w-full h-full pointer-events-none z-[100] flex items-end justify-start opacity-100"
+          className="absolute left-[-43vw] md:left-[-17.4vw] bottom-[-75px] md:bottom-[-300px] w-full h-full pointer-events-none z-[100] flex items-end justify-start opacity-100"
         >
-          <div className="relative w-[120vw] h-[180vw] md:w-[45vw] md:h-[75vw] mb-[20vw] md:mb-[-15vw]">
+          <div className="relative w-[120vw] h-[180vw] md:w-[45vw] md:h-[75vw] mb-[42vw] md:mb-[-15vw]">
             <Image
               src="/images/20-08-2025_Sara_Earthing1052-removebg-preview.png"
               alt="Earthing Product"
@@ -46,7 +46,7 @@ export default function Footer({ showImage = false }: { showImage?: boolean }) {
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/5 blur-[120px] pointer-events-none -translate-x-1/2 translate-y-1/3 z-0" />
 
       <div className={`relative max-w-[1600px] mx-auto z-[110] ${showImage ? 'flex justify-end' : 'px-6 flex justify-center'}`}>
-        <div className={showImage ? 'w-[90%] px-6' : 'w-full max-w-[1200px]'}>
+        <div className={showImage ? 'w-full pl-[70px] pr-6 md:w-[90%] md:pl-0' : 'w-full max-w-[1200px]'}>
           {/* Floating CTA Banner */}
           <div className="relative mb-24 glass-dark border border-[#d4af37]/20 rounded-3xl p-10 md:p-14 overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl shadow-black/50 hover:border-[#d4af37]/50 transition-colors duration-700">
             <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/10 to-transparent opacity-50" />

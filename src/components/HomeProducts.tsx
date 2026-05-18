@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { allProducts } from '@/data/products';
 
 export default function HomeProducts() {
@@ -30,7 +31,7 @@ export default function HomeProducts() {
 
   return (
     <section className="py-12 md:py-24 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto pl-[70px] pr-6  md:pr-6">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8 text-center md:text-left">
           <div className="max-w-2xl mx-auto md:mx-0">
@@ -44,13 +45,13 @@ export default function HomeProducts() {
           </div>
 
           <div className="flex gap-4 mx-auto md:mx-0">
-            <button 
+            <button
               onClick={prev}
               className="w-12 h-12 border-2 border-[#d4af37] flex items-center justify-center text-[#d4af37] hover:bg-[#d4af37] hover:text-white transition-all rounded-sm"
             >
               <ChevronLeft size={24} />
             </button>
-            <button 
+            <button
               onClick={next}
               className="w-12 h-12 border-2 border-[#d4af37] flex items-center justify-center text-[#d4af37] hover:bg-[#d4af37] hover:text-white transition-all rounded-sm"
             >
@@ -61,37 +62,38 @@ export default function HomeProducts() {
 
         {/* Products Grid/Slider Area */}
         <div className="relative">
-          <motion.div 
+          <motion.div
             className="flex gap-8"
             animate={{ x: `calc(-${currentIndex} * (${100 / displayCount}% + ${displayCount > 1 ? '32px / 3' : '32px'}))` }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
             {products.map((product, i) => (
-              <motion.div 
+              <Link
                 key={i}
-                style={{ 
+                href={`/products/${product.category}/${product.slug}`}
+                style={{
                   width: displayCount === 1 ? '100%' : 'calc(33.333% - 21.33px)',
                   flex: '0 0 auto'
                 }}
-                className="relative aspect-square group cursor-pointer"
+                className="relative aspect-square group cursor-pointer block"
               >
                 <div className="relative h-full w-full rounded-lg overflow-hidden p-6">
-                  <Image 
-                    src={product.image} 
-                    alt={product.title} 
-                    fill 
+                  <Image
+                    src={product.image}
+                    alt={product.title}
+                    fill
                     className={`object-contain transition-all duration-700 ${product.hoverImage ? 'group-hover:opacity-0' : 'group-hover:scale-105'}`}
                   />
-                  
+
                   {product.hoverImage && (
-                    <Image 
-                      src={product.hoverImage} 
-                      alt={`${product.title} hover`} 
-                      fill 
+                    <Image
+                      src={product.hoverImage}
+                      alt={`${product.title} hover`}
+                      fill
                       className="object-contain transition-all duration-700 opacity-0 group-hover:opacity-100 group-hover:scale-105 p-6"
                     />
                   )}
-                  
+
                   {/* The White Pill Label at bottom */}
                   <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[85%] z-10">
                     <div className="bg-white py-4 px-8 rounded-full shadow-2xl flex items-center justify-center text-center">
@@ -101,7 +103,7 @@ export default function HomeProducts() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </Link>
             ))}
           </motion.div>
         </div>

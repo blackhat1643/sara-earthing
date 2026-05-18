@@ -93,7 +93,7 @@ export default function ProductCable() {
       tCtx.clearRect(0, 0, textCanvas.width, textCanvas.height);
       
       tCtx.fillStyle = '#0f172a'; // Deep slate text for high contrast on yellow
-      tCtx.font = 'bold 200px Orbitron, sans-serif'; 
+      tCtx.font = 'bold 125px Orbitron, sans-serif'; 
       tCtx.textAlign = 'center';
       tCtx.textBaseline = 'middle';
       

@@ -30,9 +30,9 @@ export default function Home() {
 
         <div className="relative z-10 w-full">
           <HomeProducts />
-          <StatsSection />
+          <StatsSection isHome={true} />
           <Applications />
-          <Certifications />
+          <Certifications isHome={true} />
           <ContactForm />
         </div>
         <Footer showImage />

@@ -32,7 +32,11 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
   );
 }
 
-export default function StatsSection() {
+interface StatsSectionProps {
+  isHome?: boolean;
+}
+
+export default function StatsSection({ isHome = false }: StatsSectionProps) {
   return (
     <section className="relative bg-[#d4af37] py-10 overflow-hidden border-y border-black/5">
       {/* Dynamic Industrial Background */}
@@ -48,8 +52,12 @@ export default function StatsSection() {
         </span>
       </div>
 
-      <div className="relative max-w-[1600px] mx-auto px-6 z-10">
-        <div className="w-full lg:w-[90%] lg:ml-auto">
+      <div className={
+        isHome
+          ? "relative max-w-[1600px] mx-auto pl-[70px] pr-6 md:pl-[12%] md:pr-6 z-10"
+          : "relative max-w-7xl mx-auto px-6 md:px-12 lg:px-16 z-10"
+      }>
+        <div className="w-full">
           <div className="grid lg:grid-cols-12 gap-20 items-center">
             
             {/* Left Branding Content */}

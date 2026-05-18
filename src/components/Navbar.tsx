@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, ChevronDown, Zap, Shield, Cog } from 'lucide-react';
+import { Menu, X, ChevronDown, Zap, Shield } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const productItems = [
@@ -18,12 +18,6 @@ const productItems = [
     href: '/products/earthing-accessories',
     icon: Shield,
     desc: 'Clamps, connectors & bus bars',
-  },
-  {
-    name: 'Exothermic Welding',
-    href: '/products/exothermic-welding',
-    icon: Cog,
-    desc: 'Permanent molecular connections',
   },
 ];
 

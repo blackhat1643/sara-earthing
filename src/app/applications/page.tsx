@@ -3,49 +3,119 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
-import ClientStrip from '@/components/ClientStrip';
-import { Power, Droplets, Home, Radio, Wind, Database, ArrowRight, ShieldCheck, Zap } from 'lucide-react';
+
+import { Power, Droplets, Home, Radio, Wind, Database, ArrowRight, ShieldCheck, Zap, Cpu, Activity, Building2, Hotel } from 'lucide-react';
 
 const sectors = [
   {
-    id: 'power',
-    title: 'Power Generation',
-    subtitle: 'High-Scale Energy Protection',
-    description: 'Protecting massive energy infrastructure from generators to substations. Our systems ensure zero-interruption power flow through precision-engineered grounding.',
-    features: ['Fault Current Dissipation', 'Substation Safety', 'Grid Resilience'],
+    id: 'transformers',
+    title: 'Transformers',
+    subtitle: 'High-Voltage Grid Regulation',
+    description: 'Protecting sensitive substations and power transformers from catastrophic fault currents and high-energy surges, guaranteeing stable grid distribution.',
+    features: ['Surge Suppression', 'Thermal Insulation', 'Overvoltage Protection'],
+    icon: Zap,
+    image: '/images/refinery_app.png',
+    color: '#d4af37'
+  },
+  {
+    id: 'production-plants',
+    title: 'Production Plants',
+    subtitle: 'Industrial Machinery Grounding',
+    description: 'Safeguarding heavy machinery, computerized assembly lines, and industrial workers from shock hazards and electrostatic discharges (ESD).',
+    features: ['Static Dissipation', 'Personnel Protection', 'Equipment Longevity'],
+    icon: Cpu,
+    image: '/images/welding.png',
+    color: '#000000'
+  },
+  {
+    id: 'refineries',
+    title: 'Refineries',
+    subtitle: 'Explosion-Proof Grounding',
+    description: 'Providing permanent, zero-resistance connections for volatile oil, gas, and chemical processing facilities to completely mitigate spark hazards.',
+    features: ['Intrinsically Safe', 'Corrosion Resistance', 'Fault Dissipation'],
+    icon: Droplets,
+    image: '/images/welding.png',
+    color: '#d4af37'
+  },
+  {
+    id: 'transmission-towers',
+    title: 'Power Transmission Tower',
+    subtitle: 'High-Structure Lightning Shields',
+    description: 'Diverting direct atmospheric lightning strikes away from active conductor lines and grounding the high-voltage transmission pylons safely into the earth.',
+    features: ['Direct Strike Deflection', 'Low Impedance Paths', 'Extreme Durability'],
+    icon: Wind,
+    image: '/images/alnd.png',
+    color: '#000000'
+  },
+  {
+    id: 'power-generation',
+    title: 'Power Generation Plants',
+    subtitle: 'Heavy-Duty Energy Grounds',
+    description: 'Providing maximum fault-current capability for thermal, nuclear, and hydroelectric power plants, securing crucial turbines and control rooms.',
+    features: ['High-Amp Dissipation', 'Turbine Protection', 'Control System Grounding'],
     icon: Power,
     image: '/images/refinery_app.png',
     color: '#d4af37'
   },
   {
-    id: 'refineries',
-    title: 'Oil & Gas Refineries',
-    subtitle: 'Explosion-Proof Grounding',
-    description: 'In volatile environments, even a micro-spark can be catastrophic. Our exothermic welding provides permanent, non-corrosive bonds for total site safety.',
-    features: ['Spark-Free Connections', 'Chemical Resistance', 'Intrinsically Safe'],
-    icon: Droplets,
-    image: '/images/welding.png',
+    id: 'homes',
+    title: 'Homes',
+    subtitle: 'Residential Electrical Safety',
+    description: 'Protecting your family, smart home networks, and modern domestic appliances from sudden lightning strikes and internal electrical surges.',
+    features: ['Domestic Appliance Safety', 'Shock Prevention', 'Compact Rod Systems'],
+    icon: Home,
+    image: '/images/alnd.png',
     color: '#000000'
   },
   {
-    id: 'data',
-    title: 'Data Centers',
-    subtitle: 'Digital Infrastructure Integrity',
-    description: 'Ensuring clean power and signal integrity for critical servers. We provide the low-resistance path necessary for massive digital storage facilities.',
-    features: ['Signal Noise Reduction', 'Uptime Assurance', 'Server Protection'],
-    icon: Database,
+    id: 'windmills',
+    title: 'Windmills',
+    subtitle: 'Renewable Turbine Protection',
+    description: 'Wind turbine blades are highly vulnerable to lightning at high altitudes. We engineer low-impedance pathways down the nacelle and tower to safeguard turbine electronics.',
+    features: ['High-Altitude Grounding', 'Nacelle Protection', 'Corrosion Shielding'],
+    icon: Activity,
     image: '/images/refinery_app.png',
     color: '#d4af37'
   },
   {
-    id: 'telecom',
-    title: 'Telecom Networks',
-    subtitle: 'Uninterrupted Connectivity',
-    description: 'Protecting remote towers and communication hubs from lightning strikes. Our systems maintain stable network coverage in the harshest weather.',
-    features: ['Tower Protection', 'Low Resistance Earth', 'Maintenance Free'],
+    id: 'telecom-towers',
+    title: 'Telecom Towers',
+    subtitle: 'Network Signal Integrity',
+    description: 'Securing remote cellular masts and transmission hubs. Our maintenance-free grounding prevents downtime and filters electromagnetic signal noise.',
+    features: ['Signal Noise Elimination', 'Tower Base Grounding', 'Maintenance-Free Systems'],
     icon: Radio,
     image: '/images/alnd.png',
     color: '#000000'
+  },
+  {
+    id: 'malls',
+    title: 'Malls',
+    subtitle: 'Commercial Hub Safeguards',
+    description: 'Securing crowded public spaces, complex central HVAC networks, elevators, and retail electronics from unexpected short circuits and electrical surges.',
+    features: ['Public Safety Design', 'HVAC System Grounding', 'Commercial Surge Protection'],
+    icon: Building2,
+    image: '/images/refinery_app.png',
+    color: '#d4af37'
+  },
+  {
+    id: 'data-centers',
+    title: 'Data Center',
+    subtitle: 'Digital Infrastructure Integrity',
+    description: 'Ensuring clean power and signal integrity for critical servers. We provide the ultra-low resistance grounding grid necessary for massive digital storage facilities.',
+    features: ['Clean Grounding Grid', 'Uptime Assurance', 'Sensitive Server Shielding'],
+    icon: Database,
+    image: '/images/refinery_app.png',
+    color: '#000000'
+  },
+  {
+    id: 'hotels',
+    title: 'Hotel',
+    subtitle: 'Premium Hospitality Grounding',
+    description: 'Safeguarding luxury high-rise buildings, central computing centers, smart rooms, and leisure amenities from fire hazards caused by electrical failure.',
+    features: ['Aesthetic Compact Layouts', 'Central Panel Protection', 'Total Occupant Safety'],
+    icon: Hotel,
+    image: '/images/alnd.png',
+    color: '#d4af37'
   }
 ];
 
@@ -122,20 +192,7 @@ export default function ApplicationsPage() {
         </div>
       </section>
 
-      {/* Global Reach Banner */}
-      <section className="py-24 md:py-32 bg-slate-900 text-white relative overflow-hidden">
-        <div className="hidden lg:block absolute top-0 right-0 p-20 opacity-5 select-none pointer-events-none">
-          <h2 className="text-[20rem] font-black text-white leading-none">GLOBAL</h2>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
-          <h2 className="text-4xl md:text-8xl font-black uppercase tracking-tighter mb-12 leading-[1.1] md:leading-none">
-            Trusted by Leaders <br />
-            <span className="text-[#d4af37]">Worldwide.</span>
-          </h2>
-          <ClientStrip />
-        </div>
-      </section>
+
 
       <Footer />
     </div>

@@ -11,7 +11,7 @@ export default function ClientStrip() {
   const items = [...multiplied, ...multiplied];
 
   return (
-    <section className="bg-[#050810] py-12 md:py-8 relative overflow-hidden border-t border-white/5">
+    <div className="w-full py-6 relative overflow-hidden">
       {/* Background Accent */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[150px] bg-[#d4af37]/10 blur-[100px] pointer-events-none" />
 
@@ -27,11 +27,7 @@ export default function ClientStrip() {
         </div>
 
         <div className="relative w-full flex overflow-hidden">
-          {/* Fade masks */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 md:w-80 z-20 pointer-events-none bg-gradient-to-r from-[#050810] to-transparent" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 md:w-80 z-20 pointer-events-none bg-gradient-to-l from-[#050810] to-transparent" />
-
-          <div className="flex animate-marquee gap-8 md:gap-16 items-center will-change-transform hover:[animation-play-state:paused] py-4">
+          <div className="flex animate-marquee gap-8 md:gap-16 items-center will-change-transform hover:[animation-play-state:paused] py-4 z-10">
             {items.map((c, i) => (
               <div
                 key={i}
@@ -46,8 +42,12 @@ export default function ClientStrip() {
               </div>
             ))}
           </div>
+
+          {/* Fade masks placed after the marquee to force rendering on top of GPU compositor layers */}
+          <div className="absolute left-0 top-0 bottom-0 w-32 md:w-80 z-30 pointer-events-none bg-gradient-to-r from-[#0f172a] via-[#0f172a]/80 to-[#0f172a]/0" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 md:w-80 z-30 pointer-events-none bg-gradient-to-l from-[#0f172a] via-[#0f172a]/80 to-[#0f172a]/0" />
         </div>
       </div>
-    </section>
+    </div>
   );
 }

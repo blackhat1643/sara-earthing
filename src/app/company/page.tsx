@@ -49,7 +49,7 @@ export default function CompanyPage() {
       </div>
 
       {/* Unique Architectural Hero */}
-      <section className="relative h-[60vh] md:h-[85vh] flex items-center overflow-hidden bg-white">
+      <section className="relative min-h-[70vh] md:min-h-[85vh] pt-28 pb-12 md:pt-36 md:pb-20 flex items-center overflow-hidden bg-white">
         {/* Left Side: Cinematic Background with Skew Mask */}
         <div className="absolute top-0 left-0 w-full h-full z-0 overflow-hidden">
           <motion.div
@@ -68,35 +68,47 @@ export default function CompanyPage() {
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
           {/* Main Typography Block */}
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-6">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="flex items-center gap-4 mb-6 md:mb-10">
-                <div className="h-[2px] w-8 md:w-12 bg-[#d4af37]" />
-                <span className="text-[#d4af37] text-[9px] md:text-[11px] font-black uppercase tracking-[0.4em] md:tracking-[0.8em]">Saara Legacy</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#d4af37]/10 border border-[#d4af37]/20 text-[#d4af37] text-[9px] font-extrabold uppercase tracking-widest mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37] animate-pulse" />
+                15+ Years Engineering Heritage
               </div>
 
-              <h1 className="text-[16vw] lg:text-[12rem] font-black uppercase tracking-[-0.04em] leading-[0.85] md:leading-[0.75] text-slate-900 mb-8 md:mb-12 pr-4">
-                The <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] via-[#f0d060] to-[#b8860b]">Brand</span>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="h-[2px] w-8 md:w-12 bg-[#d4af37]" />
+                <span className="text-[#d4af37] text-[10px] md:text-[12px] font-black uppercase tracking-[0.4em] md:tracking-[0.6em]">Saara Legacy</span>
+              </div>
+
+              <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tight text-slate-900 mb-6 leading-[0.95]">
+                The <br className="hidden md:inline" />
+                <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] via-[#f0d060] to-[#b8860b]">
+                  Brand
+                  <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-gradient-to-r from-[#d4af37] to-transparent rounded-full" />
+                </span>
               </h1>
 
-              <div className="flex items-start gap-8 md:gap-12">
+              <p className="text-slate-600 text-base md:text-lg font-medium leading-relaxed max-w-xl mb-8">
+                Pioneering next-generation grounding solutions, combining innovative chemical gel technology with decades of robust engineering to safeguard lives and global infrastructure.
+              </p>
+
+              <div className="flex items-start gap-6 md:gap-8 bg-slate-50/60 p-6 rounded-3xl border border-slate-100 max-w-lg shadow-sm">
                 <motion.div
                   initial={{ height: 0 }}
                   animate={{ height: 60 }}
                   transition={{ duration: 1, delay: 0.8 }}
-                  className="w-px bg-gradient-to-b from-[#d4af37] to-transparent"
+                  className="w-[3px] bg-gradient-to-b from-[#d4af37] via-[#f0d060] to-transparent rounded-full self-stretch"
                 />
-                <div className="space-y-4">
-                  <p className="text-slate-400 text-[10px] md:text-xs font-black uppercase tracking-[0.3em] md:tracking-[0.5em] leading-relaxed">
+                <div className="space-y-3">
+                  <p className="text-slate-800 text-xs md:text-sm font-black uppercase tracking-[0.2em] md:tracking-[0.3em] leading-relaxed">
                     Precision Grounding <br />
-                    <span className="text-slate-300">Engineering Excellence</span>
+                    <span className="text-[#d4af37]">Engineering Excellence</span>
                   </p>
-                  <div className="flex items-center gap-4 md:gap-6 text-[8px] md:text-[9px] font-bold text-slate-300 tracking-widest uppercase">
+                  <div className="flex items-center gap-4 md:gap-6 text-[9px] md:text-[10px] font-extrabold text-slate-500 tracking-wider uppercase">
                     <span>Est. 2004</span>
                     <div className="w-1 h-1 rounded-full bg-[#d4af37]" />
                     <span>Certified IEEE</span>
@@ -106,28 +118,57 @@ export default function CompanyPage() {
             </motion.div>
           </div>
 
-          {/* Right Side: Architectural Sidebar / Info Block */}
-          <div className="lg:col-span-4 hidden lg:block">
+          {/* Right Side: Sophisticated Glassmorphic Showcase */}
+          <div className="lg:col-span-6 relative mt-12 lg:mt-0">
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2, delay: 0.4 }}
-              className="relative p-12 bg-slate-50/50 backdrop-blur-sm border-l-4 border-[#d4af37] rounded-br-[100px]"
+              className="relative aspect-[4/3] lg:aspect-square max-h-[440px] xl:max-h-[480px] w-full rounded-[40px] overflow-hidden border border-slate-100 bg-gradient-to-br from-slate-50 to-white p-8 flex items-center justify-center group shadow-xl hover:shadow-[0_20px_50px_rgba(212,175,55,0.10)] hover:border-[#d4af37]/30 transition-all duration-700 hover:-translate-y-1"
             >
-              <div className="absolute -top-12 -left-12 w-24 h-24 border border-[#d4af37]/20 rounded-full animate-spin-slow" />
-              <p className="text-slate-500 text-sm font-medium leading-relaxed mb-8 italic">
-                "Redefining industrial safety through innovative grounding solutions and unmatched engineering heritage."
-              </p>
-              <div className="space-y-6">
-                <div className="flex items-end gap-2">
-                  <span className="text-5xl font-black text-slate-900 leading-none">15</span>
-                  <span className="text-[#d4af37] text-xs font-black uppercase tracking-widest mb-1">Years</span>
-                </div>
-                <div className="h-px w-full bg-slate-200" />
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Industry Leader</span>
-                  <div className="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse" />
-                </div>
+              {/* Technical CAD Blueprint Rings */}
+              <div 
+                className="absolute w-[80%] h-[80%] rounded-full border border-dashed border-[#d4af37]/25 pointer-events-none"
+                style={{ animation: 'spin 25s linear infinite' }}
+              />
+              <div 
+                className="absolute w-[64%] h-[64%] rounded-full border border-double border-[#d4af37]/10 pointer-events-none"
+                style={{ animation: 'spin 18s linear infinite reverse' }}
+              />
+              
+              {/* Decorative Glow Grid */}
+              <div className="absolute inset-0 opacity-[0.03] group-hover:opacity-[0.05] transition-opacity duration-700 pointer-events-none"
+                   style={{ backgroundImage: 'radial-gradient(#d4af37 2px, transparent 2px)', backgroundSize: '24px 24px' }} />
+              
+              <div className="absolute top-0 right-0 w-48 h-48 bg-[#d4af37]/5 blur-3xl rounded-full" />
+              <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-[#d4af37]/10 blur-3xl rounded-full animate-pulse" />
+
+              {/* Clean Image Container with Hover Float */}
+              <div className="relative w-[80%] h-[80%] transition-all duration-700 group-hover:scale-110 group-hover:-translate-y-2">
+                <Image
+                  src="/images/products.png"
+                  alt="Precision Products Showcase"
+                  fill
+                  className="object-contain filter drop-shadow-2xl"
+                />
+              </div>
+
+              {/* Premium Floating Glassmorphic Badges */}
+              <div className="absolute top-6 left-6 bg-slate-900 text-white text-[9px] font-black uppercase tracking-[0.2em] px-4 py-2 rounded-full shadow-lg">
+                EST. 2004
+              </div>
+
+              <div className="absolute top-6 right-6 bg-white/80 backdrop-blur-md border border-slate-200 text-slate-900 text-[9px] font-black uppercase tracking-[0.2em] px-4 py-2 rounded-full shadow-md flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+                ISO 9001
+              </div>
+
+              <div className="absolute bottom-6 right-6 bg-white/85 backdrop-blur-md border border-slate-200/80 p-5 rounded-2xl shadow-xl max-w-[240px] transition-all duration-700 group-hover:translate-x-[-8px]">
+                <p className="text-[#d4af37] text-[8px] font-black uppercase tracking-widest mb-1">Global Standard</p>
+                <h4 className="text-slate-900 text-xs font-black uppercase tracking-tight mb-2">UL-467 Compliant</h4>
+                <p className="text-slate-500 text-[10px] leading-normal font-medium">
+                  Manufactured molecularly using 99.9% pure copper.
+                </p>
               </div>
             </motion.div>
           </div>

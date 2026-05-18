@@ -19,8 +19,8 @@ export const allProducts: Product[] = [
     category: 'earthing-products',
     title: "GI Earthing Electrode",
     desc: "A process of creating an alternative path for the flow of excessive/fault current safely into the ground in the presence of minimal resistance.",
-    image: "/images/VIEW/Back Fill Compound.JPG",
-    hoverImage: "/images/VIEW/Back Fill Compound.JPG",
+    image: "/images/VIEW/GI Earthing Electrode.JPG",
+    hoverImage: "/images/VIEW/GI Earthing Electrode.JPG",
     features: ["Low Resistance Path", "Fault Current Dissipation", "Industrial Standard"],
     specs: {
       "Type": "Galvanized Iron",
@@ -67,8 +67,8 @@ export const allProducts: Product[] = [
     category: 'earthing-products',
     title: "Back Fill Compound",
     desc: "A supreme quality Chemical Earthing Combination which achieves lower ohmic value in tricky soil like rocky or sandy soil with high resistivity.",
-    image: "/images/VIEW/GI Earthing Electrode.JPG",
-    hoverImage: "/images/VIEW/GI Earthing Electrode.JPG",
+    image: "/images/VIEW/Back Fill Compound.JPG",
+    hoverImage: "/images/VIEW/Back Fill Compound.JPG",
     features: ["SI Gel Core Competency", "Lower Ohmic Value", "Soil Enhancement"],
     specs: {
       "Resistivity": "< 0.12 Ohm-m",
@@ -101,7 +101,8 @@ export const allProducts: Product[] = [
     category: 'earthing-accessories',
     title: "Thread Couplings",
     desc: "Bronze threads with both ends chamfered, made from corrosion-resistant alloys used to ensure low resistance in copper-to-copper connections.",
-    image: "/images/VIEW/20-08-2025 Sara Earthing1043.JPG",
+    image: "/images/products/thread-couplings.png",
+    hoverImage: "/images/products/thread-couplings.png",
     features: ["Corrosion Resistant", "Bronze Alloy", "Low Resistance"],
     specs: {
       "Material": "High Strength Bronze",
@@ -114,7 +115,8 @@ export const allProducts: Product[] = [
     category: 'earthing-accessories',
     title: "Threaded Driving Stud",
     desc: "High strength carbon steel designed for driving sectional rods that can withstand hammer impacts during installation.",
-    image: "/images/VIEW/20-08-2025 Sara Earthing1056.JPG",
+    image: "/images/products/threaded-driving-stud.png",
+    hoverImage: "/images/products/threaded-driving-stud.png",
     features: ["Hammer Impact Resistant", "High Strength Steel", "Thread Protection"],
     specs: {
       "Material": "High Strength Carbon Steel",
@@ -127,7 +129,8 @@ export const allProducts: Product[] = [
     category: 'earthing-accessories',
     title: "Driving Spike",
     desc: "Designed to suit Copper bond Earth Rods so the ground can be penetrated and the Earth Rod can be driven with ease in dense soil.",
-    image: "/images/VIEW/20-08-2025 Sara Earthing1065 copy.JPG",
+    image: "/images/products/driving-spike.png",
+    hoverImage: "/images/products/driving-spike.png",
     features: ["Easy Penetration", "Dense Soil Specialist", "Rod Protection"],
     specs: {
       "Compatibility": "Standard Copper Bonded Rods",
@@ -139,7 +142,8 @@ export const allProducts: Product[] = [
     category: 'earthing-accessories',
     title: "Dowels",
     desc: "Precision joining components used to join copper rods together to achieve variable lengths for deep grounding.",
-    image: "/images/VIEW/20-08-2025 Sara Earthing1066 copy.JPG",
+    image: "/images/products/dowels.png",
+    hoverImage: "/images/products/dowels.png",
     features: ["Variable Length Capability", "Precision Fit", "Deep Grounding"],
     specs: {
       "Material": "Conductive Copper Alloy",
@@ -151,7 +155,8 @@ export const allProducts: Product[] = [
     category: 'earthing-accessories',
     title: "Earth Rod To Cable Clamp",
     desc: "High-strength bronze alloy clamps, suitable for direct burial, providing low resistance copper to copper connections.",
-    image: "/images/VIEW/20-08-2025 Sara Earthing1035.JPG",
+    image: "/images/products/earth-rod-to-cable-clamp.png",
+    hoverImage: "/images/products/earth-rod-to-cable-clamp.png",
     features: ["Direct Burial Rated", "Bronze Alloy", "Non-Ferrous Screws"],
     specs: {
       "Material": "Bronze Alloy",
@@ -164,7 +169,8 @@ export const allProducts: Product[] = [
     category: 'earthing-accessories',
     title: "Earth Rod To Tape Clamps",
     desc: "Corrosion resistive clamps with high conductivity and mechanical strength essential for long-term earthing system operation.",
-    image: "/images/VIEW/20-08-2025 Sara Earthing1066.JPG",
+    image: "/images/products/earth-rod-to-tape-clamps.png",
+    hoverImage: "/images/products/earth-rod-to-tape-clamps.png",
     features: ["Mechanical Strength", "Corrosion Resistive", "Long Life"],
     specs: {
       "Standard": "BS 7430 Compliance",
@@ -176,8 +182,8 @@ export const allProducts: Product[] = [
     category: 'earthing-accessories',
     title: "Ground Rod Clamp U Bolt Saddle",
     desc: "Allows a conductor to connect to a ground rod in both parallel and perpendicular orientations.",
-    image: "/images/products/ground-rod-clamp-u-bolt-saddle.jpg",
-    hoverImage: "/images/products/ground-rod-clamp-u-bolt-saddle-hover.jpg",
+    image: "/images/products/ground-rod-clamp-u-bolt-saddle.png",
+    hoverImage: "/images/products/ground-rod-clamp-u-bolt-saddle.png",
     features: ["Dual Orientation", "U-Bolt Security", "Multi-Conductor"],
     specs: {
       "Type": "U-Bolt Saddle",
@@ -189,52 +195,12 @@ export const allProducts: Product[] = [
     category: 'earthing-accessories',
     title: "Cable Clamp U Bolt Saddle",
     desc: "Used to connect copper conductors to earth rods, manufactured from copper alloy with a pure copper U-bolt.",
-    image: "/images/products/cable-clamp-u-bolt-saddle.jpg",
-    hoverImage: "/images/products/cable-clamp-u-bolt-saddle-hover.jpg",
+    image: "/images/products/cable-clamp-u-bolt-saddle.png",
+    hoverImage: "/images/products/cable-clamp-u-bolt-saddle.png",
     features: ["Pure Copper U-Bolt", "Copper Alloy Body", "High Conductivity"],
     specs: {
       "Material": "Copper Alloy / Pure Copper",
       "Application": "Conductor to Rod Connection"
-    }
-  },
-
-  // Exothermic Welding
-  {
-    slug: 'molecular-bond',
-    category: 'exothermic-welding',
-    title: "Molecular Bond (ESTWELD®)",
-    desc: "The ESTWELD® process produces copper-to-copper and copper-to-steel molecular bonds with no external energy source.",
-    image: "/images/VIEW/20-08-2025 Sara Earthing1065 copy.JPG",
-    features: ["No External Heat", "Molecular Fusion", "Permanent Bond"],
-    specs: {
-      "Process": "ESTWELD® Exothermic",
-      "Bond Type": "Molecular Fusion",
-      "Conductivity": "Equal to conductor"
-    },
-    applications: ["Critical Power Links", "Grid Interconnections"]
-  },
-  {
-    slug: 'molecular-weld-powder',
-    category: 'exothermic-welding',
-    title: "Molecular Weld Powder",
-    desc: "A mixture of copper oxide and aluminum, packaged in individual plastic tubes or bags for specific shot sizes.",
-    image: "/images/VIEW/20-08-2025 Sara Earthing1066.JPG",
-    features: ["Precision Packaged", "Controlled Reaction", "97% Copper Output"],
-    specs: {
-      "Composition": "Copper Oxide & Aluminum",
-      "Packaging": "Size-specific Tubes/Bags"
-    }
-  },
-  {
-    slug: 'molecular-safe-system',
-    category: 'exothermic-welding',
-    title: "Molecular Safe System (ESTWELD® SAFE)",
-    desc: "A simplified and safer method of performing exothermically welded electrical connections, continuing the tradition of technical leadership.",
-    image: "/images/VIEW/20-08-2025 Sara Earthing1066 copy.JPG",
-    features: ["Simplified Method", "Enhanced Safety", "Technical Leadership"],
-    specs: {
-      "Brand": "ESTWELD® SAFE",
-      "Method": "Simplified Exothermic"
     }
   }
 ];

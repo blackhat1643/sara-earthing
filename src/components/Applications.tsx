@@ -102,8 +102,8 @@ export default function Applications() {
       id="applications"
       className="bg-[#0a0f1d] relative w-full min-h-screen py-8 overflow-hidden"
     >
-      <div className="relative max-w-[1600px] mx-auto px-6 h-full z-10">
-        <div className="w-full lg:w-[90%] lg:ml-auto p-4 relative z-10">
+      <div className="relative max-w-[1600px] mx-auto pl-[70px] pr-6 md:pl-[12%] md:pr-6 h-full z-10">
+        <div className="w-full p-4 relative z-10">
           {/* Section Header */}
           <div className="mb-12 md:mb-20 flex flex-col md:flex-row md:items-end md:justify-between gap-8 text-center md:text-left">
             <div>

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
 import FlippingBoxBackground from '@/components/FlippingBoxBackground';
-import { ArrowRight, Layers, Settings, Zap } from 'lucide-react';
+import { ArrowRight, Settings, Zap } from 'lucide-react';
 
 const categories = [
   {
@@ -20,13 +20,6 @@ const categories = [
     link: "/products/earthing-accessories",
     image: "/images/VIEW/20-08-2025 Sara Earthing1035.JPG",
     icon: Settings
-  },
-  {
-    title: "Exothermic Welding",
-    desc: "Molecular bonding solutions and weld powders for permanent, low-resistance connections.",
-    link: "/products/exothermic-welding",
-    image: "/images/VIEW/20-08-2025 Sara Earthing1065 copy.JPG",
-    icon: Layers
   }
 ];
 
