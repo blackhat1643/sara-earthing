@@ -14,7 +14,7 @@ const coreComponents = [
     title: "Safe Earthing Electrode",
     desc: "A high-conductivity metal electrode that facilitates the efficient discharge of fault currents and surges into the ground.",
     icon: Activity,
-    image: "/images/welding.png",
+    image: "/images/VIEW/Copper Bonded Electrode.JPG",
     color: "#d4af37"
   },
   {
@@ -22,7 +22,7 @@ const coreComponents = [
     title: "Back Fill Compounds",
     desc: "Earth enhancement materials with high conductivity and moisture retention properties that work in tandem with electrodes.",
     icon: Layers,
-    image: "/images/products.png",
+    image: "/images/VIEW/Back Fill Compound.JPG",
     color: "#ffffff"
   },
   {
@@ -30,7 +30,7 @@ const coreComponents = [
     title: "Lightning Arrester",
     desc: "Metallic devices mounted at the highest points to capture lightning strikes and direct them safely to the earth.",
     icon: Zap,
-    image: "/images/refinery_app.png",
+    image: "/images/VIEW/20-08-2025 Sara Earthing1035.JPG",
     color: "#d4af37"
   }
 ];
@@ -199,9 +199,9 @@ export default function EarthingPage() {
               transition={{ delay: i * 0.1 }}
               className="group relative h-[600px] rounded-[60px] overflow-hidden border border-slate-200 hover:border-[#d4af37] transition-all duration-700 shadow-xl bg-white"
             >
-              <div className="h-2/3 relative overflow-hidden">
-                <Image src={c.image} alt={c.title} fill className="object-cover group-hover:scale-110 transition-all duration-1000" />
-                <div className="absolute inset-0 bg-[#d4af37]/10 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="h-2/3 relative overflow-hidden bg-slate-50/50">
+                <Image src={c.image} alt={c.title} fill className="object-contain p-8 group-hover:scale-105 transition-all duration-1000" />
+                <div className="absolute inset-0 bg-[#d4af37]/10 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
               </div>
 
               <div className="h-1/3 p-12 flex flex-col justify-center">

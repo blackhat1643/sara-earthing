@@ -146,10 +146,10 @@ export default function CompanyPage() {
               {/* Clean Image Container with Hover Float */}
               <div className="relative w-[80%] h-[80%] transition-all duration-700 group-hover:scale-110 group-hover:-translate-y-2">
                 <Image
-                  src="/images/products.png"
+                  src="/images/precision_products.png"
                   alt="Precision Products Showcase"
                   fill
-                  className="object-contain filter drop-shadow-2xl"
+                  className="object-contain filter drop-shadow-2xl rounded-2xl"
                 />
               </div>
 

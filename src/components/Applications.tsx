@@ -10,7 +10,7 @@ const apps = [
     description: 'Advanced earthing systems tailored to meet the critical demands and massive scale of power generation facilities.',
     features: ['High-Current Grounding', 'Thermal Stability', 'Corrosion Resistance'],
     icon: Power,
-    image: '/images/refinery_app.png',
+    image: '/images/power_app.png',
     tag: 'ENERGY'
   },
   {
@@ -19,7 +19,7 @@ const apps = [
     description: 'Ensure absolute safety in highly combustible environments with our spark-free, durable exothermic welding.',
     features: ['Explosion Prevention', 'Low Impedance', 'Chemical Grade'],
     icon: Droplets,
-    image: '/images/welding.png',
+    image: '/images/refinery_app.png',
     tag: 'CHEMICAL'
   },
   {
@@ -28,7 +28,7 @@ const apps = [
     description: 'Protecting families and household electrical systems from lightning strikes and surges.',
     features: ['Lightning Protection', 'Home Surge Safety', 'Lifelong Duration'],
     icon: Home,
-    image: '/images/accessories.png',
+    image: '/images/residential_app.png',
     tag: 'SOCIETAL'
   },
   {
@@ -37,7 +37,7 @@ const apps = [
     description: 'Maintaining seamless communication networks with stable, low-resistance grounding solutions.',
     icon: Radio,
     features: ['Signal Integrity', 'Tower Earthing', 'Weather Proof'],
-    image: '/images/refinery_app.png',
+    image: '/images/telecom_app.png',
     tag: 'CONNECTIVITY'
   },
   {
@@ -46,7 +46,7 @@ const apps = [
     description: 'Comprehensive lightning protection for towering windmill structures exposed in open fields.',
     icon: Wind,
     features: ['High Altitude Safety', 'Rugged Build', 'Grid Stability'],
-    image: '/images/welding.png',
+    image: '/images/wind_app.png',
     tag: 'RENEWABLES'
   },
   {
@@ -55,7 +55,7 @@ const apps = [
     description: 'Zero-downtime grounding frameworks to secure sensitive servers and mass data storage systems.',
     icon: Database,
     features: ['Uptime Security', 'Pure Grounding', 'Digital Protection'],
-    image: '/images/refinery_app.png',
+    image: '/images/datacenter_app.png',
     tag: 'DIGITAL'
   }
 ];
