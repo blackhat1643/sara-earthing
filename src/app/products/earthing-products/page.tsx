@@ -40,15 +40,14 @@ export default function EarthingProductsPage() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1 }}
-              className="relative aspect-square lg:aspect-video rounded-[40px] overflow-hidden shadow-2xl border-4 border-white"
+              className="relative aspect-square lg:aspect-video rounded-[40px] overflow-hidden shadow-2xl border-4 border-white bg-[#faf9f6] p-8"
             >
               <Image 
                 src="/images/VIEW/Copper Bonded Electrode.JPG" 
                 alt="Industrial Earthing" 
                 fill 
-                className="object-cover"
+                className="object-contain p-6"
               />
-              <div className="absolute inset-0 bg-[#d4af37]/10 mix-blend-multiply" />
             </motion.div>
           </div>
         </div>
@@ -138,9 +137,9 @@ export default function EarthingProductsPage() {
             <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4 leading-none">Standardized <br /> Excellence</h2>
             <p className="text-white/80 text-lg font-medium">All our products comply with UL 467, IEEE 80, and ISO standards for global safety.</p>
           </div>
-          <button className="px-12 py-6 bg-white text-slate-900 font-black uppercase tracking-widest text-xs rounded-full hover:scale-105 transition-transform shadow-2xl">
-            Download Catalog
-          </button>
+          <a href="/images/catalogue.pdf" download="catalogue.pdf" className="px-12 py-6 bg-white text-slate-900 font-black uppercase tracking-widest text-xs rounded-full hover:scale-105 transition-transform shadow-2xl inline-block text-center">
+            Download Product Catalog
+          </a>
         </div>
       </section>
 

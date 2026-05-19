@@ -188,10 +188,10 @@ export default function CompanyPage() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="relative z-10 rounded-[60px] overflow-hidden border-8 border-slate-50 shadow-3xl aspect-square">
+              <div className="relative z-10 rounded-[40px] overflow-hidden border-8 border-slate-50 shadow-2xl aspect-[4/3] max-w-md md:max-w-lg mx-auto">
                 <Image
-                  src="/images/refinery_app.png"
-                  alt="Infrastructure"
+                  src="/images/about-img.jpg"
+                  alt="Sara Earthing Facilities"
                   fill
                   className="object-cover"
                 />

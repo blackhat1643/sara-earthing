@@ -47,10 +47,10 @@ export default function Certifications({ isHome = false }: CertificationsProps) 
                 ))}
               </div>
 
-              <motion.button whileHover={{ y: -3 }}
-                className="bg-[#0a0f1d] text-white font-black px-10 py-5 rounded-full text-sm uppercase tracking-wider font-display hover:bg-[#1e293b] transition-colors shadow-xl shadow-slate-900/20">
+              <motion.a href="/images/catalogue.pdf" download="catalogue.pdf" whileHover={{ y: -3 }}
+                className="inline-block bg-[#0a0f1d] text-white font-black px-10 py-5 rounded-full text-sm uppercase tracking-wider font-display hover:bg-[#1e293b] transition-colors shadow-xl shadow-slate-900/20">
                 Download Product Catalog
-              </motion.button>
+              </motion.a>
             </div>
 
             {/* Right cards */}

@@ -32,9 +32,9 @@ export default function ContactForm() {
               {/* Contact info */}
               <div className="flex flex-col items-center lg:items-start space-y-6 md:space-y-8">
                 {[
-                  { icon: Phone, label: 'Call Us', value: '+91 98765 43210' },
-                  { icon: Mail, label: 'Email Support', value: 'info@saaraindia.com' },
-                  { icon: MapPin, label: 'Headquarters', value: 'Ahmedabad, Gujarat, India' },
+                  { icon: Phone, label: 'Call Us', value: '+91 99798 52555' },
+                  { icon: Mail, label: 'Email Support', value: 'sales@saaraindia.com' },
+                  { icon: MapPin, label: 'Factory Headquarters', value: '165, Plot No. 18 to 25, Rameshawar Ind. Area, Veraval (Shapar), Rajkot - 360024' },
                 ].map(({ icon: Icon, label, value }) => (
                   <div key={label} className="flex flex-col lg:flex-row items-center lg:items-center gap-4 md:gap-5 group">
                     <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white border border-slate-100 flex items-center justify-center shadow-sm group-hover:bg-[#d4af37] group-hover:border-[#d4af37] transition-all duration-300 flex-shrink-0">

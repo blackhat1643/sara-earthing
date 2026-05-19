@@ -58,7 +58,7 @@ export default function Footer({ showImage = false }: { showImage?: boolean }) {
                 Partner with the industry leaders in earthing and lightning protection. Let&apos;s build a safer world together.
               </p>
             </div>
-            <Link href="/contact" className="relative z-10 group flex items-center justify-center gap-3 bg-[#d4af37] text-black font-black px-8 py-4 md:px-10 md:py-5 rounded-full text-sm md:text-base uppercase tracking-widest shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(212,175,55,0.5)] transition-all duration-300 font-display flex-shrink-0">
+            <Link href="/quote" className="relative z-10 group flex items-center justify-center gap-3 bg-[#d4af37] text-black font-black px-8 py-4 md:px-10 md:py-5 rounded-full text-sm md:text-base uppercase tracking-widest shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(212,175,55,0.5)] transition-all duration-300 font-display flex-shrink-0">
               Get a Quote
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
@@ -105,7 +105,15 @@ export default function Footer({ showImage = false }: { showImage?: boolean }) {
               <ul className="space-y-4">
                 {['Home', 'About Us', 'Earthing', 'Products', 'Applications', 'Quality', 'Clients'].map(item => (
                   <li key={item}>
-                    <Link href={item === 'Home' ? '/' : item === 'About Us' ? '/company' : item === 'Earthing' ? '/earthing' : item === 'Quality' ? '/quality' : item === 'Clients' ? '/clients' : `#${item.toLowerCase()}`}
+                    <Link href={
+                      item === 'Home' ? '/' :
+                      item === 'About Us' ? '/company' :
+                      item === 'Earthing' ? '/earthing' :
+                      item === 'Products' ? '/products' :
+                      item === 'Applications' ? '/applications' :
+                      item === 'Quality' ? '/quality' :
+                      item === 'Clients' ? '/clients' : '/'
+                    }
                       className="text-white/50 text-sm font-medium hover:text-[#d4af37] flex items-center gap-3 group transition-all duration-300">
                       <span className="w-1 h-1 rounded-full bg-white/20 group-hover:bg-[#d4af37] group-hover:scale-150 transition-all" />
                       {item}
@@ -121,11 +129,19 @@ export default function Footer({ showImage = false }: { showImage?: boolean }) {
                 Our Expert Products
               </h4>
               <ul className="space-y-4">
-                {['GI Earthing', 'Back Fill Compound', 'Copper Bonded Electrode', 'Copper Bonded Rods', 'Chemical Copper Electrodes', 'Earthing Accessories', 'Exothermic Welding'].map(item => (
-                  <li key={item}>
-                    <Link href="#" className="text-white/50 text-sm font-medium hover:text-[#d4af37] flex items-center gap-3 group transition-all duration-300">
+                {[
+                  { name: 'GI Earthing', href: '/products/earthing-products/gi-earthing-electrode' },
+                  { name: 'Back Fill Compound', href: '/products/earthing-products/back-fill-compound' },
+                  { name: 'Copper Bonded Electrode', href: '/products/earthing-products/copper-bonded-electrode' },
+                  { name: 'Copper Bonded Rods', href: '/products/earthing-products/copper-bonded-rods' },
+                  { name: 'Chemical Copper Electrodes', href: '/products/earthing-products/chemical-copper-electrodes' },
+                  { name: 'Earthing Accessories', href: '/products/earthing-accessories' },
+                  { name: 'Exothermic Welding', href: '/earthing#exothermic' }
+                ].map(item => (
+                  <li key={item.name}>
+                    <Link href={item.href} className="text-white/50 text-sm font-medium hover:text-[#d4af37] flex items-center gap-3 group transition-all duration-300">
                       <span className="w-1 h-1 rounded-full bg-[#d4af37]/50 group-hover:bg-[#d4af37] group-hover:scale-150 transition-all" />
-                      {item}
+                      {item.name}
                     </Link>
                   </li>
                 ))}

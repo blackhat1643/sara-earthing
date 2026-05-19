@@ -24,8 +24,12 @@ export default function ContactPage() {
     {
       icon: MapPin,
       title: "Visit Us",
-      details: ["Ahmedabad, Gujarat, India"],
-      label: "Headquarters"
+      details: [
+        "165, Plot No. 18 to 25,",
+        "Rameshawar Ind. Area, Veraval (Shapar),",
+        "Rajkot - 360024, Gujarat, India"
+      ],
+      label: "Factory Headquarters"
     },
     {
       icon: Clock,

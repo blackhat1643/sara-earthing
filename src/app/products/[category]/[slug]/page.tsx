@@ -68,12 +68,19 @@ export default function ProductDetailPage() {
 
               {/* Quick Actions */}
               <div className="grid grid-cols-2 gap-4 mt-10">
-                <button className="flex items-center justify-center gap-3 py-6 bg-slate-900 text-white rounded-[30px] font-black uppercase tracking-widest text-[10px] hover:bg-[#d4af37] transition-all shadow-xl shadow-slate-900/10">
+                <a 
+                  href="/images/catalogue.pdf" 
+                  download="catalogue.pdf" 
+                  className="flex items-center justify-center gap-3 py-6 bg-slate-900 text-white rounded-[30px] font-black uppercase tracking-widest text-[10px] hover:bg-[#d4af37] transition-all shadow-xl shadow-slate-900/10 text-center"
+                >
                   <Download size={18} /> Catalog
-                </button>
-                <button className="flex items-center justify-center gap-3 py-6 border-2 border-slate-100 text-slate-900 rounded-[30px] font-black uppercase tracking-widest text-[10px] hover:border-[#d4af37] hover:bg-[#d4af37]/5 transition-all">
+                </a>
+                <Link 
+                  href={`/quote?product=${encodeURIComponent(product.title)}`} 
+                  className="flex items-center justify-center gap-3 py-6 border-2 border-slate-100 text-slate-900 rounded-[30px] font-black uppercase tracking-widest text-[10px] hover:border-[#d4af37] hover:bg-[#d4af37]/5 transition-all text-center"
+                >
                   <Mail size={18} /> Inquiry
-                </button>
+                </Link>
               </div>
             </motion.div>
 
@@ -170,7 +177,7 @@ export default function ProductDetailPage() {
                 Get a custom quotation tailored to your project specifications. Our engineers are ready to assist with technical calculations.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                <Link href="/contact" className="px-12 py-6 bg-[#d4af37] text-black font-black uppercase tracking-widest text-xs rounded-full hover:scale-105 transition-transform shadow-2xl shadow-[#d4af37]/20">
+                <Link href="/quote" className="px-12 py-6 bg-[#d4af37] text-black font-black uppercase tracking-widest text-xs rounded-full hover:scale-105 transition-transform shadow-2xl shadow-[#d4af37]/20">
                   Request a Quote
                 </Link>
                 <button className="px-12 py-6 border border-white/20 text-white font-black uppercase tracking-widest text-xs rounded-full hover:bg-white/5 transition-all">

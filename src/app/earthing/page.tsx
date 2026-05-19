@@ -252,12 +252,9 @@ export default function EarthingPage() {
                 Ready to <span className="text-[#d4af37]">Protect?</span>
               </h2>
               <div className="flex flex-wrap justify-center gap-6">
-                <Link href="/contact" className="px-8 py-4 bg-[#d4af37] text-black font-black uppercase tracking-widest text-[10px] rounded-full hover:scale-105 transition-transform shadow-2xl shadow-[#d4af37]/20">
+                <Link href="/quote" className="px-8 py-4 bg-[#d4af37] text-black font-black uppercase tracking-widest text-[10px] rounded-full hover:scale-105 transition-transform shadow-2xl shadow-[#d4af37]/20">
                   Request Quote
                 </Link>
-                <button className="px-8 py-4 border border-white/10 text-white font-black uppercase tracking-widest text-[10px] rounded-full hover:bg-white/5 transition-all">
-                  Technical Data
-                </button>
               </div>
             </div>
           </div>

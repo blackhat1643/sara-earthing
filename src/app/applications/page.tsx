@@ -44,7 +44,7 @@ const sectors = [
     description: 'Diverting direct atmospheric lightning strikes away from active conductor lines and grounding the high-voltage transmission pylons safely into the earth.',
     features: ['Direct Strike Deflection', 'Low Impedance Paths', 'Extreme Durability'],
     icon: Wind,
-    image: '/images/alnd.png',
+    image: '/images/pylon_tower.jpg',
     color: '#000000'
   },
   {

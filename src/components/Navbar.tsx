@@ -162,7 +162,7 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          <Link href="#contact"
+          <Link href="/quote"
             className="bg-[#d4af37] text-black text-sm font-black px-6 py-3 rounded-full shadow-lg shadow-yellow-400/30 hover:-translate-y-1 hover:shadow-yellow-400/50 transition-all duration-300 font-display tracking-wide">
             Get a Quote
           </Link>
@@ -234,7 +234,7 @@ export default function Navbar() {
                 </AnimatePresence>
               </div>
 
-              <Link href="#contact" className="bg-[#d4af37] text-black font-black text-center py-4 rounded-full font-display"
+              <Link href="/quote" className="bg-[#d4af37] text-black font-black text-center py-4 rounded-full font-display"
                 onClick={() => setOpen(false)}>
                 Get a Quote
               </Link>

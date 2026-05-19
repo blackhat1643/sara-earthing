@@ -181,26 +181,13 @@ export default function Applications() {
                         {app.description}
                       </p>
                       
-                      <div className="space-y-2 mb-6">
+                      <div className="space-y-2">
                         {app.features.map(feat => (
                           <div key={feat} className="flex items-center gap-2 text-white/90 font-bold uppercase tracking-wide text-[10px]">
                             <CheckCircle2 size={12} className="text-[#d4af37]" />
                             {feat}
                           </div>
                         ))}
-                      </div>
-                      
-                      <div className="mt-auto pt-5 border-t border-white/5 flex items-center justify-between">
-                        <div className="flex -space-x-2 items-center">
-                          {[1, 2, 3].map(i => (
-                            <div key={i} className="w-6 h-6 rounded-full border-2 border-[#0a0f1d] bg-slate-800 flex items-center justify-center overflow-hidden">
-                               <div className="w-full h-full bg-[#d4af37]/10" />
-                            </div>
-                          ))}
-                        </div>
-                        <button className="text-[#d4af37] text-[10px] font-bold uppercase tracking-widest hover:tracking-[0.2em] transition-all">
-                          Case Study
-                        </button>
                       </div>
                     </div>
                   </div>

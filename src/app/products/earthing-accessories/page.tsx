@@ -40,15 +40,14 @@ export default function EarthingAccessoriesPage() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1 }}
-              className="relative aspect-square lg:aspect-video rounded-[40px] overflow-hidden shadow-2xl border-4 border-white"
+              className="relative aspect-square lg:aspect-video rounded-[40px] overflow-hidden shadow-2xl border-4 border-white bg-[#faf9f6] p-8"
             >
               <Image 
                 src="/images/VIEW/20-08-2025 Sara Earthing1043.JPG" 
                 alt="Earthing Accessories" 
                 fill 
-                className="object-cover"
+                className="object-contain p-6"
               />
-              <div className="absolute inset-0 bg-[#d4af37]/10 mix-blend-multiply" />
             </motion.div>
           </div>
         </div>
@@ -138,9 +137,9 @@ export default function EarthingAccessoriesPage() {
             <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4 leading-none">Structural <br /> Integrity</h2>
             <p className="text-white/80 text-lg font-medium">Engineered with corrosion-resistant bronze and high-strength carbon steel for extreme environments.</p>
           </div>
-          <button className="px-12 py-6 bg-white text-slate-900 font-black uppercase tracking-widest text-xs rounded-full hover:scale-105 transition-transform shadow-2xl">
-            Download Accessories PDF
-          </button>
+          <a href="/images/catalogue.pdf" download="catalogue.pdf" className="px-12 py-6 bg-white text-slate-900 font-black uppercase tracking-widest text-xs rounded-full hover:scale-105 transition-transform shadow-2xl inline-block text-center">
+            Download Product Catalog
+          </a>
         </div>
       </section>
 
