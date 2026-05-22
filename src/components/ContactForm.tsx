@@ -23,10 +23,10 @@ export default function ContactForm() {
               </span>
               <h2 className="font-black text-[#0a0f1d] font-display leading-[1.05] mb-6"
                 style={{ fontSize: 'clamp(2.5rem, 8vw, 3rem)' }}>
-                Ready to Start a Project?
+                Secure Your Infrastructure
               </h2>
               <p className="text-slate-500 text-base md:text-lg leading-[1.8] mb-12 lg:mb-16">
-                Our engineers are ready to provide customized earthing solutions and technical support for your infrastructure.
+                Partner with us to manufacture and implement a safety system customized for your project's specific load requirements and soil conditions.
               </p>
 
               {/* Contact info */}

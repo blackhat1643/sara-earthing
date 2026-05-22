@@ -1,62 +1,54 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll } from 'framer-motion';
-import { Power, Droplets, Home, Radio, Wind, Database, ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Factory, Building2, Home, Power, Database, ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
+
 const apps = [
   {
-    id: 'power',
-    title: 'Power Generation',
-    description: 'Advanced earthing systems tailored to meet the critical demands and massive scale of power generation facilities.',
-    features: ['High-Current Grounding', 'Thermal Stability', 'Corrosion Resistance'],
-    icon: Power,
+    id: 'manufacturing',
+    title: 'Manufacturing & Heavy Industry',
+    description: 'High load machinery and automated assembly lines demand absolute voltage stability to prevent downtime.',
+    features: ['Voltage Stability', 'Downtime Prevention', 'Equipment Safety'],
+    icon: Factory,
     image: '/images/power_app.png',
+    tag: 'MANUFACTURING'
+  },
+  {
+    id: 'commercial',
+    title: 'Commercial Real Estate',
+    description: 'Modern commercial architecture and high-rise buildings require comprehensive structural defense and safety grids to protect assets, electronics, and occupants.',
+    features: ['Structural Defense', 'Safety Grids', 'Asset Protection'],
+    icon: Building2,
+    image: '/images/refinery_app.png',
+    tag: 'COMMERCIAL'
+  },
+  {
+    id: 'datacenter',
+    title: 'Data Centers & Telecom',
+    description: 'Sensitive digital infrastructure requires a zero noise, ultra low resistance grounding network to maintain constant uptime and protect critical data integrity.',
+    features: ['Zero Noise', 'Low Resistance', 'Constant Uptime'],
+    icon: Database,
+    image: '/images/datacenter_app.png',
+    tag: 'DIGITAL'
+  },
+  {
+    id: 'power',
+    title: 'Power & Renewable Energy',
+    description: 'Solar farms, wind fields, and substations span vast terrains with highly variable soil resistivity, requiring highly adaptive grounding engineering.',
+    features: ['Adaptive Grounding', 'Variable Soil Solutions', 'Wide Terrain Safety'],
+    icon: Power,
+    image: '/images/wind_app.png',
     tag: 'ENERGY'
   },
   {
-    id: 'refineries',
-    title: 'Industrial Refineries',
-    description: 'Ensure absolute safety in highly combustible environments with our spark-free, durable exothermic welding.',
-    features: ['Explosion Prevention', 'Low Impedance', 'Chemical Grade'],
-    icon: Droplets,
-    image: '/images/refinery_app.png',
-    tag: 'CHEMICAL'
-  },
-  {
     id: 'residential',
-    title: 'Homes & Residences',
-    description: 'Protecting families and household electrical systems from lightning strikes and surges.',
-    features: ['Lightning Protection', 'Home Surge Safety', 'Lifelong Duration'],
+    title: 'Homes & Hotels',
+    description: 'Premium residential properties and hospitality venues prioritize uninterrupted luxury, guest comfort, and the total protection of automation systems.',
+    features: ['Uninterrupted Luxury', 'Guest Comfort', 'Automation Protection'],
     icon: Home,
     image: '/images/residential_app.png',
-    tag: 'SOCIETAL'
-  },
-  {
-    id: 'telecom',
-    title: 'Telecom Towers',
-    description: 'Maintaining seamless communication networks with stable, low-resistance grounding solutions.',
-    icon: Radio,
-    features: ['Signal Integrity', 'Tower Earthing', 'Weather Proof'],
-    image: '/images/telecom_app.png',
-    tag: 'CONNECTIVITY'
-  },
-  {
-    id: 'wind',
-    title: 'Wind Energy',
-    description: 'Comprehensive lightning protection for towering windmill structures exposed in open fields.',
-    icon: Wind,
-    features: ['High Altitude Safety', 'Rugged Build', 'Grid Stability'],
-    image: '/images/wind_app.png',
-    tag: 'RENEWABLES'
-  },
-  {
-    id: 'data',
-    title: 'Data Centers',
-    description: 'Zero-downtime grounding frameworks to secure sensitive servers and mass data storage systems.',
-    icon: Database,
-    features: ['Uptime Security', 'Pure Grounding', 'Digital Protection'],
-    image: '/images/datacenter_app.png',
-    tag: 'DIGITAL'
+    tag: 'RESIDENTIAL'
   }
 ];
 
@@ -114,10 +106,10 @@ export default function Applications() {
               >
                 Sector Specifics
               </motion.span>
-              <h2 className="text-4xl md:text-6xl font-black text-white font-display leading-[0.9] tracking-tighter uppercase">
-                Industrial <br />
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white font-display leading-[1.1] tracking-tighter uppercase">
+                Industries We <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-br from-[#d4af37] to-[#b8860b]">
-                  Impact
+                  Serve
                 </span>
               </h2>
             </div>

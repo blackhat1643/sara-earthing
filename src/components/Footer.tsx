@@ -84,7 +84,7 @@ export default function Footer({ showImage = false }: { showImage?: boolean }) {
                 </span>
               </Link>
               <p className="text-white/60 text-sm leading-[1.8] mb-8 font-medium">
-                Earthing is imperative for the safety of Human lives and Machinery. Being the prime requirements it is the most neglected aspect in our housing, industrial and commercial electrical infrastructure.
+                With over two decades of manufacturing excellence, we provide advanced, certified, and maintenance free earthing Solutions alongside robust lightning protection systems.
               </p>
               {/* Social icons */}
               <div className="flex gap-4">
@@ -157,8 +157,8 @@ export default function Footer({ showImage = false }: { showImage?: boolean }) {
                   <Phone size={14} /> Call Us
                 </h4>
                 <p className="text-white/80 text-sm font-medium leading-relaxed">
-                  +91 99 79 852555<br />
-                  +91 98 79 611180
+                  +91 75750 57000<br />
+                  +91 75750 52000
                 </p>
               </div>
 

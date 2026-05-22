@@ -67,17 +67,15 @@ export default function StatsSection({ isHome = false }: StatsSectionProps) {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-4xl md:text-5xl font-black text-[#0a0f1d] font-display leading-[0.9] tracking-tighter mb-6 group">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#0a0f1d] font-display leading-[0.95] tracking-tighter mb-6 group">
                   20+ Years <br />
-                  <span className="text-white/80 transition-colors duration-500 group-hover:text-white">
-                    Engineering
+                  <span className="text-white/80 transition-colors duration-500 group-hover:text-white text-3xl md:text-4xl lg:text-5xl mt-2 block">
+                    of Excellence
                   </span>
-                  <br />
-                  Excellence
                 </h2>
                 <div className="w-24 h-1 bg-black/20 mb-8 mx-auto lg:mx-0" />
-                <p className="text-[#0a0f1d]/70 text-lg leading-relaxed font-display font-medium max-w-sm mx-auto lg:mx-0">
-                  A legacy of safety and precision. Defending critical global infrastructure with relentless innovation since 2004.
+                <p className="text-[#0a0f1d]/70 text-base md:text-lg leading-relaxed font-display font-medium max-w-lg mx-auto lg:mx-0">
+                  True excellence is assessed in years of trouble free operation in tough environmental conditions. Our 20+ years of manufacturing expertise combines insights with superior molecular bonding, establishing us as the benchmark for industrial grounding solutions in India.
                 </p>
               </motion.div>
             </div>

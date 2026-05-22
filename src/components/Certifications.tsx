@@ -1,11 +1,12 @@
 'use client';
-import { Award, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Award, ShieldCheck, CheckCircle2, Zap, Building } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const certs = [
-  { icon: Award, title: 'ISO 9001:2015', desc: 'Certified quality management system ensuring consistent international standards in manufacturing and supply.' },
-  { icon: ShieldCheck, title: 'CPRI Approved', desc: 'Central Power Research Institute approved for high-load reliability across power and industrial infrastructure.' },
-  { icon: CheckCircle2, title: 'PWD Gov. Approved', desc: 'Registered & approved for government public works, infrastructure, and urban development projects nationwide.' },
+  { icon: Award, title: 'ISO 9001 Certified Quality Management System', desc: 'This certification reflects our disciplined manufacturing processes, traceability, and continuous engineering improvement.' },
+  { icon: ShieldCheck, title: 'CPRI Tested (Central Power Research Institute)', desc: 'This testing confirms that our systems can withstand extremely high-voltage faults and short-circuit currents without structural or electrical degradation.' },
+  { icon: Zap, title: 'ERDA Approved (Electrical Research & Development Association)', desc: 'This approval guarantees that our components meet exact technical parameters under simulated long-term field stress.' },
+  { icon: Building, title: 'PWD Approved (Public Works Department)', desc: 'This approval validates our compliance with strict state engineering standards, making us an eligible partner for high-scale civic developments.' },
 ];
 
 interface CertificationsProps {
@@ -31,9 +32,14 @@ export default function Certifications({ isHome = false }: CertificationsProps) 
                 style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)' }}>
                 Quality You Can Trust
               </h2>
-              <p className="text-slate-500 text-lg leading-[1.8] mb-10">
-                For over 20 years, Saara Earthing has remained committed to engineering excellence. Our products undergo rigorous testing to meet the most stringent safety certifications.
-              </p>
+              <div className="space-y-4 mb-10">
+                <p className="text-slate-500 text-lg leading-[1.8]">
+                  Every electrode, compound, and accessory bearing our name undergoes rigorous mechanical and electrical testing to ensure it exceeds national safety benchmarks before reaching your site.
+                </p>
+                <p className="text-slate-500 text-lg leading-[1.8]">
+                  We manufacture every component under strict quality control systems to ensure unshakable reliability year-round.
+                </p>
+              </div>
 
               {/* Features list */}
               <div className="flex flex-col items-start w-fit mx-auto lg:mx-0 lg:items-start space-y-4 mb-12">

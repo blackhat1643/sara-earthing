@@ -49,16 +49,15 @@ export default function Hero() {
               Pioneering Industrial Safety
             </span>
             
-            <h1 className="text-4xl md:text-7xl font-black text-white font-display leading-[1.1] md:leading-[0.85] tracking-tighter uppercase mb-8">
-              Reliable <br />
+            <h1 className="text-4xl md:text-6xl font-black text-white font-display leading-tight md:leading-tight tracking-tighter uppercase mb-8">
+              Reliable Foundation For <br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-br from-[#d4af37] via-[#f7e1ad] to-[#b8860b]">
-                Protection
+                Electrical Safety
               </span>
             </h1>
             
-            <p className="text-white/60 text-sm md:text-lg font-medium max-w-2xl mx-auto mb-10 leading-relaxed px-4 md:px-0">
-              Global leaders in advanced earthing systems and lightning protection. 
-              Engineering resilience for the world&apos;s most critical industrial infrastructure.
+            <p className="text-white/70 text-sm md:text-lg font-medium max-w-3xl mx-auto mb-10 leading-relaxed px-4 md:px-0">
+              We have been manufacturing chemical earthing and lightning protection systems for more than 20 years now, protecting vital assets, industrial facilities, and residential places throughout India.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6">
