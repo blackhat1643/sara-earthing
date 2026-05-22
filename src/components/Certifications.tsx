@@ -41,18 +41,6 @@ export default function Certifications({ isHome = false }: CertificationsProps) 
                 </p>
               </div>
 
-              {/* Features list */}
-              <div className="flex flex-col items-start w-fit mx-auto lg:mx-0 lg:items-start space-y-4 mb-12">
-                {['100% Pure Electrolytic Copper', 'Anti-Corrosive Nano Coating', 'Zero Maintenance Designs', 'IS / IEC / BS Standards Compliance'].map(item => (
-                  <div key={item} className="flex items-center gap-4">
-                    <div className="w-5 h-5 rounded-full bg-[#d4af37]/15 border border-[#d4af37]/30 flex items-center justify-center flex-shrink-0">
-                      <div className="w-2 h-2 rounded-full bg-[#d4af37]" />
-                    </div>
-                    <span className="text-slate-700 font-semibold text-sm">{item}</span>
-                  </div>
-                ))}
-              </div>
-
               <motion.a href="/images/catalogue.pdf" download="catalogue.pdf" whileHover={{ y: -3 }}
                 className="inline-block bg-[#0a0f1d] text-white font-black px-10 py-5 rounded-full text-sm uppercase tracking-wider font-display hover:bg-[#1e293b] transition-colors shadow-xl shadow-slate-900/20">
                 Download Product Catalog

@@ -172,15 +172,6 @@ export default function Applications() {
                       <p className="text-white/60 text-sm leading-relaxed font-medium mb-4 line-clamp-2">
                         {app.description}
                       </p>
-                      
-                      <div className="space-y-2">
-                        {app.features.map(feat => (
-                          <div key={feat} className="flex items-center gap-2 text-white/90 font-bold uppercase tracking-wide text-[10px]">
-                            <CheckCircle2 size={12} className="text-[#d4af37]" />
-                            {feat}
-                          </div>
-                        ))}
-                      </div>
                     </div>
                   </div>
                 ))}
