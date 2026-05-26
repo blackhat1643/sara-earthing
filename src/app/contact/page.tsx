@@ -66,12 +66,12 @@ export default function ContactPage() {
             </div>
 
             <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-8">
-              Expert <span className="text-[#d4af37]">Support</span> <br />
-              <span className="text-slate-900">On Demand</span>
+              Connect <br />
+              <span className="text-[#d4af37]">With Us</span>
             </h1>
 
             <p className="text-slate-500 text-lg md:text-xl max-w-2xl mx-auto font-medium leading-relaxed">
-              Whether you need technical calculations, a custom quote, or project consultation, our engineering team is ready to assist.
+              Share your specific site parameters or tender requirements with us, and let our specialists deliver a zero failure defense plan for your assets.
             </p>
           </motion.div>
         </div>
@@ -178,18 +178,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
-                {[
-                  { icon: Globe, title: "Global Reach", desc: "Supplying to 20+ countries" },
-                  { icon: ShieldCheck, title: "Secure Projects", desc: "10k+ Successful sites" }
-                ].map((item, i) => (
-                  <div key={i} className="p-8 rounded-[40px] bg-slate-900 text-white border border-white/5">
-                    <item.icon className="text-[#d4af37] mb-4" size={24} />
-                    <h4 className="text-lg font-black uppercase tracking-tight mb-2">{item.title}</h4>
-                    <p className="text-white/50 text-xs font-bold uppercase tracking-widest">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
+
             </motion.div>
           </div>
         </div>

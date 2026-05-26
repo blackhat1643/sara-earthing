@@ -156,7 +156,7 @@ export default function QuotePage() {
   };
 
   return (
-    <div className="bg-[#060a14] min-h-screen text-white font-display overflow-x-hidden relative">
+    <div className="bg-[#060a14] min-h-screen text-white font-display relative">
       {/* High-Tech Grounding Grid Background Mesh */}
       <div className="fixed inset-0 pointer-events-none z-0 opacity-15">
         <div 
@@ -523,55 +523,8 @@ export default function QuotePage() {
           </div>
 
           {/* Estimation Preview Sidebar */}
-          <div className="lg:col-span-4 space-y-8">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="bg-white/5 backdrop-blur-xl border border-[#d4af37]/25 rounded-[40px] p-8 shadow-2xl relative overflow-hidden"
-            >
-              {/* Highlight badge */}
-              <div className="absolute top-0 right-0 w-24 h-24 bg-[#d4af37]/10 -skew-x-12 translate-x-8 -translate-y-8" />
-              
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-[#d4af37]/20 flex items-center justify-center text-[#d4af37]">
-                  <Calculator size={20} />
-                </div>
-                <div>
-                  <span className="text-[9px] font-black uppercase tracking-widest text-[#d4af37]/60">Live Grounding Valuation</span>
-                  <h4 className="text-lg font-black uppercase tracking-tight leading-none">Estimation Panel</h4>
-                </div>
-              </div>
+          <div className="lg:col-span-4 sticky top-32 self-start">
 
-              {/* Estimate calculation Display */}
-              <div className="bg-white/5 rounded-3xl p-6 border border-white/5 text-center mb-8">
-                <span className="text-[10px] font-black uppercase tracking-widest text-white/50 block mb-2">Estimate Total cost</span>
-                <div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-[#d4af37] via-[#f7e1ad] to-[#b8860b] font-display mb-1">
-                  ₹{calculateEstimate().toLocaleString('en-IN')}
-                </div>
-                <span className="text-[8px] font-black uppercase tracking-widest text-[#d4af37] opacity-60">Excl. Tax & Shipping</span>
-              </div>
-
-              {/* Technical specification breakdown */}
-              <div className="space-y-4">
-                <h5 className="text-[10px] font-black uppercase tracking-widest text-white/60 mb-2 border-b border-white/5 pb-2">Grounding Specs</h5>
-                
-                {[
-                  { label: 'Electrode System', value: formData.earthingSystemType.split(' ')[0] + ' System' },
-                  { label: 'Fault Rating', value: `${formData.faultCurrent} kA` },
-                  { label: 'Resistivity', value: `${formData.soilResistivity} Ω·m` },
-                  { label: 'Electrode Dimension', value: `${formData.electrodeDiameter} x ${formData.electrodeLength}` },
-                  { label: 'Electrode Quantity', value: `${formData.electrodeQty} Units` },
-                  { label: 'Compound Volume', value: `${formData.compoundQty} Bags (25KG)` },
-                  { label: 'Arrester System', value: `${formData.arresterQty}x ${formData.arresterType.split(' ')[0]}` },
-                  { label: 'Earth Pit Chamber', value: formData.inspectionChamber.split(' ')[0] },
-                ].map((spec, i) => (
-                  <div key={i} className="flex justify-between items-center text-xs font-semibold text-white/80">
-                    <span className="opacity-50 text-[10px] uppercase tracking-wider">{spec.label}</span>
-                    <span className="text-[#d4af37] font-bold text-right max-w-[150px] truncate">{spec.value}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
 
             {/* Support guarantee cards */}
             <div className="p-8 rounded-[40px] bg-slate-900/50 border border-white/5 space-y-6">

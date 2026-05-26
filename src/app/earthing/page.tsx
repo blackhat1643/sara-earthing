@@ -11,8 +11,8 @@ import { ShieldAlert, Zap, Globe, HardHat, Info, Activity, ShieldCheck, ZapOff, 
 const coreComponents = [
   {
     id: "01",
-    title: "Safe Earthing Electrode",
-    desc: "A high-conductivity metal electrode that facilitates the efficient discharge of fault currents and surges into the ground.",
+    title: "Chemical Earthing Electrode",
+    desc: "Unlike traditional rods, an advanced Chemical Earthing Electrode is molecularly bonded and treated to maintain optimal performance across all seasons.",
     icon: Activity,
     image: "/images/VIEW/Copper Bonded Electrode.JPG",
     color: "#d4af37"
@@ -20,7 +20,7 @@ const coreComponents = [
   {
     id: "02",
     title: "Back Fill Compounds",
-    desc: "Earth enhancement materials with high conductivity and moisture retention properties that work in tandem with electrodes.",
+    desc: "Our moisture retaining, non soluble compound creates a permanent, dense conductive zone that thrives even in dry or highly corrosive terrains.",
     icon: Layers,
     image: "/images/VIEW/Back Fill Compound.JPG",
     color: "#ffffff"
@@ -28,7 +28,7 @@ const coreComponents = [
   {
     id: "03",
     title: "Lightning Arrester",
-    desc: "Metallic devices mounted at the highest points to capture lightning strikes and direct them safely to the earth.",
+    desc: "This system intercepts high voltage strikes at the highest point of your facility and safely channels them into the ground network, forming a comprehensive lightning protection system.",
     icon: Zap,
     image: "/images/VIEW/20-08-2025 Sara Earthing1035.JPG",
     color: "#d4af37"
@@ -108,70 +108,126 @@ export default function EarthingPage() {
         </div>
       </section>
 
-      {/* The "Blueprint" Section */}
-      <section className="py-7 relative bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="relative border-t border-slate-100 pt-24">
-            <div className="absolute top-0 right-0 p-12 opacity-[0.03] select-none pointer-events-none">
-              <h2 className="text-[20rem] font-black text-slate-900 leading-none">SPECS</h2>
+      {/* What is Earthing — Redesigned Section */}
+      <section className="relative bg-white overflow-hidden">
+
+        {/* Top Block: What is Earthing — Dark full-bleed banner */}
+        <div className="relative bg-slate-900 py-20 md:py-32 overflow-hidden">
+          {/* Decorative gold grid */}
+          <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
+            style={{ backgroundImage: 'linear-gradient(to right, #d4af37 1px, transparent 1px), linear-gradient(to bottom, #d4af37 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+          {/* Giant watermark */}
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 select-none pointer-events-none opacity-[0.04] pr-8 hidden lg:block">
+            <span className="text-[18rem] font-black text-white leading-none tracking-tighter">?</span>
+          </div>
+          <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-[#d4af37]/5 to-transparent pointer-events-none" />
+
+          <div className="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
+            {/* Label + Heading */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9 }}
+              className="lg:col-span-5"
+            >
+              <span className="inline-flex items-center gap-2 text-[#d4af37] text-[10px] font-black uppercase tracking-[0.5em] mb-6">
+                <span className="w-6 h-[2px] bg-[#d4af37]" />
+                The Science
+              </span>
+              <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[0.9] text-white mb-0">
+                What is <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] via-[#f0d060] to-[#b8860b]">
+                  Earthing?
+                </span>
+              </h2>
+            </motion.div>
+
+            {/* Divider line — vertical on desktop */}
+            <div className="hidden lg:flex lg:col-span-1 justify-center">
+              <div className="w-[1px] h-32 bg-gradient-to-b from-transparent via-[#d4af37]/40 to-transparent" />
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-32">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="space-y-12"
-              >
-                <div className="space-y-6">
-                  <span className="text-[#d4af37] text-[10px] font-black uppercase tracking-widest px-4 py-1 rounded-full border border-[#d4af37]/20 bg-[#d4af37]/5">Industrial Grade</span>
-                  <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none">
-                    Engineering <br />
-                    <span className="text-[#d4af37]">Resilience</span>
-                  </h2>
-                  <p className="text-slate-500 text-xl leading-relaxed font-medium">
-                    Earthing is not just a requirement; it&apos;s a critical layer of industrial architecture. We design paths for energy that keep your world moving safely.
-                  </p>
-                </div>
+            {/* Description */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, delay: 0.15 }}
+              className="lg:col-span-6"
+            >
+              <p className="text-white/60 text-lg md:text-xl leading-relaxed font-medium">
+                An electrical earthing system is the immediate transfer of electrical discharge directly into the earth through a low resistance path. It acts as an invisible safety path, protecting human life, high value machinery, and structural assets from unexpected current surges and insulation failures.
+              </p>
+            </motion.div>
+          </div>
+        </div>
 
-                <div className="space-y-8">
-                  {[
-                    { title: "Fault Isolation", desc: "Instantly routes leakage currents away from sensitive zones." },
-                    { title: "Static Control", desc: "Prevents hazardous discharge in chemical and volatile zones." },
-                    { title: "Surge Defense", desc: "Engineered to withstand direct lightning impact of over 100kA." }
-                  ].map((item, idx) => (
-                    <div key={idx} className="flex gap-8 group">
-                      <div className="text-[12px] font-black text-[#d4af37] mt-1.5">0{idx + 1}</div>
-                      <div>
-                        <h4 className="text-xl font-black uppercase mb-2 group-hover:text-[#d4af37] transition-colors">{item.title}</h4>
-                        <p className="text-slate-400 text-sm leading-relaxed font-medium">{item.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
+        {/* Bottom Block: Why Earthing — Three cards on white */}
+        <div className="relative bg-white py-16 md:py-24">
+          <div className="max-w-7xl mx-auto px-6">
+            {/* Section label */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-6 mb-14"
+            >
+              <div className="h-[2px] w-12 bg-[#d4af37]" />
+              <span className="text-slate-900 text-xs font-black uppercase tracking-[0.5em]">Why Earthing?</span>
+            </motion.div>
 
-              <div className="relative">
+            {/* Three horizontal cards */}
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                {
+                  num: "01",
+                  title: "Asset Protection",
+                  desc: "Prevents damage to sensitive electronics, heavy machinery, and electrical circuits.",
+                  icon: ShieldAlert
+                },
+                {
+                  num: "02",
+                  title: "Human Safety",
+                  desc: "Eliminates the risk of fatal electrical shocks by instantly diverting fault currents away from touchable surfaces.",
+                  icon: HardHat
+                },
+                {
+                  num: "03",
+                  title: "Voltage Stabilization",
+                  desc: "Provides a constant, reliable point for electrical currents, preventing power fluctuations.",
+                  icon: Activity
+                }
+              ].map((item, i) => (
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  key={item.num}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="aspect-square relative rounded-[80px] overflow-hidden border-8 border-slate-50 shadow-3xl"
+                  transition={{ delay: i * 0.12, duration: 0.7 }}
+                  className="group relative p-8 md:p-10 rounded-[32px] border border-slate-100 bg-white hover:border-[#d4af37]/40 hover:shadow-xl hover:shadow-[#d4af37]/5 transition-all duration-500"
                 >
-                  <Image src="/images/alnd.png" alt="Industrial Detail" fill className="object-cover transition-all duration-1000" />
-                  <div className="absolute inset-0 bg-[#d4af37]/10 mix-blend-multiply" />
-                </motion.div>
-
-                {/* Floating Technical Overlay */}
-                <div className="absolute -bottom-12 -left-12 bg-white p-10 rounded-[40px] border border-slate-100 z-20 max-w-xs shadow-3xl">
-                  <div className="w-12 h-12 bg-[#d4af37]/10 rounded-2xl flex items-center justify-center mb-6">
-                    <Cpu className="text-[#d4af37]" size={24} />
+                  {/* Number watermark */}
+                  <div className="absolute top-6 right-8 text-7xl font-black text-slate-50 group-hover:text-[#d4af37]/10 transition-colors duration-500 select-none leading-none">
+                    {item.num}
                   </div>
-                  <p className="text-sm font-bold leading-relaxed text-slate-500">
-                    "Our systems utilize the proprietary SI Gel technology, ensuring consistent resistance levels even in harsh soil conditions."
+
+                  {/* Icon */}
+                  <div className="w-14 h-14 rounded-2xl bg-[#d4af37]/8 border border-[#d4af37]/15 flex items-center justify-center mb-8 group-hover:bg-[#d4af37] transition-all duration-400">
+                    <item.icon size={26} className="text-[#d4af37] group-hover:text-black transition-colors duration-400" strokeWidth={1.5} />
+                  </div>
+
+                  <h4 className="text-xl font-black uppercase tracking-tight text-slate-900 mb-3 group-hover:translate-x-1 transition-transform duration-400">
+                    {item.title}
+                  </h4>
+                  <p className="text-slate-400 text-sm leading-relaxed font-medium">
+                    {item.desc}
                   </p>
-                </div>
-              </div>
+
+                  {/* Bottom accent line */}
+                  <div className="mt-8 h-[2px] w-8 bg-slate-100 group-hover:w-full group-hover:bg-[#d4af37]/30 transition-all duration-600 rounded-full" />
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
@@ -179,14 +235,16 @@ export default function EarthingPage() {
 
       {/* Component Showcase */}
       <section className="py-20 bg-slate-50 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 mb-20 flex flex-col md:flex-row justify-between items-end gap-8">
-          <div className="max-w-xl">
-            <span className="text-[11px] font-black uppercase tracking-[0.5em] text-[#d4af37] mb-6 block">The Ecosystem</span>
-            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none">Core Systems</h2>
+        <div className="max-w-7xl mx-auto px-6 mb-16">
+          <div className="flex flex-col md:flex-row justify-between items-end gap-8">
+            <div className="max-w-xl">
+              <span className="text-[11px] font-black uppercase tracking-[0.5em] text-[#d4af37] mb-4 block">The Ecosystem</span>
+              <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-4">Earthing System</h2>
+              <p className="text-slate-500 text-base md:text-lg font-medium leading-relaxed max-w-lg">
+                We engineer each pillar to ensure your infrastructure remains completely secure under any environmental or electrical stress.
+              </p>
+            </div>
           </div>
-          <Link href="/products" className="hidden md:flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-[#d4af37] transition-colors group">
-            Explore All Products <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
-          </Link>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 px-6 max-w-7xl mx-auto">
@@ -217,6 +275,18 @@ export default function EarthingPage() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Explore Our Products CTA */}
+        <div className="max-w-7xl mx-auto px-6 mt-14 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-slate-200 pt-10">
+          <p className="text-slate-400 text-sm font-medium">Explore our complete range of grounding and protection solutions.</p>
+          <Link
+            href="/products"
+            className="group inline-flex items-center gap-3 px-8 py-4 bg-slate-900 text-white font-black uppercase tracking-widest text-[10px] rounded-full hover:bg-[#d4af37] hover:text-black transition-all duration-300 shadow-lg"
+          >
+            Explore Our Products
+            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </section>
 

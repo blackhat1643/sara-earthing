@@ -23,10 +23,10 @@ export default function ContactForm() {
               </span>
               <h2 className="font-black text-[#0a0f1d] font-display leading-[1.05] mb-6"
                 style={{ fontSize: 'clamp(2.5rem, 8vw, 3rem)' }}>
-                Secure Your Infrastructure
+                Protect Your Infrastructure
               </h2>
               <p className="text-slate-500 text-base md:text-lg leading-[1.8] mb-12 lg:mb-16">
-                Partner with us to manufacture and implement a safety system customized for your project's specific load requirements and soil conditions.
+                Connect with us today to discuss your site&apos;s specific blueprints and requirements.
               </p>
 
               {/* Contact info */}
@@ -91,7 +91,7 @@ export default function ContactForm() {
                 <div className="sm:col-span-2">
                   <motion.button type="submit" whileHover={{ y: -3, boxShadow: '0 20px 40px rgba(212,175,55,0.35)' }}
                     className="w-full flex items-center justify-center gap-3 bg-[#d4af37] text-black font-black py-5 rounded-xl text-sm uppercase tracking-wider font-display shadow-lg shadow-yellow-400/30 transition-all duration-300 cursor-pointer">
-                    Send Message <Send size={16} />
+                    Get A Quote <Send size={16} />
                   </motion.button>
                 </div>
               </form>

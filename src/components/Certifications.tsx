@@ -22,9 +22,9 @@ export default function Certifications({ isHome = false }: CertificationsProps) 
           : "relative max-w-7xl mx-auto px-6 md:px-12 lg:px-16"
       }>
         <div className="w-full">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+          <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-24 relative">
             {/* Left */}
-            <div className="flex-1 text-center lg:text-left">
+            <div className="flex-1 text-center lg:text-left lg:sticky lg:top-32">
               <span className="inline-block px-4 py-1.5 bg-[#d4af37]/10 text-[#d4af37] text-xs font-bold uppercase tracking-[0.2em] rounded-sm border border-[#d4af37]/20 mb-6">
                 Our Standards
               </span>

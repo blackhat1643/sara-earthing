@@ -11,23 +11,23 @@ import { Shield, Zap, Target, Award, CheckCircle2, Factory, Users, History, Cpu,
 const values = [
   {
     icon: Shield,
-    title: "Safety First",
-    desc: "Earthing is imperative for the safety of human lives and machinery. We prioritize absolute reliability."
+    title: "Uncompromising Quality",
+    desc: "We believe that in high voltage safety, a single defect is a total failure. Every component we produce undergoes strict testing to meet rigid national safety benchmarks before it ever leaves our facility."
   },
   {
     icon: Zap,
-    title: "Innovation",
-    desc: "Introduced Gel Earthing Electrode (SI Gel) under our core competency to provide modern grounding solutions."
+    title: "Technical Integrity",
+    desc: "We do not offer temporary fixes or outdated solutions. We focus on delivering true maintenance free earthing systems, relying on advanced chemical engineering and field-tested data to provide permanent, stable performance."
   },
   {
     icon: Target,
-    title: "Precision",
-    desc: "Design, supply, and installation complying with relevant codes of practice and global specifications."
+    title: "Client-Centric",
+    desc: "Every landscape features unique soil conditions and specific load challenges. We actively listen to project managers and architects, tailoring our industrial earthing solutions to fit the exact blueprint of the site we are protecting."
   },
   {
     icon: Award,
-    title: "Quality",
-    desc: "Achieved through rigorous testing and 15+ years of professional experience in product quality."
+    title: "Absolute Transparency",
+    desc: "As an officially certified organization backed by PWD, ISO 9001, CPRI, and ERDA, we give our partners complete peace of mind. From our raw material sourcing to our authenticated test records, we provide absolute clarity and documented proof of performance."
   }
 ];
 
@@ -74,26 +74,16 @@ export default function CompanyPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#d4af37]/10 border border-[#d4af37]/20 text-[#d4af37] text-[9px] font-extrabold uppercase tracking-widest mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37] animate-pulse" />
-                15+ Years Engineering Heritage
-              </div>
-
-              <div className="flex items-center gap-4 mb-4">
-                <div className="h-[2px] w-8 md:w-12 bg-[#d4af37]" />
-                <span className="text-[#d4af37] text-[10px] md:text-[12px] font-black uppercase tracking-[0.4em] md:tracking-[0.6em]">Saara Legacy</span>
-              </div>
-
               <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tight text-slate-900 mb-6 leading-[0.95]">
-                The <br className="hidden md:inline" />
+                A Legacy Built on{' '}
                 <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] via-[#f0d060] to-[#b8860b]">
-                  Brand
+                  Safety
                   <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-gradient-to-r from-[#d4af37] to-transparent rounded-full" />
                 </span>
               </h1>
 
               <p className="text-slate-600 text-base md:text-lg font-medium leading-relaxed max-w-xl mb-8">
-                Pioneering next-generation grounding solutions, combining innovative chemical gel technology with decades of robust engineering to safeguard lives and global infrastructure.
+                Established in 2004, we have spent more than twenty years mastering the art of structural protection. What began as a precision manufacturing facility has evolved into a premier gel earthing electrode manufacturer, trusted by engineers across the subcontinent to protect high stakes infrastructure.
               </p>
 
               <div className="flex items-start gap-6 md:gap-8 bg-slate-50/60 p-6 rounded-3xl border border-slate-100 max-w-lg shadow-sm">
@@ -105,13 +95,12 @@ export default function CompanyPage() {
                 />
                 <div className="space-y-3">
                   <p className="text-slate-800 text-xs md:text-sm font-black uppercase tracking-[0.2em] md:tracking-[0.3em] leading-relaxed">
-                    Precision Grounding <br />
-                    <span className="text-[#d4af37]">Engineering Excellence</span>
+                    Precision Grounding Solutions
                   </p>
                   <div className="flex items-center gap-4 md:gap-6 text-[9px] md:text-[10px] font-extrabold text-slate-500 tracking-wider uppercase">
                     <span>Est. 2004</span>
                     <div className="w-1 h-1 rounded-full bg-[#d4af37]" />
-                    <span>Certified IEEE</span>
+                    <span>20+ Years of Excellence</span>
                   </div>
                 </div>
               </div>
@@ -198,7 +187,7 @@ export default function CompanyPage() {
                 <div className="absolute inset-0 bg-[#d4af37]/10 mix-blend-multiply" />
               </div>
               <div className="absolute -bottom-12 -right-12 bg-white p-10 rounded-[40px] border border-slate-100 shadow-3xl z-20 hidden md:block text-center">
-                <div className="text-7xl font-black text-[#d4af37] mb-1 tracking-tighter">15+</div>
+                <div className="text-7xl font-black text-[#d4af37] mb-1 tracking-tighter">20+</div>
                 <div className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Years of Precision</div>
               </div>
             </motion.div>
@@ -216,16 +205,14 @@ export default function CompanyPage() {
                   <span className="text-[#d4af37]">Saara Earthing</span>
                 </h2>
                 <p className="text-slate-500 text-xl font-medium leading-relaxed max-w-xl">
-                  Saara Earthing India Pvt Ltd is run by professionals with an experience of more than 15 years in the field of Product Quality and Gel Earthing electrode.
+                  From our central headquarters, we coordinate the distribution of heavy duty safety systems that power modern enterprise and transform into robust industrial earthing solutions that safeguard hundreds of sites every day.
                 </p>
               </div>
 
               <div className="grid grid-cols-2 gap-6">
                 {[
                   { label: 'ESTABLISHED', val: '2004' },
-                  { label: 'EXPERIENCE', val: '15+ YRS' },
                   { label: 'INNOVATION', val: 'SI GEL' },
-                  { label: 'COMPLIANCE', val: 'IEEE/IEC' }
                 ].map(item => (
                   <div key={item.label} className="p-6 rounded-2xl bg-slate-50 border border-slate-100">
                     <p className="text-[#d4af37] text-[9px] font-black tracking-widest mb-2">{item.label}</p>
@@ -258,7 +245,7 @@ export default function CompanyPage() {
             </div>
             <h3 className="text-4xl font-black uppercase tracking-tighter mb-6 group-hover:text-[#d4af37] transition-colors">Who We Are</h3>
             <p className="text-slate-500 text-lg leading-relaxed font-medium">
-              We are a collective of dedicated professionals committed to redefining industrial safety standards. Our expertise focuses on delivering reliable grounding systems for critical infrastructure worldwide.
+              We are a team of disciplined manufacturers, engineers, and safety specialists dedicated to eliminating electrical risk. We do not look at grounding as a simple checklist item, we view it as a critical piece of structural insurance. Over the last two decades, we have built a reputation for transparency, technical precision, and quality management.
             </p>
           </motion.div>
 
@@ -274,7 +261,7 @@ export default function CompanyPage() {
             </div>
             <h3 className="text-4xl font-black uppercase tracking-tighter mb-6 text-white">What We Do</h3>
             <p className="text-white/50 text-lg leading-relaxed font-medium">
-              Design, Supply and Installation of Lightning protection and Earthing systems. We ensure every project complies with global engineering specifications to protect lives and machinery.
+              We manufacture and validate specialized grounding and lightning interception systems. As an integrated gel earthing electrode manufacturer, we supply the entire ecosystem required for complex safety networks, from bonded rods to accessories and soil compounds. We deliver stable, permanent resistance paths for factories, commercial towers, and homes.
             </p>
           </motion.div>
         </div>
@@ -294,7 +281,7 @@ export default function CompanyPage() {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-start mb-24 gap-12 lg:gap-24">
             <div className="max-w-xl">
-              <span className="text-[#d4af37] text-[10px] font-black uppercase tracking-[0.6em] mb-4 block">Our Foundation</span>
+                <span className="text-[#d4af37] text-[10px] font-black uppercase tracking-[0.6em] mb-4 block">Our Core Values</span>
               <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none text-slate-900">
                 Core <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] to-orange-500">Values</span>
@@ -305,7 +292,7 @@ export default function CompanyPage() {
               <div className="h-[2px] w-full bg-gradient-to-r from-[#d4af37] to-transparent opacity-20" />
               <div className="flex flex-col sm:flex-row justify-between items-start gap-8 sm:gap-12">
                 <p className="text-slate-500 text-sm md:text-base font-medium leading-relaxed max-w-xs">
-                  Our commitment to excellence is anchored in a set of principles that guide every project, from concept to installation.
+                  These values dictate how we source materials, treat our clients, and engineer our products.
                 </p>
                 <div className="text-left sm:text-right">
                   <span className="text-slate-900 font-black text-4xl block mb-2">04</span>
@@ -364,8 +351,8 @@ export default function CompanyPage() {
 
             <div className="relative z-10 text-center">
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase text-white tracking-tighter leading-[0.9] mb-10 group-hover:scale-105 transition-transform duration-1000">
-                Engineering <br />
-                <span className="text-[#d4af37]">Futures.</span>
+                India&apos;s Trusted <br />
+                <span className="text-[#d4af37]">Grounding Specialists</span>
               </h2>
               <Link href="/contact" className="inline-block px-10 py-5 bg-[#d4af37] text-black font-black uppercase tracking-widest text-[10px] rounded-full hover:scale-110 transition-transform shadow-2xl shadow-[#d4af37]/20">
                 Consult Our Team

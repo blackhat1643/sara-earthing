@@ -129,11 +129,20 @@ export default function ApplicationsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <span className="text-[#d4af37] text-xs font-black uppercase tracking-[0.5em] mb-4 block">Our Reach</span>
+            <span className="text-[#d4af37] text-xs font-black uppercase tracking-[0.5em] mb-4 block">Precision Across Industries</span>
             <h1 className="text-4xl md:text-8xl font-black uppercase tracking-tighter leading-[1.1] md:leading-none mb-6">
               Global <span className="text-[#d4af37]">Applications</span>
             </h1>
-            <div className="h-1.5 w-24 bg-[#d4af37] mx-auto" />
+            <div className="h-1.5 w-24 bg-[#d4af37] mx-auto mb-8" />
+            
+            <div className="max-w-3xl mx-auto text-slate-600 text-base md:text-lg font-medium leading-relaxed space-y-6">
+              <p>
+                We translate complex site demands into high performing industrial electrical grounding solutions that prevent catastrophic equipment downtime and preserve data integrity.
+              </p>
+              <p>
+                From shielding heavy production machinery to deploying robust lightning protection grounding solutions on massive commercial roofs, our systems adapt to your specific operational blueprint. With expertise in advanced earthing technology solutions, we deliver an unshakeable foundation of safety that remains stable across all sectors & industries.
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>

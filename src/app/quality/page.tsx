@@ -10,32 +10,28 @@ export default function QualityPage() {
   const qualityFeatures = [
     {
       icon: Microscope,
-      title: "Quality of the Product",
-      desc: "Our power protectors carry CPRI, PWD, and other major Government approvals. We specialize in protecting critical installations from lightning and surge damage across industries like IT Parks, Refineries, and Production Plants.",
-      stats: ["CPRI Approved", "PWD Certified", "Industrial Grade"]
+      title: "Product Brilliance",
+      desc: "From the initial layout planning of major IT parks to heavy industrial complexes, leading engineers rely on our specialized gel earthing electrode for lightning protection to secure high-stakes infrastructure against electrical surges."
     },
     {
       icon: Award,
       title: "Quality Assurance",
-      desc: "SAARA is strictly governed by the ISO 9001:2015 quality assurance program. Every component undergoes rigorous testing to ensure it meets international safety and conductivity standards.",
-      stats: ["ISO 9001:2015", "Global Standards", "100% Tested"]
+      desc: "Our manufacturing facilities and management protocols are officially aligned with the rigorous ISO 9001 quality assurance standard. This certification ensures that every single batch of equipment we produce reflects exact chemical and structural uniformity."
     },
     {
       icon: Users,
       title: "Service & Support",
-      desc: "We provide ongoing training programs for all personnel to maintain a continuous quality of service. SAARA is an accredited supplier and contractor for a large number of global industries.",
-      stats: ["Expert Support", "Training Programs", "Accredited Supplier"]
+      desc: "We conduct structured, ongoing training programs for our technical personnel to maintain an elite standard of service, engineering insight, and site-installation awareness."
     },
     {
       icon: Globe,
-      title: "Global Experience",
-      desc: "With over 15 years of experience, our founders have established SAARA as a leading supplier and consultant for numerous international projects outside Indian borders.",
-      stats: ["15+ Years Exp", "International Reach", "Project Consulting"]
+      title: "Decades of Expertise",
+      desc: "Our leadership team brings more than two decades of dedicated field experience to the modern electrical grid. We operate as both a premier manufacturer and a specialized technical consultant, deploying advanced grounding systems across project landscapes."
     }
   ];
 
   return (
-    <div className="bg-white min-h-screen text-slate-900 font-display overflow-x-hidden">
+    <div className="bg-white min-h-screen text-slate-900 font-display">
       {/* Blueprint Texture Overlay */}
       <div className="fixed inset-0 pointer-events-none z-0 opacity-[0.03]">
         <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
@@ -60,13 +56,14 @@ export default function QualityPage() {
               <div className="h-[1px] w-8 md:w-12 bg-[#d4af37]" />
             </div>
 
-            <h1 className="text-4xl md:text-8xl font-black uppercase tracking-tighter leading-[1.1] md:leading-none mb-8">
-              Zero <span className="text-[#d4af37]">Defect</span> <br />
-              <span className="text-slate-900">Culture</span>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-[1.1] md:leading-none mb-8">
+              Engineering for <br />
+              <span className="text-[#d4af37]">Non-Negotiable</span> <br />
+              <span className="text-slate-900">Quality</span>
             </h1>
 
             <p className="text-slate-500 text-base md:text-xl max-w-2xl mx-auto font-medium leading-relaxed px-4 md:px-0">
-              Our commitment to quality isn&apos;t just a policy—it&apos;s the foundation of every safety system we engineer for the world&apos;s most critical infrastructure.
+              Every system we manufacture undergoes rigorous validation to deliver flawless electrical grounding solutions for safety across India&apos;s most demanding industrial landscapes.
             </p>
           </motion.div>
         </div>
@@ -75,6 +72,12 @@ export default function QualityPage() {
       {/* Core Quality Pillars */}
       <section className="py-20 relative bg-white">
         <div className="max-w-7xl mx-auto px-6">
+          <div className="mb-16 md:mb-24">
+            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-[1.1]">
+              The Four Pillars <br className="hidden md:block" />
+              <span className="text-[#d4af37]">of Excellence</span>
+            </h2>
+          </div>
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
             {qualityFeatures.map((item, idx) => (
               <motion.div
@@ -93,18 +96,9 @@ export default function QualityPage() {
                 </div>
 
                 <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight mb-6">{item.title}</h3>
-                <p className="text-slate-500 text-sm md:text-base leading-relaxed font-medium mb-10">
+                <p className="text-slate-500 text-sm md:text-base leading-relaxed font-medium">
                   {item.desc}
                 </p>
-
-                <div className="flex flex-wrap gap-2">
-                  {item.stats.map((stat, i) => (
-                    <div key={i} className="px-4 py-2 bg-white rounded-xl border border-slate-100 flex items-center gap-2">
-                      <CheckCircle size={12} className="text-[#d4af37]" />
-                      <span className="text-[10px] font-black uppercase tracking-widest text-slate-600">{stat}</span>
-                    </div>
-                  ))}
-                </div>
               </motion.div>
             ))}
           </div>
@@ -170,11 +164,12 @@ export default function QualityPage() {
             <div className="absolute top-0 right-0 w-[600px] h-full bg-[#d4af37]/5 -skew-x-12 translate-x-1/2" />
             <div className="relative z-10">
               <h2 className="text-3xl md:text-7xl font-black text-white uppercase mb-12 tracking-tighter leading-[1.1] md:leading-none">
-                Experience <span className="text-[#d4af37]">Quality?</span>
+                Quality That <br className="md:hidden" />
+                <span className="text-[#d4af37]">Matters</span>
               </h2>
               <div className="flex flex-wrap justify-center gap-6">
-                <Link href="/contact" className="px-10 py-5 bg-[#d4af37] text-black font-black uppercase tracking-widest text-[10px] rounded-full hover:scale-105 transition-transform shadow-2xl shadow-[#d4af37]/20">
-                  Request Catalog
+                <Link href="/quote" className="px-10 py-5 bg-[#d4af37] text-black font-black uppercase tracking-widest text-[10px] rounded-full hover:scale-105 transition-transform shadow-2xl shadow-[#d4af37]/20">
+                  Request a Quote
                 </Link>
                 <Link href="/company" className="px-10 py-5 border border-white/10 text-white font-black uppercase tracking-widest text-[10px] rounded-full hover:bg-white/5 transition-all">
                   Our Story

@@ -27,12 +27,12 @@ export default function EarthingProductsPage() {
                 <div className="h-[2px] w-12 bg-[#d4af37]" />
                 <span className="text-[#d4af37] text-sm font-black uppercase tracking-[0.4em]">Section 01</span>
               </div>
-              <h1 className="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-[1.1] md:leading-[0.8] mb-8">
-                Prime <br />
-                <span className="text-[#d4af37]">Earthing</span>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-[1.1] md:leading-[0.8] mb-8">
+                Complete <br />
+                <span className="text-[#d4af37]">Earthing Solutions</span>
               </h1>
               <p className="text-slate-500 text-lg md:text-xl max-w-md mx-auto lg:mx-0 leading-relaxed font-medium">
-                Engineered for zero-compromise safety. Discover our flagship range of electrodes and compounds.
+                Earthing Rods are built to withstand extreme fault currents and ensure absolute site safety.
               </p>
             </motion.div>
 
@@ -107,15 +107,6 @@ export default function EarthingProductsPage() {
                   <p className="text-slate-500 text-sm leading-relaxed mb-8 flex-1">
                     {prod.desc}
                   </p>
-                  
-                  <div className="grid grid-cols-1 gap-3 mb-10">
-                    {prod.features.map((feat, i) => (
-                      <div key={i} className="flex items-center gap-3 bg-slate-50 p-3 rounded-2xl border border-slate-100/50 group-hover:bg-[#d4af37]/5 group-hover:border-[#d4af37]/20 transition-colors">
-                        <Activity size={14} className="text-[#d4af37]" />
-                        <span className="text-[10px] font-black uppercase tracking-widest text-slate-600">{feat}</span>
-                      </div>
-                    ))}
-                  </div>
 
                   <Link 
                     href={`/products/${prod.category}/${prod.slug}`}
@@ -135,7 +126,7 @@ export default function EarthingProductsPage() {
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="max-w-2xl">
             <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4 leading-none">Standardized <br /> Excellence</h2>
-            <p className="text-white/80 text-lg font-medium">All our products comply with UL 467, IEEE 80, and ISO standards for global safety.</p>
+            <p className="text-white/80 text-lg font-medium">All our products comply with ISO 9001, ERDA, CPRI, & PWD standards of safety.</p>
           </div>
           <a href="/images/catalogue.pdf" download="catalogue.pdf" className="px-12 py-6 bg-white text-slate-900 font-black uppercase tracking-widest text-xs rounded-full hover:scale-105 transition-transform shadow-2xl inline-block text-center">
             Download Product Catalog

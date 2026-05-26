@@ -15,10 +15,10 @@ export interface Product {
 export const allProducts: Product[] = [
   // Earthing Products
   {
-    slug: 'gi-earthing-electrode',
+    slug: 'gi-earthing',
     category: 'earthing-products',
-    title: "GI Earthing Electrode",
-    desc: "A process of creating an alternative path for the flow of excessive/fault current safely into the ground in the presence of minimal resistance.",
+    title: "GI Earthing",
+    desc: "A dependable, cost-effective galvanized iron system treated with a heavy zinc coating to prevent oxidation in stable soil environments.",
     image: "/images/VIEW/GI Earthing Electrode.JPG",
     hoverImage: "/images/VIEW/GI Earthing Electrode.JPG",
     features: ["Low Resistance Path", "Fault Current Dissipation", "Industrial Standard"],
@@ -31,26 +31,10 @@ export const allProducts: Product[] = [
     applications: ["Industrial Power Systems", "Lightning Protection", "General Grounding"]
   },
   {
-    slug: 'copper-bonded-rods',
-    category: 'earthing-products',
-    title: "Copper Bonded Rods",
-    desc: "Molecularly bonded with 99.9% pure electrolytic copper on low carbon high tensile steel rods, manufactured in accordance with international standards like UL.",
-    image: "/images/VIEW/Copper Bonded Rods.JPG",
-    hoverImage: "/images/VIEW/Copper Bonded Rods.JPG",
-    features: ["250+ Micron Coating", "Molecularly Bonded", "99.9% Pure Copper"],
-    specs: {
-      "Material": "High Tensile Steel",
-      "Copper Purity": "99.9% Electrolytic",
-      "Standard Coating": "254 Microns (UL 467)",
-      "Tensile Strength": "600 N/mm²"
-    },
-    applications: ["Substations", "Data Centers", "Telecommunications"]
-  },
-  {
     slug: 'copper-bonded-electrode',
     category: 'earthing-products',
     title: "Copper Bonded Electrode",
-    desc: "Customizable units of Copper Bonded Electrodes manufactured using state-of-the-art techniques to serve valuable utilities.",
+    desc: "A heavy-duty steel core molecularly bonded with a thick outer layer of uniform copper to handle intense fault currents.",
     image: "/images/VIEW/Copper Bonded Electrode.JPG",
     hoverImage: "/images/VIEW/Copper Bonded Electrode.JPG",
     features: ["High Conductivity", "Customizable Sizes", "Advanced Fabrication"],
@@ -63,26 +47,26 @@ export const allProducts: Product[] = [
     applications: ["Power Plants", "Petrochemical Refineries", "Railway Infrastructure"]
   },
   {
-    slug: 'back-fill-compound',
+    slug: 'copper-bonded-rods',
     category: 'earthing-products',
-    title: "Back Fill Compound",
-    desc: "A supreme quality Chemical Earthing Combination which achieves lower ohmic value in tricky soil like rocky or sandy soil with high resistivity.",
-    image: "/images/VIEW/Back Fill Compound.JPG",
-    hoverImage: "/images/VIEW/Back Fill Compound.JPG",
-    features: ["SI Gel Core Competency", "Lower Ohmic Value", "Soil Enhancement"],
+    title: "Copper Bonded Rods",
+    desc: "Precision driving rods are designed for deep vertical soil penetration to access lower, naturally damp earth layers.",
+    image: "/images/VIEW/Copper Bonded Rods.JPG",
+    hoverImage: "/images/VIEW/Copper Bonded Rods.JPG",
+    features: ["250+ Micron Coating", "Molecularly Bonded", "99.9% Pure Copper"],
     specs: {
-      "Resistivity": "< 0.12 Ohm-m",
-      "Standard Bag": "25kg / 50kg",
-      "Soil Type": "Rocky, Sandy, High Resistivity",
-      "Composition": "Bentonite & Graphite with SI Gel"
+      "Material": "High Tensile Steel",
+      "Copper Purity": "99.9% Electrolytic",
+      "Standard Coating": "254 Microns (UL 467)",
+      "Tensile Strength": "600 N/mm²"
     },
-    applications: ["High Soil Resistivity Areas", "Industrial Grounding", "Sensitive Electronics"]
+    applications: ["Substations", "Data Centers", "Telecommunications"]
   },
   {
-    slug: 'chemical-copper-electrodes',
+    slug: 'copper-electrode',
     category: 'earthing-products',
-    title: "Chemical Copper Electrodes",
-    desc: "An electrical system making a connection with the ground through a hidden conductive electrode linked to exposed metal parts of equipment.",
+    title: "Copper Electrode",
+    desc: "A premium, solid copper grounding unit designed for specialized installations demanding the absolute highest thermal and electrical conductivity.",
     image: "/images/VIEW/20-08-2025 Sara Earthing1035 f.JPG",
     hoverImage: "/images/VIEW/20-08-2025 Sara Earthing1035 f.JPG",
     features: ["Maintenance Free", "Constant Resistance", "Safe Discharge"],
@@ -93,6 +77,37 @@ export const allProducts: Product[] = [
       "Standard": "IEEE / IEC Compliance"
     },
     applications: ["Hospitals", "Lifts/Elevators", "Computer Centers"]
+  },
+  {
+    slug: 'lightning-arrester',
+    category: 'earthing-products',
+    title: "Lightning Arrester",
+    desc: "A high-altitude interception system designed to handle the immediate thermal and physical stress of direct current strikes.",
+    image: "/images/pylon_tower.jpg",
+    hoverImage: "/images/pylon_tower.jpg",
+    features: ["Direct Strike Protection", "High Altitude Capable", "Thermal Stress Resistant"],
+    specs: {
+      "Application": "Lightning Protection",
+      "Type": "Active / Passive Arrester",
+      "Installation": "High Point Interception"
+    },
+    applications: ["Commercial Buildings", "Transmission Towers", "Telecommunications"]
+  },
+  {
+    slug: 'back-fill-compound',
+    category: 'earthing-products',
+    title: "BFC - Back Fill Compound",
+    desc: "An advanced moisture retaining mixture engineered to permanently lower soil resistivity without washing away during heavy seasonal monsoons.",
+    image: "/images/VIEW/Back Fill Compound.JPG",
+    hoverImage: "/images/VIEW/Back Fill Compound.JPG",
+    features: ["SI Gel Core Competency", "Lower Ohmic Value", "Soil Enhancement"],
+    specs: {
+      "Resistivity": "< 0.12 Ohm-m",
+      "Standard Bag": "25kg / 50kg",
+      "Soil Type": "Rocky, Sandy, High Resistivity",
+      "Composition": "Bentonite & Graphite with SI Gel"
+    },
+    applications: ["High Soil Resistivity Areas", "Industrial Grounding", "Sensitive Electronics"]
   },
 
   // Earthing Accessories
