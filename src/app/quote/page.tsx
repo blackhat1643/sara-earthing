@@ -156,7 +156,7 @@ export default function QuotePage() {
   };
 
   return (
-    <div className="bg-[#060a14] min-h-screen text-white font-display relative">
+    <div className="bg-[#060a14] min-h-screen text-white font-display relative overflow-x-clip">
       {/* High-Tech Grounding Grid Background Mesh */}
       <div className="fixed inset-0 pointer-events-none z-0 opacity-15">
         <div 
@@ -258,10 +258,10 @@ export default function QuotePage() {
                         <h3 className="text-2xl font-black uppercase tracking-tight mb-8">Step 1: Contact & Project Site</h3>
                         <div className="grid sm:grid-cols-2 gap-6">
                           {[
-                            { id: 'name', label: 'Contact Name', placeholder: 'John Doe', type: 'text' },
-                            { id: 'email', label: 'Corporate Email', placeholder: 'engineer@substation.com', type: 'email' },
-                            { id: 'phone', label: 'Direct Phone', placeholder: '+91 99798 52555', type: 'tel' },
-                            { id: 'company', label: 'Company / Project Client', placeholder: 'Solar Power Grid Ltd', type: 'text' },
+                            { id: 'name', label: 'Contact Name', type: 'text' },
+                            { id: 'email', label: 'Corporate Email', type: 'email' },
+                            { id: 'phone', label: 'Direct Phone', type: 'tel' },
+                            { id: 'company', label: 'Company / Project Client', type: 'text' },
                           ].map(f => (
                             <div key={f.id} className="flex flex-col gap-2">
                               <label htmlFor={f.id} className="text-[10px] font-black uppercase tracking-[0.2em] text-[#d4af37]/80">{f.label}</label>
@@ -269,7 +269,6 @@ export default function QuotePage() {
                                 id={f.id}
                                 required
                                 type={f.type}
-                                placeholder={f.placeholder}
                                 value={formData[f.id as keyof QuoteFormData] as string}
                                 onChange={(e) => handleInputChange(f.id as keyof QuoteFormData, e.target.value)}
                                 onFocus={() => setFocused(f.id)}
@@ -286,7 +285,6 @@ export default function QuotePage() {
                             id="location"
                             required
                             type="text"
-                            placeholder="Rajkot, Gujarat, India"
                             value={formData.location}
                             onChange={(e) => handleInputChange('location', e.target.value)}
                             onFocus={() => setFocused('location')}

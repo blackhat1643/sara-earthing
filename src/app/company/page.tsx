@@ -42,7 +42,7 @@ export default function CompanyPage() {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
   return (
-    <div ref={containerRef} className="bg-white min-h-screen text-slate-900 font-display overflow-x-hidden relative">
+    <div ref={containerRef} className="bg-white min-h-screen text-slate-900 font-display overflow-x-clip relative">
       {/* Blueprint Texture Overlay */}
       <div className="fixed inset-0 pointer-events-none z-0 opacity-[0.03]">
         <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
@@ -142,23 +142,7 @@ export default function CompanyPage() {
                 />
               </div>
 
-              {/* Premium Floating Glassmorphic Badges */}
-              <div className="absolute top-6 left-6 bg-slate-900 text-white text-[9px] font-black uppercase tracking-[0.2em] px-4 py-2 rounded-full shadow-lg">
-                EST. 2004
-              </div>
 
-              <div className="absolute top-6 right-6 bg-white/80 backdrop-blur-md border border-slate-200 text-slate-900 text-[9px] font-black uppercase tracking-[0.2em] px-4 py-2 rounded-full shadow-md flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
-                ISO 9001
-              </div>
-
-              <div className="absolute bottom-6 right-6 bg-white/85 backdrop-blur-md border border-slate-200/80 p-5 rounded-2xl shadow-xl max-w-[240px] transition-all duration-700 group-hover:translate-x-[-8px]">
-                <p className="text-[#d4af37] text-[8px] font-black uppercase tracking-widest mb-1">Global Standard</p>
-                <h4 className="text-slate-900 text-xs font-black uppercase tracking-tight mb-2">UL-467 Compliant</h4>
-                <p className="text-slate-500 text-[10px] leading-normal font-medium">
-                  Manufactured molecularly using 99.9% pure copper.
-                </p>
-              </div>
             </motion.div>
           </div>
         </div>
@@ -231,7 +215,7 @@ export default function CompanyPage() {
       </div>
 
       {/* Vision & Mission */}
-      <section className="py-16 md:py-32 bg-slate-50 relative overflow-hidden">
+      <section className="py-13 bg-slate-50 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -268,7 +252,7 @@ export default function CompanyPage() {
       </section>
 
       {/* Unique Core Values Section */}
-      <section className="py-16 md:py-24 relative overflow-hidden bg-orange-50/30">
+      <section className="py-13 relative overflow-hidden bg-orange-50/30">
         {/* Architectural Background Decoration */}
         <div className="absolute top-0 right-0 w-1/2 h-full opacity-[0.05] pointer-events-none z-0">
           <svg width="100%" height="100%" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -323,7 +307,12 @@ export default function CompanyPage() {
                     <div className="w-16 h-16 rounded-3xl bg-white border border-slate-100 flex items-center justify-center text-[#d4af37] shadow-sm group-hover:bg-[#d4af37] group-hover:text-black transition-all duration-500">
                       <v.icon size={32} strokeWidth={1.5} />
                     </div>
-                    <span className="text-slate-100 font-black text-6xl group-hover:text-[#d4af37]/10 transition-colors duration-700">0{i + 1}</span>
+                    <span 
+                      className="font-black text-6xl transition-colors duration-700 opacity-30 group-hover:opacity-100"
+                      style={{ WebkitTextStroke: '1px #d4af37', color: 'transparent' }}
+                    >
+                      0{i + 1}
+                    </span>
                   </div>
 
                   <h4 className="text-3xl font-black uppercase mb-6 tracking-tight group-hover:translate-x-2 transition-transform duration-500">{v.title}</h4>
@@ -343,7 +332,7 @@ export default function CompanyPage() {
       <Certifications />
 
       {/* Global CTA */}
-      <section className="py-20 bg-white">
+      <section className="py-13 bg-white">
         <div className="max-w-5xl mx-auto px-6">
           <div className="relative p-12 md:p-20 bg-slate-900 group rounded-[40px] md:rounded-[60px] overflow-hidden">
             {/* Decorative Element */}

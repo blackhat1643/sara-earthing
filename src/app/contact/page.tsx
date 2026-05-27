@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Clock, Globe, ShieldCheck } from 'lucide-react';
 import { useState } from 'react';
 import Footer from '@/components/Footer';
-import Image from 'next/image';
 
 export default function ContactPage() {
   const [focused, setFocused] = useState('');
@@ -12,7 +11,7 @@ export default function ContactPage() {
     {
       icon: Phone,
       title: "Call Us",
-      details: ["+91 99 79 852555", "+91 98 79 611180"],
+      details: ["+91 75750 57000", "+91 75750 52000"],
       label: "Sales & Support"
     },
     {
@@ -40,7 +39,7 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="bg-white min-h-screen text-slate-900 font-display overflow-x-hidden">
+    <div className="bg-white min-h-screen text-slate-900 font-display overflow-x-clip relative">
       {/* Blueprint Texture Overlay */}
       <div className="fixed inset-0 pointer-events-none z-0 opacity-[0.03]">
         <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
@@ -120,17 +119,16 @@ export default function ContactPage() {
               <h2 className="text-4xl font-black uppercase tracking-tighter mb-10">Send a <span className="text-[#d4af37]">Message</span></h2>
               <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {[
-                  { id: 'name', label: 'Full Name', placeholder: 'John Doe', type: 'text' },
-                  { id: 'email', label: 'Email', placeholder: 'john@example.com', type: 'email' },
-                  { id: 'phone', label: 'Phone', placeholder: '+91 98765 43210', type: 'tel' },
-                  { id: 'company', label: 'Company', placeholder: 'Infrastructure Ltd', type: 'text' },
+                  { id: 'name', label: 'Full Name', type: 'text' },
+                  { id: 'email', label: 'Email', type: 'email' },
+                  { id: 'phone', label: 'Phone', type: 'tel' },
+                  { id: 'company', label: 'Company', type: 'text' },
                 ].map(f => (
                   <div key={f.id} className="flex flex-col gap-2">
                     <label htmlFor={f.id} className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">{f.label}</label>
                     <input
                       id={f.id}
                       type={f.type}
-                      placeholder={f.placeholder}
                       onFocus={() => setFocused(f.id)}
                       onBlur={() => setFocused('')}
                       className={`w-full px-6 py-4 rounded-2xl text-sm font-bold text-slate-900 outline-none transition-all duration-300 bg-slate-50 border ${focused === f.id ? 'border-[#d4af37] bg-white shadow-lg shadow-yellow-400/5' : 'border-slate-100'}`}
@@ -142,7 +140,6 @@ export default function ContactPage() {
                   <textarea
                     id="message"
                     rows={4}
-                    placeholder="Tell us about your project requirements..."
                     onFocus={() => setFocused('message')}
                     onBlur={() => setFocused('')}
                     className={`w-full px-6 py-4 rounded-2xl text-sm font-bold text-slate-900 outline-none resize-none transition-all duration-300 bg-slate-50 border ${focused === 'message' ? 'border-[#d4af37] bg-white shadow-lg shadow-yellow-400/5' : 'border-slate-100'}`}
@@ -164,18 +161,16 @@ export default function ContactPage() {
               className="space-y-8"
             >
               <div className="relative aspect-video lg:aspect-square rounded-[60px] overflow-hidden border-8 border-slate-50 shadow-2xl">
-                <Image
-                  src="/images/refinery_app.png"
-                  alt="Our Location"
-                  fill
-                  className="object-cover grayscale"
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3695.587318592103!2d70.8017746!3d22.1417049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3958358e2b1887a3%3A0xa9a43eee44352a6e!2sSaara%20Earthing%20India%20Pvt.%20Ltd.%20%7C%20Lightning%20Protection%20%26%20Grounding%20Solutions%20in%20India!5e0!3m2!1sen!2sin!4v1716886400000!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="absolute inset-0 grayscale contrast-[1.1] brightness-[0.95] opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
                 />
-                <div className="absolute inset-0 bg-[#d4af37]/10 mix-blend-multiply" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl">
-                    <MapPin className="text-[#d4af37]" size={32} />
-                  </div>
-                </div>
               </div>
 
 

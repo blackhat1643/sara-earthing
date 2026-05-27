@@ -126,7 +126,7 @@ export default function Applications() {
           </div>
 
           {/* Dynamic Dual Card View */}
-          <div className="relative min-h-[500px]">
+          <div className="relative">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={index}
@@ -169,7 +169,7 @@ export default function Applications() {
                         <app.icon className="text-[#d4af37]" size={16} />
                       </div>
                       
-                      <p className="text-white/60 text-sm leading-relaxed font-medium mb-4 line-clamp-2">
+                      <p className="text-white/60 text-sm leading-relaxed font-medium mb-4">
                         {app.description}
                       </p>
                     </div>
@@ -180,7 +180,7 @@ export default function Applications() {
           </div>
 
           {/* Custom Pagination Progress */}
-          <div className="mt-20 flex items-center justify-center gap-4">
+          <div className="mt-8 flex items-center justify-center gap-4">
              {Array.from({ length: pageCount }).map((_, idx) => (
                <button 
                  key={idx}

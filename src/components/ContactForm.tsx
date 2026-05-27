@@ -32,7 +32,7 @@ export default function ContactForm() {
               {/* Contact info */}
               <div className="flex flex-col items-center lg:items-start space-y-6 md:space-y-8">
                 {[
-                  { icon: Phone, label: 'Call Us', value: '+91 99798 52555' },
+                  { icon: Phone, label: 'Call Us', value: '+91 75750 57000' },
                   { icon: Mail, label: 'Email Support', value: 'sales@saaraindia.com' },
                   { icon: MapPin, label: 'Factory Headquarters', value: '165, Plot No. 18 to 25, Rameshawar Ind. Area, Veraval (Shapar), Rajkot - 360024' },
                 ].map(({ icon: Icon, label, value }) => (
@@ -55,10 +55,10 @@ export default function ContactForm() {
               <h3 className="font-black text-[#0a0f1d] font-display text-xl md:text-2xl mb-8 lg:mb-10">Send Us a Message</h3>
               <form className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
                 {[
-                  { id: 'name', label: 'Full Name', placeholder: 'John Doe', type: 'text' },
-                  { id: 'email', label: 'Email Address', placeholder: 'john@example.com', type: 'email' },
-                  { id: 'company', label: 'Company Name', placeholder: 'ACME Corp', type: 'text' },
-                  { id: 'phone', label: 'Phone Number', placeholder: '+91 98765 43210', type: 'tel' },
+                  { id: 'name', label: 'Full Name', placeholder: '', type: 'text' },
+                  { id: 'email', label: 'Email Address', placeholder: '', type: 'email' },
+                  { id: 'company', label: 'Company Name', placeholder: '', type: 'text' },
+                  { id: 'phone', label: 'Phone Number', placeholder: '', type: 'tel' },
                 ].map(f => (
                   <div key={f.id} className="flex flex-col gap-2">
                     <label htmlFor={f.id} className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">{f.label}</label>

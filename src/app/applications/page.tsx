@@ -121,7 +121,7 @@ const sectors = [
 
 export default function ApplicationsPage() {
   return (
-    <div className="bg-white min-h-screen text-slate-900 font-display overflow-x-hidden">
+    <div className="bg-white min-h-screen text-slate-900 font-display overflow-x-clip relative">
       {/* Concise Header */}
       <section className="pt-24 md:pt-32 pb-12 md:pb-16 px-6">
         <div className="max-w-7xl mx-auto text-center">

@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 
 export default function ClientsPage() {
   return (
-    <div className="bg-white min-h-screen text-slate-900 font-display">
+    <div className="bg-white min-h-screen text-slate-900 font-display overflow-x-clip relative">
       
       {/* Cinematic Hero */}
       <section className="relative h-[60vh] flex items-center justify-center px-6 bg-slate-900 overflow-hidden">

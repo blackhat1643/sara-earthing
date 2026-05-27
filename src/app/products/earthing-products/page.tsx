@@ -9,7 +9,7 @@ import { ArrowRight, Activity, Zap } from 'lucide-react';
 export default function EarthingProductsPage() {
   const products = allProducts.filter(p => p.category === 'earthing-products');
   return (
-    <div className="bg-white min-h-screen text-slate-900 font-display overflow-x-hidden">
+    <div className="bg-white min-h-screen text-slate-900 font-display overflow-x-clip relative">
       {/* Unique Hero Section */}
       <section className="relative pt-24 md:pt-28 pb-12 md:pb-16 px-6 overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-[#d4af37]/5 -skew-x-12 translate-x-1/4 pointer-events-none" />
@@ -54,7 +54,7 @@ export default function EarthingProductsPage() {
       </section>
 
       {/* Product Showcase */}
-      <section className="py-20 relative z-10 bg-slate-50/50">
+      <section className="py-13 relative z-10 bg-slate-50/50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 md:mb-20 gap-8 text-center md:text-left">
             <div className="max-w-xl">
@@ -122,7 +122,7 @@ export default function EarthingProductsPage() {
       </section>
 
       {/* Technical Banner */}
-      <section className="py-20 bg-[#d4af37] text-white">
+      <section className="py-13 bg-[#d4af37] text-white">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="max-w-2xl">
             <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4 leading-none">Standardized <br /> Excellence</h2>

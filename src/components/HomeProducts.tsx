@@ -21,7 +21,7 @@ const categories = [
 
 export default function HomeProducts() {
   return (
-    <section className="py-12 md:py-20 bg-slate-50 overflow-hidden relative">
+    <section className="py-13 bg-slate-50 overflow-hidden relative">
       {/* Subtle Grid Background */}
       <div 
         className="absolute inset-0 opacity-[0.03] pointer-events-none" 

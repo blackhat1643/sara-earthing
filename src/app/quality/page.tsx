@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
 import Certifications from '@/components/Certifications';
-import { ShieldCheck, Award, Microscope, Users, Globe, CheckCircle, Zap, Shield } from 'lucide-react';
+import { Award, Microscope, Users, Globe } from 'lucide-react';
 
 export default function QualityPage() {
   const qualityFeatures = [
@@ -31,7 +31,7 @@ export default function QualityPage() {
   ];
 
   return (
-    <div className="bg-white min-h-screen text-slate-900 font-display">
+    <div className="bg-white min-h-screen text-slate-900 font-display overflow-x-clip relative">
       {/* Blueprint Texture Overlay */}
       <div className="fixed inset-0 pointer-events-none z-0 opacity-[0.03]">
         <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
@@ -70,9 +70,9 @@ export default function QualityPage() {
       </section>
 
       {/* Core Quality Pillars */}
-      <section className="py-20 relative bg-white">
+      <section className="py-13 relative bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-16 md:mb-24">
+          <div className="mb-16 md:mb-24 text-center">
             <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-[1.1]">
               The Four Pillars <br className="hidden md:block" />
               <span className="text-[#d4af37]">of Excellence</span>
@@ -105,55 +105,7 @@ export default function QualityPage() {
         </div>
       </section>
 
-      {/* Trust Grid */}
-      <section className="py-20 bg-slate-900 text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[600px] h-full bg-[#d4af37]/5 -skew-x-12 translate-x-1/2" />
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <div>
-              <span className="text-[#d4af37] text-[11px] font-black uppercase tracking-[0.5em] mb-6 block">Certifications</span>
-              <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter leading-none mb-10">
-                Approved by <br />
-                <span className="text-[#d4af37]">The Best</span>
-              </h2>
-              <div className="space-y-6">
-                {[
-                  "CPRI Approved Design & Testing",
-                  "PWD Government Mark of Approval",
-                  "ISO 9001:2015 Quality Management",
-                  "ASTM & IEEE Standard Compliance"
-                ].map((text, i) => (
-                  <div key={i} className="flex items-center gap-4 group">
-                    <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-[#d4af37] group-hover:bg-[#d4af37] group-hover:text-black transition-all">
-                      <Shield size={18} />
-                    </div>
-                    <span className="text-sm font-bold uppercase tracking-widest text-white/70 group-hover:text-white transition-colors">{text}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
 
-            <div className="relative">
-              <div className="aspect-square relative rounded-[40px] md:rounded-[80px] overflow-hidden border-8 border-white/5">
-                <Image
-                  src="/images/welding.png"
-                  alt="Quality Testing"
-                  fill
-                  className="object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
-              </div>
-
-              <div className="mt-8 md:absolute md:-bottom-10 md:-left-10 bg-[#d4af37] p-8 md:p-10 rounded-[30px] md:rounded-[40px] text-black max-w-xs shadow-3xl mx-auto md:mx-0">
-                <ShieldCheck size={40} className="mb-6 mx-auto md:mx-0" />
-                <p className="text-sm font-black leading-relaxed uppercase tracking-widest text-center md:text-left">
-                  "Exceeding international standards for safety and electrical conductivity since 2010."
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <Certifications />
 
@@ -170,9 +122,6 @@ export default function QualityPage() {
               <div className="flex flex-wrap justify-center gap-6">
                 <Link href="/quote" className="px-10 py-5 bg-[#d4af37] text-black font-black uppercase tracking-widest text-[10px] rounded-full hover:scale-105 transition-transform shadow-2xl shadow-[#d4af37]/20">
                   Request a Quote
-                </Link>
-                <Link href="/company" className="px-10 py-5 border border-white/10 text-white font-black uppercase tracking-widest text-[10px] rounded-full hover:bg-white/5 transition-all">
-                  Our Story
                 </Link>
               </div>
             </div>

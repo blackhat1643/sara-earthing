@@ -46,7 +46,7 @@ export default function EarthingPage() {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
   return (
-    <div ref={containerRef} className="bg-white min-h-screen text-slate-900 font-display overflow-x-hidden relative">
+    <div ref={containerRef} className="bg-white min-h-screen text-slate-900 font-display overflow-x-clip relative">
       {/* Blueprint Texture Overlay */}
       <div className="fixed inset-0 pointer-events-none z-0 opacity-[0.03]">
         <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
@@ -112,7 +112,7 @@ export default function EarthingPage() {
       <section className="relative bg-white overflow-hidden">
 
         {/* Top Block: What is Earthing — Dark full-bleed banner */}
-        <div className="relative bg-slate-900 py-20 md:py-32 overflow-hidden">
+        <div className="relative bg-slate-900 py-13 overflow-hidden">
           {/* Decorative gold grid */}
           <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
             style={{ backgroundImage: 'linear-gradient(to right, #d4af37 1px, transparent 1px), linear-gradient(to bottom, #d4af37 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
@@ -164,7 +164,7 @@ export default function EarthingPage() {
         </div>
 
         {/* Bottom Block: Why Earthing — Three cards on white */}
-        <div className="relative bg-white py-16 md:py-24">
+        <div className="relative bg-white py-13">
           <div className="max-w-7xl mx-auto px-6">
             {/* Section label */}
             <motion.div
@@ -208,7 +208,10 @@ export default function EarthingPage() {
                   className="group relative p-8 md:p-10 rounded-[32px] border border-slate-100 bg-white hover:border-[#d4af37]/40 hover:shadow-xl hover:shadow-[#d4af37]/5 transition-all duration-500"
                 >
                   {/* Number watermark */}
-                  <div className="absolute top-6 right-8 text-7xl font-black text-slate-50 group-hover:text-[#d4af37]/10 transition-colors duration-500 select-none leading-none">
+                  <div 
+                    className="absolute top-6 right-8 text-7xl font-black transition-colors duration-500 select-none leading-none opacity-20 group-hover:opacity-100"
+                    style={{ WebkitTextStroke: '1px #d4af37', color: 'transparent' }}
+                  >
                     {item.num}
                   </div>
 
@@ -234,20 +237,18 @@ export default function EarthingPage() {
       </section>
 
       {/* Component Showcase */}
-      <section className="py-20 bg-slate-50 relative overflow-hidden">
+      <section className="py-13 bg-slate-50 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 mb-16">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-8">
-            <div className="max-w-xl">
+          <div className="text-center max-w-2xl mx-auto">
               <span className="text-[11px] font-black uppercase tracking-[0.5em] text-[#d4af37] mb-4 block">The Ecosystem</span>
               <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-4">Earthing System</h2>
-              <p className="text-slate-500 text-base md:text-lg font-medium leading-relaxed max-w-lg">
+              <p className="text-slate-500 text-base md:text-lg font-medium leading-relaxed">
                 We engineer each pillar to ensure your infrastructure remains completely secure under any environmental or electrical stress.
               </p>
-            </div>
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 px-6 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-3 gap-8 px-6 max-w-7xl mx-auto pb-16">
           {coreComponents.map((c, i) => (
             <motion.div
               key={c.id}
@@ -255,14 +256,14 @@ export default function EarthingPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group relative h-[600px] rounded-[60px] overflow-hidden border border-slate-200 hover:border-[#d4af37] transition-all duration-700 shadow-xl bg-white"
+              className="group relative rounded-[60px] overflow-hidden border border-slate-200 hover:border-[#d4af37] transition-all duration-700 shadow-xl bg-white"
             >
-              <div className="h-2/3 relative overflow-hidden bg-slate-50/50">
+              <div className="relative aspect-[4/3] overflow-hidden bg-slate-50/50">
                 <Image src={c.image} alt={c.title} fill className="object-contain p-8 group-hover:scale-105 transition-all duration-1000" />
                 <div className="absolute inset-0 bg-[#d4af37]/10 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
               </div>
 
-              <div className="h-1/3 p-12 flex flex-col justify-center">
+              <div className="p-12 pb-14 flex flex-col">
                 <div className="flex justify-between items-center mb-6">
                   <h3 className="text-2xl font-black uppercase tracking-tight text-slate-900">{c.title}</h3>
                   <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center text-[#d4af37]">
@@ -278,11 +279,11 @@ export default function EarthingPage() {
         </div>
 
         {/* Explore Our Products CTA */}
-        <div className="max-w-7xl mx-auto px-6 mt-14 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-slate-200 pt-10">
-          <p className="text-slate-400 text-sm font-medium">Explore our complete range of grounding and protection solutions.</p>
+        <div className="mx-6 mt-14 rounded-2xl bg-[#d4af37] px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <p className="text-black/70 text-sm font-medium">Explore our complete range of grounding and protection solutions.</p>
           <Link
             href="/products"
-            className="group inline-flex items-center gap-3 px-8 py-4 bg-slate-900 text-white font-black uppercase tracking-widest text-[10px] rounded-full hover:bg-[#d4af37] hover:text-black transition-all duration-300 shadow-lg"
+            className="group inline-flex items-center gap-3 px-8 py-4 bg-black text-white font-black uppercase tracking-widest text-[10px] rounded-full hover:bg-slate-800 transition-all duration-300 shadow-lg flex-shrink-0"
           >
             Explore Our Products
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -290,27 +291,7 @@ export default function EarthingPage() {
         </div>
       </section>
 
-      {/* Safety Matrix */}
-      <section className="py-20 relative bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-4 border border-slate-100 rounded-[80px] overflow-hidden shadow-2xl shadow-slate-200/50">
-            {[
-              { icon: ShieldAlert, title: "Shock Prevention", stats: "100%" },
-              { icon: ZapOff, title: "Surge Shield", stats: "200kA" },
-              { icon: Activity, title: "Static Control", stats: "Safe" },
-              { icon: ShieldCheck, title: "ISO Certified", stats: "9001" }
-            ].map((m, idx) => (
-              <div key={idx} className="p-12 border-r border-b lg:border-b-0 last:border-r-0 border-slate-100 hover:bg-slate-50 transition-colors group text-center">
-                <div className="w-16 h-16 bg-white rounded-[24px] shadow-sm border border-slate-50 flex items-center justify-center mx-auto mb-8 group-hover:bg-[#d4af37]/10 transition-colors">
-                  <m.icon className="text-[#d4af37]" size={32} />
-                </div>
-                <h4 className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">{m.title}</h4>
-                <div className="text-4xl font-black text-slate-900">{m.stats}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Expert Consultation */}
       <section className="py-7 bg-white">

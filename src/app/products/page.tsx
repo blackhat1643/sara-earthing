@@ -25,7 +25,7 @@ const categories = [
 
 export default function ProductsHubPage() {
   return (
-    <div className="bg-white min-h-screen text-slate-900 font-display overflow-x-hidden">
+    <div className="bg-white min-h-screen text-slate-900 font-display overflow-x-clip relative">
       {/* Unique Hero Section */}
       <section className="relative h-[70vh] flex items-center justify-center pt-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -56,7 +56,7 @@ export default function ProductsHubPage() {
       </section>
 
       {/* Categories Showcase */}
-      <section className="py-20 relative z-10 bg-slate-50/50">
+      <section className="py-13 relative z-10 bg-slate-50/50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 gap-12">
             {categories.map((cat, idx) => (

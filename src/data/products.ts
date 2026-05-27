@@ -10,6 +10,18 @@ export interface Product {
   features: string[];
   specs?: Record<string, string>;
   applications?: string[];
+  
+  // Rich Details (New)
+  longDesc?: string[];
+  highlights?: Array<{ title: string; desc: string }>;
+  detailedTabs?: {
+    features?: { desc: string; list: string[] };
+    advantages?: Array<{ title: string; desc: string }>;
+    specTable?: {
+      headers: string[];
+      rows: string[][];
+    };
+  };
 }
 
 export const allProducts: Product[] = [
@@ -28,7 +40,62 @@ export const allProducts: Product[] = [
       "Coating": "Hot Dip Galvanized",
       "Durability": "Long-term underground life"
     },
-    applications: ["Industrial Power Systems", "Lightning Protection", "General Grounding"]
+    applications: [
+      "Lightning protection systems",
+      "Prevention of accidents caused by static charge and stray currents",
+      "Protection of central communications, electronics, and AC power systems",
+      "Meeting grounding safety requirements for electrical substations",
+      "Ground fault neutralization",
+      "Safeguarding critical instrumentation and process control equipment"
+    ],
+    longDesc: [
+      "GI Earthing or Gel earthing system is the process of creating an alternative path for the flow of excessive/fault current safely into the ground in the presence of minimal resistance.",
+      "Our GI earthing system offers superior product life, cost effective, maintenance free as well as reduces the maintenance cost.",
+      "Gel earthing electrodes easily install with less space required compared to conventional GI earthing and yet has longer life. Earthing materials which surrounds gi earth electrode is hygroscopic and conductive that helps the longer period of effective earthing. A GI earthing material has the quality of absorbing and retaining moisture content for a very long period."
+    ],
+    highlights: [
+      { title: "Low-Impedance Grounding", desc: "Designed using high end raw materials to ensure a constant, low-impedance electrical link with the earth even in adverse conditions." },
+      { title: "Soil Augmentation", desc: "Utilizes Back Fill Compound (BFC), a mixture of organic materials that optimizes soil conductivity and reduces overall system resistance." },
+      { title: "Maintenance-Free", desc: "No need to pour extra water from time to time as in conventional earthing since it retains moisture over a long period." },
+      { title: "Designed for Lightning", desc: "Designed with four times more surface area than traditional rods, assisting in creating low-impedance links to safely channel currents." }
+    ],
+    detailedTabs: {
+      features: {
+        desc: "GI (Galvanized iron) Ground Electrode provides a low-impedance ground in locations of high soil resistivity. Together with SI Back fill Compound, the system dissipates lightning energy and other dangerous electrical fault currents, even in sandy or rocky soil conditions.",
+        list: [
+          "High working life",
+          "Reliability",
+          "Require minimal maintenance",
+          "Maintenance free",
+          "Longevity",
+          "Adequate galvanization",
+          "No corrosion",
+          "Eco-friendly",
+          "Fit and Forget"
+        ]
+      },
+      advantages: [
+        { title: "Low-Impedance Grounding", desc: "The Gel Earthing electrode is designed using high end raw materials to ensure a constant, low-impedance electrical link with the earth even in adverse and varying ground conditions." },
+        { title: "Large Surface Area", desc: "GI Earthing Electrode is designed with large surface to make sure the better connection with the Earth, typically offered with 2 5/8 inch diameter." },
+        { title: "Electrolytic Salts", desc: "Moisture makes electrolytic salts dissolved. After dissolving, these salts seep out of leach holes and the electrode that enhance the soil conductivity, reduce impedance and resistance." },
+        { title: "Soil Augmentation", desc: "BFC is a mixture of organic soil material that optimizes the soil conductivity level around the Earthing Electrode, decreasing system resistance." },
+        { title: "Maintenance-Free", desc: "There is no need to pour extra water from time to time as it was done in conventional Earthing because it can retain the moisture." },
+        { title: "Consistency", desc: "Continually maintains the same earth resistance value even in the adverse soil as well as climate conditions over a long period of time." },
+        { title: "Easy Installation", desc: "Easy to install, our array of electrodes can be installed instantly and effortlessly indoors or outdoors, requiring less time and space." },
+        { title: "Improved Safety", desc: "Reduces the risks of stray currents and lightning hits. Meets or exceeds applicable design codes and safety standards to protect personnel and property." }
+      ],
+      specTable: {
+        headers: ["Model", "Electrode Diameter (MM)", "Length (MM)", "Internal Dia (MM)", "Connection Terminal (MM)", "M.O.C", "Compound Filled"],
+        rows: [
+          ["SI 19/1", "46-50", "1000", "22-25", "10 X 02", "HDGI", "Yes"],
+          ["SI 19/2", "46-50", "2000", "22-25", "10 X 02", "HDGI", "Yes"],
+          ["SI 19/3", "46-50", "3000", "22-25", "10 X 02", "HDGI", "Yes"],
+          ["SI 39/1", "76-80", "1000", "37-40", "10 X 02", "HDGI", "Yes"],
+          ["SI 39/2", "76-80", "2000", "37-40", "10 X 02", "HDGI", "Yes"],
+          ["SI 39/3", "76-80", "3000", "37-40", "10 X 02", "HDGI", "Yes"]
+        ]
+      }
+    }
   },
   {
     slug: 'copper-bonded-electrode',
@@ -44,7 +111,56 @@ export const allProducts: Product[] = [
       "Resistance": "Minimal Ohmic Value",
       "Technology": "Pipe-in-Pipe / Strip-in-Pipe"
     },
-    applications: ["Power Plants", "Petrochemical Refineries", "Railway Infrastructure"]
+    applications: [
+      "Petrochemical, LNG and nuclear facilities",
+      "Data centers, telecom and broadcasters",
+      "Process control and automation",
+      "Corrections, hospitals and 911 centers",
+      "Government, military and defense installations",
+      "R&D operations, substations and wind turbines"
+    ],
+    longDesc: [
+      "Saara Earthing India Pvt. Ltd is one of the foremost manufacturer of Copper Bonded Electrode. Our Highly experienced team and state of art techniques help us to serve you with customizable units of Copper Bonded Electrode for your valuable utilities. Our Copper Bonded Electrodes are RDSO comply - RDSO/PE/SPEC/PSO109-2008 with different dimensions and sizes.",
+      "Copper Bonded Electrode is a highly advanced product, which is based on global technology and provides superior resistance against oxidation; it also has better product life than a simple GI Electrodes.",
+      "Its uniformly coated thickness ensures stable performance, making it a cost effective option for users."
+    ],
+    highlights: [
+      { title: "Superior Corrosion Resistance", desc: "The thickness of copper on the copper bonded earthing electrode is 100 / 250 micron; ensuring an incredibly long product life." },
+      { title: "Excellent Electrical Capability", desc: "With electrical conductivity of 20%, our copper bonded earth electrode effectively dissipates high fault currents." },
+      { title: "Wide Applications", desc: "Can be used widely to ground buildings and foundations under changing soil temperature, humidity, and pH value conditions." },
+      { title: "Easy to Install", desc: "We provide professional grounding attachment parts for easy and quick installation with minimum cost." }
+    ],
+    detailedTabs: {
+      features: {
+        desc: "Copper Bonded Earthing Electrode is considered to be the most apt equipment for Earthing purpose owing to excellent resistance to oxidization. Designed on the principle of Pipe-in-Pipe technology, we coat copper earth electrode using 100/250 micron of copper. With a crystalline mixture, the annular space between the inner conductor and the external conductor is filled and sealed from both ends.",
+        list: [
+          "CPRI Tested",
+          "Continuous electroplating processing",
+          "Variable choices are manufactured as required by the customers",
+          "Great value over the life of the product",
+          "Reduced installation area and time"
+        ]
+      },
+      advantages: [
+        { title: "Upto 250 micron Cu Bonded", desc: "Coated with a thick layer of molecular copper bonded on steel, giving it superior longevity compared to GI." },
+        { title: "Life Span", desc: "Due to the thick copper bonding, the life span is significantly higher than that of traditional GI electrodes." },
+        { title: "High Conductivity & Strength", desc: "Provides high electrical conductivity of copper while maintaining high structural strength of the steel core." },
+        { title: "Cost Effective", desc: "Highly economical when compared to the lifespan and the price of pure copper rods." },
+        { title: "Highly Reliable", desc: "Provides safe and reliable grounding over long spans of service life under aggressive soil conditions." },
+        { title: "Tensile Strength", desc: "Average tensile strength of 80,000 psi and straightness tolerance of .010\" per linear foot." }
+      ],
+      specTable: {
+        headers: ["Model", "Outer Diameter (MM)", "Length (MM)", "Internal Dia (MM)", "Connection Terminal (MM)", "M.O.C", "Compound Filled"],
+        rows: [
+          ["SICB-19/1", "46-50", "1000", "27", "10 X 02", "Copper Bonded", "Yes"],
+          ["SICB-19/2", "46-50", "2000", "27", "10 X 02", "Copper Bonded", "Yes"],
+          ["SICB-19/3", "46-50", "3000", "27", "12 X 02", "Copper Bonded", "Yes"],
+          ["SICB-39/1", "76-80", "1000", "41", "12 X 02", "Copper Bonded", "Yes"],
+          ["SICB-39/2", "76-80", "2000", "41", "12 X 02", "Copper Bonded", "Yes"],
+          ["SICB-39/3", "76-80", "3000", "41", "12 X 02", "Copper Bonded", "Yes"]
+        ]
+      }
+    }
   },
   {
     slug: 'copper-bonded-rods',
