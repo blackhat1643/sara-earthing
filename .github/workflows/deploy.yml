@@ -28,7 +28,7 @@ jobs:
 
       - name: Build Next.js Static Site
         env:
-          NEXT_PUBLIC_API_URL: https://next.saaraindia.com/next-api/api
+          NEXT_PUBLIC_API_URL: https://saaraindia.com/next-api/api
         run: |
           cd frontend
           npm run build
