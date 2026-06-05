@@ -42,6 +42,6 @@ jobs:
           port: 21 # Use 21 for FTP/FTPS, or 22 if using SFTP
           local-dir: ./frontend/out/
           # Adjust the server-dir to point to your target directory on DirectAdmin
-          # e.g., ./public_html/ or ./domains/next.saaraindia.com/public_html/
+          # e.g., ./public_html/ or ./domains/next.saaraindia.com/public_html
           server-dir: domains/next.saaraindia.com/public_html/
           protocol: ftp 
