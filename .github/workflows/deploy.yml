@@ -1,0 +1,45 @@
+name: Build and Deploy Frontend to DirectAdmin
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: './frontend/package-lock.json'
+
+      - name: Install Dependencies
+        run: |
+          cd frontend
+          npm ci || npm install
+
+      - name: Build Next.js Static Site
+        run: |
+          cd frontend
+          npm run build
+
+      - name: Deploy to DirectAdmin via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21 # Use 21 for FTP/FTPS, or 22 if using SFTP
+          local-dir: ./frontend/out/
+          # Adjust the server-dir to point to your target directory on DirectAdmin
+          # e.g., ./public_html/ or ./domains/next.saaraindia.com/public_html/
+          server-dir: ./public_html/
+          protocol: ftp # Use ftp, ftps, or sftp

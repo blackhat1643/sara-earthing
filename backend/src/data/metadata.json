@@ -1,0 +1,50 @@
+{
+  "/": {
+    "title": "SAARA Earthing | Premium Earthing & Lightning Protection Solutions",
+    "description": "India's leading engineering company for earthing, exothermic welding, and lightning protection system for industries, refineries, power plants and more."
+  },
+  "/company": {
+    "title": "About Us | SAARA Earthing",
+    "description": "Learn about SAARA Earthing India Pvt. Ltd., our history, vision, mission, and leading earthing solutions."
+  },
+  "/products": {
+    "title": "Product Catalog | SAARA Earthing",
+    "description": "Explore our premium range of GI earthing, copper bonded electrodes, lightning arresters, and earthing accessories."
+  },
+  "/products/earthing-products": {
+    "title": "Earthing Products | SAARA Earthing",
+    "description": "Discover our high conductivity earthing electrodes, rods, and backfill compound solutions."
+  },
+  "/products/earthing-accessories": {
+    "title": "Earthing Accessories | SAARA Earthing",
+    "description": "Precision engineered couplers, driving studs, dowels, and clamps for grounding systems."
+  },
+  "/earthing": {
+    "title": "Earthing System Design | SAARA Earthing",
+    "description": "Technical guidance and system design details for chemical gel earthing and lightning protection."
+  },
+  "/applications": {
+    "title": "Industrial Applications | SAARA Earthing",
+    "description": "Grounding solutions for substations, data centers, oil & gas refineries, telecom towers, and malls."
+  },
+  "/clients": {
+    "title": "Our Clients & Partners | SAARA Earthing",
+    "description": "Trusted by leading public and private sector companies across India for safe grounding installations."
+  },
+  "/quality": {
+    "title": "Quality Assurance | SAARA Earthing",
+    "description": "Our commitment to CPRI certifications, rigorous testing standards, and premium raw materials."
+  },
+  "/quote": {
+    "title": "Earthing Calculator & Quote | SAARA Earthing",
+    "description": "Calculate earthing electrode and backfill quantity requirements for your project site and request a quote."
+  },
+  "/contact": {
+    "title": "Contact Us | SAARA Earthing",
+    "description": "Get in touch with our engineering team for technical support, product inquiries, and custom grounding designs."
+  },
+  "/blog": {
+    "title": "Blog & Earthing Guides | SAARA Earthing",
+    "description": "Read technical guides, case studies, and safety updates regarding chemical earthing systems, galvanized iron grounding, and lightning protection."
+  }
+}

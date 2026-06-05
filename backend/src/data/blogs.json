@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "why-copper-grounding-essential",
+    "title": "Why Copper Grounding Is Essential for Industrial Facilities",
+    "excerpt": "Grounding systems are vital for protecting personnel and equipment. Learn why pure copper is the gold standard for industrial applications.",
+    "content": [
+      "Industrial plants operate with large machinery and high-voltage power networks. Under these environments, even minor faults can trigger catastrophic failures, destruction of equipment, or fatal electrical shock. To maintain operations and guarantee human safety, selecting the highest quality grounding materials is key.",
+      "Pure copper provides the highest electrical conductivity of all non-precious metals. Solid copper electrodes possess extremely low resistance path, meaning fault currents are channeled safely and instantly into the deep earth before damage occurs.",
+      "Moreover, solid copper does not corrode when placed in acidic soils. While galvanized iron rods degrade over several years requiring routine excavation and replacements, pure copper grounding units can survive 30+ years with zero maintenance. This makes it the most cost-effective solution for refineries, nuclear plants, and data centers."
+    ],
+    "image": "/images/VIEW/20-08-2025 Sara Earthing1035 f.JPG",
+    "author": "Bhavik Kadia",
+    "readTime": "4 min read",
+    "date": "May 20, 2026",
+    "metaTitle": "Why Copper Grounding is Essential | SAARA Earthing",
+    "metaDescription": "Learn the key benefits of solid copper earthing electrodes for industrial plants, data centers, and refineries. High conductivity vs GI."
+  },
+  {
+    "slug": "gi-vs-copper-bonded-electrodes",
+    "title": "Galvanized Iron vs. Copper Bonded Electrodes: A Technical Comparison",
+    "excerpt": "Uncover the mechanical and electrical differences between cost-effective GI grounding and high-durability copper bonded electrodes.",
+    "content": [
+      "Choosing between Galvanized Iron (GI) and Copper Bonded earthing electrodes is a common challenge for project consultants. While price is a factor, understanding their metallurgical behavior is essential to select the correct specification.",
+      "Galvanized Iron electrodes rely on a hot-dip zinc coating to resist corrosion. In normal, stable soil conditions, GI is highly cost-effective and provides standard security. However, in aggressive soils containing salts and high moisture, the zinc layer dissolves, exposing raw iron to rust.",
+      "Copper Bonded electrodes utilize a molecularly bonded outer copper layer over a high-tensile steel core. The steel provides superior mechanical strength for hammer driving, while the copper layer provides 250+ micron thickness. This thick barrier guarantees UL 467 compliance and superior conductivity. For heavy-duty grid installations, copper bonded strikes the perfect balance of cost and longevity."
+    ],
+    "image": "/images/VIEW/Copper Bonded Electrode.JPG",
+    "author": "Technical Team",
+    "readTime": "6 min read",
+    "date": "May 25, 2026",
+    "metaTitle": "Galvanized Iron vs Copper Bonded Electrodes | SAARA",
+    "metaDescription": "Detailed technical comparison between GI and Copper Bonded earthing electrodes. Learn about conductivity, life span, and cost difference."
+  }
+]

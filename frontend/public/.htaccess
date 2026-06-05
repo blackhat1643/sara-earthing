@@ -1,0 +1,24 @@
+# Disable directory indexes
+Options -Indexes
+
+# Disable MultiViews to prevent conflicts with rewrite rules
+Options -MultiViews
+
+RewriteEngine On
+
+# If it's a direct file request, serve it as is
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Rewrite friendly URLs with trailing slash to their .html files if they exist
+# e.g., /admin/ -> /admin.html
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.*)/$ $1.html [NC,L]
+
+# Rewrite friendly URLs without trailing slash to their .html files if they exist
+# e.g., /admin -> /admin.html
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.*)$ $1.html [NC,L]
+
+# Use custom 404 page if a page is not found
+ErrorDocument 404 /404.html
