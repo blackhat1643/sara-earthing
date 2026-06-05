@@ -42,4 +42,4 @@ jobs:
           # Adjust the server-dir to point to your target directory on DirectAdmin
           # e.g., ./public_html/ or ./domains/next.saaraindia.com/public_html/
           server-dir: domains/next.saaraindia.com/public_html/
-          protocol: ftp # Use ftp, ftps, or sftp
+          protocol: ftp 
