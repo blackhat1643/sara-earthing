@@ -14,12 +14,13 @@ node_modules/
 coverage/
 
 # next.js
-.next/
 out/
 
 # production
 build/
-dist/
+frontend/dist/
+frontend/.next/
+# backend/dist is intentionally tracked so git-based deploys work
 dist.zip
 
 # misc
