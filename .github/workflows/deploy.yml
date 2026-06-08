@@ -85,7 +85,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
           local-dir: ./backend/dist/
-          server-dir: domains/next.saaraindia.com/public_html/saraearthing/nodeapp/dist/
+          server-dir: domains/next.saaraindia.com/public_html/saraearthing/nodeserver/dist/
           protocol: ftp
 
       - name: Deploy app.js entry point via FTP
@@ -96,7 +96,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
           local-dir: ./backend/
-          server-dir: domains/next.saaraindia.com/public_html/saraearthing/nodeapp/
+          server-dir: domains/next.saaraindia.com/public_html/saraearthing/nodeserver/
           protocol: ftp
           exclude: |
             **/.git*
@@ -117,5 +117,5 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
           local-dir: ./backend/tmp/
-          server-dir: domains/next.saaraindia.com/public_html/saraearthing/nodeapp/tmp/
+          server-dir: domains/next.saaraindia.com/public_html/saraearthing/nodeserver/tmp/
           protocol: ftp
