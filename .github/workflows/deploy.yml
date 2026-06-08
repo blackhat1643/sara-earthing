@@ -1,4 +1,4 @@
-name: Build and Deploy Frontend to DirectAdmin
+name: Build and Deploy to DirectAdmin
 
 on:
   push:
@@ -6,8 +6,9 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
-    name: Build & Deploy
+  # ── Frontend ──────────────────────────────────────────────────────────────
+  deploy-frontend:
+    name: Build & Deploy Frontend
     runs-on: ubuntu-latest
 
     steps:
@@ -21,7 +22,7 @@ jobs:
           cache: 'npm'
           cache-dependency-path: './frontend/package-lock.json'
 
-      - name: Install Dependencies
+      - name: Install Frontend Dependencies
         run: |
           cd frontend
           npm ci || npm install
@@ -33,15 +34,88 @@ jobs:
           cd frontend
           npm run build
 
-      - name: Deploy to DirectAdmin via FTP
+      - name: Deploy Frontend via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          port: 21 # Use 21 for FTP/FTPS, or 22 if using SFTP
+          port: 21
           local-dir: ./frontend/out/
-          # Adjust the server-dir to point to your target directory on DirectAdmin
-          # e.g., ./public_html/ or ./domains/next.saaraindia.com/public_html
           server-dir: domains/next.saaraindia.com/public_html/
-          protocol: ftp 
+          protocol: ftp
+
+  # ── Backend ───────────────────────────────────────────────────────────────
+  deploy-backend:
+    name: Build & Deploy Backend
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: './backend/package-lock.json'
+
+      - name: Install Backend Dependencies
+        run: |
+          cd backend
+          npm ci || npm install
+
+      - name: Build TypeScript
+        run: |
+          cd backend
+          npm run build
+
+      - name: Create Passenger restart trigger
+        # Touching tmp/restart.txt tells Phusion Passenger to reload the app
+        run: |
+          mkdir -p backend/tmp
+          date > backend/tmp/restart.txt
+
+      - name: Deploy backend dist/ via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          local-dir: ./backend/dist/
+          server-dir: domains/next.saaraindia.com/public_html/saraearthing/backend/dist/
+          protocol: ftp
+
+      - name: Deploy app.js entry point via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          local-dir: ./backend/
+          server-dir: domains/next.saaraindia.com/public_html/saraearthing/backend/
+          protocol: ftp
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/src/**
+            **/*.ts
+            **/*.sql
+            **/.env
+            **/dist/**
+            **/dist_backup/**
+
+      - name: Trigger Passenger restart via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          local-dir: ./backend/tmp/
+          server-dir: domains/next.saaraindia.com/public_html/saraearthing/backend/tmp/
+          protocol: ftp
