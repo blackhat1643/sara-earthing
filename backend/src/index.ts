@@ -10,19 +10,35 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'saraadmin';
 
+const ALLOWED_ORIGINS = [
+  'http://localhost:3000',
+  'http://localhost:3001',
+  'http://localhost:3002',
+  'https://next.saaraindia.com',
+  'https://www.saaraindia.com',
+  'https://saaraindia.com',
+  'http://next.saaraindia.com',
+  'http://www.saaraindia.com',
+  'http://saaraindia.com'
+];
+
 // Middleware
 app.use(cors({
-  origin: [
-    'http://localhost:3000',
-    'http://localhost:3001',
-    'http://localhost:3002',
-    'https://next.saaraindia.com',
-    'https://saaraindia.com',
-    'http://next.saaraindia.com',
-    'http://saaraindia.com'
-  ],
-  credentials: true
+  origin: ALLOWED_ORIGINS,
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'x-admin-password'],
 }));
+
+// Explicit OPTIONS preflight handler — ensures Passenger/Apache doesn't
+// swallow the preflight before Express can add CORS headers.
+app.options('*', cors({
+  origin: ALLOWED_ORIGINS,
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'x-admin-password'],
+}));
+
 app.use(express.json());
 
 // URL Rewrite Middleware for production sub-path hosting (Passenger)
