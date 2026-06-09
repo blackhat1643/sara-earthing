@@ -73,7 +73,7 @@ export default function HomeProducts() {
                     src={cat.image}
                     alt={cat.title}
                     fill
-                    className="object-contain p-8 transition-all duration-700 ease-out group-hover:scale-[1.15] group-hover:-translate-y-3 drop-shadow-xl"
+                    className="object-cover transition-all duration-700 ease-out group-hover:scale-[1.08]"
                   />
                 </div>
 

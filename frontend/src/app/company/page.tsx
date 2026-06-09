@@ -268,7 +268,7 @@ export default function CompanyPage() {
                 <span className="text-[#d4af37] text-[10px] font-black uppercase tracking-[0.6em] mb-4 block">Our Core Values</span>
               <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none text-slate-900">
                 Core <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] to-orange-500">Values</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] to-orange-500 pr-2">Values</span>
               </h2>
             </div>
 

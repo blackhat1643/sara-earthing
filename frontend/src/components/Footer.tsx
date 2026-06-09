@@ -202,10 +202,14 @@ export default function Footer({ showImage = false }: { showImage?: boolean }) {
               © {new Date().getFullYear()} SAARA Earthing. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
-              <span className="flex items-center gap-2 text-white/30 text-xs font-medium uppercase tracking-wider">
-                <span className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.8)] animate-pulse" />
-                ISO 9001:2015 Approved
-              </span>
+              <a 
+                href="https://www.rangdigitech.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-white/30 text-xs font-medium uppercase tracking-wider hover:text-[#d4af37] transition-colors"
+              >
+                Design by Rang Digitech LLC
+              </a>
             </div>
           </div>
         </div>
