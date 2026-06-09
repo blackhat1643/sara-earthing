@@ -278,28 +278,32 @@ export default function EarthingPage() {
           ))}
         </div>
 
-        {/* Explore Our Products CTA (Uses the actual electrode image directly with no outer wrapper shape) */}
-        <div className="mx-6 mt-14 pl-14 pr-3 md:pr-6 py-16 flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden min-h-[150px]">
-          {/* Electrode Image Background */}
-          <div className="absolute inset-0 z-0 pointer-events-none">
+        {/* Explore Our Products CTA */}
+        <div className="mx-6 mt-14 max-w-7xl md:mx-auto relative">
+          <div className="relative w-full aspect-[4/1.2] sm:aspect-[4/1] md:aspect-[5/1] overflow-hidden flex items-center justify-between pl-6 pr-2 md:pl-10 md:pr-3 bg-white rounded-3xl border border-slate-200 shadow-sm">
+            {/* Electrode Image centered vertically in the background */}
             <Image
               src="/images/electrode_banner.png"
-              alt="Chemical Earthing Electrode Background"
+              alt="Chemical Earthing Electrode"
               fill
-              className="object-cover object-center brightness-95 saturate-[1.05]"
+              className="object-contain object-center z-0 opacity-90"
               priority
             />
-          </div>
 
-          <p className="text-white text-sm font-extrabold relative z-10 max-w-xl leading-relaxed drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
-            Explore our complete range of chemical electrodes, backfill compounds and earthing rods.
-          </p>
-          <Link
-            href="/products"
-            className="group inline-flex items-center px-4 py-2.5 bg-white hover:bg-[#d4af37] hover:text-black text-black font-black uppercase tracking-widest text-[8px] rounded-full transition-all duration-300 shadow-lg hover:shadow-white/10 flex-shrink-0 relative z-10 sm:-translate-y-[6px]"
-          >
-            Explore Products
-          </Link>
+            {/* Text & Button Container - positioned directly ON the electrode image */}
+            <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-6 relative z-10">
+              <p className="text-slate-800 text-sm md:text-base font-extrabold leading-relaxed max-w-xl text-center sm:text-left">
+                Explore our complete range of chemical electrodes, backfill compounds and earthing rods.
+              </p>
+              <Link
+                href="/products"
+                className="group inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-[#d4af37] hover:bg-slate-900 hover:text-white text-black font-black uppercase tracking-widest text-[8.5px] rounded-full transition-all duration-300 shadow-md flex-shrink-0"
+              >
+                <span>Explore Products</span>
+                <ArrowRight size={10} className="group-hover:translate-x-0.5 transition-transform" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
