@@ -8,13 +8,13 @@ const categories = [
   {
     id: 'earthing-products',
     title: 'Earthing Products',
-    image: '/images/VIEW/GI Earthing Electrode.JPG',
+    image: '/images/products/earthing_products_main.jpg',
     desc: 'High-quality earthing electrodes and compounds engineered for optimal grounding and durability.',
   },
   {
     id: 'earthing-accessories',
     title: 'Earthing Accessories',
-    image: '/images/products/thread-couplings.png',
+    image: '/images/products/accessories_main.jpg',
     desc: 'Durable accessories and clamps built to ensure secure and long-lasting earthing connections.',
   }
 ];
