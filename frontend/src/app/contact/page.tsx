@@ -10,7 +10,7 @@ export default function ContactPage() {
   const contactInfo = [
     {
       icon: Phone,
-      title: "Call Us",
+      title: "Contact Us",
       details: ["+91 75750 57000", "+91 75750 52000"],
       label: "Sales & Support"
     },
@@ -95,9 +95,58 @@ export default function ContactPage() {
                 <span className="text-[10px] font-black text-slate-300 uppercase tracking-widest block mb-2">{info.label}</span>
                 <h3 className="text-xl font-black uppercase tracking-tight mb-4">{info.title}</h3>
                 <div className="space-y-1">
-                  {info.details.map((detail, i) => (
-                    <p key={i} className="text-slate-500 text-sm font-bold">{detail}</p>
-                  ))}
+                  {info.details.map((detail, i) => {
+                    const isWhatsApp = detail === "+91 75750 52000";
+                    if (isWhatsApp) {
+                      return (
+                        <a
+                          key={i}
+                          href="https://wa.me/917575052000"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1.5 text-slate-500 text-sm font-bold hover:text-[#25D366] transition-colors w-max group"
+                        >
+                          <svg
+                            className="w-4 h-4 fill-current text-[#25D366] group-hover:scale-110 transition-transform"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M12.031 2C6.446 2 1.92 6.528 1.918 12.112c-.002 1.785.464 3.528 1.35 5.063L2 22l5.021-1.317c1.488.811 3.16 1.24 4.888 1.243h.004c5.581 0 10.106-4.527 10.108-10.111C22.024 6.527 17.5 2 12.031 2zm6.177 14.544c-.27.76-1.536 1.483-2.128 1.579-.592.096-1.185.143-3.766-.889-3.298-1.321-5.385-4.707-5.55-4.928-.164-.22-1.306-1.739-1.306-3.322 0-1.583.824-2.36 1.12-2.67.297-.31.643-.388.857-.388.214 0 .429.002.61.01.192.008.448-.074.702.535.263.63.899 2.196.977 2.355.078.158.13.344.025.551-.104.208-.157.329-.311.51-.154.18-.323.402-.461.54-.15.152-.308.318-.133.617.175.3.778 1.284 1.67 2.079.95.847 1.748 1.109 2.052 1.258.304.15.483.125.666-.084.183-.21.784-.913.993-1.226.208-.313.417-.263.702-.158.286.105 1.81.853 2.122 1.01.312.156.52.233.595.362.075.13.075.753-.195 1.513z" />
+                          </svg>
+                          <span>{detail}</span>
+                        </a>
+                      );
+                    }
+
+                    const isPhone = detail.startsWith("+91");
+                    const isEmail = detail.includes("@");
+                    if (isPhone) {
+                      return (
+                        <a
+                          key={i}
+                          href={`tel:${detail.replace(/\s+/g, '')}`}
+                          className="flex items-center gap-1.5 text-slate-500 text-sm font-bold hover:text-[#d4af37] transition-colors w-max group"
+                        >
+                          <Phone size={14} className="text-[#d4af37] group-hover:scale-110 transition-transform" />
+                          <span>{detail}</span>
+                        </a>
+                      );
+                    }
+                    if (isEmail) {
+                      return (
+                        <a
+                          key={i}
+                          href={`mailto:${detail}`}
+                          className="text-slate-500 text-sm font-bold hover:text-[#d4af37] transition-colors w-max block"
+                        >
+                          {detail}
+                        </a>
+                      );
+                    }
+
+                    return (
+                      <p key={i} className="text-slate-500 text-sm font-bold">{detail}</p>
+                    );
+                  })}
                 </div>
               </motion.div>
             ))}

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
 
-import { Power, Droplets, Home, Radio, Wind, Database, ArrowRight, ShieldCheck, Zap, Cpu, Activity, Building2, Hotel } from 'lucide-react';
+import { Power, Droplets, Home, Radio, Wind, Database, ArrowRight, ShieldCheck, Zap, Cpu, Activity, Building2, Hotel, Sun } from 'lucide-react';
 
 const sectors = [
   {
@@ -116,6 +116,16 @@ const sectors = [
     icon: Hotel,
     image: '/images/hotel_app.png',
     color: '#d4af37'
+  },
+  {
+    id: 'solar-park',
+    title: 'Solar Park',
+    subtitle: 'Renewable PV Grounding',
+    description: 'Safeguarding solar arrays, central inverter stations, and tracking motors from lightning strikes and massive ground potential rises, ensuring uninterrupted generation.',
+    features: ['Surge Attenuation', 'Ground Grid Optimization', 'Inverter Protection'],
+    icon: Sun,
+    image: '/images/solar_app.png',
+    color: '#d4af37'
   }
 ];
 
@@ -183,20 +193,7 @@ export default function ApplicationsPage() {
               </motion.div>
             ))}
             
-            {/* CTA Tile */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="group relative h-[400px] rounded-[40px] overflow-hidden bg-slate-900 flex flex-col items-center justify-center text-center p-10"
-            >
-              <div className="absolute inset-0 bg-[#d4af37]/5 -skew-x-12 translate-x-1/2" />
-              <Zap className="text-[#d4af37] mb-8" size={48} />
-              <h3 className="text-3xl font-black text-white uppercase tracking-tighter leading-none mb-6">Need Grounding <br /> Support?</h3>
-              <Link href="/contact" className="px-8 py-4 bg-[#d4af37] text-black font-black uppercase tracking-widest text-[10px] rounded-full hover:scale-105 transition-transform">
-                Consult Our Engineers
-              </Link>
-            </motion.div>
+            {/* Solar Park replaces the CTA tile here as part of the sectors grid loop */}
           </div>
         </div>
       </section>

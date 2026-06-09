@@ -158,13 +158,32 @@ export default function Footer({ showImage = false }: { showImage?: boolean }) {
 
               {/* Call */}
               <div>
-                <h4 className="font-black text-[11px] font-display mb-3 uppercase tracking-widest text-[#d4af37] flex items-center gap-2">
-                  <Phone size={14} /> Call Us
+                <h4 className="font-black text-[11px] font-display mb-3 uppercase tracking-widest text-[#d4af37]">
+                  Contact Us
                 </h4>
-                <p className="text-white/80 text-sm font-medium leading-relaxed">
-                  +91 75750 57000<br />
-                  +91 75750 52000
-                </p>
+                <div className="text-white/80 text-sm font-medium leading-relaxed flex flex-col gap-1">
+                  <a 
+                    href="tel:+917575057000" 
+                    className="flex items-center gap-1.5 hover:text-[#d4af37] transition-colors w-max group"
+                  >
+                    <Phone size={14} className="text-[#d4af37] group-hover:scale-110 transition-transform" />
+                    <span>+91 75750 57000</span>
+                  </a>
+                  <a 
+                    href="https://wa.me/917575052000" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="flex items-center gap-1.5 hover:text-[#d4af37] transition-colors w-max group"
+                  >
+                    <svg
+                      className="w-4 h-4 fill-current text-[#25D366] group-hover:scale-110 transition-transform"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12.031 2C6.446 2 1.92 6.528 1.918 12.112c-.002 1.785.464 3.528 1.35 5.063L2 22l5.021-1.317c1.488.811 3.16 1.24 4.888 1.243h.004c5.581 0 10.106-4.527 10.108-10.111C22.024 6.527 17.5 2 12.031 2zm6.177 14.544c-.27.76-1.536 1.483-2.128 1.579-.592.096-1.185.143-3.766-.889-3.298-1.321-5.385-4.707-5.55-4.928-.164-.22-1.306-1.739-1.306-3.322 0-1.583.824-2.36 1.12-2.67.297-.31.643-.388.857-.388.214 0 .429.002.61.01.192.008.448-.074.702.535.263.63.899 2.196.977 2.355.078.158.13.344.025.551-.104.208-.157.329-.311.51-.154.18-.323.402-.461.54-.15.152-.308.318-.133.617.175.3.778 1.284 1.67 2.079.95.847 1.748 1.109 2.052 1.258.304.15.483.125.666-.084.183-.21.784-.913.993-1.226.208-.313.417-.263.702-.158.286.105 1.81.853 2.122 1.01.312.156.52.233.595.362.075.13.075.753-.195 1.513z" />
+                    </svg>
+                    <span>+91 75750 52000</span>
+                  </a>
+                </div>
               </div>
 
               {/* Email / Web */}
@@ -172,10 +191,14 @@ export default function Footer({ showImage = false }: { showImage?: boolean }) {
                 <h4 className="font-black text-[11px] font-display mb-3 uppercase tracking-widest text-[#d4af37] flex items-center gap-2">
                   <Mail size={14} /> Email Or Visit
                 </h4>
-                <p className="text-white/80 text-sm font-medium leading-relaxed">
-                  sales@saaraindia.com<br />
-                  www.saaraindia.com
-                </p>
+                <div className="text-white/80 text-sm font-medium leading-relaxed flex flex-col gap-1">
+                  <a href="mailto:sales@saaraindia.com" className="hover:text-[#d4af37] transition-colors w-max">
+                    sales@saaraindia.com
+                  </a>
+                  <a href="https://www.saaraindia.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#d4af37] transition-colors w-max">
+                    www.saaraindia.com
+                  </a>
+                </div>
               </div>
 
               {/* Timings */}

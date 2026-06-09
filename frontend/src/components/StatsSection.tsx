@@ -4,11 +4,58 @@ import { motion, useSpring, useTransform, useMotionValue, animate, useInView } f
 import { useEffect } from 'react';
 import { Briefcase, Users, Globe, Award } from 'lucide-react';
 
+interface IconProps {
+  size?: number;
+  strokeWidth?: number;
+  className?: string;
+}
+
+function ElectrodeIcon({ size = 24, strokeWidth = 2, className }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      {/* 1. Flat Plate Electrode Rod (Left Side - centered at X=4) */}
+      <path d="M1 1h6v8l-2 2H3L1 9Z" />
+      <path d="M3 9v15" />
+      <path d="M5 9v15" />
+      <circle cx="2.8" cy="3.5" r="0.5" fill="currentColor" stroke="none" />
+      <circle cx="5.2" cy="3.5" r="0.5" fill="currentColor" stroke="none" />
+      <circle cx="2.8" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
+      <circle cx="5.2" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
+
+      {/* 2. Thick 2-Hole Electrode Rod (Middle - centered at X=12) */}
+      <path d="M10 8v16" />
+      <path d="M14 8v16" />
+      <path d="M10 8h1V2.5h2V8h1" />
+      <circle cx="12" cy="4.2" r="0.4" fill="currentColor" stroke="none" />
+      <circle cx="12" cy="6.2" r="0.4" fill="currentColor" stroke="none" />
+
+      {/* 3. Lightning Arrester (Right Side - centered at X=20) */}
+      <path d="M20 9V1" />
+      <path d="M19 9l-3-6" />
+      <path d="M21 9l3-6" />
+      <path d="M18 9h4v2.5h-4Z" />
+      <path d="M19 11.5v12.5" />
+      <path d="M21 11.5v12.5" />
+    </svg>
+  );
+}
+
 const stats = [
-  { val: 792, suffix: '+', label: 'Projects Done', icon: Briefcase },
-  { val: 532, suffix: '+', label: 'Trusted Clients', icon: Users },
-  { val: 35, suffix: '+', label: 'Expert Members', icon: Award },
+  { val: 4032, suffix: '+', label: 'Projects Done', icon: Briefcase },
+  { val: 1200, suffix: '+', label: 'Trusted Clients', icon: Users },
+  { val: 50, suffix: '+', label: 'Expert Members', icon: Award },
   { val: 12, suffix: '+', label: 'Countries Served', icon: Globe },
+  { val: 8, suffix: ' Lakh+', label: 'Product Installation', icon: ElectrodeIcon },
 ];
 
 function Counter({ value, suffix }: { value: number; suffix: string }) {
@@ -90,10 +137,12 @@ export default function StatsSection({ isHome = false }: StatsSectionProps) {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
-                    className="group relative bg-white/10 backdrop-blur-sm border border-white/10 p-6 rounded-3xl hover:bg-white/20 transition-all duration-500 hover:-translate-y-2"
+                    className={`group relative bg-white/10 backdrop-blur-sm border border-white/10 p-6 rounded-3xl hover:bg-white/20 transition-all duration-500 hover:-translate-y-2 ${
+                      i === 4 ? 'md:col-span-2' : ''
+                    }`}
                   >
-                    <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
-                      <s.icon size={80} strokeWidth={1} className="text-black" />
+                    <div className="absolute right-6 bottom-0 top-6 w-[120px] opacity-10 group-hover:opacity-20 transition-opacity pointer-events-none flex items-end justify-end">
+                      <s.icon size={120} strokeWidth={1} className="text-black" />
                     </div>
                     
                     <div className="relative z-10">

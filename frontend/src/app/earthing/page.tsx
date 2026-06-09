@@ -237,7 +237,7 @@ export default function EarthingPage() {
       </section>
 
       {/* Component Showcase */}
-      <section className="py-13 bg-slate-50 relative overflow-hidden">
+      <section className="py-13 bg-[#F1F1F1] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 mb-16">
           <div className="text-center max-w-2xl mx-auto">
               <span className="text-[11px] font-black uppercase tracking-[0.5em] text-[#d4af37] mb-4 block">The Ecosystem</span>
@@ -278,62 +278,27 @@ export default function EarthingPage() {
           ))}
         </div>
 
-        {/* Explore Our Products CTA (Styled as a 3D Copper Earthing Electrode Metal Rod) */}
-        <div className="mx-6 mt-14 rounded-full bg-gradient-to-b from-[#7c3f24] via-[#e28a5f] to-[#4e2211] px-14 py-8 flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden shadow-2xl border-y border-white/10 hover:shadow-amber-950/20 transition-all duration-500">
-          
-          {/* Flat mounting tab on the left end (with holes like the actual rod) */}
-          <div className="absolute left-[-24px] top-[25%] bottom-[25%] w-8 bg-gradient-to-b from-[#5c2a15] via-[#a1512f] to-[#3a180a] rounded-l-md border-y border-l border-[#2e1206] flex flex-col justify-around py-1.5 px-2 z-[-1] shadow-inner">
-            <div className="w-2.5 h-2.5 bg-black/70 rounded-full border border-black/40 shadow-inner" />
-            <div className="w-2.5 h-2.5 bg-black/70 rounded-full border border-black/40 shadow-inner" />
+        {/* Explore Our Products CTA (Uses the actual electrode image directly with no outer wrapper shape) */}
+        <div className="mx-6 mt-14 pl-14 pr-3 md:pr-6 py-16 flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden min-h-[150px]">
+          {/* Electrode Image Background */}
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            <Image
+              src="/images/electrode_banner.png"
+              alt="Chemical Earthing Electrode Background"
+              fill
+              className="object-cover object-center brightness-95 saturate-[1.05]"
+              priority
+            />
           </div>
 
-          {/* Right bottom end cap */}
-          <div className="absolute right-[-4px] top-[30%] bottom-[30%] w-2 bg-gradient-to-b from-[#5c2a15] via-[#a1512f] to-[#3a180a] rounded-r-full z-[-1]" />
-
-          {/* Shiny metallic sheen sweep */}
-          <motion.div
-            className="absolute inset-0 pointer-events-none z-0"
-            style={{
-              background: 'linear-gradient(90deg, transparent 30%, rgba(255, 255, 255, 0.15) 50%, transparent 70%)',
-            }}
-            animate={{ x: ["-100%", "100%"] }}
-            transition={{ repeat: Infinity, ease: "linear", duration: 5, repeatDelay: 3 }}
-          />
-
-          {/* Electrical current flow animation */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-50" viewBox="0 0 1000 80" preserveAspectRatio="none">
-
-            
-            {/* Wavy electricity discharge paths */}
-            <motion.path
-              d="M 0,40 Q 250,20 500,40 T 1000,40"
-              stroke="#fbbf24"
-              strokeWidth="1.5"
-              fill="none"
-              strokeDasharray="15 60"
-              animate={{ strokeDashoffset: [0, -75] }}
-              transition={{ repeat: Infinity, ease: "linear", duration: 2.5 }}
-            />
-            <motion.path
-              d="M 0,40 Q 250,60 500,40 T 1000,40"
-              stroke="#f59e0b"
-              strokeWidth="1.5"
-              fill="none"
-              strokeDasharray="20 80"
-              animate={{ strokeDashoffset: [0, -100] }}
-              transition={{ repeat: Infinity, ease: "linear", duration: 3 }}
-            />
-          </svg>
-
-          <p className="text-white text-sm font-bold relative z-10 max-w-xl pl-4 leading-relaxed">
+          <p className="text-white text-sm font-extrabold relative z-10 max-w-xl leading-relaxed drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
             Explore our complete range of chemical electrodes, backfill compounds and earthing rods.
           </p>
           <Link
             href="/products"
-            className="group inline-flex items-center gap-3 px-8 py-4 bg-white hover:bg-zinc-100 text-black font-black uppercase tracking-widest text-[10px] rounded-full transition-all duration-300 shadow-lg hover:shadow-white/10 flex-shrink-0 relative z-10 mr-4"
+            className="group inline-flex items-center px-4 py-2.5 bg-white hover:bg-[#d4af37] hover:text-black text-black font-black uppercase tracking-widest text-[8px] rounded-full transition-all duration-300 shadow-lg hover:shadow-white/10 flex-shrink-0 relative z-10 sm:-translate-y-[6px]"
           >
-            Explore Our Products
-            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            Explore Products
           </Link>
         </div>
       </section>
