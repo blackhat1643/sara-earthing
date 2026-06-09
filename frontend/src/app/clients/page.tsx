@@ -35,7 +35,7 @@ export default function ClientsPage() {
               Trust & Partnerships
             </span>
             <h1 className="text-4xl md:text-8xl font-black text-white uppercase tracking-tighter leading-[1.1] md:leading-[0.85] mb-8">
-              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] via-[#f7e1ad] to-[#b8860b]">Clients</span>
+              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] via-[#f7e1ad] to-[#b8860b] pr-2">Clients</span>
             </h1>
             <p className="text-white/60 text-base md:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
               Over the last two decades, we have earned the trust of premier industrial leaders by delivering earthing solutions tailored to their exact structural blueprints.

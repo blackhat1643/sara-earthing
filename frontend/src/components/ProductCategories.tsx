@@ -61,7 +61,7 @@ export default function ProductCategories() {
         </motion.span>
         <h2 className="text-5xl md:text-6xl font-black text-slate-900 font-display leading-[0.9] tracking-tighter mb-6 uppercase">
           Product <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-br from-[#d4af37] to-[#b8860b]">
+          <span className="text-transparent bg-clip-text bg-gradient-to-br from-[#d4af37] to-[#b8860b] pr-2">
             Categories
           </span>
         </h2>

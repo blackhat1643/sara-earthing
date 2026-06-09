@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
 import Certifications from '@/components/Certifications';
-import { Award, Microscope, Users, Globe } from 'lucide-react';
+import { Award, Microscope, Users, Globe, ShieldCheck, Activity } from 'lucide-react';
 
 export default function QualityPage() {
   const qualityFeatures = [
@@ -38,34 +38,99 @@ export default function QualityPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative pt-24 md:pt-28 pb-12 md:pb-16 flex items-center justify-center overflow-hidden bg-white">
+      <section className="relative pt-28 md:pt-36 pb-20 md:pb-24 flex items-center overflow-hidden bg-white">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-0 right-0 w-2/3 h-full bg-[#d4af37]/5 -skew-x-12 translate-x-1/4" />
-          <div className="absolute bottom-0 left-0 w-1/3 h-2/3 bg-slate-50 skew-y-6 -translate-x-1/4" />
+          <div className="absolute bottom-0 left-0 w-1/3 h-2/3 bg-slate-50/50 skew-y-6 -translate-x-1/4" />
         </div>
 
-        <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="inline-flex items-center gap-4 md:gap-6 mb-8">
-              <div className="h-[1px] w-8 md:w-12 bg-[#d4af37]" />
-              <span className="text-[#d4af37] text-[9px] md:text-[11px] font-black uppercase tracking-[0.4em] md:tracking-[0.6em]">Premium Standards</span>
-              <div className="h-[1px] w-8 md:w-12 bg-[#d4af37]" />
-            </div>
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-16 items-center">
+          {/* Typography side */}
+          <div className="lg:col-span-7 text-left">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
+              <h1 className="text-4xl md:text-6xl lg:text-7.5xl font-black uppercase tracking-tight text-slate-900 mb-8 leading-[0.95]">
+                Engineering for <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] via-[#f0d060] to-[#b8860b] pr-2">
+                  Non-Negotiable
+                </span> <br />
+                Quality
+              </h1>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-[1.1] md:leading-none mb-8">
-              Engineering for <br />
-              <span className="text-[#d4af37]">Non-Negotiable</span> <br />
-              <span className="text-slate-900">Quality</span>
-            </h1>
+              <p className="text-slate-600 text-base md:text-xl font-medium leading-relaxed max-w-xl mb-10">
+                Every system we manufacture undergoes rigorous validation to deliver flawless electrical grounding solutions for safety across India&apos;s most demanding industrial landscapes.
+              </p>
 
-            <p className="text-slate-500 text-base md:text-xl max-w-2xl mx-auto font-medium leading-relaxed px-4 md:px-0">
-              Every system we manufacture undergoes rigorous validation to deliver flawless electrical grounding solutions for safety across India&apos;s most demanding industrial landscapes.
-            </p>
-          </motion.div>
+              {/* Compliance grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-slate-100 max-w-xl">
+                {[
+                  { tag: "CPRI", val: "Short-Circuit Tested" },
+                  { tag: "ISO 9001:2015", val: "QMS Certified" },
+                  { tag: "ERDA", val: "Parameter Tested" },
+                  { tag: "IS 3043:2018", val: "Code Compliant" }
+                ].map((c, i) => (
+                  <div key={i} className="bg-slate-50 border border-slate-100 p-4 rounded-2xl flex flex-col justify-center">
+                    <span className="text-[#d4af37] text-[10px] font-black tracking-widest leading-none mb-1">{c.tag}</span>
+                    <span className="text-slate-400 text-[9px] font-extrabold uppercase tracking-wider">{c.val}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Blueprint Glassmorphism side */}
+          <div className="lg:col-span-5 relative mt-10 lg:mt-0">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2, delay: 0.3 }}
+              className="relative aspect-[4/3] w-full rounded-[40px] overflow-hidden border border-slate-100 bg-gradient-to-br from-slate-50 to-white p-8 flex items-center justify-center group shadow-2xl hover:shadow-[0_20px_50px_rgba(212,175,55,0.08)] hover:border-[#d4af37]/30 transition-all duration-700 hover:-translate-y-1"
+            >
+              {/* Technical Grid behind */}
+              <div className="absolute inset-0 opacity-[0.02] group-hover:opacity-[0.04] transition-opacity duration-700 pointer-events-none"
+                   style={{ backgroundImage: 'radial-gradient(#d4af37 2px, transparent 2px)', backgroundSize: '24px 24px' }} />
+              
+              {/* CAD blueprint lines */}
+              <div className="absolute w-[85%] h-[85%] rounded-full border border-dashed border-[#d4af37]/20 pointer-events-none animate-[spin_35s_linear_infinite]" />
+              <div className="absolute w-[65%] h-[65%] rounded-full border border-double border-[#d4af37]/10 pointer-events-none animate-[spin_20s_linear_infinite_reverse]" />
+
+              {/* Quality testing indicators layout */}
+              <div className="relative z-10 w-full space-y-4">
+                <div className="flex items-center gap-4 bg-white/95 border border-slate-100 p-4 rounded-3xl shadow-lg hover:border-[#d4af37]/20 transition-all duration-300">
+                  <div className="w-10 h-10 rounded-2xl bg-[#d4af37]/10 flex items-center justify-center text-[#d4af37]">
+                    <ShieldCheck size={20} />
+                  </div>
+                  <div>
+                    <div className="text-[10px] font-black text-[#d4af37] tracking-widest">COPPER COATING</div>
+                    <div className="text-slate-900 text-sm font-black uppercase tracking-tight">254 MICRONS (UL 467)</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4 bg-white/95 border border-slate-100 p-4 rounded-3xl shadow-lg hover:border-[#d4af37]/20 transition-all duration-300 translate-x-4 md:translate-x-8">
+                  <div className="w-10 h-10 rounded-2xl bg-[#d4af37]/10 flex items-center justify-center text-[#d4af37]">
+                    <Activity size={20} />
+                  </div>
+                  <div>
+                    <div className="text-[10px] font-black text-[#d4af37] tracking-widest">BACKFILL RESISTIVITY</div>
+                    <div className="text-slate-900 text-sm font-black uppercase tracking-tight">&lt; 0.12 Ω·m</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4 bg-white/95 border border-slate-100 p-4 rounded-3xl shadow-lg hover:border-[#d4af37]/20 transition-all duration-300">
+                  <div className="w-10 h-10 rounded-2xl bg-[#d4af37]/10 flex items-center justify-center text-[#d4af37]">
+                    <Microscope size={20} />
+                  </div>
+                  <div>
+                    <div className="text-[10px] font-black text-[#d4af37] tracking-widest">GOVERNMENT LAB TESTING</div>
+                    <div className="text-slate-900 text-sm font-black uppercase tracking-tight">CPRI & ERDA APPROVED</div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -108,26 +173,6 @@ export default function QualityPage() {
 
 
       <Certifications />
-
-      {/* Small CTA */}
-      <section className="py-7 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="relative rounded-[40px] md:rounded-[60px] overflow-hidden bg-slate-900 p-12 md:p-24 text-center shadow-3xl">
-            <div className="absolute top-0 right-0 w-[600px] h-full bg-[#d4af37]/5 -skew-x-12 translate-x-1/2" />
-            <div className="relative z-10">
-              <h2 className="text-3xl md:text-7xl font-black text-white uppercase mb-12 tracking-tighter leading-[1.1] md:leading-none">
-                Quality That <br className="md:hidden" />
-                <span className="text-[#d4af37]">Matters</span>
-              </h2>
-              <div className="flex flex-wrap justify-center gap-6">
-                <Link href="/quote" className="px-10 py-5 bg-[#d4af37] text-black font-black uppercase tracking-widest text-[10px] rounded-full hover:scale-105 transition-transform shadow-2xl shadow-[#d4af37]/20">
-                  Request a Quote
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <Footer />
     </div>

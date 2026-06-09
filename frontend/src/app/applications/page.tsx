@@ -94,7 +94,7 @@ const sectors = [
     description: 'Securing crowded public spaces, complex central HVAC networks, elevators, and retail electronics from unexpected short circuits and electrical surges.',
     features: ['Public Safety Design', 'HVAC System Grounding', 'Commercial Surge Protection'],
     icon: Building2,
-    image: '/images/alnd.png',
+    image: '/images/mall_app.png',
     color: '#d4af37'
   },
   {
@@ -114,7 +114,7 @@ const sectors = [
     description: 'Safeguarding luxury high-rise buildings, central computing centers, smart rooms, and leisure amenities from fire hazards caused by electrical failure.',
     features: ['Aesthetic Compact Layouts', 'Central Panel Protection', 'Total Occupant Safety'],
     icon: Hotel,
-    image: '/images/residential_app.png',
+    image: '/images/hotel_app.png',
     color: '#d4af37'
   }
 ];
@@ -192,9 +192,9 @@ export default function ApplicationsPage() {
             >
               <div className="absolute inset-0 bg-[#d4af37]/5 -skew-x-12 translate-x-1/2" />
               <Zap className="text-[#d4af37] mb-8" size={48} />
-              <h3 className="text-3xl font-black text-white uppercase tracking-tighter leading-none mb-6">Need a Custom <br /> Design?</h3>
+              <h3 className="text-3xl font-black text-white uppercase tracking-tighter leading-none mb-6">Need Grounding <br /> Support?</h3>
               <Link href="/contact" className="px-8 py-4 bg-[#d4af37] text-black font-black uppercase tracking-widest text-[10px] rounded-full hover:scale-105 transition-transform">
-                Consult Engineering
+                Consult Our Engineers
               </Link>
             </motion.div>
           </div>

@@ -278,37 +278,63 @@ export default function EarthingPage() {
           ))}
         </div>
 
-        {/* Explore Our Products CTA */}
-        <div className="mx-6 mt-14 rounded-2xl bg-[#d4af37] px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <p className="text-black/70 text-sm font-medium">Explore our complete range of grounding and protection solutions.</p>
+        {/* Explore Our Products CTA (Styled as a 3D Copper Earthing Electrode Metal Rod) */}
+        <div className="mx-6 mt-14 rounded-full bg-gradient-to-b from-[#7c3f24] via-[#e28a5f] to-[#4e2211] px-14 py-8 flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden shadow-2xl border-y border-white/10 hover:shadow-amber-950/20 transition-all duration-500">
+          
+          {/* Flat mounting tab on the left end (with holes like the actual rod) */}
+          <div className="absolute left-[-24px] top-[25%] bottom-[25%] w-8 bg-gradient-to-b from-[#5c2a15] via-[#a1512f] to-[#3a180a] rounded-l-md border-y border-l border-[#2e1206] flex flex-col justify-around py-1.5 px-2 z-[-1] shadow-inner">
+            <div className="w-2.5 h-2.5 bg-black/70 rounded-full border border-black/40 shadow-inner" />
+            <div className="w-2.5 h-2.5 bg-black/70 rounded-full border border-black/40 shadow-inner" />
+          </div>
+
+          {/* Right bottom end cap */}
+          <div className="absolute right-[-4px] top-[30%] bottom-[30%] w-2 bg-gradient-to-b from-[#5c2a15] via-[#a1512f] to-[#3a180a] rounded-r-full z-[-1]" />
+
+          {/* Shiny metallic sheen sweep */}
+          <motion.div
+            className="absolute inset-0 pointer-events-none z-0"
+            style={{
+              background: 'linear-gradient(90deg, transparent 30%, rgba(255, 255, 255, 0.15) 50%, transparent 70%)',
+            }}
+            animate={{ x: ["-100%", "100%"] }}
+            transition={{ repeat: Infinity, ease: "linear", duration: 5, repeatDelay: 3 }}
+          />
+
+          {/* Electrical current flow animation */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-50" viewBox="0 0 1000 80" preserveAspectRatio="none">
+
+            
+            {/* Wavy electricity discharge paths */}
+            <motion.path
+              d="M 0,40 Q 250,20 500,40 T 1000,40"
+              stroke="#fbbf24"
+              strokeWidth="1.5"
+              fill="none"
+              strokeDasharray="15 60"
+              animate={{ strokeDashoffset: [0, -75] }}
+              transition={{ repeat: Infinity, ease: "linear", duration: 2.5 }}
+            />
+            <motion.path
+              d="M 0,40 Q 250,60 500,40 T 1000,40"
+              stroke="#f59e0b"
+              strokeWidth="1.5"
+              fill="none"
+              strokeDasharray="20 80"
+              animate={{ strokeDashoffset: [0, -100] }}
+              transition={{ repeat: Infinity, ease: "linear", duration: 3 }}
+            />
+          </svg>
+
+          <p className="text-white text-sm font-bold relative z-10 max-w-xl pl-4 leading-relaxed">
+            Explore our complete range of chemical electrodes, backfill compounds and earthing rods.
+          </p>
           <Link
             href="/products"
-            className="group inline-flex items-center gap-3 px-8 py-4 bg-black text-white font-black uppercase tracking-widest text-[10px] rounded-full hover:bg-slate-800 transition-all duration-300 shadow-lg flex-shrink-0"
+            className="group inline-flex items-center gap-3 px-8 py-4 bg-white hover:bg-zinc-100 text-black font-black uppercase tracking-widest text-[10px] rounded-full transition-all duration-300 shadow-lg hover:shadow-white/10 flex-shrink-0 relative z-10 mr-4"
           >
             Explore Our Products
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </Link>
-        </div>
-      </section>
-
-
-
-      {/* Expert Consultation */}
-      <section className="py-7 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="relative rounded-[60px] overflow-hidden bg-slate-900 p-16 md:p-24 text-center shadow-3xl">
-            <div className="absolute top-0 right-0 w-[600px] h-full bg-[#d4af37]/5 -skew-x-12 translate-x-1/2" />
-            <div className="relative z-10">
-              <h2 className="text-4xl md:text-6xl font-black text-white uppercase mb-10 tracking-tighter leading-none">
-                Ready to <span className="text-[#d4af37]">Protect?</span>
-              </h2>
-              <div className="flex flex-wrap justify-center gap-6">
-                <Link href="/quote" className="px-8 py-4 bg-[#d4af37] text-black font-black uppercase tracking-widest text-[10px] rounded-full hover:scale-105 transition-transform shadow-2xl shadow-[#d4af37]/20">
-                  Request Quote
-                </Link>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 

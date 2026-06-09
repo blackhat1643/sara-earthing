@@ -107,7 +107,7 @@ export default function ProductsHubPage() {
       {/* Technical Footer */}
       <section className="py-24 border-t border-slate-100 bg-white">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-black uppercase tracking-tighter mb-8">Need a Custom Design?</h2>
+          <h2 className="text-4xl font-black uppercase tracking-tighter mb-8">Need Grounding Support?</h2>
           <button className="px-12 py-6 bg-slate-900 text-white font-black uppercase tracking-widest text-xs rounded-full hover:bg-[#d4af37] transition-all shadow-xl">
             Contact Engineering Team
           </button>

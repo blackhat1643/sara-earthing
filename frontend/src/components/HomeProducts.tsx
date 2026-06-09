@@ -38,7 +38,7 @@ export default function HomeProducts() {
             className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 font-display mb-6 tracking-tight leading-tight uppercase"
           >
             Explore <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] to-amber-600">Our Products</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] to-amber-600 pr-2">Our Products</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
