@@ -406,8 +406,35 @@ export default function AdminPage() {
   const openEditProduct = (prod: Product) => {
     setIsNewProduct(false);
     setModalActiveTab('general');
+    
     // Deep clone product to avoid mutation before save
-    setEditingProduct(JSON.parse(JSON.stringify(prod)));
+    const cloned = JSON.parse(JSON.stringify(prod));
+    
+    // Safety coercions: Convert stringified arrays back to real arrays so the admin form doesn't crash on .map
+    if (typeof cloned.features === 'string') cloned.features = (cloned.features as string).split(',').map((s: string) => s.trim()).filter(Boolean);
+    if (!Array.isArray(cloned.features)) cloned.features = [];
+    
+    if (typeof cloned.applications === 'string') cloned.applications = (cloned.applications as string).split(',').map((s: string) => s.trim()).filter(Boolean);
+    if (!Array.isArray(cloned.applications)) cloned.applications = [];
+    
+    if (typeof cloned.longDesc === 'string') cloned.longDesc = (cloned.longDesc as string).split('\n').filter(Boolean);
+    if (!Array.isArray(cloned.longDesc)) cloned.longDesc = [];
+    
+    if (!Array.isArray(cloned.highlights)) cloned.highlights = [];
+    
+    if (!cloned.detailedTabs) {
+      cloned.detailedTabs = { features: { desc: '', list: [] }, advantages: [], specTable: { headers: [], rows: [] } };
+    } else {
+      if (typeof cloned.detailedTabs.features?.list === 'string') cloned.detailedTabs.features.list = (cloned.detailedTabs.features.list as string).split(',').map((s: string) => s.trim()).filter(Boolean);
+      if (!cloned.detailedTabs.features) cloned.detailedTabs.features = { desc: '', list: [] };
+      if (!Array.isArray(cloned.detailedTabs.features.list)) cloned.detailedTabs.features.list = [];
+      if (!Array.isArray(cloned.detailedTabs.advantages)) cloned.detailedTabs.advantages = [];
+      if (!cloned.detailedTabs.specTable) cloned.detailedTabs.specTable = { headers: [], rows: [] };
+      if (!Array.isArray(cloned.detailedTabs.specTable.headers)) cloned.detailedTabs.specTable.headers = [];
+      if (!Array.isArray(cloned.detailedTabs.specTable.rows)) cloned.detailedTabs.specTable.rows = [];
+    }
+
+    setEditingProduct(cloned);
     setIsProductModalOpen(true);
   };
 
