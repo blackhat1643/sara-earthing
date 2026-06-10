@@ -11,7 +11,7 @@ const apps = [
     description: 'High load machinery and automated assembly lines demand absolute voltage stability to prevent downtime.',
     features: ['Voltage Stability', 'Downtime Prevention', 'Equipment Safety'],
     icon: Factory,
-    image: '/images/power_app.png',
+    image: '/images/Manufacturing & Heavy Industries.jpg',
     tag: 'MANUFACTURING'
   },
   {
@@ -20,7 +20,7 @@ const apps = [
     description: 'Modern commercial architecture and high-rise buildings require comprehensive structural defense and safety grids to protect assets, electronics, and occupants.',
     features: ['Structural Defense', 'Safety Grids', 'Asset Protection'],
     icon: Building2,
-    image: '/images/refinery_app.png',
+    image: '/images/Commercial Real Estate.jpg',
     tag: 'COMMERCIAL'
   },
   {
@@ -29,7 +29,7 @@ const apps = [
     description: 'Sensitive digital infrastructure requires a zero noise, ultra low resistance grounding network to maintain constant uptime and protect critical data integrity.',
     features: ['Zero Noise', 'Low Resistance', 'Constant Uptime'],
     icon: Database,
-    image: '/images/datacenter_app.png',
+    image: '/images/Data Centers & Telecom.jpg',
     tag: 'DIGITAL'
   },
   {
@@ -38,7 +38,7 @@ const apps = [
     description: 'Solar farms, wind fields, and substations span vast terrains with highly variable soil resistivity, requiring highly adaptive grounding engineering.',
     features: ['Adaptive Grounding', 'Variable Soil Solutions', 'Wide Terrain Safety'],
     icon: Power,
-    image: '/images/wind_app.png',
+    image: '/images/Power & Renewable Energy.jpg',
     tag: 'ENERGY'
   },
   {
@@ -47,7 +47,7 @@ const apps = [
     description: 'Premium residential properties and hospitality venues prioritize uninterrupted luxury, guest comfort, and the total protection of automation systems.',
     features: ['Uninterrupted Luxury', 'Guest Comfort', 'Automation Protection'],
     icon: Home,
-    image: '/images/residential_app.png',
+    image: '/images/Homes & Horels.jpg',
     tag: 'RESIDENTIAL'
   }
 ];
