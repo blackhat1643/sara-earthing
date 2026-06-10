@@ -78,8 +78,15 @@ export default function ProductDetailClient({ category, slug }: { category: stri
   }, [product, category, slug]);
 
   // Setup tabs dynamically based on available data
+  // Safely coerce features to an array (API may return a string)
+  const safeFeatures: string[] = Array.isArray(product?.features)
+    ? product.features
+    : typeof product?.features === 'string'
+      ? (product.features as string).split(',').map((s: string) => s.trim()).filter(Boolean)
+      : [];
+
   const tabs = [
-    ...(product?.detailedTabs?.features || product?.features?.length ? [{ id: 'features', label: 'Features' }] : []),
+    ...(product?.detailedTabs?.features || safeFeatures.length ? [{ id: 'features', label: 'Features' }] : []),
     ...(product?.detailedTabs?.advantages && product.detailedTabs.advantages.length > 0 ? [{ id: 'advantages', label: 'Key Advantages' }] : []),
     ...(product?.detailedTabs?.specTable && (product.detailedTabs.specTable.headers?.length > 0 || product.detailedTabs.specTable.rows?.length > 0) || product?.specs ? [{ id: 'specs', label: 'Specifications' }] : []),
     ...(product?.applications?.length ? [{ id: 'applications', label: 'Applications' }] : []),
@@ -91,7 +98,7 @@ export default function ProductDetailClient({ category, slug }: { category: stri
   useEffect(() => {
     if (product) {
       const availableTabs = [
-        ...(product.detailedTabs?.features || product.features?.length ? ['features'] : []),
+        ...(product.detailedTabs?.features || safeFeatures.length ? ['features'] : []),
         ...(product.detailedTabs?.advantages && product.detailedTabs.advantages.length > 0 ? ['advantages'] : []),
         ...(product.detailedTabs?.specTable && (product.detailedTabs.specTable.headers?.length > 0 || product.detailedTabs.specTable.rows?.length > 0) || product.specs ? ['specs'] : []),
         ...(product.applications?.length ? ['applications'] : []),
@@ -295,7 +302,7 @@ export default function ProductDetailClient({ category, slug }: { category: stri
                           </p>
                         )}
                         <div className="grid md:grid-cols-2 gap-4">
-                          {(product.detailedTabs?.features?.list || product.features).map((feat, i) => (
+                          {(product.detailedTabs?.features?.list || safeFeatures).map((feat, i) => (
                             <div key={i} className="flex items-center gap-4 p-5 rounded-3xl border border-slate-100 group hover:border-[#d4af37]/30 transition-all">
                               <div className="w-8 h-8 rounded-xl bg-[#d4af37]/10 flex items-center justify-center text-[#d4af37]">
                                 <CheckCircle2 size={16} />

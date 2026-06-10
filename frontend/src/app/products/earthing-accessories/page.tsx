@@ -125,7 +125,7 @@ export default function EarthingAccessoriesPage() {
                   </p>
                   
                   <div className="grid grid-cols-1 gap-3 mb-10">
-                    {prod.features.map((feat, i) => (
+                    {(Array.isArray(prod.features) ? prod.features : typeof prod.features === 'string' ? (prod.features as string).split(',').map((s: string) => s.trim()).filter(Boolean) : []).map((feat, i) => (
                       <div key={i} className="flex items-center gap-3 bg-slate-50 p-3 rounded-2xl border border-slate-100/50 group-hover:bg-[#d4af37]/5 group-hover:border-[#d4af37]/20 transition-colors">
                         <ShieldCheck size={14} className="text-[#d4af37]" />
                         <span className="text-[10px] font-black uppercase tracking-widest text-slate-600">{feat}</span>
