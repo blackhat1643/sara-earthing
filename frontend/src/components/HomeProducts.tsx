@@ -8,7 +8,7 @@ const categories = [
   {
     id: 'earthing-products',
     title: 'Earthing Products',
-    image: '/images/products/earthing_products_main.jpg',
+    image: '/images/products/Earthing Products All - Website.jpg',
     desc: 'High-quality earthing electrodes and compounds engineered for optimal grounding and durability.',
   },
   {
@@ -23,14 +23,14 @@ export default function HomeProducts() {
   return (
     <section className="py-13 bg-slate-50 overflow-hidden relative">
       {/* Subtle Grid Background */}
-      <div 
-        className="absolute inset-0 opacity-[0.03] pointer-events-none" 
-        style={{ backgroundImage: 'linear-gradient(to right, #0f172a 1px, transparent 1px), linear-gradient(to bottom, #0f172a 1px, transparent 1px)', backgroundSize: '40px 40px' }} 
+      <div
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{ backgroundImage: 'linear-gradient(to right, #0f172a 1px, transparent 1px), linear-gradient(to bottom, #0f172a 1px, transparent 1px)', backgroundSize: '40px 40px' }}
       />
-      
+
       <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -40,7 +40,7 @@ export default function HomeProducts() {
             Explore <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] to-amber-600 pr-2">Our Products</span>
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -68,7 +68,7 @@ export default function HomeProducts() {
                 <div className="relative h-[220px] md:h-[280px] mb-8 w-full rounded-2xl bg-slate-50 overflow-hidden flex items-center justify-center transition-colors duration-500 group-hover:bg-[#d4af37]/[0.03]">
                   {/* Glowing background behind image on hover */}
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.15)_0%,transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700 transform scale-50 group-hover:scale-100" />
-                  
+
                   <Image
                     src={cat.image}
                     alt={cat.title}
@@ -87,7 +87,7 @@ export default function HomeProducts() {
                       {cat.desc}
                     </p>
                   </div>
-                  
+
                   {/* Animated "See More" Button */}
                   <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-50 text-slate-900 border border-slate-200 flex-shrink-0 group-hover:bg-[#d4af37] group-hover:border-[#d4af37] group-hover:text-white group-hover:shadow-[0_0_15px_rgba(212,175,55,0.4)] transition-all duration-500">
                     <span className="font-bold text-sm uppercase tracking-wider">See More</span>

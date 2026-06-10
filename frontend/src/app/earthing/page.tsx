@@ -280,7 +280,7 @@ export default function EarthingPage() {
 
         {/* Explore Our Products CTA */}
         <div className="mx-6 mt-14 max-w-7xl md:mx-auto relative">
-          <div className="relative w-full aspect-[4/1.2] sm:aspect-[4/1] md:aspect-[5/1] overflow-hidden flex items-center justify-between pl-6 pr-2 md:pl-10 md:pr-3 bg-white rounded-3xl border border-slate-200 shadow-sm">
+          <div className="relative w-full aspect-[4/1.2] sm:aspect-[4/1] md:aspect-[5/1] overflow-hidden flex items-center justify-between pl-6 pr-2 md:pl-10 md:pr-3">
             {/* Electrode Image centered vertically in the background */}
             <Image
               src="/images/electrode_banner.png"

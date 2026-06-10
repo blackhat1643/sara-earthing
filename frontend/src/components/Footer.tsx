@@ -140,8 +140,7 @@ export default function Footer({ showImage = false }: { showImage?: boolean }) {
                   { name: 'Copper Bonded Electrode', href: '/products/earthing-products/copper-bonded-electrode' },
                   { name: 'Copper Bonded Rods', href: '/products/earthing-products/copper-bonded-rods' },
                   { name: 'Chemical Copper Electrodes', href: '/products/earthing-products/chemical-copper-electrodes' },
-                  { name: 'Earthing Accessories', href: '/products/earthing-accessories' },
-                  { name: 'Exothermic Welding', href: '/earthing#exothermic' }
+                  { name: 'Earthing Accessories', href: '/products/earthing-accessories' }
                 ].map(item => (
                   <li key={item.name}>
                     <Link href={item.href} className="text-white/50 text-sm font-medium hover:text-[#d4af37] flex items-center gap-3 group transition-all duration-300">
