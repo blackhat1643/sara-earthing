@@ -217,7 +217,7 @@ export default function ProductDetailClient({ category, slug }: { category: stri
                 {/* Long detailed description paragraphs */}
                 <div className="space-y-6">
                   {product.longDesc && product.longDesc.length > 0 ? (
-                    product.longDesc.map((pText, i) => (
+                    (Array.isArray(product.longDesc) ? product.longDesc : typeof product.longDesc === 'string' ? (product.longDesc as string).split('\n').filter(Boolean) : []).map((pText, i) => (
                       <p key={i} className="text-slate-500 text-base md:text-lg leading-relaxed font-medium">
                         {pText}
                       </p>
