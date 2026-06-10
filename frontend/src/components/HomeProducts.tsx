@@ -14,7 +14,7 @@ const categories = [
   {
     id: 'earthing-accessories',
     title: 'Earthing Accessories',
-    image: '/images/products/accessories_main.jpg',
+    image: '/images/products/accessories_main.png',
     desc: 'Durable accessories and clamps built to ensure secure and long-lasting earthing connections.',
   }
 ];
