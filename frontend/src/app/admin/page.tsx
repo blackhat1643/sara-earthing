@@ -420,8 +420,19 @@ export default function AdminPage() {
     if (typeof cloned.longDesc === 'string') cloned.longDesc = (cloned.longDesc as string).split('\n').filter(Boolean);
     if (!Array.isArray(cloned.longDesc)) cloned.longDesc = [];
     
+    if (typeof cloned.highlights === 'string') {
+      try { cloned.highlights = JSON.parse(cloned.highlights); } catch(e) { cloned.highlights = []; }
+    }
     if (!Array.isArray(cloned.highlights)) cloned.highlights = [];
     
+    if (typeof cloned.specs === 'string') {
+      try { cloned.specs = JSON.parse(cloned.specs); } catch(e) { cloned.specs = {}; }
+    }
+
+    if (typeof cloned.detailedTabs === 'string') {
+      try { cloned.detailedTabs = JSON.parse(cloned.detailedTabs); } catch(e) { cloned.detailedTabs = null; }
+    }
+
     if (!cloned.detailedTabs) {
       cloned.detailedTabs = { features: { desc: '', list: [] }, advantages: [], specTable: { headers: [], rows: [] } };
     } else {
