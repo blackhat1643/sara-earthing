@@ -298,7 +298,22 @@ export default function AdminPage() {
   const openEditBlog = (blog: Blog) => {
     setIsNewBlog(false);
     setBlogModalActiveTab('general');
-    setEditingBlog(JSON.parse(JSON.stringify(blog)));
+    
+    const cloned = JSON.parse(JSON.stringify(blog));
+    
+    // Safety coercion: Convert stringified content back to array
+    if (typeof cloned.content === 'string') {
+      try {
+        const parsed = JSON.parse(cloned.content);
+        if (Array.isArray(parsed)) cloned.content = parsed;
+        else cloned.content = (cloned.content as string).split('\n').filter(Boolean);
+      } catch (e) {
+        cloned.content = (cloned.content as string).split('\n').filter(Boolean);
+      }
+    }
+    if (!Array.isArray(cloned.content)) cloned.content = [];
+
+    setEditingBlog(cloned);
     setIsBlogModalOpen(true);
   };
 
