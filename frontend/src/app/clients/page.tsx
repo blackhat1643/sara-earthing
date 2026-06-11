@@ -3,8 +3,23 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Building2 } from 'lucide-react';
 import Footer from '@/components/Footer';
+import { useState, useEffect } from 'react';
 
 export default function ClientsPage() {
+  const [mounted, setMounted] = useState(false);
+  const [clientIndices, setClientIndices] = useState<number[]>([]);
+
+  useEffect(() => {
+    const indices = Array.from({ length: 40 }, (_, i) => i + 1);
+    // Fisher-Yates shuffle
+    for (let i = indices.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [indices[i], indices[j]] = [indices[j], indices[i]];
+    }
+    setClientIndices(indices);
+    setMounted(true);
+  }, []);
+
   return (
     <div className="bg-white min-h-screen text-slate-900 font-display overflow-x-clip relative">
       
@@ -56,23 +71,29 @@ export default function ClientsPage() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
-            {Array.from({ length: 40 }).map((_, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: (idx % 10) * 0.05 }}
-                className="group relative aspect-[3/2] bg-white border border-slate-100 rounded-[2rem] p-6 flex items-center justify-center hover:shadow-2xl hover:border-[#d4af37]/20 transition-all duration-500 overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-slate-50/50 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <img 
-                  src={`/images/clients/pf-${idx + 1}.jpg`}
-                  alt={`Client ${idx + 1}`}
-                  className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500 relative z-10"
-                />
-              </motion.div>
-            ))}
+            {!mounted ? (
+              Array.from({ length: 40 }).map((_, idx) => (
+                <div key={idx} className="aspect-[3/2] border border-slate-100 rounded-[2rem] bg-slate-50/50" />
+              ))
+            ) : (
+              clientIndices.map((clientNum, idx) => (
+                <motion.div
+                  key={clientNum}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: (idx % 10) * 0.05 }}
+                  className="group relative aspect-[3/2] bg-white border border-slate-100 rounded-[2rem] p-6 flex items-center justify-center hover:shadow-2xl hover:border-[#d4af37]/20 transition-all duration-500 overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-slate-50/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <img 
+                    src={`/images/clients/pf-${clientNum}.jpg`}
+                    alt={`Client ${clientNum}`}
+                    className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500 relative z-10"
+                  />
+                </motion.div>
+              ))
+            )}
           </div>
         </div>
       </section>
