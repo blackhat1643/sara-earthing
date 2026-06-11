@@ -135,11 +135,11 @@ export default function Footer({ showImage = false }: { showImage?: boolean }) {
               </h4>
               <ul className="space-y-4">
                 {[
-                  { name: 'GI Earthing', href: '/products/earthing-products/gi-earthing-electrode' },
+                  { name: 'GI Earthing', href: '/products/earthing-products/gi-earthing' },
                   { name: 'Back Fill Compound', href: '/products/earthing-products/back-fill-compound' },
                   { name: 'Copper Bonded Electrode', href: '/products/earthing-products/copper-bonded-electrode' },
                   { name: 'Copper Bonded Rods', href: '/products/earthing-products/copper-bonded-rods' },
-                  { name: 'Chemical Copper Electrodes', href: '/products/earthing-products/chemical-copper-electrodes' },
+                  { name: 'Chemical Copper Electrodes', href: '/products/earthing-products/copper-electrode' },
                   { name: 'Earthing Accessories', href: '/products/earthing-accessories' }
                 ].map(item => (
                   <li key={item.name}>

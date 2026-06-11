@@ -199,11 +199,18 @@ export default function BlogDetailClient({ slug }: { slug: string }) {
 
           {/* Article Body */}
           <div className="prose prose-slate max-w-none space-y-8">
-            {blog.content.map((paragraph, index) => (
-              <p key={index} className="text-slate-600 text-lg leading-relaxed font-medium">
-                {paragraph}
-              </p>
-            ))}
+            {Array.isArray(blog.content) ? (
+              blog.content.map((paragraph, index) => (
+                <p key={index} className="text-slate-600 text-lg leading-relaxed font-medium">
+                  {paragraph}
+                </p>
+              ))
+            ) : (
+              <div 
+                className="text-slate-600 text-lg leading-relaxed font-medium whitespace-pre-wrap"
+                dangerouslySetInnerHTML={{ __html: blog.content as unknown as string }}
+              />
+            )}
           </div>
 
           {/* Share Section footer */}
