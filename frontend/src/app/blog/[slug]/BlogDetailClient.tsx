@@ -48,7 +48,7 @@ const FALLBACK_BLOGS: BlogPost[] = [
       "Galvanized Iron electrodes rely on a hot-dip zinc coating to resist corrosion. In normal, stable soil conditions, GI is highly cost-effective and provides standard security. However, in aggressive soils containing salts and high moisture, the zinc layer dissolves, exposing raw iron to rust.",
       "Copper Bonded electrodes utilize a molecularly bonded outer copper layer over a high-tensile steel core. The steel provides superior mechanical strength for hammer driving, while the copper layer provides 250+ micron thickness. This thick barrier guarantees UL 467 compliance and superior conductivity. For heavy-duty grid installations, copper bonded strikes the perfect balance of cost and longevity."
     ],
-    "image": "/images/VIEW/Copper Bonded Electrode.JPG",
+    "image": "/images/VIEW/Chemical Earthing Electrode.jpg",
     "author": "Technical Team",
     "readTime": "6 min read",
     "date": "May 25, 2026",

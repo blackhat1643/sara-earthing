@@ -7,7 +7,7 @@ const categories = [
   {
     title: 'Earthing Products',
     desc: 'Pure electrolytic copper bonded rods and chemical electrodes designed for zero-resistance conductivity.',
-    image: '/images/VIEW/Back Fill Compound.JPG',
+    image: '/images/VIEW/Back Fill Compounds.jpg',
     tag: 'Industrial Grade',
     icon: Zap,
     color: '#D4AF37',
@@ -16,7 +16,7 @@ const categories = [
   {
     title: 'Earthing Accessories',
     desc: 'Heavy-duty clamps, connectors, and bus bars precision-engineered for lifelong underground durability.',
-    image: '/images/VIEW/20-08-2025 Sara Earthing1035.JPG',
+    image: '/images/VIEW/Lightning Arrester.jpg',
     tag: 'ISO Certified',
     icon: Shield,
     color: '#D4AF37',
@@ -86,7 +86,7 @@ export default function ProductCategories() {
                     src={cat.image}
                     alt={cat.title}
                     fill
-                    className="object-contain transition-transform duration-1000 group-hover:scale-105"
+                    className="object-cover transition-transform duration-1000 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
                   <div className="absolute top-6 left-6">

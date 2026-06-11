@@ -14,7 +14,7 @@ const coreComponents = [
     title: "Chemical Earthing Electrode",
     desc: "Unlike traditional rods, an advanced Chemical Earthing Electrode is molecularly bonded and treated to maintain optimal performance across all seasons.",
     icon: Activity,
-    image: "/images/VIEW/Copper Bonded Electrode.JPG",
+    image: "/images/VIEW/Chemical Earthing Electrode.jpg",
     color: "#d4af37"
   },
   {
@@ -22,7 +22,7 @@ const coreComponents = [
     title: "Back Fill Compounds",
     desc: "Our moisture retaining, non soluble compound creates a permanent, dense conductive zone that thrives even in dry or highly corrosive terrains.",
     icon: Layers,
-    image: "/images/VIEW/Back Fill Compound.JPG",
+    image: "/images/VIEW/Back Fill Compounds.jpg",
     color: "#ffffff"
   },
   {
@@ -30,7 +30,7 @@ const coreComponents = [
     title: "Lightning Arrester",
     desc: "This system intercepts high voltage strikes at the highest point of your facility and safely channels them into the ground network, forming a comprehensive lightning protection system.",
     icon: Zap,
-    image: "/images/VIEW/20-08-2025 Sara Earthing1035.JPG",
+    image: "/images/VIEW/Lightning Arrester.jpg",
     color: "#d4af37"
   }
 ];
@@ -259,7 +259,7 @@ export default function EarthingPage() {
               className="group relative rounded-[60px] overflow-hidden border border-slate-200 hover:border-[#d4af37] transition-all duration-700 shadow-xl bg-white"
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-slate-50/50">
-                <Image src={c.image} alt={c.title} fill className="object-contain p-8 group-hover:scale-105 transition-all duration-1000" />
+                <Image src={c.image} alt={c.title} fill className="object-cover group-hover:scale-105 transition-all duration-1000" />
                 <div className="absolute inset-0 bg-[#d4af37]/10 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
               </div>
 

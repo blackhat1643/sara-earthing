@@ -59,10 +59,10 @@ export default function EarthingProductsPage() {
               className="relative aspect-square lg:aspect-video rounded-[40px] overflow-hidden shadow-2xl border-4 border-white bg-[#faf9f6] p-8"
             >
               <Image 
-                src="/images/VIEW/Copper Bonded Electrode.JPG" 
-                alt="Industrial Earthing" 
+                src="/images/VIEW/Chemical Earthing Electrode.jpg" 
+                alt="Product Showcase Background" 
                 fill 
-                className="object-contain p-6"
+                className="object-cover"
               />
             </motion.div>
           </div>

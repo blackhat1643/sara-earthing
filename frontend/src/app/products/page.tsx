@@ -11,14 +11,14 @@ const categories = [
     title: "Earthing Products",
     desc: "Advanced fault current dissipation systems, including Copper Bonded and GI Electrodes.",
     link: "/products/earthing-products",
-    image: "/images/VIEW/Back Fill Compound.JPG",
+    image: "/images/VIEW/Back Fill Compounds.jpg",
     icon: Zap
   },
   {
     title: "Earthing Accessories",
     desc: "High-strength clamps, dowels, and driving studs engineered for critical infrastructure.",
     link: "/products/earthing-accessories",
-    image: "/images/VIEW/20-08-2025 Sara Earthing1035.JPG",
+    image: "/images/VIEW/Lightning Arrester.jpg",
     icon: Settings
   }
 ];
@@ -92,7 +92,7 @@ export default function ProductsHubPage() {
                         src={cat.image} 
                         alt={cat.title} 
                         fill 
-                        className="object-contain transition-all duration-1000 group-hover:scale-105" 
+                        className="object-cover transition-all duration-1000 group-hover:scale-105" 
                       />
                       <div className="absolute inset-0 bg-[#d4af37]/10 mix-blend-overlay group-hover:opacity-0 transition-opacity" />
                     </div>
