@@ -81,54 +81,21 @@ export default function QualityPage() {
             </motion.div>
           </div>
 
-          {/* Blueprint Glassmorphism side */}
+          {/* Image side */}
           <div className="lg:col-span-5 relative mt-10 lg:mt-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2, delay: 0.3 }}
-              className="relative aspect-[4/3] w-full rounded-[40px] overflow-hidden border border-slate-100 bg-gradient-to-br from-slate-50 to-white p-8 flex items-center justify-center group shadow-2xl hover:shadow-[0_20px_50px_rgba(212,175,55,0.08)] hover:border-[#d4af37]/30 transition-all duration-700 hover:-translate-y-1"
+              className="relative w-full overflow-hidden flex items-center justify-center"
             >
-              {/* Technical Grid behind */}
-              <div className="absolute inset-0 opacity-[0.02] group-hover:opacity-[0.04] transition-opacity duration-700 pointer-events-none"
-                   style={{ backgroundImage: 'radial-gradient(#d4af37 2px, transparent 2px)', backgroundSize: '24px 24px' }} />
-              
-              {/* CAD blueprint lines */}
-              <div className="absolute w-[85%] h-[85%] rounded-full border border-dashed border-[#d4af37]/20 pointer-events-none animate-[spin_35s_linear_infinite]" />
-              <div className="absolute w-[65%] h-[65%] rounded-full border border-double border-[#d4af37]/10 pointer-events-none animate-[spin_20s_linear_infinite_reverse]" />
-
-              {/* Quality testing indicators layout */}
-              <div className="relative z-10 w-full space-y-4">
-                <div className="flex items-center gap-4 bg-white/95 border border-slate-100 p-4 rounded-3xl shadow-lg hover:border-[#d4af37]/20 transition-all duration-300">
-                  <div className="w-10 h-10 rounded-2xl bg-[#d4af37]/10 flex items-center justify-center text-[#d4af37]">
-                    <ShieldCheck size={20} />
-                  </div>
-                  <div>
-                    <div className="text-[10px] font-black text-[#d4af37] tracking-widest">COPPER COATING</div>
-                    <div className="text-slate-900 text-sm font-black uppercase tracking-tight">254 MICRONS (UL 467)</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4 bg-white/95 border border-slate-100 p-4 rounded-3xl shadow-lg hover:border-[#d4af37]/20 transition-all duration-300 translate-x-4 md:translate-x-8">
-                  <div className="w-10 h-10 rounded-2xl bg-[#d4af37]/10 flex items-center justify-center text-[#d4af37]">
-                    <Activity size={20} />
-                  </div>
-                  <div>
-                    <div className="text-[10px] font-black text-[#d4af37] tracking-widest">BACKFILL RESISTIVITY</div>
-                    <div className="text-slate-900 text-sm font-black uppercase tracking-tight">&lt; 0.12 Ω·m</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4 bg-white/95 border border-slate-100 p-4 rounded-3xl shadow-lg hover:border-[#d4af37]/20 transition-all duration-300">
-                  <div className="w-10 h-10 rounded-2xl bg-[#d4af37]/10 flex items-center justify-center text-[#d4af37]">
-                    <Microscope size={20} />
-                  </div>
-                  <div>
-                    <div className="text-[10px] font-black text-[#d4af37] tracking-widest">GOVERNMENT LAB TESTING</div>
-                    <div className="text-slate-900 text-sm font-black uppercase tracking-tight">CPRI & ERDA APPROVED</div>
-                  </div>
-                </div>
-              </div>
+              <Image 
+                src="/images/quality-indicators.png" 
+                alt="Quality Testing Indicators"
+                width={800}
+                height={800}
+                className="w-full h-auto object-contain"
+              />
             </motion.div>
           </div>
         </div>

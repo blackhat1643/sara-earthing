@@ -400,6 +400,39 @@ export default function AdminPage() {
     }
   };
 
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>, fieldName: string, isBlog: boolean = false) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const res = await fetch(`${apiBase}/upload`, {
+        method: 'POST',
+        headers: {
+          'x-admin-password': password
+        },
+        body: formData
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        if (isBlog) {
+          setEditingBlog(prev => prev ? { ...prev, [fieldName]: data.filePath } : prev);
+        } else {
+          setEditingProduct(prev => prev ? { ...prev, [fieldName]: data.filePath } : prev);
+        }
+      } else {
+        const err = await res.json();
+        alert(err.error || 'Failed to upload image.');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Error connecting to upload server.');
+    }
+  };
+
   const handleDeleteProduct = async (slug: string) => {
     if (!confirm('Delete this product listing? This will update the public website instantly.')) return;
     try {
@@ -1503,27 +1536,39 @@ export default function AdminPage() {
                         </div>
                         <div className="flex flex-col gap-2">
                           <label className="text-[9px] font-black uppercase tracking-widest text-[#d4af37]">Image Path</label>
-                          <input
-                            type="text"
-                            required
-                            value={editingProduct.image}
-                            onChange={(e) => setEditingProduct({ ...editingProduct, image: e.target.value })}
-                            placeholder="e.g. /images/VIEW/filename.JPG"
-                            className="px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white outline-none focus:border-[#d4af37] text-xs font-bold"
-                          />
+                          <div className="flex gap-2">
+                            <input
+                              type="text"
+                              required
+                              value={editingProduct.image}
+                              onChange={(e) => setEditingProduct({ ...editingProduct, image: e.target.value })}
+                              placeholder="e.g. /images/VIEW/filename.JPG"
+                              className="flex-1 px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white outline-none focus:border-[#d4af37] text-xs font-bold w-full"
+                            />
+                            <label className="bg-[#d4af37] text-black font-black uppercase text-[10px] tracking-wider px-4 py-3.5 rounded-xl flex items-center justify-center cursor-pointer hover:scale-105 transition-transform shrink-0">
+                              Upload
+                              <input type="file" className="hidden" accept="image/*" onChange={(e) => handleImageUpload(e, 'image', false)} />
+                            </label>
+                          </div>
                         </div>
                       </div>
 
                       {/* Row 3: Hover Image */}
                       <div className="flex flex-col gap-2">
                         <label className="text-[9px] font-black uppercase tracking-widest text-white/40">Hover Image Path (Optional)</label>
-                        <input
-                          type="text"
-                          value={editingProduct.hoverImage || ''}
-                          onChange={(e) => setEditingProduct({ ...editingProduct, hoverImage: e.target.value || undefined })}
-                          placeholder="e.g. /images/VIEW/hover-filename.JPG"
-                          className="px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white outline-none focus:border-[#d4af37] text-xs font-bold"
-                        />
+                        <div className="flex gap-2">
+                          <input
+                            type="text"
+                            value={editingProduct.hoverImage || ''}
+                            onChange={(e) => setEditingProduct({ ...editingProduct, hoverImage: e.target.value || undefined })}
+                            placeholder="e.g. /images/VIEW/hover-filename.JPG"
+                            className="flex-1 px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white outline-none focus:border-[#d4af37] text-xs font-bold w-full"
+                          />
+                          <label className="bg-[#d4af37] text-black font-black uppercase text-[10px] tracking-wider px-4 py-3.5 rounded-xl flex items-center justify-center cursor-pointer hover:scale-105 transition-transform shrink-0">
+                            Upload
+                            <input type="file" className="hidden" accept="image/*" onChange={(e) => handleImageUpload(e, 'hoverImage', false)} />
+                          </label>
+                        </div>
                       </div>
 
                       {/* Short Description */}
@@ -2285,14 +2330,20 @@ export default function AdminPage() {
                       <div className="grid grid-cols-2 gap-4">
                         <div className="flex flex-col gap-2">
                           <label className="text-[9px] font-black uppercase tracking-widest text-[#d4af37]">Image Path</label>
-                          <input
-                            type="text"
-                            required
-                            value={editingBlog.image}
-                            onChange={(e) => setEditingBlog({ ...editingBlog, image: e.target.value })}
-                            placeholder="e.g. /images/VIEW/filename.JPG"
-                            className="px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white outline-none focus:border-[#d4af37] text-xs font-bold"
-                          />
+                          <div className="flex gap-2">
+                            <input
+                              type="text"
+                              required
+                              value={editingBlog.image}
+                              onChange={(e) => setEditingBlog({ ...editingBlog, image: e.target.value })}
+                              placeholder="e.g. /images/VIEW/filename.JPG"
+                              className="flex-1 px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white outline-none focus:border-[#d4af37] text-xs font-bold w-full"
+                            />
+                            <label className="bg-[#d4af37] text-black font-black uppercase text-[10px] tracking-wider px-4 py-3.5 rounded-xl flex items-center justify-center cursor-pointer hover:scale-105 transition-transform shrink-0">
+                              Upload
+                              <input type="file" className="hidden" accept="image/*" onChange={(e) => handleImageUpload(e, 'image', true)} />
+                            </label>
+                          </div>
                         </div>
                         <div className="flex flex-col gap-2">
                           <label className="text-[9px] font-black uppercase tracking-widest text-[#d4af37]">Publish Date</label>
