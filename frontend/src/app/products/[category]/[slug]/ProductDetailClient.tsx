@@ -16,6 +16,21 @@ export default function ProductDetailClient({ category, slug }: { category: stri
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    const normalizeProduct = (p: any) => {
+      if (!p) return null;
+      const cloned = { ...p };
+      if (typeof cloned.features === 'string') cloned.features = cloned.features.split(',').map((s: string) => s.trim()).filter(Boolean);
+      if (typeof cloned.applications === 'string') cloned.applications = cloned.applications.split(',').map((s: string) => s.trim()).filter(Boolean);
+      if (typeof cloned.longDesc === 'string') cloned.longDesc = cloned.longDesc.split('\n').filter(Boolean);
+      if (typeof cloned.highlights === 'string') { try { cloned.highlights = JSON.parse(cloned.highlights); } catch(e) { cloned.highlights = []; } }
+      if (typeof cloned.specs === 'string') { try { cloned.specs = JSON.parse(cloned.specs); } catch(e) { cloned.specs = {}; } }
+      if (typeof cloned.detailedTabs === 'string') { try { cloned.detailedTabs = JSON.parse(cloned.detailedTabs); } catch(e) { cloned.detailedTabs = {}; } }
+      if (cloned.detailedTabs && typeof cloned.detailedTabs.features?.list === 'string') {
+        cloned.detailedTabs.features.list = cloned.detailedTabs.features.list.split(',').map((s: string) => s.trim()).filter(Boolean);
+      }
+      return cloned;
+    };
+
     const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001/api';
     fetch(`${apiBase}/products`)
       .then(res => {
@@ -25,16 +40,16 @@ export default function ProductDetailClient({ category, slug }: { category: stri
       .then((data: any[]) => {
         const found = data.find(p => p.slug === slug && p.category === category);
         if (found) {
-          setProduct(found);
+          setProduct(normalizeProduct(found));
         } else {
           const localFound = allProducts.find(p => p.slug === slug && p.category === category);
-          setProduct(localFound || null);
+          setProduct(normalizeProduct(localFound || null));
         }
         setIsLoading(false);
       })
       .catch(() => {
         const localFound = allProducts.find(p => p.slug === slug && p.category === category);
-        setProduct(localFound || null);
+        setProduct(normalizeProduct(localFound || null));
         setIsLoading(false);
       });
   }, [category, slug]);
@@ -78,15 +93,8 @@ export default function ProductDetailClient({ category, slug }: { category: stri
   }, [product, category, slug]);
 
   // Setup tabs dynamically based on available data
-  // Safely coerce features to an array (API may return a string)
-  const safeFeatures: string[] = Array.isArray(product?.features)
-    ? product.features
-    : typeof product?.features === 'string'
-      ? (product.features as string).split(',').map((s: string) => s.trim()).filter(Boolean)
-      : [];
-
   const tabs = [
-    ...(product?.detailedTabs?.features || safeFeatures.length ? [{ id: 'features', label: 'Features' }] : []),
+    ...(product?.detailedTabs?.features || (product?.features && product.features.length) ? [{ id: 'features', label: 'Features' }] : []),
     ...(product?.detailedTabs?.advantages && product.detailedTabs.advantages.length > 0 ? [{ id: 'advantages', label: 'Key Advantages' }] : []),
     ...(product?.detailedTabs?.specTable && (product.detailedTabs.specTable.headers?.length > 0 || product.detailedTabs.specTable.rows?.length > 0) || product?.specs ? [{ id: 'specs', label: 'Specifications' }] : []),
     ...(product?.applications?.length ? [{ id: 'applications', label: 'Applications' }] : []),
@@ -98,7 +106,7 @@ export default function ProductDetailClient({ category, slug }: { category: stri
   useEffect(() => {
     if (product) {
       const availableTabs = [
-        ...(product.detailedTabs?.features || safeFeatures.length ? ['features'] : []),
+        ...(product.detailedTabs?.features || (product.features && product.features.length) ? ['features'] : []),
         ...(product.detailedTabs?.advantages && product.detailedTabs.advantages.length > 0 ? ['advantages'] : []),
         ...(product.detailedTabs?.specTable && (product.detailedTabs.specTable.headers?.length > 0 || product.detailedTabs.specTable.rows?.length > 0) || product.specs ? ['specs'] : []),
         ...(product.applications?.length ? ['applications'] : []),
@@ -231,9 +239,9 @@ export default function ProductDetailClient({ category, slug }: { category: stri
               </div>
 
               {/* Dynamic Highlights / Value Propositions */}
-              {product.highlights && (
+              {product.highlights && product.highlights.length > 0 && (
                 <div className="grid sm:grid-cols-2 gap-6 pt-6 border-t border-slate-100">
-                  {product.highlights.map((hl, i) => (
+                  {product.highlights.map((hl: any, i: number) => (
                     <div 
                       key={i} 
                       className="p-6 bg-slate-50 border border-slate-100 rounded-[30px] hover:border-[#d4af37]/30 hover:shadow-xl hover:shadow-slate-100/50 transition-all duration-300"
@@ -302,7 +310,7 @@ export default function ProductDetailClient({ category, slug }: { category: stri
                           </p>
                         )}
                         <div className="grid md:grid-cols-2 gap-4">
-                          {(product.detailedTabs?.features?.list || safeFeatures).map((feat, i) => (
+                          {(product.detailedTabs?.features?.list || product.features || []).map((feat, i) => (
                             <div key={i} className="flex items-center gap-4 p-5 rounded-3xl border border-slate-100 group hover:border-[#d4af37]/30 transition-all">
                               <div className="w-8 h-8 rounded-xl bg-[#d4af37]/10 flex items-center justify-center text-[#d4af37]">
                                 <CheckCircle2 size={16} />
