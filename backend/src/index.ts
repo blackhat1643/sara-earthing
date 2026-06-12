@@ -2,6 +2,9 @@ import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { pool, initDb } from './db';
+import multer from 'multer';
+import path from 'path';
+import fs from 'fs';
 
 // Load environment variables
 dotenv.config();
@@ -154,6 +157,39 @@ app.delete('/api/submissions/:id', checkAdminAuth, async (req: Request, res: Res
     return res.json({ success: true });
   } catch (err: any) {
     return res.status(500).json({ error: 'Failed to delete submission', details: err.message });
+  }
+});
+
+// --- Upload API ---
+
+const uploadDir = path.join(__dirname, '../../frontend/public/images/uploads');
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, uploadDir);
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    cb(null, uniqueSuffix + path.extname(file.originalname));
+  }
+});
+
+const upload = multer({ storage: storage });
+
+// POST: Upload an image (Admin Only)
+app.post('/api/upload', checkAdminAuth, upload.single('file'), (req: Request, res: Response) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: 'No file uploaded' });
+    }
+    // Return relative path from frontend public
+    const relativePath = `/images/uploads/${req.file.filename}`;
+    return res.json({ success: true, filePath: relativePath });
+  } catch (err: any) {
+    return res.status(500).json({ error: 'Upload failed', details: err.message });
   }
 });
 
