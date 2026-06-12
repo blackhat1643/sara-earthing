@@ -170,12 +170,12 @@ export default function ProductDetailClient({ category, slug }: { category: stri
               animate={{ opacity: 1, x: 0 }}
               className="lg:sticky lg:top-48"
             >
-              <div className="relative aspect-square rounded-[60px] overflow-hidden border-8 border-slate-50 shadow-2xl bg-slate-50 p-12 hover:border-[#d4af37]/10 transition-colors duration-500 group">
+              <div className="relative aspect-square rounded-[60px] overflow-hidden border-8 border-slate-50 shadow-2xl bg-slate-50 hover:border-[#d4af37]/10 transition-colors duration-500 group">
                 <Image
                   src={product.image}
                   alt={product.title}
                   fill
-                  className="object-contain p-6 transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                   priority
                 />
                 <div className="absolute inset-0 bg-[#d4af37]/5 mix-blend-multiply pointer-events-none" />
