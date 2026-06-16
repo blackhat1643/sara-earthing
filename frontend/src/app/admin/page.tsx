@@ -1550,6 +1550,34 @@ export default function AdminPage() {
                               <input type="file" className="hidden" accept="image/*" onChange={(e) => handleImageUpload(e, 'image', false)} />
                             </label>
                           </div>
+                          {editingProduct.image && (
+                            <div className="mt-2 relative w-full h-28 bg-[#0a0f1d] border border-white/10 rounded-xl overflow-hidden flex items-center justify-center">
+                              <img
+                                src={editingProduct.image}
+                                alt="Image Preview"
+                                className="max-w-full max-h-full object-contain p-1"
+                                onError={(e) => {
+                                  e.currentTarget.style.display = 'none';
+                                  const parent = e.currentTarget.parentElement;
+                                  if (parent) {
+                                    const fallback = parent.querySelector('.preview-fallback');
+                                    if (fallback) fallback.classList.remove('hidden');
+                                  }
+                                }}
+                                onLoad={(e) => {
+                                  e.currentTarget.style.display = 'block';
+                                  const parent = e.currentTarget.parentElement;
+                                  if (parent) {
+                                    const fallback = parent.querySelector('.preview-fallback');
+                                    if (fallback) fallback.classList.add('hidden');
+                                  }
+                                }}
+                              />
+                              <div className="preview-fallback hidden text-[10px] font-black uppercase text-white/30 tracking-widest text-center">
+                                Invalid Path / Unable to load preview
+                              </div>
+                            </div>
+                          )}
                         </div>
                       </div>
 
@@ -1569,6 +1597,34 @@ export default function AdminPage() {
                             <input type="file" className="hidden" accept="image/*" onChange={(e) => handleImageUpload(e, 'hoverImage', false)} />
                           </label>
                         </div>
+                        {editingProduct.hoverImage && (
+                          <div className="mt-2 relative w-full h-28 bg-[#0a0f1d] border border-white/10 rounded-xl overflow-hidden flex items-center justify-center">
+                            <img
+                              src={editingProduct.hoverImage}
+                              alt="Hover Image Preview"
+                              className="max-w-full max-h-full object-contain p-1"
+                              onError={(e) => {
+                                e.currentTarget.style.display = 'none';
+                                const parent = e.currentTarget.parentElement;
+                                if (parent) {
+                                  const fallback = parent.querySelector('.preview-fallback');
+                                  if (fallback) fallback.classList.remove('hidden');
+                                }
+                              }}
+                              onLoad={(e) => {
+                                e.currentTarget.style.display = 'block';
+                                const parent = e.currentTarget.parentElement;
+                                if (parent) {
+                                  const fallback = parent.querySelector('.preview-fallback');
+                                  if (fallback) fallback.classList.add('hidden');
+                                }
+                              }}
+                            />
+                            <div className="preview-fallback hidden text-[10px] font-black uppercase text-white/30 tracking-widest text-center">
+                              Invalid Path / Unable to load preview
+                            </div>
+                          </div>
+                        )}
                       </div>
 
                       {/* Short Description */}
@@ -2344,6 +2400,34 @@ export default function AdminPage() {
                               <input type="file" className="hidden" accept="image/*" onChange={(e) => handleImageUpload(e, 'image', true)} />
                             </label>
                           </div>
+                          {editingBlog.image && (
+                            <div className="mt-2 relative w-full h-28 bg-[#0a0f1d] border border-white/10 rounded-xl overflow-hidden flex items-center justify-center">
+                              <img
+                                src={editingBlog.image}
+                                alt="Blog Image Preview"
+                                className="max-w-full max-h-full object-contain p-1"
+                                onError={(e) => {
+                                  e.currentTarget.style.display = 'none';
+                                  const parent = e.currentTarget.parentElement;
+                                  if (parent) {
+                                    const fallback = parent.querySelector('.preview-fallback');
+                                    if (fallback) fallback.classList.remove('hidden');
+                                  }
+                                }}
+                                onLoad={(e) => {
+                                  e.currentTarget.style.display = 'block';
+                                  const parent = e.currentTarget.parentElement;
+                                  if (parent) {
+                                    const fallback = parent.querySelector('.preview-fallback');
+                                    if (fallback) fallback.classList.add('hidden');
+                                  }
+                                }}
+                              />
+                              <div className="preview-fallback hidden text-[10px] font-black uppercase text-white/30 tracking-widest text-center">
+                                Invalid Path / Unable to load preview
+                              </div>
+                            </div>
+                          )}
                         </div>
                         <div className="flex flex-col gap-2">
                           <label className="text-[9px] font-black uppercase tracking-widest text-[#d4af37]">Publish Date</label>
