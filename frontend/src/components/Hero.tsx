@@ -70,7 +70,7 @@ export default function Hero() {
               </Link>
               
               <Link 
-                href="/products"
+                href="/products/earthing-products"
                 className="px-8 py-4 border border-white/10 text-white font-black uppercase tracking-widest text-[10px] hover:bg-white/5 transition-all backdrop-blur-sm block"
               >
                 Technical Specs

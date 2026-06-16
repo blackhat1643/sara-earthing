@@ -186,7 +186,7 @@ export default function ApplicationsPage() {
                   <h3 className="text-3xl font-black text-white uppercase tracking-tighter leading-none mb-4">{sector.title}</h3>
                   <div className="h-0.5 w-0 group-hover:w-full bg-[#d4af37] transition-all duration-700" />
                   
-                  <Link href="/products" className="mt-6 flex items-center gap-3 text-[10px] font-black text-white/70 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Link href="/products/earthing-products" className="mt-6 flex items-center gap-3 text-[10px] font-black text-white/70 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
                     View Solutions <ArrowRight size={14} />
                   </Link>
                 </div>

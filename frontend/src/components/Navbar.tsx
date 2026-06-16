@@ -147,17 +147,7 @@ export default function Navbar() {
                           ))}
                         </div>
 
-                        {/* Footer link */}
-                        <div className="border-t border-white/5 px-4 py-3">
-                          <Link
-                            href="/products"
-                            onClick={() => setProductsOpen(false)}
-                            className="flex items-center justify-between text-[#d4af37] text-xs font-black uppercase tracking-widest hover:opacity-70 transition-opacity"
-                          >
-                            View All Products
-                            <span>→</span>
-                          </Link>
-                        </div>
+                        {/* Removed View All Products link */}
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -226,13 +216,7 @@ export default function Navbar() {
                                   </span>
                                 </Link>
                               ))}
-                              <Link
-                                href="/products"
-                                onClick={() => { setOpen(false); setMobileProductsOpen(false); }}
-                                className="text-[#d4af37] text-sm font-black uppercase tracking-widest"
-                              >
-                                View All →
-                              </Link>
+                              {/* Removed View All link */}
                             </div>
                           </motion.div>
                         )}

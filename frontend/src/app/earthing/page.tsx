@@ -297,7 +297,7 @@ export default function EarthingPage() {
                 Explore our complete range of chemical electrodes, backfill compounds and earthing rods.
               </p>
               <Link
-                href="/products"
+                href="/products/earthing-products"
                 className="group inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-[#d4af37] hover:bg-slate-900 hover:text-white text-black font-black uppercase tracking-widest text-[8.5px] rounded-full transition-all duration-300 shadow-md flex-shrink-0"
               >
                 <span>Explore Products</span>

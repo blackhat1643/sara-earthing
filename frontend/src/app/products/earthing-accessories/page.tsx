@@ -57,13 +57,13 @@ export default function EarthingAccessoriesPage() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1 }}
-              className="relative aspect-square lg:aspect-video rounded-[40px] overflow-hidden shadow-2xl border-4 border-white bg-[#faf9f6] p-8"
+              className="relative aspect-square lg:aspect-video rounded-[40px] overflow-hidden shadow-2xl border-4 border-white bg-[#faf9f6]"
             >
               <Image 
-                src="/images/VIEW/20-08-2025 Sara Earthing1043.JPG" 
+                src="/images/products/accessories_main.png" 
                 alt="Earthing Accessories" 
                 fill 
-                className="object-contain p-6"
+                className="object-cover"
               />
             </motion.div>
           </div>

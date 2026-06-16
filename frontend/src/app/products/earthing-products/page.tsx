@@ -57,10 +57,10 @@ export default function EarthingProductsPage() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1 }}
-              className="relative aspect-square lg:aspect-video rounded-[40px] overflow-hidden shadow-2xl border-4 border-white bg-[#faf9f6] p-8"
+              className="relative aspect-square lg:aspect-video rounded-[40px] overflow-hidden shadow-2xl border-4 border-white bg-[#faf9f6]"
             >
               <Image 
-                src="/images/VIEW/Chemical Earthing Electrode.jpg" 
+                src="/images/products/Earthing Products All - Website.jpg" 
                 alt="Product Showcase Background" 
                 fill 
                 className="object-cover"
