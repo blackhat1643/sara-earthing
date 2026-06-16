@@ -6,24 +6,30 @@
  * - /api/uploads/filename.jpg — newly uploaded images, served via backend API
  * - /images/VIEW/... or /images/products/... — legacy static images
  */
-export function getImageUrl(imgPath: string): string {
-  if (!imgPath) return '';
-  if (imgPath.startsWith('http://') || imgPath.startsWith('https://')) {
+export function getImageUrl(imgPath: any): string {
+  try {
+    if (!imgPath || typeof imgPath !== 'string') return '';
+    
+    if (imgPath.startsWith('http://') || imgPath.startsWith('https://')) {
+      return imgPath;
+    }
+
+    const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001/api';
+    const backendBase = apiBase.replace(/\/api\/?$/, '');
+
+    // Uploaded images served via /api/uploads/:filename
+    if (imgPath.startsWith('/api/uploads/')) {
+      return `${backendBase}${imgPath}`;
+    }
+
+    // Legacy /images/ paths — served via backend static middleware
+    if (imgPath.startsWith('/images/')) {
+      return `${backendBase}${imgPath}`;
+    }
+
     return imgPath;
+  } catch (e) {
+    console.error('Error parsing image URL:', e);
+    return '';
   }
-
-  const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001/api';
-  const backendBase = apiBase.replace(/\/api\/?$/, '');
-
-  // Uploaded images served via /api/uploads/:filename
-  if (imgPath.startsWith('/api/uploads/')) {
-    return `${backendBase}${imgPath}`;
-  }
-
-  // Legacy /images/ paths — served via backend static middleware
-  if (imgPath.startsWith('/images/')) {
-    return `${backendBase}${imgPath}`;
-  }
-
-  return imgPath;
 }
