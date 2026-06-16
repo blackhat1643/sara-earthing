@@ -7,6 +7,9 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const db_1 = require("./db");
+const multer_1 = __importDefault(require("multer"));
+const path_1 = __importDefault(require("path"));
+const fs_1 = __importDefault(require("fs"));
 // Load environment variables
 dotenv_1.default.config();
 const app = (0, express_1.default)();
@@ -49,6 +52,13 @@ app.use((req, res, next) => {
     }
     next();
 });
+// Serve static images from frontend/public so product/blog images
+// are accessible via the backend server (needed when frontend & backend
+// are on different origins, e.g. production).
+// NOTE: Must be AFTER the URL rewrite so /next-api/images/... is rewritten
+// to /images/... before this handler runs.
+const publicImagesDir = path_1.default.join(__dirname, '../../frontend/public/images');
+app.use('/images', express_1.default.static(publicImagesDir));
 let dbError = null;
 // Middleware to check for database connection errors on API routes
 app.use((req, res, next) => {
@@ -134,6 +144,45 @@ app.delete('/api/submissions/:id', checkAdminAuth, async (req, res) => {
     catch (err) {
         return res.status(500).json({ error: 'Failed to delete submission', details: err.message });
     }
+});
+// --- Upload API ---
+const uploadDir = path_1.default.join(__dirname, '../../frontend/public/images/uploads');
+if (!fs_1.default.existsSync(uploadDir)) {
+    fs_1.default.mkdirSync(uploadDir, { recursive: true });
+}
+const storage = multer_1.default.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, uploadDir);
+    },
+    filename: function (req, file, cb) {
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        cb(null, uniqueSuffix + path_1.default.extname(file.originalname));
+    }
+});
+const upload = (0, multer_1.default)({ storage: storage });
+// POST: Upload an image (Admin Only)
+app.post('/api/upload', checkAdminAuth, upload.single('file'), (req, res) => {
+    try {
+        if (!req.file) {
+            return res.status(400).json({ error: 'No file uploaded' });
+        }
+        // Return the API-based URL path so the image is served through the
+        // /api/uploads/:filename route (works without static middleware)
+        const filePath = `/api/uploads/${req.file.filename}`;
+        return res.json({ success: true, filePath });
+    }
+    catch (err) {
+        return res.status(500).json({ error: 'Upload failed', details: err.message });
+    }
+});
+// GET: Serve an uploaded image file
+app.get('/api/uploads/:filename', (req, res) => {
+    const filename = path_1.default.basename(req.params.filename); // sanitize
+    const filePath = path_1.default.join(uploadDir, filename);
+    if (fs_1.default.existsSync(filePath)) {
+        return res.sendFile(filePath);
+    }
+    return res.status(404).json({ error: 'File not found' });
 });
 // --- Products APIs ---
 // GET: Get all products (Public)
