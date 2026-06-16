@@ -22,11 +22,13 @@ export function getImageUrl(imgPath: any): string {
       return `${backendBase}${imgPath}`;
     }
 
-    // Legacy /images/ paths — served via backend static middleware
-    if (imgPath.startsWith('/images/')) {
+    // Legacy uploaded images were served at /images/uploads/
+    if (imgPath.startsWith('/images/uploads/')) {
       return `${backendBase}${imgPath}`;
     }
 
+    // Other /images/ paths are static frontend assets (e.g., /images/products/)
+    // They are hosted by Vercel directly, so we just return the path.
     return imgPath;
   } catch (e) {
     console.error('Error parsing image URL:', e);
