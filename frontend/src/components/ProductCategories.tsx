@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import { motion, useScroll } from 'framer-motion';
 import { Shield, Zap, Cog, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
+import { getImageUrl } from '@/utils/imageUrl';
 const categories = [
   {
     title: 'Earthing Products',
@@ -82,11 +83,10 @@ export default function ProductCategories() {
               >
                 {/* Image Section */}
                 <div className="relative aspect-[3/2] overflow-hidden bg-slate-100 p-4">
-                  <Image
-                    src={cat.image}
+                  <img
+                    src={getImageUrl(cat.image)}
                     alt={cat.title}
-                    fill
-                    className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
                   <div className="absolute top-6 left-6">

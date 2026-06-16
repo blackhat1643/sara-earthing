@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll } from 'framer-motion';
 import { Factory, Building2, Home, Power, Database, ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
+import { getImageUrl } from '@/utils/imageUrl';
 
 const apps = [
   {
@@ -144,11 +145,10 @@ export default function Applications() {
                   >
                     {/* Card Header: Cinematic Image */}
                     <div className="relative aspect-[2/1] overflow-hidden">
-                      <Image 
-                        src={app.image} 
+                      <img 
+                        src={getImageUrl(app.image)} 
                         alt={app.title} 
-                        fill 
-                        className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1d] via-[#0a0f1d]/20 to-transparent" />
                       <div className="absolute top-4 left-4">

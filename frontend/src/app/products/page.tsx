@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Footer from '@/components/Footer';
 import FlippingBoxBackground from '@/components/FlippingBoxBackground';
 import { ArrowRight, Settings, Zap } from 'lucide-react';
+import { getImageUrl } from '@/utils/imageUrl';
 
 const categories = [
   {
@@ -88,11 +89,10 @@ export default function ProductsHubPage() {
                   
                   <div className="relative h-full min-h-[400px] overflow-hidden p-8">
                     <div className="relative h-full w-full rounded-[3rem] overflow-hidden shadow-2xl bg-slate-50 p-12">
-                      <Image 
-                        src={cat.image} 
+                      <img 
+                        src={getImageUrl(cat.image)} 
                         alt={cat.title} 
-                        fill 
-                        className="object-cover transition-all duration-1000 group-hover:scale-105" 
+                        className="absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-105" 
                       />
                       <div className="absolute inset-0 bg-[#d4af37]/10 mix-blend-overlay group-hover:opacity-0 transition-opacity" />
                     </div>

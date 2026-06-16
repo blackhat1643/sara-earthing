@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Footer from '@/components/Footer';
 import { useState, useEffect } from 'react';
 import { BookOpen, User, Calendar, Clock, ArrowRight } from 'lucide-react';
+import { getImageUrl } from '@/utils/imageUrl';
 
 interface BlogPost {
   slug: string;
@@ -114,12 +115,10 @@ export default function BlogPage() {
                 >
                   {/* Blog Image Container */}
                   <div className="relative h-60 rounded-[2.5rem] overflow-hidden mb-6 bg-slate-50">
-                    <Image 
-                      src={post.image} 
+                    <img 
+                      src={getImageUrl(post.image)} 
                       alt={post.title} 
-                      fill 
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-60" />
                   </div>

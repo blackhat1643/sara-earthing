@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 import { allProducts, Product } from '@/data/products';
 import { ArrowLeft, CheckCircle2, Zap, Download, Mail } from 'lucide-react';
 import Footer from '@/components/Footer';
+import { getImageUrl } from '@/utils/imageUrl';
 
 export default function ProductDetailClient({ category, slug }: { category: string, slug: string }) {
   const router = useRouter();
@@ -179,12 +180,10 @@ export default function ProductDetailClient({ category, slug }: { category: stri
               className="lg:sticky lg:top-48"
             >
               <div className="relative aspect-square rounded-[60px] overflow-hidden border-8 border-slate-50 shadow-2xl bg-slate-50 hover:border-[#d4af37]/10 transition-colors duration-500 group">
-                <Image
-                  src={product.image}
+                <img
+                  src={getImageUrl(product.image)}
                   alt={product.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  priority
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-[#d4af37]/5 mix-blend-multiply pointer-events-none" />
               </div>

@@ -34,6 +34,7 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { getImageUrl } from '@/utils/imageUrl';
 
 interface Product {
   slug: string;
@@ -84,26 +85,6 @@ interface Blog {
 
 export default function AdminPage() {
   const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001/api';
-
-  const getImageUrl = (imgPath: string) => {
-    if (!imgPath) return '';
-    if (imgPath.startsWith('http://') || imgPath.startsWith('https://')) {
-      return imgPath;
-    }
-    // Route all /images/ paths through the backend API server
-    // which serves static files from frontend/public/images/.
-    // apiBase is e.g. "https://saaraindia.com/next-api/api" — strip "/api"
-    // so images resolve to "https://saaraindia.com/next-api/images/..."
-    if (imgPath.startsWith('/images/')) {
-      try {
-        const baseUrl = apiBase.replace(/\/api\/?$/, '');
-        return `${baseUrl}${imgPath}`;
-      } catch (e) {
-        // Fallback to relative path
-      }
-    }
-    return imgPath;
-  };
 
   // Auth state
   const [password, setPassword] = useState('');

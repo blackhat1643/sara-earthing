@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import Certifications from '@/components/Certifications';
 import FlippingBoxBackground from '@/components/FlippingBoxBackground';
 import { ShieldAlert, Zap, Globe, HardHat, Info, Activity, ShieldCheck, ZapOff, ArrowRight, Layers, Cpu } from 'lucide-react';
+import { getImageUrl } from '@/utils/imageUrl';
 
 const coreComponents = [
   {
@@ -259,7 +260,7 @@ export default function EarthingPage() {
               className="group relative rounded-[60px] overflow-hidden border border-slate-200 hover:border-[#d4af37] transition-all duration-700 shadow-xl bg-white"
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-slate-50/50">
-                <Image src={c.image} alt={c.title} fill className="object-cover group-hover:scale-105 transition-all duration-1000" />
+                <img src={getImageUrl(c.image)} alt={c.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-1000" />
                 <div className="absolute inset-0 bg-[#d4af37]/10 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
               </div>
 

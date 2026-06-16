@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { ArrowLeft, User, Calendar, Clock, BookOpen, Share2 } from 'lucide-react';
 import Footer from '@/components/Footer';
+import { getImageUrl } from '@/utils/imageUrl';
 
 export interface BlogPost {
   slug: string;
@@ -187,13 +188,10 @@ export default function BlogDetailClient({ slug }: { slug: string }) {
 
           {/* Large Hero Image */}
           <div className="relative aspect-video w-full rounded-[45px] overflow-hidden border-8 border-slate-50 shadow-2xl bg-slate-50 mb-12">
-            <Image
-              src={blog.image}
+            <img
+              src={getImageUrl(blog.image)}
               alt={blog.title}
-              fill
-              className="object-cover"
-              priority
-              sizes="(max-width: 1024px) 100vw, 1024px"
+              className="absolute inset-0 w-full h-full object-cover"
             />
           </div>
 

@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import { useState, useEffect } from 'react';
 import { allProducts, Product } from '@/data/products';
 import { ArrowRight, Settings, ShieldCheck } from 'lucide-react';
+import { getImageUrl } from '@/utils/imageUrl';
 
 export default function EarthingAccessoriesPage() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -93,18 +94,16 @@ export default function EarthingAccessoriesPage() {
                 className="group relative flex flex-col bg-white rounded-[3rem] p-4 border border-slate-100 hover:border-[#d4af37] transition-all duration-500 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-[#d4af37]/10"
               >
                 <div className="relative h-72 rounded-[2.5rem] overflow-hidden mb-8 bg-slate-50">
-                  <Image 
-                    src={prod.image} 
+                  <img 
+                    src={getImageUrl(prod.image)} 
                     alt={prod.title} 
-                    fill 
-                    className={`object-cover transition-all duration-1000 ${prod.hoverImage ? 'group-hover:opacity-0' : 'group-hover:scale-105'}`}
+                    className={`w-full h-full object-cover transition-all duration-1000 ${prod.hoverImage ? 'group-hover:opacity-0' : 'group-hover:scale-105'}`}
                   />
                   {prod.hoverImage && (
-                    <Image 
-                      src={prod.hoverImage} 
+                    <img 
+                      src={getImageUrl(prod.hoverImage)} 
                       alt={`${prod.title} hover`} 
-                      fill 
-                      className="object-cover transition-all duration-1000 opacity-0 group-hover:opacity-100 group-hover:scale-105"
+                      className="absolute inset-0 w-full h-full object-cover transition-all duration-1000 opacity-0 group-hover:opacity-100 group-hover:scale-105"
                     />
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />

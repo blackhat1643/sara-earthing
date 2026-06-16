@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { getImageUrl } from '@/utils/imageUrl';
 
 const categories = [
   {
@@ -69,11 +70,10 @@ export default function HomeProducts() {
                   {/* Glowing background behind image on hover */}
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.15)_0%,transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700 transform scale-50 group-hover:scale-100" />
 
-                  <Image
-                    src={cat.image}
+                  <img
+                    src={getImageUrl(cat.image)}
                     alt={cat.title}
-                    fill
-                    className="object-cover transition-all duration-700 ease-out group-hover:scale-[1.08]"
+                    className="absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.08]"
                   />
                 </div>
 
