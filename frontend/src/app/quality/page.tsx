@@ -46,7 +46,7 @@ export default function QualityPage() {
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-16 items-center">
           {/* Typography side */}
-          <div className="lg:col-span-7 text-left">
+          <div className="lg:col-span-6 text-left">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -82,19 +82,18 @@ export default function QualityPage() {
           </div>
 
           {/* Image side */}
-          <div className="lg:col-span-5 relative mt-10 lg:mt-0">
+          <div className="lg:col-span-6 relative mt-10 lg:mt-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2, delay: 0.3 }}
-              className="relative w-full overflow-hidden flex items-center justify-center"
+              className="relative aspect-square lg:aspect-video rounded-[40px] overflow-hidden shadow-2xl border-4 border-white bg-[#faf9f6]"
             >
               <Image 
-                src="/images/quality-indicators.png" 
+                src="/images/VIEW/Complete Earthing Solutions.jpg" 
                 alt="Quality Testing Indicators"
-                width={800}
-                height={800}
-                className="w-full h-auto object-contain"
+                fill
+                className="object-cover"
               />
             </motion.div>
           </div>

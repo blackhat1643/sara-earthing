@@ -144,7 +144,7 @@ export default function ApplicationsPage() {
               Global <span className="text-[#d4af37]">Applications</span>
             </h1>
             <div className="h-1.5 w-24 bg-[#d4af37] mx-auto mb-8" />
-            
+
             <div className="max-w-3xl mx-auto text-slate-600 text-base md:text-lg font-medium leading-relaxed space-y-6">
               <p>
                 We translate complex site demands into high performing industrial electrical grounding solutions that prevent catastrophic equipment downtime and preserve data integrity.
@@ -170,14 +170,14 @@ export default function ApplicationsPage() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="group relative h-[400px] rounded-[40px] overflow-hidden bg-slate-100 border border-slate-100 hover:border-[#d4af37] transition-all duration-500 shadow-2xl shadow-slate-200/50"
               >
-                <Image 
-                  src={sector.image} 
-                  alt={sector.title} 
-                  fill 
-                  className="object-cover transition-all duration-1000 group-hover:scale-110 group-hover:grayscale-0 grayscale-[0.5]" 
+                <Image
+                  src={sector.image}
+                  alt={sector.title}
+                  fill
+                  className="object-cover transition-all duration-1000 group-hover:scale-110 group-hover:grayscale-0 grayscale-[0.5]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent" />
-                
+
                 <div className="absolute inset-0 p-10 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                   <div className="w-12 h-12 rounded-2xl bg-[#d4af37] flex items-center justify-center text-black mb-6 shadow-xl">
                     <sector.icon size={24} />
@@ -185,14 +185,14 @@ export default function ApplicationsPage() {
                   <span className="text-[#d4af37] text-[10px] font-black uppercase tracking-widest mb-2">{sector.subtitle}</span>
                   <h3 className="text-3xl font-black text-white uppercase tracking-tighter leading-none mb-4">{sector.title}</h3>
                   <div className="h-0.5 w-0 group-hover:w-full bg-[#d4af37] transition-all duration-700" />
-                  
-                  <Link href="/products/earthing-products" className="mt-6 flex items-center gap-3 text-[10px] font-black text-white/70 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+
+                  <Link href="/products" className="mt-6 flex items-center gap-3 text-[10px] font-black text-white/70 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
                     View Solutions <ArrowRight size={14} />
                   </Link>
                 </div>
               </motion.div>
             ))}
-            
+
             {/* Solar Park replaces the CTA tile here as part of the sectors grid loop */}
           </div>
         </div>
