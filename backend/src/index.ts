@@ -112,6 +112,21 @@ app.post('/api/submissions', async (req: Request, res: Response) => {
       return res.status(400).json({ error: 'Missing type or data' });
     }
 
+    // Server-side validation for submission fields
+    if (type === 'quote') {
+      const { name, email, phone, company, location } = data;
+      if (!name?.trim() || !email?.trim() || !phone?.trim() || !company?.trim() || !location?.trim()) {
+        return res.status(400).json({ error: 'Validation failed: Contact Name, Corporate Email, Phone, Company, and Location are required.' });
+      }
+    } else if (type === 'contact') {
+      const { name, email, phone, message } = data;
+      if (!name?.trim() || !email?.trim() || !phone?.trim() || !message?.trim()) {
+        return res.status(400).json({ error: 'Validation failed: Full Name, Email, Phone, and Message/Requirements are required.' });
+      }
+    } else {
+      return res.status(400).json({ error: 'Invalid submission type' });
+    }
+
     const id = Math.random().toString(36).substring(2, 9) + Date.now().toString(36);
     const status = 'new';
     const createdAt = new Date();
