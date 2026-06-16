@@ -84,6 +84,24 @@ interface Blog {
 export default function AdminPage() {
   const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001/api';
 
+  const getImageUrl = (path: string) => {
+    if (!path) return '';
+    if (path.startsWith('http://') || path.startsWith('https://')) {
+      return path;
+    }
+    if (path.startsWith('/images/uploads/')) {
+      try {
+        const url = new URL(apiBase);
+        if (!url.hostname.includes('localhost') && !url.hostname.includes('127.0.0.1')) {
+          return `${url.origin}${path}`;
+        }
+      } catch (e) {
+        // Fallback
+      }
+    }
+    return path;
+  };
+
   // Auth state
   const [password, setPassword] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -1553,7 +1571,7 @@ export default function AdminPage() {
                           {editingProduct.image && (
                             <div className="mt-2 relative w-full h-28 bg-[#0a0f1d] border border-white/10 rounded-xl overflow-hidden flex items-center justify-center">
                               <img
-                                src={editingProduct.image}
+                                src={getImageUrl(editingProduct.image)}
                                 alt="Image Preview"
                                 className="max-w-full max-h-full object-contain p-1"
                                 onError={(e) => {
@@ -1600,7 +1618,7 @@ export default function AdminPage() {
                         {editingProduct.hoverImage && (
                           <div className="mt-2 relative w-full h-28 bg-[#0a0f1d] border border-white/10 rounded-xl overflow-hidden flex items-center justify-center">
                             <img
-                              src={editingProduct.hoverImage}
+                              src={getImageUrl(editingProduct.hoverImage)}
                               alt="Hover Image Preview"
                               className="max-w-full max-h-full object-contain p-1"
                               onError={(e) => {
@@ -2403,7 +2421,7 @@ export default function AdminPage() {
                           {editingBlog.image && (
                             <div className="mt-2 relative w-full h-28 bg-[#0a0f1d] border border-white/10 rounded-xl overflow-hidden flex items-center justify-center">
                               <img
-                                src={editingBlog.image}
+                                src={getImageUrl(editingBlog.image)}
                                 alt="Blog Image Preview"
                                 className="max-w-full max-h-full object-contain p-1"
                                 onError={(e) => {
