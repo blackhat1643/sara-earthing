@@ -29,7 +29,8 @@ import {
   Info,
   Settings,
   ChevronDown,
-  BookOpen
+  BookOpen,
+  Upload
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -1553,96 +1554,57 @@ export default function AdminPage() {
                           />
                         </div>
                         <div className="flex flex-col gap-2">
-                          <label className="text-[9px] font-black uppercase tracking-widest text-[#d4af37]">Image Path</label>
-                          <div className="flex gap-2">
-                            <input
-                              type="text"
-                              required
-                              value={editingProduct.image}
-                              onChange={(e) => setEditingProduct({ ...editingProduct, image: e.target.value })}
-                              placeholder="e.g. /images/VIEW/filename.JPG"
-                              className="flex-1 px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white outline-none focus:border-[#d4af37] text-xs font-bold w-full"
-                            />
-                            <label className="bg-[#d4af37] text-black font-black uppercase text-[10px] tracking-wider px-4 py-3.5 rounded-xl flex items-center justify-center cursor-pointer hover:scale-105 transition-transform shrink-0">
-                              Upload
-                              <input type="file" className="hidden" accept="image/*" onChange={(e) => handleImageUpload(e, 'image', false)} />
-                            </label>
-                          </div>
-                          {editingProduct.image && (
-                            <div className="mt-2 relative w-full h-28 bg-[#0a0f1d] border border-white/10 rounded-xl overflow-hidden flex items-center justify-center">
-                              <img
-                                src={getImageUrl(editingProduct.image)}
-                                alt="Image Preview"
-                                className="max-w-full max-h-full object-contain p-1"
-                                onError={(e) => {
-                                  e.currentTarget.style.display = 'none';
-                                  const parent = e.currentTarget.parentElement;
-                                  if (parent) {
-                                    const fallback = parent.querySelector('.preview-fallback');
-                                    if (fallback) fallback.classList.remove('hidden');
-                                  }
-                                }}
-                                onLoad={(e) => {
-                                  e.currentTarget.style.display = 'block';
-                                  const parent = e.currentTarget.parentElement;
-                                  if (parent) {
-                                    const fallback = parent.querySelector('.preview-fallback');
-                                    if (fallback) fallback.classList.add('hidden');
-                                  }
-                                }}
-                              />
-                              <div className="preview-fallback hidden text-[10px] font-black uppercase text-white/30 tracking-widest text-center">
-                                Invalid Path / Unable to load preview
+                          <label className="text-[9px] font-black uppercase tracking-widest text-[#d4af37]">Product Image</label>
+                          <label className="group cursor-pointer block">
+                            <input type="file" className="hidden" accept="image/*" onChange={(e) => handleImageUpload(e, 'image', false)} />
+                            {editingProduct.image ? (
+                              <div className="relative w-full h-36 bg-[#0a0f1d] border-2 border-dashed border-white/20 hover:border-[#d4af37]/60 rounded-2xl overflow-hidden flex items-center justify-center transition-all group-hover:shadow-lg group-hover:shadow-yellow-500/5">
+                                <img
+                                  src={getImageUrl(editingProduct.image)}
+                                  alt="Product Image"
+                                  className="max-w-full max-h-full object-contain p-2"
+                                />
+                                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                  <span className="text-[10px] font-black uppercase tracking-widest text-[#d4af37]">Click to Change Image</span>
+                                </div>
                               </div>
-                            </div>
-                          )}
+                            ) : (
+                              <div className="w-full h-36 bg-[#0a0f1d] border-2 border-dashed border-white/20 hover:border-[#d4af37]/60 rounded-2xl flex flex-col items-center justify-center gap-2 transition-all group-hover:shadow-lg group-hover:shadow-yellow-500/5">
+                                <div className="w-10 h-10 rounded-full bg-[#d4af37]/10 flex items-center justify-center">
+                                  <Upload size={18} className="text-[#d4af37]" />
+                                </div>
+                                <span className="text-[10px] font-black uppercase tracking-widest text-white/40">Click to Upload Image</span>
+                              </div>
+                            )}
+                          </label>
                         </div>
                       </div>
 
                       {/* Row 3: Hover Image */}
                       <div className="flex flex-col gap-2">
-                        <label className="text-[9px] font-black uppercase tracking-widest text-white/40">Hover Image Path (Optional)</label>
-                        <div className="flex gap-2">
-                          <input
-                            type="text"
-                            value={editingProduct.hoverImage || ''}
-                            onChange={(e) => setEditingProduct({ ...editingProduct, hoverImage: e.target.value || undefined })}
-                            placeholder="e.g. /images/VIEW/hover-filename.JPG"
-                            className="flex-1 px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white outline-none focus:border-[#d4af37] text-xs font-bold w-full"
-                          />
-                          <label className="bg-[#d4af37] text-black font-black uppercase text-[10px] tracking-wider px-4 py-3.5 rounded-xl flex items-center justify-center cursor-pointer hover:scale-105 transition-transform shrink-0">
-                            Upload
-                            <input type="file" className="hidden" accept="image/*" onChange={(e) => handleImageUpload(e, 'hoverImage', false)} />
-                          </label>
-                        </div>
-                        {editingProduct.hoverImage && (
-                          <div className="mt-2 relative w-full h-28 bg-[#0a0f1d] border border-white/10 rounded-xl overflow-hidden flex items-center justify-center">
-                            <img
-                              src={getImageUrl(editingProduct.hoverImage)}
-                              alt="Hover Image Preview"
-                              className="max-w-full max-h-full object-contain p-1"
-                              onError={(e) => {
-                                e.currentTarget.style.display = 'none';
-                                const parent = e.currentTarget.parentElement;
-                                if (parent) {
-                                  const fallback = parent.querySelector('.preview-fallback');
-                                  if (fallback) fallback.classList.remove('hidden');
-                                }
-                              }}
-                              onLoad={(e) => {
-                                e.currentTarget.style.display = 'block';
-                                const parent = e.currentTarget.parentElement;
-                                if (parent) {
-                                  const fallback = parent.querySelector('.preview-fallback');
-                                  if (fallback) fallback.classList.add('hidden');
-                                }
-                              }}
-                            />
-                            <div className="preview-fallback hidden text-[10px] font-black uppercase text-white/30 tracking-widest text-center">
-                              Invalid Path / Unable to load preview
+                        <label className="text-[9px] font-black uppercase tracking-widest text-white/40">Hover Image (Optional)</label>
+                        <label className="group cursor-pointer block">
+                          <input type="file" className="hidden" accept="image/*" onChange={(e) => handleImageUpload(e, 'hoverImage', false)} />
+                          {editingProduct.hoverImage ? (
+                            <div className="relative w-full h-36 bg-[#0a0f1d] border-2 border-dashed border-white/20 hover:border-[#d4af37]/60 rounded-2xl overflow-hidden flex items-center justify-center transition-all group-hover:shadow-lg group-hover:shadow-yellow-500/5">
+                              <img
+                                src={getImageUrl(editingProduct.hoverImage)}
+                                alt="Hover Image"
+                                className="max-w-full max-h-full object-contain p-2"
+                              />
+                              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <span className="text-[10px] font-black uppercase tracking-widest text-[#d4af37]">Click to Change Image</span>
+                              </div>
                             </div>
-                          </div>
-                        )}
+                          ) : (
+                            <div className="w-full h-36 bg-[#0a0f1d] border-2 border-dashed border-white/10 hover:border-white/20 rounded-2xl flex flex-col items-center justify-center gap-2 transition-all">
+                              <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
+                                <Upload size={18} className="text-white/30" />
+                              </div>
+                              <span className="text-[10px] font-black uppercase tracking-widest text-white/30">Click to Upload (Optional)</span>
+                            </div>
+                          )}
+                        </label>
                       </div>
 
                       {/* Short Description */}
@@ -2403,49 +2365,29 @@ export default function AdminPage() {
                       {/* Row 3: Image Path & Date */}
                       <div className="grid grid-cols-2 gap-4">
                         <div className="flex flex-col gap-2">
-                          <label className="text-[9px] font-black uppercase tracking-widest text-[#d4af37]">Image Path</label>
-                          <div className="flex gap-2">
-                            <input
-                              type="text"
-                              required
-                              value={editingBlog.image}
-                              onChange={(e) => setEditingBlog({ ...editingBlog, image: e.target.value })}
-                              placeholder="e.g. /images/VIEW/filename.JPG"
-                              className="flex-1 px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white outline-none focus:border-[#d4af37] text-xs font-bold w-full"
-                            />
-                            <label className="bg-[#d4af37] text-black font-black uppercase text-[10px] tracking-wider px-4 py-3.5 rounded-xl flex items-center justify-center cursor-pointer hover:scale-105 transition-transform shrink-0">
-                              Upload
-                              <input type="file" className="hidden" accept="image/*" onChange={(e) => handleImageUpload(e, 'image', true)} />
-                            </label>
-                          </div>
-                          {editingBlog.image && (
-                            <div className="mt-2 relative w-full h-28 bg-[#0a0f1d] border border-white/10 rounded-xl overflow-hidden flex items-center justify-center">
-                              <img
-                                src={getImageUrl(editingBlog.image)}
-                                alt="Blog Image Preview"
-                                className="max-w-full max-h-full object-contain p-1"
-                                onError={(e) => {
-                                  e.currentTarget.style.display = 'none';
-                                  const parent = e.currentTarget.parentElement;
-                                  if (parent) {
-                                    const fallback = parent.querySelector('.preview-fallback');
-                                    if (fallback) fallback.classList.remove('hidden');
-                                  }
-                                }}
-                                onLoad={(e) => {
-                                  e.currentTarget.style.display = 'block';
-                                  const parent = e.currentTarget.parentElement;
-                                  if (parent) {
-                                    const fallback = parent.querySelector('.preview-fallback');
-                                    if (fallback) fallback.classList.add('hidden');
-                                  }
-                                }}
-                              />
-                              <div className="preview-fallback hidden text-[10px] font-black uppercase text-white/30 tracking-widest text-center">
-                                Invalid Path / Unable to load preview
+                          <label className="text-[9px] font-black uppercase tracking-widest text-[#d4af37]">Blog Image</label>
+                          <label className="group cursor-pointer block">
+                            <input type="file" className="hidden" accept="image/*" onChange={(e) => handleImageUpload(e, 'image', true)} />
+                            {editingBlog.image ? (
+                              <div className="relative w-full h-36 bg-[#0a0f1d] border-2 border-dashed border-white/20 hover:border-[#d4af37]/60 rounded-2xl overflow-hidden flex items-center justify-center transition-all group-hover:shadow-lg group-hover:shadow-yellow-500/5">
+                                <img
+                                  src={getImageUrl(editingBlog.image)}
+                                  alt="Blog Image"
+                                  className="max-w-full max-h-full object-contain p-2"
+                                />
+                                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                  <span className="text-[10px] font-black uppercase tracking-widest text-[#d4af37]">Click to Change Image</span>
+                                </div>
                               </div>
-                            </div>
-                          )}
+                            ) : (
+                              <div className="w-full h-36 bg-[#0a0f1d] border-2 border-dashed border-white/20 hover:border-[#d4af37]/60 rounded-2xl flex flex-col items-center justify-center gap-2 transition-all group-hover:shadow-lg group-hover:shadow-yellow-500/5">
+                                <div className="w-10 h-10 rounded-full bg-[#d4af37]/10 flex items-center justify-center">
+                                  <Upload size={18} className="text-[#d4af37]" />
+                                </div>
+                                <span className="text-[10px] font-black uppercase tracking-widest text-white/40">Click to Upload Image</span>
+                              </div>
+                            )}
+                          </label>
                         </div>
                         <div className="flex flex-col gap-2">
                           <label className="text-[9px] font-black uppercase tracking-widest text-[#d4af37]">Publish Date</label>
