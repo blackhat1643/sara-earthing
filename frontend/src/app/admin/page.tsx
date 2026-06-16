@@ -85,22 +85,24 @@ interface Blog {
 export default function AdminPage() {
   const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001/api';
 
-  const getImageUrl = (path: string) => {
-    if (!path) return '';
-    if (path.startsWith('http://') || path.startsWith('https://')) {
-      return path;
+  const getImageUrl = (imgPath: string) => {
+    if (!imgPath) return '';
+    if (imgPath.startsWith('http://') || imgPath.startsWith('https://')) {
+      return imgPath;
     }
-    if (path.startsWith('/images/uploads/')) {
+    // Route all /images/ paths through the backend API server
+    // which serves static files from frontend/public/images/.
+    // apiBase is e.g. "https://saaraindia.com/next-api/api" — strip "/api"
+    // so images resolve to "https://saaraindia.com/next-api/images/..."
+    if (imgPath.startsWith('/images/')) {
       try {
-        const url = new URL(apiBase);
-        if (!url.hostname.includes('localhost') && !url.hostname.includes('127.0.0.1')) {
-          return `${url.origin}${path}`;
-        }
+        const baseUrl = apiBase.replace(/\/api\/?$/, '');
+        return `${baseUrl}${imgPath}`;
       } catch (e) {
-        // Fallback
+        // Fallback to relative path
       }
     }
-    return path;
+    return imgPath;
   };
 
   // Auth state
@@ -893,7 +895,7 @@ export default function AdminPage() {
                           <tr key={prod.slug} className="hover:bg-white/5 transition-colors group">
                             <td className="p-6">
                               <div className="w-14 h-14 relative bg-white border border-white/10 rounded-2xl p-2 flex items-center justify-center shadow-lg overflow-hidden shrink-0">
-                                <Image src={prod.image} alt={prod.title} width={40} height={40} className="object-contain" />
+                                <img src={getImageUrl(prod.image)} alt={prod.title} className="w-10 h-10 object-contain" />
                               </div>
                             </td>
                             <td className="p-6">
@@ -1410,7 +1412,7 @@ export default function AdminPage() {
                           <tr key={blog.slug} className="hover:bg-white/5 transition-colors group">
                             <td className="p-6">
                               <div className="w-14 h-14 relative bg-slate-900 border border-white/10 rounded-2xl overflow-hidden shrink-0">
-                                <Image src={blog.image} alt={blog.title} fill className="object-cover" />
+                                <img src={getImageUrl(blog.image)} alt={blog.title} className="absolute inset-0 w-full h-full object-cover" />
                               </div>
                             </td>
                             <td className="p-6">
