@@ -60,24 +60,9 @@ export default function QualityPage() {
                 Quality
               </h1>
 
-              <p className="text-slate-600 text-base md:text-xl font-medium leading-relaxed max-w-xl mb-10">
+              <p className="text-slate-600 text-base md:text-xl font-medium leading-relaxed max-w-xl">
                 Every system we manufacture undergoes rigorous validation to deliver flawless electrical grounding solutions for safety across India&apos;s most demanding industrial landscapes.
               </p>
-
-              {/* Compliance grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-slate-100 max-w-xl">
-                {[
-                  { tag: "CPRI", val: "Short-Circuit Tested" },
-                  { tag: "ISO 9001:2015", val: "QMS Certified" },
-                  { tag: "ERDA", val: "Parameter Tested" },
-                  { tag: "IS 3043:2018", val: "Code Compliant" }
-                ].map((c, i) => (
-                  <div key={i} className="bg-slate-50 border border-slate-100 p-4 rounded-2xl flex flex-col justify-center">
-                    <span className="text-[#d4af37] text-[10px] font-black tracking-widest leading-none mb-1">{c.tag}</span>
-                    <span className="text-slate-400 text-[9px] font-extrabold uppercase tracking-wider">{c.val}</span>
-                  </div>
-                ))}
-              </div>
             </motion.div>
           </div>
 
@@ -90,7 +75,7 @@ export default function QualityPage() {
               className="relative aspect-square lg:aspect-video rounded-[40px] overflow-hidden shadow-2xl border-4 border-white bg-[#faf9f6]"
             >
               <Image 
-                src="/images/VIEW/Complete Earthing Solutions.jpg" 
+                src="/images/VIEW/Complete Earthing Solutions.webp" 
                 alt="Quality Testing Indicators"
                 fill
                 className="object-cover"

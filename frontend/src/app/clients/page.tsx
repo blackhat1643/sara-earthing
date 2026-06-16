@@ -1,6 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Building2 } from 'lucide-react';
 import Footer from '@/components/Footer';
 import { useState, useEffect } from 'react';
@@ -28,7 +29,7 @@ export default function ClientsPage() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/images/clients_hero.png" 
+            src="/images/clients_hero.webp" 
             alt="Global Partnerships" 
             fill 
             className="object-cover opacity-40 grayscale-[0.5] scale-110"
@@ -99,27 +100,22 @@ export default function ClientsPage() {
       </section>
 
       {/* Global Impact CTA */}
-      <section className="py-24 bg-slate-900">
-        <div className="max-w-5xl mx-auto px-6 text-center">
-          <div className="relative p-12 md:p-20 border border-[#d4af37]/20 rounded-[60px] overflow-hidden">
-            <div className="absolute inset-0 bg-[#d4af37]/5 -skew-x-12 translate-x-1/2 pointer-events-none" />
-            <div className="relative z-10">
-              <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-8 leading-[1.1] md:leading-none">
-                Join Our <br /> <span className="text-[#d4af37]">Portfolio</span> of Excellence
-              </h2>
-              <p className="text-white/40 text-sm md:text-lg mb-10 max-w-xl mx-auto font-medium px-4 md:px-0">
-                Protect your critical assets with the same precision and reliability trusted by the world's biggest brands.
-              </p>
-              <motion.a
-                href="/contact"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-block px-12 py-5 bg-[#d4af37] text-black font-black uppercase tracking-widest text-[10px] rounded-full shadow-2xl shadow-[#d4af37]/20"
-              >
-                Become a Client
-              </motion.a>
-            </div>
+      <section className="bg-[#d4af37] py-14 md:py-16 w-full relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="text-left">
+            <h2 className="text-3xl md:text-5xl font-black uppercase text-white tracking-tight leading-tight mb-4">
+              Join Our <br className="hidden md:block" /> Portfolio of Excellence
+            </h2>
+            <p className="text-white/95 text-sm md:text-base font-medium max-w-xl">
+              Protect your critical assets with the same precision and reliability trusted by the world&apos;s biggest brands.
+            </p>
           </div>
+          <Link 
+            href="/contact" 
+            className="inline-block px-10 py-5 bg-white text-slate-900 font-black uppercase tracking-widest text-[10px] rounded-full hover:bg-slate-50 transition-colors shadow-xl shadow-black/5 flex-shrink-0"
+          >
+            Become a Client
+          </Link>
         </div>
       </section>
 

@@ -19,7 +19,7 @@ export default function Footer({ showImage = false }: { showImage?: boolean }) {
     <footer ref={containerRef} className="relative bg-[#050810] text-white pt-32 pb-6 overflow-hidden border-t border-white/5">
       {/* Background Image */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <Image src="/images/alnd.png" alt="Footer Background" fill className="object-cover opacity-80" />
+        <Image src="/images/alnd.webp" alt="Footer Background" fill className="object-cover opacity-80" />
         <div className="absolute inset-0 bg-[#050810]/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#050810] via-transparent to-[#050810]/80" />
       </div>
@@ -32,7 +32,7 @@ export default function Footer({ showImage = false }: { showImage?: boolean }) {
         >
           <div className="relative w-[120vw] h-[180vw] md:w-[45vw] md:h-[75vw] mb-[42vw] md:mb-[-15vw]">
             <Image
-              src="/images/20-08-2025_Sara_Earthing1052-removebg-preview.png"
+              src="/images/20-08-2025_Sara_Earthing1052-removebg-preview.webp"
               alt="Earthing Product"
               fill
               className="object-contain"
@@ -72,7 +72,7 @@ export default function Footer({ showImage = false }: { showImage?: boolean }) {
               <Link href="/" className="flex items-center gap-3 mb-6 group">
                 <div className="relative w-14 h-14 bg-white rounded-xl p-1 flex items-center justify-center shadow-xl overflow-hidden group-hover:scale-105 transition-transform">
                   <Image
-                    src="/images/logo.png"
+                    src="/images/logo.webp"
                     alt="SAARA Logo"
                     width={48}
                     height={48}
@@ -83,7 +83,7 @@ export default function Footer({ showImage = false }: { showImage?: boolean }) {
                   SAARA <span className="text-[#d4af37] italic">EARTHING</span>
                 </span>
               </Link>
-              <p className="text-white/60 text-sm leading-[1.8] mb-8 font-medium">
+              <p className="text-white/60 text-[15px] leading-[1.8] mb-8 font-medium">
                 With over two decades of manufacturing excellence, we provide advanced, certified, and maintenance free earthing Solutions alongside robust lightning protection systems.
               </p>
               {/* Social icons */}
@@ -104,7 +104,7 @@ export default function Footer({ showImage = false }: { showImage?: boolean }) {
 
             {/* Quick Links Col */}
             <div className="md:col-span-2">
-              <h4 className="font-black text-base font-display mb-8 tracking-wide text-white uppercase">
+              <h4 className="font-black text-lg font-display mb-8 tracking-wide text-white uppercase">
                 Quick Links
               </h4>
               <ul className="space-y-4">
@@ -119,7 +119,7 @@ export default function Footer({ showImage = false }: { showImage?: boolean }) {
                       item === 'Quality' ? '/quality' :
                       item === 'Clients' ? '/clients' : '/'
                     }
-                      className="text-white/50 text-sm font-medium hover:text-[#d4af37] flex items-center gap-3 group transition-all duration-300">
+                      className="text-white/50 text-[15px] font-medium hover:text-[#d4af37] flex items-center gap-3 group transition-all duration-300">
                       <span className="w-1 h-1 rounded-full bg-white/20 group-hover:bg-[#d4af37] group-hover:scale-150 transition-all" />
                       {item}
                     </Link>
@@ -130,7 +130,7 @@ export default function Footer({ showImage = false }: { showImage?: boolean }) {
 
             {/* Products Col */}
             <div className="md:col-span-3">
-              <h4 className="font-black text-base font-display mb-8 tracking-wide text-white uppercase">
+              <h4 className="font-black text-lg font-display mb-8 tracking-wide text-white uppercase">
                 Our Expert Products
               </h4>
               <ul className="space-y-4">
@@ -143,7 +143,7 @@ export default function Footer({ showImage = false }: { showImage?: boolean }) {
                   { name: 'Earthing Accessories', href: '/products/earthing-accessories' }
                 ].map(item => (
                   <li key={item.name}>
-                    <Link href={item.href} className="text-white/50 text-sm font-medium hover:text-[#d4af37] flex items-center gap-3 group transition-all duration-300">
+                    <Link href={item.href} className="text-white/50 text-[15px] font-medium hover:text-[#d4af37] flex items-center gap-3 group transition-all duration-300">
                       <span className="w-1 h-1 rounded-full bg-[#d4af37]/50 group-hover:bg-[#d4af37] group-hover:scale-150 transition-all" />
                       {item.name}
                     </Link>
@@ -157,10 +157,10 @@ export default function Footer({ showImage = false }: { showImage?: boolean }) {
 
               {/* Call */}
               <div>
-                <h4 className="font-black text-[11px] font-display mb-3 uppercase tracking-widest text-[#d4af37]">
+                <h4 className="font-black text-[13px] font-display mb-3 uppercase tracking-widest text-[#d4af37]">
                   Contact Us
                 </h4>
-                <div className="text-white/80 text-sm font-medium leading-relaxed flex flex-col gap-1">
+                <div className="text-white/80 text-[15px] font-medium leading-relaxed flex flex-col gap-1">
                   <a 
                     href="tel:+917575057000" 
                     className="flex items-center gap-1.5 hover:text-[#d4af37] transition-colors w-max group"
@@ -187,10 +187,10 @@ export default function Footer({ showImage = false }: { showImage?: boolean }) {
 
               {/* Email / Web */}
               <div>
-                <h4 className="font-black text-[11px] font-display mb-3 uppercase tracking-widest text-[#d4af37] flex items-center gap-2">
+                <h4 className="font-black text-[13px] font-display mb-3 uppercase tracking-widest text-[#d4af37] flex items-center gap-2">
                   <Mail size={14} /> Email Or Visit
                 </h4>
-                <div className="text-white/80 text-sm font-medium leading-relaxed flex flex-col gap-1">
+                <div className="text-white/80 text-[15px] font-medium leading-relaxed flex flex-col gap-1">
                   <a href="mailto:sales@saaraindia.com" className="hover:text-[#d4af37] transition-colors w-max">
                     sales@saaraindia.com
                   </a>
@@ -202,10 +202,10 @@ export default function Footer({ showImage = false }: { showImage?: boolean }) {
 
               {/* Timings */}
               <div>
-                <h4 className="font-black text-[11px] font-display mb-3 uppercase tracking-widest text-[#d4af37] flex items-center gap-2">
+                <h4 className="font-black text-[13px] font-display mb-3 uppercase tracking-widest text-[#d4af37] flex items-center gap-2">
                   <MapPin size={14} /> Our Timing
                 </h4>
-                <p className="text-white/80 text-sm font-medium leading-relaxed">
+                <p className="text-white/80 text-[15px] font-medium leading-relaxed">
                   Mon - Sat <span className="text-white">10:00am - 6:00pm</span><br />
                   Sunday <span className="text-red-400">Closed</span>
                 </p>
@@ -228,9 +228,18 @@ export default function Footer({ showImage = false }: { showImage?: boolean }) {
                 href="https://www.rangdigitech.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-white/30 text-xs font-medium uppercase tracking-wider hover:text-[#d4af37] transition-colors"
+                className="text-white/30 text-xs font-medium uppercase tracking-wider hover:text-[#d4af37] transition-colors flex items-center gap-2"
               >
-                Design by Rang Digitech LLC
+                <span>Design by</span>
+                <Image 
+                  src="/images/Rang-Digitech-Animated-GIF-1.gif" 
+                  alt="Rang Digitech" 
+                  width={20} 
+                  height={20} 
+                  className="w-5 h-5 object-contain"
+                  unoptimized
+                />
+                <span>Rang Digitech LLC</span>
               </a>
             </div>
           </div>

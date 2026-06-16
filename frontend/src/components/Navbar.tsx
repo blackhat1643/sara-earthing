@@ -74,7 +74,7 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-3 group">
           <div className="relative w-12 h-12 bg-white rounded-xl p-1 flex items-center justify-center shadow-lg shadow-yellow-400/20 overflow-hidden group-hover:scale-105 transition-transform">
             <Image 
-              src="/images/logo.png" 
+              src="/images/logo.webp" 
               alt="SAARA Logo" 
               width={40} 
               height={40} 

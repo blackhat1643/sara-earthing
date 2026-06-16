@@ -60,7 +60,7 @@ export default function EarthingAccessoriesPage() {
               className="relative aspect-square lg:aspect-video rounded-[40px] overflow-hidden shadow-2xl border-4 border-white bg-[#faf9f6]"
             >
               <Image 
-                src="/images/products/accessories_main.png" 
+                src="/images/products/accessories_main.webp" 
                 alt="Earthing Accessories" 
                 fill 
                 className="object-cover"

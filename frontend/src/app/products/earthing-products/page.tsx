@@ -60,7 +60,7 @@ export default function EarthingProductsPage() {
               className="relative aspect-square lg:aspect-video rounded-[40px] overflow-hidden shadow-2xl border-4 border-white bg-[#faf9f6]"
             >
               <Image 
-                src="/images/VIEW/Complete Earthing Solutions.jpg" 
+                src="/images/VIEW/Complete Earthing Solutions.webp" 
                 alt="Product Showcase Background" 
                 fill 
                 className="object-cover"

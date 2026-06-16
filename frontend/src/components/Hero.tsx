@@ -63,7 +63,7 @@ export default function Hero() {
             <div className="flex flex-wrap justify-center gap-6">
               <Link 
                 href="/applications"
-                className="group relative px-8 py-4 bg-[#d4af37] overflow-hidden transition-all hover:pr-12 transform hover:-translate-y-1 block"
+                className="group relative px-8 py-4 bg-[#d4af37] overflow-hidden transition-all hover:pr-12 transform hover:-translate-y-1 flex items-center justify-center text-center min-h-[50px] min-w-[180px]"
               >
                 <span className="relative z-10 text-[#060a14] font-black uppercase tracking-widest text-[10px]">Explore Solutions</span>
                 <div className="absolute inset-0 bg-white translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300" />
@@ -71,7 +71,7 @@ export default function Hero() {
               
               <Link 
                 href="/products/earthing-products"
-                className="px-8 py-4 border border-white/10 text-white font-black uppercase tracking-widest text-[10px] hover:bg-white/5 transition-all backdrop-blur-sm block"
+                className="px-8 py-4 border border-white/10 text-white font-black uppercase tracking-widest text-[10px] hover:bg-white/5 transition-all backdrop-blur-sm flex items-center justify-center text-center min-h-[50px] min-w-[180px]"
               >
                 Technical Specs
               </Link>

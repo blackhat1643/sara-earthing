@@ -15,7 +15,7 @@ const coreComponents = [
     title: "Chemical Earthing Electrode",
     desc: "Unlike traditional rods, an advanced Chemical Earthing Electrode is molecularly bonded and treated to maintain optimal performance across all seasons.",
     icon: Activity,
-    image: "/images/VIEW/Chemical Earthing Electrode.jpg",
+    image: "/images/VIEW/Chemical Earthing Electrode.webp",
     color: "#d4af37"
   },
   {
@@ -23,7 +23,7 @@ const coreComponents = [
     title: "Back Fill Compounds",
     desc: "Our moisture retaining, non soluble compound creates a permanent, dense conductive zone that thrives even in dry or highly corrosive terrains.",
     icon: Layers,
-    image: "/images/VIEW/Back Fill Compounds.jpg",
+    image: "/images/VIEW/Back Fill Compounds.webp",
     color: "#ffffff"
   },
   {
@@ -31,7 +31,7 @@ const coreComponents = [
     title: "Lightning Arrester",
     desc: "This system intercepts high voltage strikes at the highest point of your facility and safely channels them into the ground network, forming a comprehensive lightning protection system.",
     icon: Zap,
-    image: "/images/VIEW/Lightning Arrester.jpg",
+    image: "/images/VIEW/Lightning Arrester.webp",
     color: "#d4af37"
   }
 ];
@@ -63,7 +63,7 @@ export default function EarthingPage() {
           <div className="absolute bottom-0 left-0 w-1/3 h-2/3 bg-slate-50 skew-y-6 -translate-x-1/4" />
 
           <Image
-            src="/images/hero_bg.png"
+            src="/images/hero_bg.webp"
             alt="Grounding"
             fill
             className="object-cover opacity-10 grayscale brightness-110"
@@ -284,7 +284,7 @@ export default function EarthingPage() {
           <div className="relative w-full aspect-[4/1.2] sm:aspect-[4/1] md:aspect-[5/1] overflow-hidden flex items-center justify-between pl-6 pr-2 md:pl-10 md:pr-3">
             {/* Electrode Image centered vertically in the background */}
             <Image
-              src="/images/electrode_banner.png"
+              src="/images/electrode_banner.webp"
               alt="Chemical Earthing Electrode"
               fill
               className="object-contain object-center z-0 opacity-90"
@@ -292,17 +292,19 @@ export default function EarthingPage() {
             />
 
             {/* Text & Button Container - positioned directly ON the electrode image */}
-            <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-6 relative z-10">
-              <p className="text-slate-800 text-sm md:text-base font-extrabold leading-relaxed max-w-xl text-center sm:text-left">
-                Explore our complete range of chemical electrodes, backfill compounds and earthing rods.
-              </p>
-              <Link
-                href="/products/earthing-products"
-                className="group inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-[#d4af37] hover:bg-slate-900 hover:text-white text-black font-black uppercase tracking-widest text-[8.5px] rounded-full transition-all duration-300 shadow-md flex-shrink-0"
-              >
-                <span>Explore Products</span>
-                <ArrowRight size={10} className="group-hover:translate-x-0.5 transition-transform" />
-              </Link>
+            <div className="w-full flex items-center relative z-10">
+              <div className="flex flex-col items-center sm:items-start gap-4 text-center sm:text-left max-w-md md:max-w-xl">
+                <p className="text-slate-800 text-sm md:text-base font-extrabold leading-relaxed">
+                  Explore our complete range of chemical electrodes, backfill compounds and earthing rods.
+                </p>
+                <Link
+                  href="/products/earthing-products"
+                  className="group inline-flex items-center gap-1.5 px-4 py-2 bg-[#d4af37] hover:bg-slate-900 hover:text-white text-black font-black uppercase tracking-widest text-[9px] rounded-full transition-all duration-300 shadow-md"
+                >
+                  <span>Explore Products</span>
+                  <ArrowRight size={10} className="group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>

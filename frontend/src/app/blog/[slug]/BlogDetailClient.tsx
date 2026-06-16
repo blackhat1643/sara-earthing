@@ -49,7 +49,7 @@ const FALLBACK_BLOGS: BlogPost[] = [
       "Galvanized Iron electrodes rely on a hot-dip zinc coating to resist corrosion. In normal, stable soil conditions, GI is highly cost-effective and provides standard security. However, in aggressive soils containing salts and high moisture, the zinc layer dissolves, exposing raw iron to rust.",
       "Copper Bonded electrodes utilize a molecularly bonded outer copper layer over a high-tensile steel core. The steel provides superior mechanical strength for hammer driving, while the copper layer provides 250+ micron thickness. This thick barrier guarantees UL 467 compliance and superior conductivity. For heavy-duty grid installations, copper bonded strikes the perfect balance of cost and longevity."
     ],
-    "image": "/images/VIEW/Chemical Earthing Electrode.jpg",
+    "image": "/images/VIEW/Chemical Earthing Electrode.webp",
     "author": "Technical Team",
     "readTime": "6 min read",
     "date": "May 25, 2026",
@@ -149,23 +149,21 @@ export default function BlogDetailClient({ slug }: { slug: string }) {
 
   return (
     <div className="bg-white min-h-screen text-slate-900 font-display overflow-x-clip relative">
-      {/* Navigation Back Button */}
-      <div className="fixed top-24 left-0 right-0 z-40 px-6">
-        <div className="max-w-4xl mx-auto">
-          <button
-            onClick={() => router.push('/blog')}
-            className="flex items-center gap-3 text-slate-400 hover:text-[#d4af37] transition-colors font-black uppercase tracking-widest text-[10px] group"
-          >
-            <div className="w-10 h-10 rounded-full border border-slate-100 flex items-center justify-center group-hover:border-[#d4af37] group-hover:bg-[#d4af37]/5 transition-all">
-              <ArrowLeft size={16} />
-            </div>
-            Back to Articles
-          </button>
-        </div>
-      </div>
-
-      <main className="pt-36 pb-20 px-6">
+      <main className="pt-28 pb-20 px-6">
         <article className="max-w-4xl mx-auto">
+          {/* Navigation Back Button */}
+          <div className="mb-10">
+            <button
+              onClick={() => router.push('/blog')}
+              className="flex items-center gap-3 text-slate-400 hover:text-[#d4af37] transition-colors font-black uppercase tracking-widest text-[10px] group"
+            >
+              <div className="w-10 h-10 rounded-full border border-slate-100 flex items-center justify-center group-hover:border-[#d4af37] group-hover:bg-[#d4af37]/5 transition-all">
+                <ArrowLeft size={16} />
+              </div>
+              Back to Articles
+            </button>
+          </div>
+
           {/* Header Metadata */}
           <div className="mb-10 text-center lg:text-left">
             <div className="flex items-center justify-center lg:justify-start gap-3 mb-6">
@@ -197,18 +195,39 @@ export default function BlogDetailClient({ slug }: { slug: string }) {
 
           {/* Article Body */}
           <div className="prose prose-slate max-w-none space-y-8">
-            {Array.isArray(blog.content) ? (
-              blog.content.map((paragraph, index) => (
-                <p key={index} className="text-slate-600 text-lg leading-relaxed font-medium">
-                  {paragraph}
-                </p>
-              ))
-            ) : (
-              <div 
-                className="text-slate-600 text-lg leading-relaxed font-medium whitespace-pre-wrap"
-                dangerouslySetInnerHTML={{ __html: blog.content as unknown as string }}
-              />
-            )}
+            {(() => {
+              let paragraphs: string[] = [];
+              if (Array.isArray(blog.content)) {
+                paragraphs = blog.content;
+              } else if (typeof blog.content === 'string') {
+                const trimmed = blog.content.trim();
+                if (trimmed.startsWith('[') && trimmed.endsWith(']')) {
+                  try {
+                    const parsed = JSON.parse(trimmed);
+                    if (Array.isArray(parsed)) {
+                      paragraphs = parsed;
+                    }
+                  } catch (e) {
+                    // Fail silently, fallback to single html string
+                  }
+                }
+              }
+
+              if (paragraphs.length > 0) {
+                return paragraphs.map((paragraph, index) => (
+                  <p key={index} className="text-slate-600 text-lg leading-relaxed font-medium">
+                    {paragraph}
+                  </p>
+                ));
+              }
+
+              return (
+                <div 
+                  className="text-slate-600 text-lg leading-relaxed font-medium whitespace-pre-wrap"
+                  dangerouslySetInnerHTML={{ __html: blog.content as unknown as string }}
+                />
+              );
+            })()}
           </div>
 
           {/* Share Section footer */}

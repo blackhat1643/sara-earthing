@@ -89,6 +89,7 @@ export default function QuotePage() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState(false);
+  const [validationError, setValidationError] = useState('');
   const [focused, setFocused] = useState('');
 
   useEffect(() => {
@@ -113,6 +114,7 @@ export default function QuotePage() {
 
   const handleInputChange = (field: keyof QuoteFormData, value: string | boolean) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+    setValidationError('');
   };
 
   const calculateEstimate = () => {
@@ -149,13 +151,56 @@ export default function QuotePage() {
     return Math.round(totalElectrodeCost + compoundCost + arresterCost + pitCost + clampCost);
   };
 
-  const nextStep = () => setStep(prev => Math.min(prev + 1, 3));
-  const prevStep = () => setStep(prev => Math.max(prev - 1, 1));
+  const nextStep = () => {
+    if (step === 1) {
+      if (!formData.name.trim()) {
+        setValidationError('Contact Name is required.');
+        return;
+      }
+      if (!formData.email.trim()) {
+        setValidationError('Corporate Email is required.');
+        return;
+      }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email.trim())) {
+        setValidationError('Please enter a valid Corporate Email.');
+        return;
+      }
+      if (!formData.phone.trim()) {
+        setValidationError('Direct Phone number is required.');
+        return;
+      }
+      if (!formData.company.trim()) {
+        setValidationError('Company / Project Client is required.');
+        return;
+      }
+      if (!formData.location.trim()) {
+        setValidationError('Project Site Location is required.');
+        return;
+      }
+    }
+    setValidationError('');
+    setStep(prev => Math.min(prev + 1, 3));
+  };
+  
+  const prevStep = () => {
+    setValidationError('');
+    setStep(prev => Math.max(prev - 1, 1));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Verify all Step 1 inputs before final submission
+    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.company.trim() || !formData.location.trim()) {
+      setValidationError('All contact and location fields in Step 1 are required.');
+      setStep(1);
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitError(false);
+    setValidationError('');
 
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001/api'}/submissions`, {
@@ -275,6 +320,11 @@ export default function QuotePage() {
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-8">
+                    {validationError && (
+                      <div className="p-5 rounded-2xl bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-black uppercase tracking-wider animate-pulse">
+                        {validationError}
+                      </div>
+                    )}
                     {submitError && (
                       <div className="p-5 rounded-2xl bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-black uppercase tracking-wider">
                         Failed to submit request. Please try again.

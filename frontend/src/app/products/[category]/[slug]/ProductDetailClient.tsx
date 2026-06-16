@@ -154,23 +154,21 @@ export default function ProductDetailClient({ category, slug }: { category: stri
 
   return (
     <div className="bg-white min-h-screen text-slate-900 font-display overflow-x-clip relative">
-      {/* Navigation Header */}
-      <div className="fixed top-24 left-0 right-0 z-40 px-6">
-        <div className="max-w-7xl mx-auto">
-          <button
-            onClick={() => router.back()}
-            className="flex items-center gap-3 text-slate-400 hover:text-[#d4af37] transition-colors font-black uppercase tracking-widest text-[10px] group"
-          >
-            <div className="w-10 h-10 rounded-full border border-slate-100 flex items-center justify-center group-hover:border-[#d4af37] group-hover:bg-[#d4af37]/5 transition-all">
-              <ArrowLeft size={16} />
-            </div>
-            Back to {getCategoryLabel(category)}
-          </button>
-        </div>
-      </div>
-
-      <main className="pt-36 pb-20">
+      <main className="pt-28 pb-20">
         <div className="max-w-7xl mx-auto px-6">
+          {/* Navigation Header */}
+          <div className="mb-10">
+            <button
+              onClick={() => router.back()}
+              className="flex items-center gap-3 text-slate-400 hover:text-[#d4af37] transition-colors font-black uppercase tracking-widest text-[10px] group"
+            >
+              <div className="w-10 h-10 rounded-full border border-slate-100 flex items-center justify-center group-hover:border-[#d4af37] group-hover:bg-[#d4af37]/5 transition-all">
+                <ArrowLeft size={16} />
+              </div>
+              Back to {getCategoryLabel(category)}
+            </button>
+          </div>
+
           {/* Hero Section */}
           <div className="grid lg:grid-cols-2 gap-16 items-start mb-24">
             {/* Product Image Section */}

@@ -604,7 +604,7 @@ export default function AdminPage() {
           {/* Brand header */}
           <div className="p-6 border-b border-white/5 flex items-center gap-3">
             <div className="relative w-8 h-8 bg-white rounded-lg p-0.5 flex items-center justify-center">
-              <Image src="/images/logo.png" alt="SAARA Logo" width={24} height={24} className="object-contain" />
+              <Image src="/images/logo.webp" alt="SAARA Logo" width={24} height={24} className="object-contain" />
             </div>
             <div>
               <p className="font-black text-sm tracking-tight text-white leading-none">SAARA <span className="text-[#d4af37]">ADMIN</span></p>

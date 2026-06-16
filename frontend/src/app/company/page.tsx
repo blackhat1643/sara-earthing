@@ -57,7 +57,7 @@ export default function CompanyPage() {
             className="relative w-full h-full"
           >
             <Image
-              src="/images/hero_bg.png"
+              src="/images/hero_bg.webp"
               alt="Company Heritage"
               fill
               className="object-cover opacity-[0.12] grayscale scale-110"
@@ -135,7 +135,7 @@ export default function CompanyPage() {
               {/* Clean Image Container with Hover Float */}
               <div className="relative w-[80%] h-[80%] transition-all duration-700 group-hover:scale-110 group-hover:-translate-y-2">
                 <Image
-                  src="/images/VIEW/About%20Page.jpg"
+                  src="/images/VIEW/About%20Page.webp"
                   alt="About Us First Section Image"
                   fill
                   className="object-cover filter drop-shadow-2xl rounded-2xl"
@@ -163,7 +163,7 @@ export default function CompanyPage() {
             >
               <div className="relative z-10 rounded-[40px] overflow-hidden border-8 border-slate-50 shadow-2xl aspect-[4/3] max-w-md md:max-w-lg mx-auto">
                 <Image
-                  src="/images/about-img.jpg"
+                  src="/images/about-img.webp"
                   alt="Sara Earthing Facilities"
                   fill
                   className="object-cover"
@@ -332,22 +332,22 @@ export default function CompanyPage() {
       <Certifications />
 
       {/* Global CTA */}
-      <section className="py-13 bg-white">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="relative p-12 md:p-20 bg-slate-900 group rounded-[40px] md:rounded-[60px] overflow-hidden">
-            {/* Decorative Element */}
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-[#d4af37]/5 -skew-x-12 translate-x-1/3 pointer-events-none" />
-
-            <div className="relative z-10 text-center">
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase text-white tracking-tighter leading-[0.9] mb-10 group-hover:scale-105 transition-transform duration-1000">
-                India&apos;s Trusted <br />
-                <span className="text-[#d4af37]">Grounding Specialists</span>
-              </h2>
-              <Link href="/contact" className="inline-block px-10 py-5 bg-[#d4af37] text-black font-black uppercase tracking-widest text-[10px] rounded-full hover:scale-110 transition-transform shadow-2xl shadow-[#d4af37]/20">
-                Consult Our Team
-              </Link>
-            </div>
+      <section className="bg-[#d4af37] py-14 md:py-16 w-full relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="text-left">
+            <h2 className="text-3xl md:text-5xl font-black uppercase text-white tracking-tight leading-tight mb-4">
+              India&apos;s Trusted <br className="hidden md:block" /> Grounding Specialists
+            </h2>
+            <p className="text-white/95 text-sm md:text-base font-medium max-w-xl">
+              All our products comply with ISO 9001, ERDA, CPRI, & PWD standards of safety.
+            </p>
           </div>
+          <Link 
+            href="/contact" 
+            className="inline-block px-10 py-5 bg-white text-slate-900 font-black uppercase tracking-widest text-[10px] rounded-full hover:bg-slate-50 transition-colors shadow-xl shadow-black/5 flex-shrink-0"
+          >
+            Consult Our Team
+          </Link>
         </div>
       </section>
 

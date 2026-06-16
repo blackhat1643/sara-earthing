@@ -9,10 +9,10 @@ interface FlippingBoxBackgroundProps {
 }
 
 const defaultImages = [
-  "/images/hero_bg.png",
-  "/images/alnd.png",
-  "/images/refinery_app.png",
-  "/images/welding.png"
+  "/images/hero_bg.webp",
+  "/images/alnd.webp",
+  "/images/refinery_app.webp",
+  "/images/welding.webp"
 ];
 
 export default function FlippingBoxBackground({ 

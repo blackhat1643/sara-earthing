@@ -9,13 +9,13 @@ const categories = [
   {
     id: 'earthing-products',
     title: 'Earthing Products',
-    image: '/images/products/Earthing Products All - Website.jpg',
+    image: '/images/products/Earthing Products All - Website.webp',
     desc: 'High-quality earthing electrodes and compounds engineered for optimal grounding and durability.',
   },
   {
     id: 'earthing-accessories',
     title: 'Earthing Accessories',
-    image: '/images/products/accessories_main.png',
+    image: '/images/products/accessories_main.webp',
     desc: 'Durable accessories and clamps built to ensure secure and long-lasting earthing connections.',
   }
 ];

@@ -14,7 +14,7 @@ const sectors = [
     description: 'Protecting sensitive substations and power transformers from catastrophic fault currents and high-energy surges, guaranteeing stable grid distribution.',
     features: ['Surge Suppression', 'Thermal Insulation', 'Overvoltage Protection'],
     icon: Zap,
-    image: '/images/power_app.png',
+    image: '/images/power_app.webp',
     color: '#d4af37'
   },
   {
@@ -24,7 +24,7 @@ const sectors = [
     description: 'Safeguarding heavy machinery, computerized assembly lines, and industrial workers from shock hazards and electrostatic discharges (ESD).',
     features: ['Static Dissipation', 'Personnel Protection', 'Equipment Longevity'],
     icon: Cpu,
-    image: '/images/welding.png',
+    image: '/images/welding.webp',
     color: '#000000'
   },
   {
@@ -34,7 +34,7 @@ const sectors = [
     description: 'Providing permanent, zero-resistance connections for volatile oil, gas, and chemical processing facilities to completely mitigate spark hazards.',
     features: ['Intrinsically Safe', 'Corrosion Resistance', 'Fault Dissipation'],
     icon: Droplets,
-    image: '/images/refinery_app.png',
+    image: '/images/refinery_app.webp',
     color: '#d4af37'
   },
   {
@@ -44,7 +44,7 @@ const sectors = [
     description: 'Diverting direct atmospheric lightning strikes away from active conductor lines and grounding the high-voltage transmission pylons safely into the earth.',
     features: ['Direct Strike Deflection', 'Low Impedance Paths', 'Extreme Durability'],
     icon: Wind,
-    image: '/images/pylon_tower.jpg',
+    image: '/images/pylon_tower.webp',
     color: '#000000'
   },
   {
@@ -54,7 +54,7 @@ const sectors = [
     description: 'Providing maximum fault-current capability for thermal, nuclear, and hydroelectric power plants, securing crucial turbines and control rooms.',
     features: ['High-Amp Dissipation', 'Turbine Protection', 'Control System Grounding'],
     icon: Power,
-    image: '/images/power_app.png',
+    image: '/images/power_app.webp',
     color: '#d4af37'
   },
   {
@@ -64,7 +64,7 @@ const sectors = [
     description: 'Protecting your family, smart home networks, and modern domestic appliances from sudden lightning strikes and internal electrical surges.',
     features: ['Domestic Appliance Safety', 'Shock Prevention', 'Compact Rod Systems'],
     icon: Home,
-    image: '/images/residential_app.png',
+    image: '/images/residential_app.webp',
     color: '#000000'
   },
   {
@@ -74,7 +74,7 @@ const sectors = [
     description: 'Wind turbine blades are highly vulnerable to lightning at high altitudes. We engineer low-impedance pathways down the nacelle and tower to safeguard turbine electronics.',
     features: ['High-Altitude Grounding', 'Nacelle Protection', 'Corrosion Shielding'],
     icon: Activity,
-    image: '/images/wind_app.png',
+    image: '/images/wind_app.webp',
     color: '#d4af37'
   },
   {
@@ -84,7 +84,7 @@ const sectors = [
     description: 'Securing remote cellular masts and transmission hubs. Our maintenance-free grounding prevents downtime and filters electromagnetic signal noise.',
     features: ['Signal Noise Elimination', 'Tower Base Grounding', 'Maintenance-Free Systems'],
     icon: Radio,
-    image: '/images/telecom_app.png',
+    image: '/images/telecom_app.webp',
     color: '#000000'
   },
   {
@@ -94,7 +94,7 @@ const sectors = [
     description: 'Securing crowded public spaces, complex central HVAC networks, elevators, and retail electronics from unexpected short circuits and electrical surges.',
     features: ['Public Safety Design', 'HVAC System Grounding', 'Commercial Surge Protection'],
     icon: Building2,
-    image: '/images/mall_app.png',
+    image: '/images/mall_app.webp',
     color: '#d4af37'
   },
   {
@@ -104,7 +104,7 @@ const sectors = [
     description: 'Ensuring clean power and signal integrity for critical servers. We provide the ultra-low resistance grounding grid necessary for massive digital storage facilities.',
     features: ['Clean Grounding Grid', 'Uptime Assurance', 'Sensitive Server Shielding'],
     icon: Database,
-    image: '/images/datacenter_app.png',
+    image: '/images/datacenter_app.webp',
     color: '#000000'
   },
   {
@@ -114,7 +114,7 @@ const sectors = [
     description: 'Safeguarding luxury high-rise buildings, central computing centers, smart rooms, and leisure amenities from fire hazards caused by electrical failure.',
     features: ['Aesthetic Compact Layouts', 'Central Panel Protection', 'Total Occupant Safety'],
     icon: Hotel,
-    image: '/images/hotel_app.png',
+    image: '/images/hotel_app.webp',
     color: '#d4af37'
   },
   {
@@ -124,7 +124,7 @@ const sectors = [
     description: 'Safeguarding solar arrays, central inverter stations, and tracking motors from lightning strikes and massive ground potential rises, ensuring uninterrupted generation.',
     features: ['Surge Attenuation', 'Ground Grid Optimization', 'Inverter Protection'],
     icon: Sun,
-    image: '/images/solar_app.png',
+    image: '/images/solar_app.webp',
     color: '#d4af37'
   }
 ];

@@ -1,11 +1,53 @@
 'use client';
-import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Clock, Globe, ShieldCheck } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Mail, Phone, MapPin, Send, Clock, Globe, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { useState } from 'react';
 import Footer from '@/components/Footer';
 
 export default function ContactPage() {
   const [focused, setFocused] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    message: ''
+  });
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('submitting');
+    try {
+      const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001/api';
+      const response = await fetch(`${apiBase}/submissions`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          type: 'contact',
+          data: formData
+        }),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          message: ''
+        });
+      } else {
+        setStatus('error');
+      }
+    } catch (err) {
+      console.error('Submission error:', err);
+      setStatus('error');
+    }
+  };
 
   const contactInfo = [
     {
@@ -166,40 +208,87 @@ export default function ContactPage() {
               className="bg-white p-10 md:p-14 rounded-[60px] border border-slate-100 shadow-3xl shadow-slate-200/50"
             >
               <h2 className="text-4xl font-black uppercase tracking-tighter mb-10">Send a <span className="text-[#d4af37]">Message</span></h2>
-              <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {[
-                  { id: 'name', label: 'Full Name', type: 'text' },
-                  { id: 'email', label: 'Email', type: 'email' },
-                  { id: 'phone', label: 'Phone', type: 'tel' },
-                  { id: 'company', label: 'Company', type: 'text' },
-                ].map(f => (
-                  <div key={f.id} className="flex flex-col gap-2">
-                    <label htmlFor={f.id} className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">{f.label}</label>
-                    <input
-                      id={f.id}
-                      type={f.type}
-                      onFocus={() => setFocused(f.id)}
-                      onBlur={() => setFocused('')}
-                      className={`w-full px-6 py-4 rounded-2xl text-sm font-bold text-slate-900 outline-none transition-all duration-300 bg-slate-50 border ${focused === f.id ? 'border-[#d4af37] bg-white shadow-lg shadow-yellow-400/5' : 'border-slate-100'}`}
-                    />
-                  </div>
-                ))}
-                <div className="md:col-span-2 flex flex-col gap-2">
-                  <label htmlFor="message" className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Project Requirements</label>
-                  <textarea
-                    id="message"
-                    rows={4}
-                    onFocus={() => setFocused('message')}
-                    onBlur={() => setFocused('')}
-                    className={`w-full px-6 py-4 rounded-2xl text-sm font-bold text-slate-900 outline-none resize-none transition-all duration-300 bg-slate-50 border ${focused === 'message' ? 'border-[#d4af37] bg-white shadow-lg shadow-yellow-400/5' : 'border-slate-100'}`}
-                  />
-                </div>
-                <div className="md:col-span-2 mt-4">
-                  <button className="w-full py-5 bg-slate-900 text-white rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-[#d4af37] hover:text-black transition-all shadow-2xl flex items-center justify-center gap-3">
-                    Send Inquiry <Send size={16} />
-                  </button>
-                </div>
-              </form>
+              
+              <AnimatePresence mode="wait">
+                {status === 'success' ? (
+                  <motion.div
+                    key="success"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="text-center py-12"
+                  >
+                    <div className="w-20 h-20 bg-green-50 border border-green-100 rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner text-green-500">
+                      <CheckCircle2 size={36} />
+                    </div>
+                    <h3 className="text-2xl font-black uppercase text-slate-900 mb-4">Message Sent!</h3>
+                    <p className="text-slate-500 text-sm max-w-md mx-auto mb-8 leading-relaxed font-medium">
+                      Thank you for contacting SAARA Earthing. Your inquiry was submitted successfully and our team will get in touch with you shortly.
+                    </p>
+                    <button
+                      onClick={() => setStatus('idle')}
+                      className="px-8 py-4 border border-slate-200 hover:bg-slate-50 rounded-2xl text-xs font-black uppercase tracking-widest transition-colors cursor-pointer animate-pulse-glow"
+                    >
+                      Send Another Message
+                    </button>
+                  </motion.div>
+                ) : (
+                  <motion.div key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                    {status === 'error' && (
+                      <div className="mb-6 p-4 bg-red-50 border border-red-100 text-red-600 rounded-2xl text-sm font-semibold">
+                        Failed to send message. Please check your fields and try again.
+                      </div>
+                    )}
+                    
+                    <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {[
+                        { id: 'name', label: 'Full Name', type: 'text' },
+                        { id: 'email', label: 'Email', type: 'email' },
+                        { id: 'phone', label: 'Phone', type: 'tel' },
+                        { id: 'company', label: 'Company', type: 'text' },
+                      ].map(f => (
+                        <div key={f.id} className="flex flex-col gap-2">
+                          <label htmlFor={f.id} className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">{f.label}</label>
+                          <input
+                            id={f.id}
+                            type={f.type}
+                            required={f.id !== 'company'}
+                            disabled={status === 'submitting'}
+                            value={formData[f.id as keyof typeof formData]}
+                            onChange={(e) => setFormData({ ...formData, [f.id]: e.target.value })}
+                            onFocus={() => setFocused(f.id)}
+                            onBlur={() => setFocused('')}
+                            className={`w-full px-6 py-4 rounded-2xl text-sm font-bold text-slate-900 outline-none transition-all duration-300 bg-slate-50 border ${focused === f.id ? 'border-[#d4af37] bg-white shadow-lg shadow-yellow-400/5' : 'border-slate-100'} disabled:opacity-50`}
+                          />
+                        </div>
+                      ))}
+                      <div className="md:col-span-2 flex flex-col gap-2">
+                        <label htmlFor="message" className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Project Requirements</label>
+                        <textarea
+                          id="message"
+                          rows={4}
+                          required
+                          disabled={status === 'submitting'}
+                          value={formData.message}
+                          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                          onFocus={() => setFocused('message')}
+                          onBlur={() => setFocused('')}
+                          className={`w-full px-6 py-4 rounded-2xl text-sm font-bold text-slate-900 outline-none resize-none transition-all duration-300 bg-slate-50 border ${focused === 'message' ? 'border-[#d4af37] bg-white shadow-lg shadow-yellow-400/5' : 'border-slate-100'} disabled:opacity-50`}
+                        />
+                      </div>
+                      <div className="md:col-span-2 mt-4">
+                        <button 
+                          type="submit"
+                          disabled={status === 'submitting'}
+                          className="w-full py-5 bg-slate-900 text-white rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-[#d4af37] hover:text-black transition-all shadow-2xl flex items-center justify-center gap-3 disabled:opacity-50 cursor-pointer"
+                        >
+                          {status === 'submitting' ? 'Sending...' : 'Send Inquiry'} <Send size={16} />
+                        </button>
+                      </div>
+                    </form>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
 
             {/* Map/Visual Section */}

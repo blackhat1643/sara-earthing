@@ -8,7 +8,7 @@ const categories = [
   {
     title: 'Earthing Products',
     desc: 'Pure electrolytic copper bonded rods and chemical electrodes designed for zero-resistance conductivity.',
-    image: '/images/VIEW/Back Fill Compounds.jpg',
+    image: '/images/VIEW/Back Fill Compounds.webp',
     tag: 'Industrial Grade',
     icon: Zap,
     color: '#D4AF37',
@@ -17,7 +17,7 @@ const categories = [
   {
     title: 'Earthing Accessories',
     desc: 'Heavy-duty clamps, connectors, and bus bars precision-engineered for lifelong underground durability.',
-    image: '/images/VIEW/Lightning Arrester.jpg',
+    image: '/images/VIEW/Lightning Arrester.webp',
     tag: 'ISO Certified',
     icon: Shield,
     color: '#D4AF37',
@@ -26,7 +26,7 @@ const categories = [
   {
     title: 'Exothermic Welding',
     desc: 'Permanent molecular connections that eliminate mechanical failure points in critical grounding networks.',
-    image: '/images/VIEW/20-08-2025 Sara Earthing1065 copy.JPG',
+    image: '/images/VIEW/20-08-2025 Sara Earthing1065 copy.webp',
     tag: 'Cadweld Compatible',
     icon: Cog,
     color: '#D4AF37',
