@@ -10,6 +10,7 @@ const db_1 = require("./db");
 const multer_1 = __importDefault(require("multer"));
 const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
+const mailer_1 = require("./mailer");
 // Load environment variables
 dotenv_1.default.config();
 const app = (0, express_1.default)();
@@ -149,6 +150,10 @@ app.post('/api/submissions', async (req, res) => {
         const status = 'new';
         const createdAt = new Date();
         await db_1.pool.query('INSERT INTO submissions (id, type, data, status, createdAt) VALUES (?, ?, ?, ?, ?)', [id, type, JSON.stringify(data), status, createdAt]);
+        // Asynchronously dispatch the notification email to avoid delaying the client response
+        (0, mailer_1.sendSubmissionEmail)(id, type, data).catch((mailErr) => {
+            console.error(`[Mailer Error] Failed to send email for submission ${id}:`, mailErr);
+        });
         return res.json({ success: true, id });
     }
     catch (err) {

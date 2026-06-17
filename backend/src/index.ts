@@ -5,6 +5,8 @@ import { pool, initDb } from './db';
 import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
+import { sendSubmissionEmail } from './mailer';
+
 
 // Load environment variables
 dotenv.config();
@@ -160,6 +162,11 @@ app.post('/api/submissions', async (req: Request, res: Response) => {
       'INSERT INTO submissions (id, type, data, status, createdAt) VALUES (?, ?, ?, ?, ?)',
       [id, type, JSON.stringify(data), status, createdAt]
     );
+
+    // Asynchronously dispatch the notification email to avoid delaying the client response
+    sendSubmissionEmail(id, type, data).catch((mailErr) => {
+      console.error(`[Mailer Error] Failed to send email for submission ${id}:`, mailErr);
+    });
 
     return res.json({ success: true, id });
   } catch (err: any) {
