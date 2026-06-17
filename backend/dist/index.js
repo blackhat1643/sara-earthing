@@ -11,6 +11,7 @@ const multer_1 = __importDefault(require("multer"));
 const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
 const mailer_1 = require("./mailer");
+const nodemailer_1 = __importDefault(require("nodemailer"));
 // Load environment variables
 dotenv_1.default.config();
 const app = (0, express_1.default)();
@@ -106,6 +107,47 @@ const checkAdminAuth = (req, res, next) => {
     }
     next();
 };
+// GET: Diagnose SMTP Mail Configuration
+app.get('/api/test-mail', async (req, res) => {
+    const host = process.env.SMTP_HOST;
+    const user = process.env.SMTP_USER;
+    const pass = process.env.SMTP_PASS;
+    if (!host || !user || !pass) {
+        return res.json({
+            status: 'error',
+            message: 'SMTP settings are missing or incomplete in your production .env file',
+            env: {
+                host: !!host,
+                user: !!user,
+                pass: !!pass
+            }
+        });
+    }
+    const transporter = nodemailer_1.default.createTransport({
+        host,
+        port: parseInt(process.env.SMTP_PORT || '587'),
+        secure: process.env.SMTP_SECURE === 'true',
+        auth: {
+            user,
+            pass,
+        },
+    });
+    try {
+        await transporter.verify();
+        return res.json({
+            status: 'success',
+            message: 'SMTP connection verified successfully! Mail server is working.'
+        });
+    }
+    catch (err) {
+        return res.json({
+            status: 'error',
+            message: err.message,
+            code: err.code,
+            command: err.command
+        });
+    }
+});
 // --- Submissions APIs ---
 // GET: Get all submissions (Admin Only)
 app.get('/api/submissions', checkAdminAuth, async (req, res) => {

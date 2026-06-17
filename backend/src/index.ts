@@ -6,6 +6,7 @@ import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
 import { sendSubmissionEmail } from './mailer';
+import nodemailer from 'nodemailer';
 
 
 // Load environment variables
@@ -113,6 +114,50 @@ const checkAdminAuth = (req: Request, res: Response, next: NextFunction) => {
   }
   next();
 };
+
+// GET: Diagnose SMTP Mail Configuration
+app.get('/api/test-mail', async (req: Request, res: Response) => {
+  const host = process.env.SMTP_HOST;
+  const user = process.env.SMTP_USER;
+  const pass = process.env.SMTP_PASS;
+
+  if (!host || !user || !pass) {
+    return res.json({
+      status: 'error',
+      message: 'SMTP settings are missing or incomplete in your production .env file',
+      env: {
+        host: !!host,
+        user: !!user,
+        pass: !!pass
+      }
+    });
+  }
+
+  const transporter = nodemailer.createTransport({
+    host,
+    port: parseInt(process.env.SMTP_PORT || '587'),
+    secure: process.env.SMTP_SECURE === 'true',
+    auth: {
+      user,
+      pass,
+    },
+  });
+
+  try {
+    await transporter.verify();
+    return res.json({
+      status: 'success',
+      message: 'SMTP connection verified successfully! Mail server is working.'
+    });
+  } catch (err: any) {
+    return res.json({
+      status: 'error',
+      message: err.message,
+      code: err.code,
+      command: err.command
+    });
+  }
+});
 
 // --- Submissions APIs ---
 
