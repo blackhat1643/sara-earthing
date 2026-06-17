@@ -338,7 +338,7 @@ export default function AdminPage() {
       title: '',
       excerpt: '',
       content: [],
-      image: '/images/VIEW/20-08-2025 Sara Earthing1035 f.JPG',
+      image: '/images/VIEW/20-08-2025 Sara Earthing1035 f.webp',
       author: 'Technical Team',
       readTime: '5 min read',
       date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
@@ -518,7 +518,7 @@ export default function AdminPage() {
       category: 'earthing-products',
       title: '',
       desc: '',
-      image: '/images/VIEW/GI Earthing Electrode.JPG',
+      image: '/images/VIEW/GI Earthing Electrode.webp',
       features: [],
       specs: {},
       applications: [],

@@ -30,7 +30,7 @@ const FALLBACK_BLOGS: BlogPost[] = [
       "Pure copper provides the highest electrical conductivity of all non-precious metals. Solid copper electrodes possess extremely low resistance path, meaning fault currents are channeled safely and instantly into the deep earth before damage occurs.",
       "Moreover, solid copper does not corrode when placed in acidic soils. While galvanized iron rods degrade over several years requiring routine excavation and replacements, pure copper grounding units can survive 30+ years with zero maintenance. This makes it the most cost-effective solution for refineries, nuclear plants, and data centers."
     ],
-    "image": "/images/VIEW/20-08-2025 Sara Earthing1035 f.JPG",
+    "image": "/images/VIEW/20-08-2025 Sara Earthing1035 f.webp",
     "author": "Bhavik Kadia",
     "readTime": "4 min read",
     "date": "May 20, 2026"

@@ -2,7 +2,7 @@
 
 const clientLogos = Array.from({ length: 40 }, (_, i) => ({
   id: i + 1,
-  path: `/images/clients/pf-${i + 1}.jpg`
+  path: `/images/clients/pf-${i + 1}.webp`
 }));
 
 export default function ClientStrip() {
