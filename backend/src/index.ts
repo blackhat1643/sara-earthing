@@ -98,7 +98,21 @@ const checkAdminAuth = (req: Request, res: Response, next: NextFunction) => {
 app.get('/api/submissions', checkAdminAuth, async (req: Request, res: Response) => {
   try {
     const [rows]: any = await pool.query('SELECT * FROM submissions ORDER BY createdAt DESC');
-    return res.json(rows);
+    const parsedRows = rows.map((row: any) => {
+      let parsedData = row.data;
+      if (typeof row.data === 'string') {
+        try {
+          parsedData = JSON.parse(row.data);
+        } catch (e) {
+          // ignore
+        }
+      }
+      return {
+        ...row,
+        data: parsedData
+      };
+    });
+    return res.json(parsedRows);
   } catch (err: any) {
     return res.status(500).json({ error: 'Failed to fetch submissions', details: err.message });
   }

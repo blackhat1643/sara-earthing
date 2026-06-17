@@ -203,7 +203,18 @@ export default function AdminPage() {
       });
       if (subRes.ok) {
         const subData = await subRes.json();
-        setSubmissions(subData);
+        const parsedSubmissions = subData.map((s: any) => {
+          let parsedData = s.data;
+          if (typeof s.data === 'string') {
+            try {
+              parsedData = JSON.parse(s.data);
+            } catch (e) {
+              console.error('Failed to parse submission data:', e);
+            }
+          }
+          return { ...s, data: parsedData };
+        });
+        setSubmissions(parsedSubmissions);
       }
 
       // Fetch SEO page metadata
@@ -1018,7 +1029,7 @@ export default function AdminPage() {
                               </td>
                               <td className="p-6">
                                 <p className="text-xs font-black text-white/80 uppercase">
-                                  {sub.type === 'quote' ? 'Grounding Estimate' : sub.data.service}
+                                  {sub.type === 'quote' ? 'Grounding Estimate' : (sub.data.service || 'General Inquiry')}
                                 </p>
                                 {sub.type === 'quote' && (
                                   <p className="text-[10px] font-bold text-emerald-400 mt-0.5">₹{Number(sub.data.estimatedPrice).toLocaleString('en-IN')}</p>
@@ -1134,7 +1145,7 @@ export default function AdminPage() {
                       <div className="space-y-4 text-xs">
                         <div>
                           <span className="text-[9px] font-black uppercase tracking-widest text-[#d4af37]/80 block mb-1">Service Requested</span>
-                          <span className="px-3 py-1 bg-white/5 border border-white/5 rounded-lg font-black uppercase text-white/80">{selectedSubmission.data.service}</span>
+                          <span className="px-3 py-1 bg-white/5 border border-white/5 rounded-lg font-black uppercase text-white/80">{selectedSubmission.data.service || 'General Inquiry'}</span>
                         </div>
                         <div>
                           <span className="text-[9px] font-black uppercase tracking-widest text-[#d4af37]/80 block mb-1">Project Requirements</span>
