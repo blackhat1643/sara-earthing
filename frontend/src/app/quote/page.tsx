@@ -191,6 +191,11 @@ export default function QuotePage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (step < 3) {
+      nextStep();
+      return;
+    }
+
     // Verify all Step 1 inputs before final submission
     if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.company.trim() || !formData.location.trim()) {
       setValidationError('All contact and location fields in Step 1 are required.');
@@ -584,6 +589,7 @@ export default function QuotePage() {
 
                       {step < 3 ? (
                         <button
+                          key="btn-next"
                           type="button"
                           onClick={nextStep}
                           className="px-6 py-4 bg-[#d4af37] text-black hover:bg-[#b8860b] rounded-2xl flex items-center gap-2 text-[10px] font-black uppercase tracking-widest transition-colors shadow-lg shadow-yellow-400/20"
@@ -592,6 +598,7 @@ export default function QuotePage() {
                         </button>
                       ) : (
                         <button
+                          key="btn-submit"
                           type="submit"
                           disabled={isSubmitting}
                           className="px-8 py-4 bg-gradient-to-r from-[#d4af37] to-[#b8860b] text-black rounded-2xl flex items-center gap-3 text-[10px] font-black uppercase tracking-widest transition-transform transform active:scale-95 shadow-xl shadow-yellow-400/30 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
