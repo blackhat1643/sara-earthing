@@ -15,6 +15,17 @@ dotenv_1.default.config();
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 5000;
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'saraadmin';
+const safeJsonParse = (val) => {
+    if (typeof val === 'string') {
+        try {
+            return JSON.parse(val);
+        }
+        catch (e) {
+            return val;
+        }
+    }
+    return val;
+};
 const ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://localhost:3001',
@@ -220,7 +231,16 @@ app.get('/api/uploads/:filename', (req, res) => {
 app.get('/api/products', async (req, res) => {
     try {
         const [rows] = await db_1.pool.query('SELECT * FROM products');
-        return res.json(rows);
+        const parsedRows = rows.map((row) => ({
+            ...row,
+            features: safeJsonParse(row.features),
+            specs: safeJsonParse(row.specs),
+            applications: safeJsonParse(row.applications),
+            longDesc: safeJsonParse(row.longDesc),
+            highlights: safeJsonParse(row.highlights),
+            detailedTabs: safeJsonParse(row.detailedTabs),
+        }));
+        return res.json(parsedRows);
     }
     catch (err) {
         return res.status(500).json({ error: 'Failed to fetch products', details: err.message });
@@ -367,7 +387,11 @@ app.put('/api/metadata', checkAdminAuth, async (req, res) => {
 app.get('/api/blogs', async (req, res) => {
     try {
         const [rows] = await db_1.pool.query('SELECT * FROM blogs');
-        return res.json(rows);
+        const parsedRows = rows.map((row) => ({
+            ...row,
+            content: safeJsonParse(row.content),
+        }));
+        return res.json(parsedRows);
     }
     catch (err) {
         return res.status(500).json({ error: 'Failed to fetch blogs', details: err.message });
@@ -379,7 +403,12 @@ app.get('/api/blogs/:slug', async (req, res) => {
         const [rows] = await db_1.pool.query('SELECT * FROM blogs WHERE slug = ?', [req.params.slug]);
         if (rows.length === 0)
             return res.status(404).json({ error: 'Blog not found' });
-        return res.json(rows[0]);
+        const row = rows[0];
+        const parsedRow = {
+            ...row,
+            content: safeJsonParse(row.content),
+        };
+        return res.json(parsedRow);
     }
     catch (err) {
         return res.status(500).json({ error: 'Failed to fetch blog post', details: err.message });

@@ -20,14 +20,28 @@ export default function ProductDetailClient({ category, slug }: { category: stri
     const normalizeProduct = (p: any) => {
       if (!p) return null;
       const cloned = { ...p };
-      if (typeof cloned.features === 'string') cloned.features = cloned.features.split(',').map((s: string) => s.trim()).filter(Boolean);
-      if (typeof cloned.applications === 'string') cloned.applications = cloned.applications.split(',').map((s: string) => s.trim()).filter(Boolean);
-      if (typeof cloned.longDesc === 'string') cloned.longDesc = cloned.longDesc.split('\n').filter(Boolean);
+      
+      const parseJsonOrStringList = (val: any, splitChar = ',') => {
+        if (typeof val === 'string') {
+          try {
+            const parsed = JSON.parse(val);
+            if (Array.isArray(parsed)) return parsed;
+          } catch (e) {}
+          return val.split(splitChar).map((s: string) => s.trim()).filter(Boolean);
+        }
+        return val;
+      };
+
+      cloned.features = parseJsonOrStringList(cloned.features, ',');
+      cloned.applications = parseJsonOrStringList(cloned.applications, ',');
+      cloned.longDesc = parseJsonOrStringList(cloned.longDesc, '\n');
+
       if (typeof cloned.highlights === 'string') { try { cloned.highlights = JSON.parse(cloned.highlights); } catch(e) { cloned.highlights = []; } }
       if (typeof cloned.specs === 'string') { try { cloned.specs = JSON.parse(cloned.specs); } catch(e) { cloned.specs = {}; } }
       if (typeof cloned.detailedTabs === 'string') { try { cloned.detailedTabs = JSON.parse(cloned.detailedTabs); } catch(e) { cloned.detailedTabs = {}; } }
+      
       if (cloned.detailedTabs && typeof cloned.detailedTabs.features?.list === 'string') {
-        cloned.detailedTabs.features.list = cloned.detailedTabs.features.list.split(',').map((s: string) => s.trim()).filter(Boolean);
+        cloned.detailedTabs.features.list = parseJsonOrStringList(cloned.detailedTabs.features.list, ',');
       }
       return cloned;
     };
@@ -94,11 +108,15 @@ export default function ProductDetailClient({ category, slug }: { category: stri
   }, [product, category, slug]);
 
   // Setup tabs dynamically based on available data
+  const hasDetailedFeatures = !!(product?.detailedTabs?.features?.desc || (product?.detailedTabs?.features?.list && product.detailedTabs.features.list.length > 0));
+  const hasDetailedAdvantages = !!(product?.detailedTabs?.advantages && product.detailedTabs.advantages.length > 0);
+  const hasDetailedSpecs = !!(product?.detailedTabs?.specTable && (product.detailedTabs.specTable.headers?.length > 0 || product.detailedTabs.specTable.rows?.length > 0));
+
   const tabs = [
-    ...(product?.detailedTabs?.features || (product?.features && product.features.length) ? [{ id: 'features', label: 'Features' }] : []),
-    ...(product?.detailedTabs?.advantages && product.detailedTabs.advantages.length > 0 ? [{ id: 'advantages', label: 'Key Advantages' }] : []),
-    ...(product?.detailedTabs?.specTable && (product.detailedTabs.specTable.headers?.length > 0 || product.detailedTabs.specTable.rows?.length > 0) || product?.specs ? [{ id: 'specs', label: 'Specifications' }] : []),
-    ...(product?.applications?.length ? [{ id: 'applications', label: 'Applications' }] : []),
+    ...(hasDetailedFeatures || (product?.features && product.features.length > 0) ? [{ id: 'features', label: 'Features' }] : []),
+    ...(hasDetailedAdvantages ? [{ id: 'advantages', label: 'Key Advantages' }] : []),
+    ...(hasDetailedSpecs || (product?.specs && Object.keys(product.specs).length > 0) ? [{ id: 'specs', label: 'Specifications' }] : []),
+    ...(product?.applications && product.applications.length > 0 ? [{ id: 'applications', label: 'Applications' }] : []),
   ];
 
   const [activeTab, setActiveTab] = useState('features');
@@ -107,16 +125,16 @@ export default function ProductDetailClient({ category, slug }: { category: stri
   useEffect(() => {
     if (product) {
       const availableTabs = [
-        ...(product.detailedTabs?.features || (product.features && product.features.length) ? ['features'] : []),
-        ...(product.detailedTabs?.advantages && product.detailedTabs.advantages.length > 0 ? ['advantages'] : []),
-        ...(product.detailedTabs?.specTable && (product.detailedTabs.specTable.headers?.length > 0 || product.detailedTabs.specTable.rows?.length > 0) || product.specs ? ['specs'] : []),
-        ...(product.applications?.length ? ['applications'] : []),
+        ...(hasDetailedFeatures || (product.features && product.features.length > 0) ? ['features'] : []),
+        ...(hasDetailedAdvantages ? ['advantages'] : []),
+        ...(hasDetailedSpecs || (product.specs && Object.keys(product.specs).length > 0) ? ['specs'] : []),
+        ...(product.applications && product.applications.length > 0 ? ['applications'] : []),
       ];
       if (availableTabs.length > 0 && !availableTabs.includes(activeTab)) {
         setActiveTab(availableTabs[0]);
       }
     }
-  }, [product, activeTab]);
+  }, [product, activeTab, hasDetailedFeatures, hasDetailedAdvantages, hasDetailedSpecs]);
 
   if (isLoading) {
     return (
@@ -307,7 +325,10 @@ export default function ProductDetailClient({ category, slug }: { category: stri
                           </p>
                         )}
                         <div className="grid md:grid-cols-2 gap-4">
-                          {(product.detailedTabs?.features?.list || product.features || []).map((feat, i) => (
+                          {(hasDetailedFeatures && product.detailedTabs?.features?.list && product.detailedTabs.features.list.length > 0
+                            ? product.detailedTabs.features.list
+                            : product.features || []
+                          ).map((feat, i) => (
                             <div key={i} className="flex items-center gap-4 p-5 rounded-3xl border border-slate-100 group hover:border-[#d4af37]/30 transition-all">
                               <div className="w-8 h-8 rounded-xl bg-[#d4af37]/10 flex items-center justify-center text-[#d4af37]">
                                 <CheckCircle2 size={16} />
@@ -339,7 +360,7 @@ export default function ProductDetailClient({ category, slug }: { category: stri
                     {/* Specifications Tab */}
                     {activeTab === 'specs' && (
                       <div className="space-y-6">
-                        {product.detailedTabs?.specTable ? (
+                        {hasDetailedSpecs && product.detailedTabs?.specTable ? (
                           <div className="overflow-x-auto rounded-[30px] border border-slate-100 shadow-xl max-w-full">
                             <table className="w-full text-left border-collapse min-w-[700px]">
                               <thead>
