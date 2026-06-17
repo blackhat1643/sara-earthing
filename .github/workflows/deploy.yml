@@ -35,7 +35,7 @@ jobs:
           npm run build
 
       - name: Deploy Frontend via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
@@ -44,7 +44,7 @@ jobs:
           local-dir: ./frontend/out/
           server-dir: domains/next.saaraindia.com/public_html/
           protocol: ftp
-          state-name: .ftp-deploy-sync-state-v2.json
+          state-name: .ftp-deploy-sync-state-v3.json
 
   # ── Backend ───────────────────────────────────────────────────────────────
   deploy-backend:
@@ -79,7 +79,7 @@ jobs:
           date > backend/tmp/restart.txt
 
       - name: Deploy backend dist/ via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
@@ -90,7 +90,7 @@ jobs:
           protocol: ftp
 
       - name: Deploy app.js entry point via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
@@ -111,7 +111,7 @@ jobs:
             **/dist_backup/**
 
       - name: Trigger Passenger restart via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
