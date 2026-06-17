@@ -38,6 +38,18 @@ const ALLOWED_ORIGINS = [
   'http://saaraindia.com'
 ];
 
+// URL Rewrite Middleware for production sub-path hosting (Passenger)
+// Must be registered FIRST so all subsequent middleware and routes see the rewritten URL path
+app.use((req: Request, res: Response, next: NextFunction) => {
+  if (req.url.startsWith('/next-api')) {
+    req.url = req.url.substring('/next-api'.length);
+    if (!req.url.startsWith('/')) {
+      req.url = '/' + req.url;
+    }
+  }
+  next();
+});
+
 // Middleware
 app.use(cors({
   origin: ALLOWED_ORIGINS,
@@ -57,17 +69,6 @@ app.options('*', cors({
 
 app.use(express.json());
 
-// URL Rewrite Middleware for production sub-path hosting (Passenger)
-app.use((req: Request, res: Response, next: NextFunction) => {
-  if (req.url.startsWith('/next-api')) {
-    req.url = req.url.substring('/next-api'.length);
-    if (!req.url.startsWith('/')) {
-      req.url = '/' + req.url;
-    }
-  }
-  next();
-});
-
 // Serve static images from frontend/public so product/blog images
 // are accessible via the backend server (needed when frontend & backend
 // are on different origins, e.g. production).
@@ -76,22 +77,30 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 const publicImagesDir = path.join(__dirname, '../../frontend/public/images');
 app.use('/images', express.static(publicImagesDir));
 
+let isDbInitialized = false;
 let dbError: string | null = null;
 
 // Middleware to check for database connection errors on API routes
 app.use((req: Request, res: Response, next: NextFunction) => {
-  if (dbError && req.path.startsWith('/api/')) {
-    return res.status(500).json({
-      error: 'Database connection failed',
-      details: dbError,
-      env: {
-        DB_HOST: process.env.DB_HOST || 'localhost',
-        DB_PORT: process.env.DB_PORT || '3306',
-        DB_USER: process.env.DB_USER || 'root',
-        DB_NAME: process.env.DB_NAME || 'sara_earthing',
-        DB_PASSWORD_SET: !!process.env.DB_PASSWORD,
-      }
-    });
+  if (req.path.startsWith('/api/')) {
+    if (dbError) {
+      return res.status(500).json({
+        error: 'Database connection failed',
+        details: dbError,
+        env: {
+          DB_HOST: process.env.DB_HOST || 'localhost',
+          DB_PORT: process.env.DB_PORT || '3306',
+          DB_USER: process.env.DB_USER || 'root',
+          DB_NAME: process.env.DB_NAME || 'sara_earthing',
+          DB_PASSWORD_SET: !!process.env.DB_PASSWORD,
+        }
+      });
+    }
+    if (!isDbInitialized) {
+      return res.status(503).json({
+        error: 'Database is initializing, please try again in a few seconds.'
+      });
+    }
   }
   next();
 });
@@ -576,20 +585,18 @@ app.delete('/api/blogs/:slug', checkAdminAuth, async (req: Request, res: Respons
   }
 });
 
-// Start Server after initializing DB
-initDb()
-  .then(() => {
-    console.log('[MySQL] Database initialized successfully.');
-  })
-  .catch((err) => {
-    console.error('Failed to initialize database:', err);
-    dbError = err.message || String(err);
-  })
-  .finally(() => {
-    app.listen(PORT, () => {
-      console.log(`[SAARA Earthing Backend] running on http://localhost:${PORT}`);
-      if (dbError) {
-        console.warn(`[WARNING] Server started but database initialization failed: ${dbError}`);
-      }
+// Start Server immediately
+app.listen(PORT, () => {
+  console.log(`[SAARA Earthing Backend] running on http://localhost:${PORT}`);
+  
+  // Initialize database in the background
+  initDb()
+    .then(() => {
+      isDbInitialized = true;
+      console.log('[MySQL] Database initialized successfully.');
+    })
+    .catch((err) => {
+      console.error('Failed to initialize database:', err);
+      dbError = err.message || String(err);
     });
-  });
+});

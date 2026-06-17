@@ -38,6 +38,17 @@ const ALLOWED_ORIGINS = [
     'http://www.saaraindia.com',
     'http://saaraindia.com'
 ];
+// URL Rewrite Middleware for production sub-path hosting (Passenger)
+// Must be registered FIRST so all subsequent middleware and routes see the rewritten URL path
+app.use((req, res, next) => {
+    if (req.url.startsWith('/next-api')) {
+        req.url = req.url.substring('/next-api'.length);
+        if (!req.url.startsWith('/')) {
+            req.url = '/' + req.url;
+        }
+    }
+    next();
+});
 // Middleware
 app.use((0, cors_1.default)({
     origin: ALLOWED_ORIGINS,
@@ -54,16 +65,6 @@ app.options('*', (0, cors_1.default)({
     allowedHeaders: ['Content-Type', 'x-admin-password'],
 }));
 app.use(express_1.default.json());
-// URL Rewrite Middleware for production sub-path hosting (Passenger)
-app.use((req, res, next) => {
-    if (req.url.startsWith('/next-api')) {
-        req.url = req.url.substring('/next-api'.length);
-        if (!req.url.startsWith('/')) {
-            req.url = '/' + req.url;
-        }
-    }
-    next();
-});
 // Serve static images from frontend/public so product/blog images
 // are accessible via the backend server (needed when frontend & backend
 // are on different origins, e.g. production).
@@ -71,21 +72,29 @@ app.use((req, res, next) => {
 // to /images/... before this handler runs.
 const publicImagesDir = path_1.default.join(__dirname, '../../frontend/public/images');
 app.use('/images', express_1.default.static(publicImagesDir));
+let isDbInitialized = false;
 let dbError = null;
 // Middleware to check for database connection errors on API routes
 app.use((req, res, next) => {
-    if (dbError && req.path.startsWith('/api/')) {
-        return res.status(500).json({
-            error: 'Database connection failed',
-            details: dbError,
-            env: {
-                DB_HOST: process.env.DB_HOST || 'localhost',
-                DB_PORT: process.env.DB_PORT || '3306',
-                DB_USER: process.env.DB_USER || 'root',
-                DB_NAME: process.env.DB_NAME || 'sara_earthing',
-                DB_PASSWORD_SET: !!process.env.DB_PASSWORD,
-            }
-        });
+    if (req.path.startsWith('/api/')) {
+        if (dbError) {
+            return res.status(500).json({
+                error: 'Database connection failed',
+                details: dbError,
+                env: {
+                    DB_HOST: process.env.DB_HOST || 'localhost',
+                    DB_PORT: process.env.DB_PORT || '3306',
+                    DB_USER: process.env.DB_USER || 'root',
+                    DB_NAME: process.env.DB_NAME || 'sara_earthing',
+                    DB_PASSWORD_SET: !!process.env.DB_PASSWORD,
+                }
+            });
+        }
+        if (!isDbInitialized) {
+            return res.status(503).json({
+                error: 'Database is initializing, please try again in a few seconds.'
+            });
+        }
     }
     next();
 });
@@ -500,20 +509,17 @@ app.delete('/api/blogs/:slug', checkAdminAuth, async (req, res) => {
         return res.status(500).json({ error: 'Failed to delete blog post', details: err.message });
     }
 });
-// Start Server after initializing DB
-(0, db_1.initDb)()
-    .then(() => {
-    console.log('[MySQL] Database initialized successfully.');
-})
-    .catch((err) => {
-    console.error('Failed to initialize database:', err);
-    dbError = err.message || String(err);
-})
-    .finally(() => {
-    app.listen(PORT, () => {
-        console.log(`[SAARA Earthing Backend] running on http://localhost:${PORT}`);
-        if (dbError) {
-            console.warn(`[WARNING] Server started but database initialization failed: ${dbError}`);
-        }
+// Start Server immediately
+app.listen(PORT, () => {
+    console.log(`[SAARA Earthing Backend] running on http://localhost:${PORT}`);
+    // Initialize database in the background
+    (0, db_1.initDb)()
+        .then(() => {
+        isDbInitialized = true;
+        console.log('[MySQL] Database initialized successfully.');
+    })
+        .catch((err) => {
+        console.error('Failed to initialize database:', err);
+        dbError = err.message || String(err);
     });
 });

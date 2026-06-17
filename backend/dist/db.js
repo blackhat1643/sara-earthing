@@ -26,6 +26,7 @@ async function initDb() {
             user: dbConfig.user,
             password: dbConfig.password,
             port: dbConfig.port,
+            connectTimeout: 5000,
         });
         await tempConnection.query(`CREATE DATABASE IF NOT EXISTS \`${dbConfig.database}\`;`);
         await tempConnection.end();
@@ -40,6 +41,7 @@ async function initDb() {
         waitForConnections: true,
         connectionLimit: 10,
         queueLimit: 0,
+        connectTimeout: 5000,
     });
     // Verify connection pool works
     try {
