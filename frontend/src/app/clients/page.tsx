@@ -88,7 +88,7 @@ export default function ClientsPage() {
                 >
                   <div className="absolute inset-0 bg-slate-50/50 opacity-0 group-hover:opacity-100 transition-opacity" />
                   <img 
-                    src={`/images/clients/pf-${clientNum}.jpg`}
+                    src={`/images/clients/pf-${clientNum}.webp`}
                     alt={`Client ${clientNum}`}
                     className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500 relative z-10"
                   />
