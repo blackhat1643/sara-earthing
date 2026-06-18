@@ -21,6 +21,9 @@ export async function sendSubmissionEmail(id: string, type: 'contact' | 'quote',
       user,
       pass,
     },
+    tls: {
+      rejectUnauthorized: false
+    }
   });
 
   const to = process.env.EMAIL_TO || 'hello@saaraindia.com';

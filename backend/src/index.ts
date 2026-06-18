@@ -141,6 +141,9 @@ app.get('/api/test-mail', async (req: Request, res: Response) => {
       user,
       pass,
     },
+    tls: {
+      rejectUnauthorized: false
+    }
   });
 
   try {

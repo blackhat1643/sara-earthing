@@ -24,6 +24,9 @@ async function sendSubmissionEmail(id, type, data) {
             user,
             pass,
         },
+        tls: {
+            rejectUnauthorized: false
+        }
     });
     const to = process.env.EMAIL_TO || 'hello@saaraindia.com';
     const from = process.env.EMAIL_FROM || `"SAARA Earthing Notifications" <${user}>`;

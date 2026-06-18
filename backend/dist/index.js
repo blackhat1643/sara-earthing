@@ -131,6 +131,9 @@ app.get('/api/test-mail', async (req, res) => {
             user,
             pass,
         },
+        tls: {
+            rejectUnauthorized: false
+        }
     });
     try {
         await transporter.verify();
