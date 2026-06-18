@@ -12,6 +12,7 @@ const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
 const mailer_1 = require("./mailer");
 const nodemailer_1 = __importDefault(require("nodemailer"));
+// Updated EMAIL_TO in .env to send notifications to both hello@saaraindia.com and sales@saaraindia.com
 // Load environment variables
 dotenv_1.default.config();
 const app = (0, express_1.default)();
@@ -554,17 +555,17 @@ app.delete('/api/blogs/:slug', checkAdminAuth, async (req, res) => {
         return res.status(500).json({ error: 'Failed to delete blog post', details: err.message });
     }
 });
+// Initialize database in the background
+(0, db_1.initDb)()
+    .then(() => {
+    isDbInitialized = true;
+    console.log('[MySQL] Database initialized successfully.');
+})
+    .catch((err) => {
+    console.error('Failed to initialize database:', err);
+    dbError = err.message || String(err);
+});
 // Start Server immediately
 app.listen(PORT, () => {
     console.log(`[SAARA Earthing Backend] running on http://localhost:${PORT}`);
-    // Initialize database in the background
-    (0, db_1.initDb)()
-        .then(() => {
-        isDbInitialized = true;
-        console.log('[MySQL] Database initialized successfully.');
-    })
-        .catch((err) => {
-        console.error('Failed to initialize database:', err);
-        dbError = err.message || String(err);
-    });
 });

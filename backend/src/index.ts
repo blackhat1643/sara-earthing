@@ -8,7 +8,7 @@ import fs from 'fs';
 import { sendSubmissionEmail } from './mailer';
 import nodemailer from 'nodemailer';
 
-
+// Updated EMAIL_TO in .env to send notifications to both hello@saaraindia.com and sales@saaraindia.com
 // Load environment variables
 dotenv.config();
 
@@ -633,18 +633,18 @@ app.delete('/api/blogs/:slug', checkAdminAuth, async (req: Request, res: Respons
   }
 });
 
+// Initialize database in the background
+initDb()
+  .then(() => {
+    isDbInitialized = true;
+    console.log('[MySQL] Database initialized successfully.');
+  })
+  .catch((err) => {
+    console.error('Failed to initialize database:', err);
+    dbError = err.message || String(err);
+  });
+
 // Start Server immediately
 app.listen(PORT, () => {
   console.log(`[SAARA Earthing Backend] running on http://localhost:${PORT}`);
-  
-  // Initialize database in the background
-  initDb()
-    .then(() => {
-      isDbInitialized = true;
-      console.log('[MySQL] Database initialized successfully.');
-    })
-    .catch((err) => {
-      console.error('Failed to initialize database:', err);
-      dbError = err.message || String(err);
-    });
 });
