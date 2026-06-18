@@ -28,7 +28,10 @@ async function sendSubmissionEmail(id, type, data) {
             rejectUnauthorized: false
         }
     });
-    const to = process.env.EMAIL_TO || 'hello@saaraindia.com';
+    let to = process.env.EMAIL_TO || 'hello@saaraindia.com';
+    if (to === 'hello@saaraindia.com') {
+        to = 'hello@saaraindia.com, sales@saaraindia.com';
+    }
     const from = process.env.EMAIL_FROM || `"SAARA Earthing Notifications" <${user}>`;
     // Format headers and titles
     const subject = type === 'quote'
