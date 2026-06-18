@@ -26,10 +26,15 @@ export async function sendSubmissionEmail(id: string, type: 'contact' | 'quote',
     }
   });
 
-  let to = process.env.EMAIL_TO || 'hello@saaraindia.com';
-  if (to === 'hello@saaraindia.com') {
-    to = 'hello@saaraindia.com, sales@saaraindia.com';
+  const toInput = process.env.EMAIL_TO || 'hello@saaraindia.com';
+  // Strip quotes and split by comma
+  const cleanTo = toInput.replace(/['"]/g, '').trim();
+  let toList = cleanTo.split(',').map(email => email.trim()).filter(Boolean);
+
+  if (toList.length === 0 || (toList.length === 1 && toList[0] === 'hello@saaraindia.com')) {
+    toList = ['hello@saaraindia.com', 'sales@saaraindia.com'];
   }
+  const to = toList;
   const from = process.env.EMAIL_FROM || `"SAARA Earthing Notifications" <${user}>`;
 
   // Format headers and titles
