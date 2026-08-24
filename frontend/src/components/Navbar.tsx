@@ -30,7 +30,7 @@ export default function Navbar() {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Pages that have a white/light background at the top
-  const isLightPage = pathname?.startsWith('/products') || pathname?.startsWith('/applications') || pathname?.startsWith('/company') || pathname?.startsWith('/earthing') || pathname?.startsWith('/quality') || pathname?.startsWith('/contact') || pathname?.startsWith('/blog');
+  const isLightPage = pathname?.startsWith('/products') || pathname?.startsWith('/applications') || pathname?.startsWith('/company') || pathname?.startsWith('/quality') || pathname?.startsWith('/contact') || pathname?.startsWith('/blog');
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);

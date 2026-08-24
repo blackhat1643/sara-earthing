@@ -54,59 +54,23 @@ export default function EarthingPage() {
       </div>
 
       {/* Immersive Hero Section */}
-      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-white">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-slate-950">
         <motion.div
           style={{ y: heroY, opacity: heroOpacity }}
-          className="absolute inset-0 z-0"
+          className="absolute inset-0 z-0 w-full h-full"
         >
-          <div className="absolute top-0 right-0 w-2/3 h-full bg-[#d4af37]/5 -skew-x-12 translate-x-1/4" />
-          <div className="absolute bottom-0 left-0 w-1/3 h-2/3 bg-slate-50 skew-y-6 -translate-x-1/4" />
-
-          <Image
-            src="/images/hero_bg.webp"
-            alt="Grounding"
-            fill
-            className="object-cover opacity-10 grayscale brightness-110"
-          />
-        </motion.div>
-
-        <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute left-0 right-0 bottom-0 w-full object-cover"
+            style={{ top: '90px', height: 'calc(100% - 90px)', objectPosition: 'center top' }}
           >
-            <div className="inline-flex items-center gap-6 mb-12">
-              <div className="h-[1px] w-16 bg-[#d4af37]" />
-              <span className="text-[#d4af37] text-[11px] font-black uppercase tracking-[0.8em]">Grounding Excellence</span>
-              <div className="h-[1px] w-16 bg-[#d4af37]" />
-            </div>
-
-            <h1 className="text-[12vw] md:text-[8rem] font-black uppercase tracking-[-0.08em] leading-[0.75] text-slate-900 mb-12">
-              Safe <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#d4af37] to-[#b8860b]">Earth</span>
-            </h1>
-
-            <div className="grid md:grid-cols-3 gap-12 text-left mt-24">
-              {[
-                "Advanced fault current dissipation systems.",
-                "Lightning protection for critical infrastructure.",
-                "Compliance with global safety standards."
-              ].map((text, i) => (
-                <div key={i} className="space-y-4">
-                  <div className="w-10 h-10 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-[11px] font-black text-[#d4af37] shadow-sm">0{i + 1}</div>
-                  <p className="text-slate-400 text-xs font-bold uppercase tracking-widest leading-relaxed">{text}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-10 right-10 flex flex-col items-center gap-4 opacity-20 hidden md:flex">
-          <span className="text-[9px] font-black uppercase tracking-[0.4em] rotate-90 mb-8 origin-right">Discover</span>
-          <div className="w-px h-16 bg-slate-900" />
-        </div>
+            <source src="/images/Family_playing_in_house_protected_202606181436.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </motion.div>
       </section>
 
       {/* What is Earthing — Redesigned Section */}
@@ -280,32 +244,29 @@ export default function EarthingPage() {
         </div>
 
         {/* Explore Our Products CTA */}
-        <div className="mx-6 mt-14 max-w-7xl md:mx-auto relative">
-          <div className="relative w-full aspect-[4/1.2] sm:aspect-[4/1] md:aspect-[5/1] overflow-hidden flex items-center justify-between pl-6 pr-2 md:pl-10 md:pr-3">
-            {/* Electrode Image centered vertically in the background */}
-            <Image
-              src="/images/electrode_banner.webp"
-              alt="Chemical Earthing Electrode"
-              fill
-              className="object-contain object-center z-0 opacity-90"
-              priority
-            />
+        <div className="mx-6 mt-14 max-w-7xl md:mx-auto">
+          <div className="flex flex-col items-center text-center px-8 py-6 md:px-14 md:py-8">
+            <p className="text-slate-800 text-lg md:text-2xl font-extrabold leading-relaxed max-w-2xl mb-2 md:mb-4">
+              Explore our complete range of chemical electrodes, backfill compounds and earthing rods.
+            </p>
 
-            {/* Text & Button Container - positioned directly ON the electrode image */}
-            <div className="w-full flex items-center relative z-10">
-              <div className="flex flex-col items-center sm:items-start gap-4 text-center sm:text-left max-w-md md:max-w-xl">
-                <p className="text-slate-800 text-sm md:text-base font-extrabold leading-relaxed">
-                  Explore our complete range of chemical electrodes, backfill compounds and earthing rods.
-                </p>
-                <Link
-                  href="/products/earthing-products"
-                  className="group inline-flex items-center gap-1.5 px-4 py-2 bg-[#d4af37] hover:bg-slate-900 hover:text-white text-black font-black uppercase tracking-widest text-[9px] rounded-full transition-all duration-300 shadow-md"
-                >
-                  <span>Explore Products</span>
-                  <ArrowRight size={10} className="group-hover:translate-x-0.5 transition-transform" />
-                </Link>
-              </div>
+            <div className="relative w-full h-[120px] sm:h-[180px] md:h-[240px] mb-6 md:mb-8">
+              <Image
+                src="/images/electrode_banner.webp"
+                alt="Chemical Earthing Electrode"
+                fill
+                className="object-contain object-center"
+                priority
+              />
             </div>
+
+            <Link
+              href="/products/earthing-products"
+              className="group inline-flex items-center gap-2 px-8 py-3.5 bg-[#d4af37] hover:bg-slate-900 hover:text-white text-black font-black uppercase tracking-widest text-[11px] rounded-full transition-all duration-300 shadow-lg"
+            >
+              <span>Explore Products</span>
+              <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
+            </Link>
           </div>
         </div>
       </section>
