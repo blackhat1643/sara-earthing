@@ -526,8 +526,8 @@ export default function QuotePage() {
                               onChange={(e) => handleInputChange('inspectionChamber', e.target.value)}
                               className="w-full px-6 py-4 rounded-2xl text-sm font-bold text-white outline-none bg-[#0a0f1d] border border-white/10"
                             >
-                              <option value="Heavy-Duty Polyplastic Earth Pit">Polyplastic Heavy-Duty Pit (₹450)</option>
-                              <option value="Reinforced Concrete Chamber">Reinforced Precast Concrete Pit (₹750)</option>
+                              <option value="Heavy-Duty Polyplastic Earth Pit">Polyplastic Heavy-Duty Pit</option>
+                              <option value="Reinforced Concrete Chamber">Reinforced Precast Concrete Pit</option>
                             </select>
                           </div>
                         </div>
@@ -541,8 +541,8 @@ export default function QuotePage() {
                               onChange={(e) => handleInputChange('arresterType', e.target.value)}
                               className="w-full px-6 py-4 rounded-2xl text-sm font-bold text-white outline-none bg-[#0a0f1d] border border-white/10"
                             >
-                              <option value="Conventional Multi-Spike Franklin Rod">Conventional Franklin Multi-Spike (₹1,800)</option>
-                              <option value="ESE Active Streamer Terminal">ESE Active Early Streamer Arrester (₹14,500)</option>
+                              <option value="Conventional Multi-Spike Franklin Rod">Conventional Franklin Multi-Spike</option>
+                              <option value="ESE Active Streamer Terminal">ESE Active Early Streamer Arrester</option>
                             </select>
                           </div>
 
@@ -568,7 +568,7 @@ export default function QuotePage() {
                             onChange={(e) => handleInputChange('clampsNeeded', e.target.checked)}
                             className="w-5 h-5 rounded border-white/10 accent-[#d4af37]"
                           />
-                          <label htmlFor="clampsNeeded" className="text-xs font-black uppercase tracking-wider text-white/80">Include Custom Grounding Clamps & U-Bolts (Expt. Estimate ₹120 per clamp)</label>
+                          <label htmlFor="clampsNeeded" className="text-xs font-black uppercase tracking-wider text-white/80">Include Custom Grounding Clamps & U-Bolts</label>
                         </div>
                       </motion.div>
                     )}
